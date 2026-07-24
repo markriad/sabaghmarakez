@@ -1,0 +1,43 @@
+{
+  "showPrices": true,
+  "priceNote_en": "Starting prices, subject to change",
+  "priceNote_ar": "أسعار تبدأ من، وقابلة للتغيير",
+  "prices": [
+    {
+      "type_en": "Townhomes",
+      "type_ar": "تاون هاوس",
+      "from": "EGP 00,000,000"
+    },
+    {
+      "type_en": "Twinhomes",
+      "type_ar": "توين هاوس",
+      "from": "EGP 00,000,000"
+    },
+    {
+      "type_en": "Villas",
+      "type_ar": "فيلات",
+      "from": "EGP 00,000,000"
+    }
+  ],
+  "paymentPlans": [
+    {
+      "name_en": "Standard plan",
+      "name_ar": "خطة السداد الأساسية",
+      "terms_en": "0% down payment over 0 years",
+      "terms_ar": "٠٪ مقدم على ٠ سنوات"
+    }
+  ],
+  "offers": [],
+  "heroImage": "assets/img/crescent/p11.jpeg",
+  "gallery": [
+    {
+      "image": "assets/img/crescent/p15.jpeg"
+    },
+    {
+      "image": "assets/img/crescent/p22.jpeg"
+    },
+    {
+      "image": "assets/img/crescent/p30.jpeg"
+    }
+  ]
+}

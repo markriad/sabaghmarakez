@@ -1,0 +1,205 @@
+backend:
+  name: github
+  repo: OWNER/REPO          # <-- replace with your GitHub username/repository
+  branch: main
+  base_url: WORKER_URL      # <-- replace with your Cloudflare Worker URL
+  commit_messages:
+    update: 'Update {{collection}}'
+    uploadMedia: 'Upload {{path}}'
+    deleteMedia: 'Delete {{path}}'
+
+media_folder: assets/img/uploads
+public_folder: assets/img/uploads
+
+publish_mode: simple
+
+collections:
+  - name: settings
+    label: My details
+    files:
+      - name: contact
+        label: Name, phone and WhatsApp
+        file: content/settings.json
+        description: >-
+          Your contact details. These appear in the header, footer and on every
+          button across all four pages.
+        fields:
+          - { name: name_en, label: 'Your name (English)', widget: string }
+          - { name: name_ar, label: 'Your name (Arabic)', widget: string }
+          - { name: title_en, label: 'Your job title (English)', widget: string, hint: 'For example: Sales Manager, Marakez' }
+          - { name: title_ar, label: 'Your job title (Arabic)', widget: string }
+          - { name: phone, label: 'Phone number', widget: string, hint: 'Include the country code, e.g. +201220170162' }
+          - { name: whatsapp, label: 'WhatsApp number', widget: string, hint: 'Digits only — no plus sign and no spaces, e.g. 201220170162' }
+          - { name: formEndpoint, label: 'Lead form address', widget: string, required: false, hint: 'The Google Script link. Leave this alone unless it stops working.' }
+
+  - name: projects
+    label: Projects
+    files:
+      - name: ramla
+        label: Ramla — North Coast
+        file: content/ramla.json
+        fields:
+          - name: showPrices
+            label: 'Show prices on the page?'
+            widget: boolean
+            default: false
+            hint: 'Turn off to show "available on request" instead of a price table.'
+          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
+          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
+          - name: prices
+            label: 'Starting prices'
+            label_singular: 'price'
+            widget: list
+            required: false
+            summary: '{{fields.type_en}} — {{fields.from}}'
+            fields:
+              - { name: type_en, label: 'Property type (English)', widget: string, hint: 'For example: Chalets' }
+              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
+              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
+          - name: paymentPlans
+            label: 'Payment plans'
+            label_singular: 'payment plan'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            fields:
+              - { name: name_en, label: 'Plan name (English)', widget: string }
+              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string, hint: 'For example: 10% down payment over 8 years' }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: offers
+            label: 'Limited-time offers'
+            label_singular: 'offer'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            hint: 'These appear highlighted. Delete them when the offer ends.'
+            fields:
+              - { name: name_en, label: 'Offer name (English)', widget: string }
+              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: heroImage
+            label: 'Main image at the top of the page'
+            widget: image
+            required: false
+            hint: 'Best at about 1600 pixels wide.'
+          - name: gallery
+            label: 'Gallery images'
+            label_singular: 'image'
+            widget: list
+            required: false
+            fields:
+              - { name: image, label: 'Image', widget: image }
+
+      - name: crescent
+        label: Crescent Walk — East Cairo
+        file: content/crescent.json
+        fields:
+          - name: showPrices
+            label: 'Show prices on the page?'
+            widget: boolean
+            default: true
+            hint: 'Turn off to show "available on request" instead of a price table.'
+          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
+          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
+          - name: prices
+            label: 'Starting prices'
+            label_singular: 'price'
+            widget: list
+            required: false
+            summary: '{{fields.type_en}} — {{fields.from}}'
+            fields:
+              - { name: type_en, label: 'Property type (English)', widget: string }
+              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
+              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
+          - name: paymentPlans
+            label: 'Payment plans'
+            label_singular: 'payment plan'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            fields:
+              - { name: name_en, label: 'Plan name (English)', widget: string }
+              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: offers
+            label: 'Limited-time offers'
+            label_singular: 'offer'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            hint: 'These appear highlighted. Delete them when the offer ends.'
+            fields:
+              - { name: name_en, label: 'Offer name (English)', widget: string }
+              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: heroImage
+            label: 'Main image at the top of the page'
+            widget: image
+            required: false
+          - name: gallery
+            label: 'Gallery images'
+            label_singular: 'image'
+            widget: list
+            required: false
+            fields:
+              - { name: image, label: 'Image', widget: image }
+
+      - name: district5
+        label: District 5 — New Katameya
+        file: content/district5.json
+        fields:
+          - name: showPrices
+            label: 'Show prices on the page?'
+            widget: boolean
+            default: true
+            hint: 'Turn off to show "available on request" instead of a price table.'
+          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
+          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
+          - name: prices
+            label: 'Starting prices'
+            label_singular: 'price'
+            widget: list
+            required: false
+            summary: '{{fields.type_en}} — {{fields.from}}'
+            fields:
+              - { name: type_en, label: 'Property type (English)', widget: string }
+              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
+              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
+          - name: paymentPlans
+            label: 'Payment plans'
+            label_singular: 'payment plan'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            fields:
+              - { name: name_en, label: 'Plan name (English)', widget: string }
+              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: offers
+            label: 'Limited-time offers'
+            label_singular: 'offer'
+            widget: list
+            required: false
+            summary: '{{fields.name_en}}'
+            hint: 'These appear highlighted. Delete them when the offer ends.'
+            fields:
+              - { name: name_en, label: 'Offer name (English)', widget: string }
+              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
+              - { name: terms_en, label: 'Terms (English)', widget: string }
+              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
+          - name: heroImage
+            label: 'Main image at the top of the page'
+            widget: image
+            required: false
+          - name: gallery
+            label: 'Gallery images'
+            label_singular: 'image'
+            widget: list
+            required: false
+            fields:
+              - { name: image, label: 'Image', widget: image }

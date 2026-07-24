@@ -1,0 +1,20 @@
+{
+  "showPrices": false,
+  "priceNote_en": "Prices available on request",
+  "priceNote_ar": "الأسعار متاحة عند الطلب",
+  "prices": [],
+  "paymentPlans": [],
+  "offers": [],
+  "heroImage": "assets/img/ramla/p15.jpeg",
+  "gallery": [
+    {
+      "image": "assets/img/ramla/p29.jpeg"
+    },
+    {
+      "image": "assets/img/ramla/p31.jpeg"
+    },
+    {
+      "image": "assets/img/ramla/p38.jpeg"
+    }
+  ]
+}

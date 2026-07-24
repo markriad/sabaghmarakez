@@ -1,0 +1,43 @@
+{
+  "showPrices": true,
+  "priceNote_en": "Starting prices, subject to change",
+  "priceNote_ar": "أسعار تبدأ من، وقابلة للتغيير",
+  "prices": [
+    {
+      "type_en": "Apartments",
+      "type_ar": "شقق",
+      "from": "EGP 00,000,000"
+    },
+    {
+      "type_en": "Townhomes",
+      "type_ar": "تاون هاوس",
+      "from": "EGP 00,000,000"
+    },
+    {
+      "type_en": "Villas",
+      "type_ar": "فيلات",
+      "from": "EGP 00,000,000"
+    }
+  ],
+  "paymentPlans": [
+    {
+      "name_en": "Standard plan",
+      "name_ar": "خطة السداد الأساسية",
+      "terms_en": "0% down payment over 0 years",
+      "terms_ar": "٠٪ مقدم على ٠ سنوات"
+    }
+  ],
+  "offers": [],
+  "heroImage": "assets/img/d5/p13.jpeg",
+  "gallery": [
+    {
+      "image": "assets/img/d5/p20.jpeg"
+    },
+    {
+      "image": "assets/img/d5/p44.jpeg"
+    },
+    {
+      "image": "assets/img/d5/p49.jpeg"
+    }
+  ]
+}
