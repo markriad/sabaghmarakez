@@ -1,0 +1,8 @@
+name = "sabaghmarakez"
+compatibility_date = "2026-07-01"
+
+# Serve this folder as a static site.
+# No script, no build step — just the files.
+[assets]
+directory = "."
+not_found_handling = "404-page"
