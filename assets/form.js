@@ -256,8 +256,18 @@
       var label = btn.textContent;
       btn.textContent = "Sending...";
 
+      var leadPayload = {
+        project: form.getAttribute("data-lead") || "",
+        enquiry_type: (form.querySelector("[name=enquiry_type]") || {}).value || "Residential",
+        budget: (form.querySelector("[name=budget]") || {}).value || "",
+        property_types: (form.querySelector("[name=property_types]") || {}).value || "",
+        email: (form.querySelector("[name=email]") || {}).value || "",
+        phone_e164: (form.querySelector("[name=phone_e164]") || {}).value || ""
+      };
+
       fetch(url, { method: "POST", body: data })
         .then(function () {
+          if (window.trackEvent) window.trackEvent("lead_submit", leadPayload);
           form.reset();
           form.querySelectorAll('.chip[aria-pressed="true"]')
               .forEach(function (c) { c.setAttribute("aria-pressed", "false"); });

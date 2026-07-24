@@ -51,6 +51,31 @@ collections:
       widget: string
       required: false
       hint: The Google Script link. Leave alone unless it stops working.
+    - name: gtmId
+      label: Google Tag Manager ID
+      widget: string
+      required: false
+      hint: Looks like GTM-XXXXXXX. Leave empty to switch all tracking off.
+    - name: ga4Id
+      label: Google Analytics 4 ID
+      widget: string
+      required: false
+      hint: Looks like G-XXXXXXXXXX. For reference — the tag itself lives in Tag Manager.
+    - name: adsId
+      label: Google Ads conversion ID
+      widget: string
+      required: false
+      hint: Looks like AW-123456789.
+    - name: adsConversionLabel
+      label: Google Ads conversion label
+      widget: string
+      required: false
+      hint: The short code beside the conversion ID.
+    - name: metaPixelId
+      label: Meta Pixel / Dataset ID
+      widget: string
+      required: false
+      hint: The numeric ID from Meta Events Manager.
 - name: home
   label: 2. Homepage
   files:
