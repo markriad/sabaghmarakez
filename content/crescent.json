@@ -28,16 +28,332 @@
     }
   ],
   "offers": [],
-  "heroImage": "assets/img/crescent/p11.jpeg",
-  "gallery": [
+  "heroImage": "assets/img/crescent/hero.jpeg",
+  "heroScrim": "medium",
+  "propertyTypes": [
     {
-      "image": "assets/img/crescent/p15.jpeg"
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "status": "available"
     },
     {
-      "image": "assets/img/crescent/p22.jpeg"
+      "label_en": "Twinhouse",
+      "label_ar": "توين هاوس",
+      "status": "available"
     },
     {
-      "image": "assets/img/crescent/p30.jpeg"
+      "label_en": "Townhouse",
+      "label_ar": "تاون هاوس",
+      "status": "limited"
+    },
+    {
+      "label_en": "Private residence",
+      "label_ar": "وحدة خاصة",
+      "status": "available"
     }
-  ]
+  ],
+  "logos": {
+    "marakez": "",
+    "project": ""
+  },
+  "en": {
+    "hero_kicker": "East Cairo",
+    "hero_title": "Follow the path home.",
+    "hero_title_em": "home.",
+    "hero_text": "118 acres in East Cairo built around a single green pathway you can walk or cycle end to end — from the central park to your own back gate.",
+    "facts": [
+      {
+        "label": "Location",
+        "value": "East Cairo",
+        "sub": "Sokhna Rd · South Teseen"
+      },
+      {
+        "label": "Land area",
+        "value": "118 acres",
+        "sub": "Low density"
+      },
+      {
+        "label": "Home types",
+        "value": "Four",
+        "sub": "Villas to townhomes"
+      },
+      {
+        "label": "Master planner",
+        "value": "WATG",
+        "sub": "Architecture by PBD"
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "A neighbourhood where everyone knows your name.",
+        "title_em": "knows your name.",
+        "lead": "Crescent Walk takes its cue from the garden neighbourhoods of old Cairo — the ones where children roamed freely and neighbours greeted each other by name. 118 acres in East Cairo, organised around a green pathway that runs the length of the community, widening into parks and narrowing into a cycling lane before it reaches your back gate."
+      },
+      {
+        "eyebrow": "Masterplan",
+        "title": "One path, end to end.",
+        "title_em": "end to end.",
+        "lead": "The green spine connects every part of the community, from the central park to the clubhouse to the commercial park."
+      },
+      {
+        "eyebrow": "Home types",
+        "title": "Four ways to live here.",
+        "title_em": "live here.",
+        "lead": "From standalone villas with the largest gardens through to terraced townhomes backing onto the green spine."
+      },
+      {
+        "eyebrow": "Why Crescent Walk",
+        "title": "What the green spine actually gives you.",
+        "title_em": "actually gives you.",
+        "lead": ""
+      },
+      {
+        "eyebrow": "Enquire",
+        "title": "Availability changes weekly.",
+        "title_em": "weekly.",
+        "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Connected without the traffic",
+        "text": "Direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly, far enough not to hear it."
+      },
+      {
+        "title": "Green space came first",
+        "text": "Most compounds lay roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it."
+      },
+      {
+        "title": "Built for the climate",
+        "text": "Brickwork, masonry banding and timber hues, with double-height ceilings and deep terraces that handle Cairo's heat."
+      }
+    ],
+    "usps": [
+      {
+        "title": "A back gate onto the park",
+        "text": "Homes open directly onto the green spine — no walking around the block to reach it."
+      },
+      {
+        "title": "A full cycling loop",
+        "text": "The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community."
+      },
+      {
+        "title": "Shops without leaving",
+        "text": "The commercial park carries groceries, cafés and daily essentials inside the gates."
+      },
+      {
+        "title": "Art deco, built for heat",
+        "text": "PBD's architecture uses brick, masonry banding and deep terraces — nostalgic, but designed for the climate."
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "1",
+        "title": "Central Park",
+        "sub": "The largest open space"
+      },
+      {
+        "num": "2",
+        "title": "Green spine & paseo",
+        "sub": "Walking and cycling loop"
+      },
+      {
+        "num": "3",
+        "title": "Clubhouse & sports",
+        "sub": "Courts, pools, gathering"
+      },
+      {
+        "num": "4",
+        "title": "Commercial park",
+        "sub": "Groceries, cafés, boutiques"
+      },
+      {
+        "num": "5",
+        "title": "Neighbourhood parks",
+        "sub": "Smaller local greens"
+      },
+      {
+        "num": "6",
+        "title": "Street-side gardens",
+        "sub": "Planting along the roads"
+      }
+    ],
+    "panels": [
+      {
+        "sub": "Standalone",
+        "title": "Villas",
+        "text": "Detached homes in two design types, with the largest gardens and the most privacy in the community. Double-height living areas and expansive glass onto the terrace."
+      },
+      {
+        "sub": "Semi-detached",
+        "title": "Twinhomes",
+        "text": "Paired homes sharing a single wall — most of the villa footprint and the same architecture, at a lower entry point."
+      },
+      {
+        "sub": "Terraced",
+        "title": "Townhomes",
+        "text": "Arranged in short rows, each with a private garden and a back gate opening directly onto the green spine. Step out and you're already on the path."
+      },
+      {
+        "sub": "Limited collection",
+        "title": "Private residences",
+        "text": "A small number of homes within the community, released in limited phases. Ask about what's currently available."
+      }
+    ],
+    "form_disclaimer": "Your details go to Mohamed El Sabagh directly. This form is not operated by Marakez.",
+    "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
+    "footer_disclaimer": "Not an official Marakez website. Personal site of Mohamed El Sabagh, Sales Manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
+    "top_bar": "Personal site of Mohamed El Sabagh, Sales Manager, Marakez. Not an official Marakez website."
+  },
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "hero_text": "",
+    "facts": [
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "usps": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      }
+    ],
+    "panels": [
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      }
+    ],
+    "form_disclaimer": "",
+    "contact_line": "",
+    "footer_disclaimer": "",
+    "top_bar": ""
+  }
 }

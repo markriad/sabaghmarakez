@@ -5,16 +5,352 @@
   "prices": [],
   "paymentPlans": [],
   "offers": [],
-  "heroImage": "assets/img/ramla/p15.jpeg",
-  "gallery": [
+  "heroImage": "assets/img/ramla/hero.jpeg",
+  "heroScrim": "medium",
+  "propertyTypes": [
     {
-      "image": "assets/img/ramla/p29.jpeg"
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "status": "available"
     },
     {
-      "image": "assets/img/ramla/p31.jpeg"
+      "label_en": "Twinhouse",
+      "label_ar": "توين هاوس",
+      "status": "available"
     },
     {
-      "image": "assets/img/ramla/p38.jpeg"
+      "label_en": "Townhouse",
+      "label_ar": "تاون هاوس",
+      "status": "limited"
+    },
+    {
+      "label_en": "Chalet",
+      "label_ar": "شاليه",
+      "status": "available"
     }
-  ]
+  ],
+  "logos": {
+    "marakez": "",
+    "project": ""
+  },
+  "en": {
+    "hero_kicker": "Ras El Hekma · North Coast",
+    "hero_title": "Sacred summers on 1.4 km of white sand.",
+    "hero_title_em": "1.4 km",
+    "hero_text": "Six neighbourhoods on the shore of Ras El Hekma bay, a lagoon at the centre, and a beach with rare natural tidal pools.",
+    "facts": [
+      {
+        "label": "Location",
+        "value": "KM 215",
+        "sub": "Ras El Hekma, North Coast"
+      },
+      {
+        "label": "Beachfront",
+        "value": "1.4 km",
+        "sub": "White sand, tidal pools"
+      },
+      {
+        "label": "Neighbourhoods",
+        "value": "Six",
+        "sub": "Villas to chalets"
+      },
+      {
+        "label": "Master planner",
+        "value": "WATG",
+        "sub": "International"
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "A beach town built to be walked barefoot.",
+        "title_em": "walked barefoot.",
+        "lead": "Ramla sits on the calmest stretch of Egypt's north coast, where the bay is sheltered and the sand runs white. At high tide the water reads as an unbroken sheet of turquoise; at low tide it reveals tidal pools carved naturally into the seabed — shallow, warm, and safe enough for children to spend the whole morning in."
+      },
+      {
+        "eyebrow": "Masterplan",
+        "title": "How Ramla is laid out.",
+        "title_em": "laid out.",
+        "lead": "Six residential neighbourhoods arranged between the beach and the open land behind it, with the town and lagoon at the centre."
+      },
+      {
+        "eyebrow": "Neighbourhoods & property types",
+        "title": "Six neighbourhoods, six characters.",
+        "title_em": "six characters.",
+        "lead": ""
+      },
+      {
+        "eyebrow": "Why Ramla",
+        "title": "What you won't find elsewhere on the coast.",
+        "title_em": "elsewhere on the coast.",
+        "lead": ""
+      },
+      {
+        "eyebrow": "Enquire",
+        "title": "Availability changes weekly.",
+        "title_em": "weekly.",
+        "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Everything within walking distance",
+        "text": "Soft sand paths link the neighbourhoods to the beach, the town and each other. No car needed once you arrive."
+      },
+      {
+        "title": "Oriented for the breeze",
+        "text": "Every building is positioned to let the Mediterranean wind move through the neighbourhoods rather than around them."
+      },
+      {
+        "title": "Designed around the land",
+        "text": "The masterplan works with the site's existing landscape and water instead of levelling it flat first."
+      }
+    ],
+    "usps": [
+      {
+        "title": "Natural tidal pools",
+        "text": "Shallow warm pools carved into the seabed, revealed at low tide. Rare on this coastline."
+      },
+      {
+        "title": "A swimmable lagoon",
+        "text": "A lake at the centre of the development for swimming and dining, separate from the sea."
+      },
+      {
+        "title": "Adrère Amellal lodge",
+        "text": "The Siwa eco-lodge is opening a 71-room nature lodge here, built the same earth-construction way."
+      },
+      {
+        "title": "Year-round sports campus",
+        "text": "Football, padel, tennis and a semi-Olympic pool, run by the country's top academies through summer."
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "1",
+        "title": "Dunes",
+        "sub": "Beachfront, single-family"
+      },
+      {
+        "num": "2",
+        "title": "The Town",
+        "sub": "Courtyard homes"
+      },
+      {
+        "num": "3",
+        "title": "Oasis",
+        "sub": "Villas & chalets by the lagoon"
+      },
+      {
+        "num": "4",
+        "title": "The Grove",
+        "sub": "Ranch-style villas"
+      },
+      {
+        "num": "5",
+        "title": "Acacia",
+        "sub": "Low density, west side"
+      },
+      {
+        "num": "6",
+        "title": "Bougainvillea & Breeze",
+        "sub": "Village homes, pool club"
+      }
+    ],
+    "panels": [
+      {
+        "sub": "On the beach",
+        "title": "Dunes",
+        "text": "If closeness to the sea is what you want, Dunes puts you right on it. Uninterrupted views across the bay and the most privacy of the six."
+      },
+      {
+        "sub": "Courtyards",
+        "title": "The Town",
+        "text": "Narrow alleys open onto private courtyards, each giving direct access to a home. Quiet, but moments from Ramla's most active stretch."
+      },
+      {
+        "sub": "By the lagoon",
+        "title": "Oasis",
+        "text": "The widest mix of home types, with semi-private green spaces between the chalets and a boutique-lined street running through."
+      },
+      {
+        "sub": "Open land",
+        "title": "The Grove",
+        "text": "For anyone who wants countryside more than shoreline. Open land views, a community farm, and spacious ranch-style villas."
+      },
+      {
+        "sub": "West side",
+        "title": "Acacia",
+        "text": "An exclusive beachside neighbourhood on Ramla's west edge — low density, high privacy, close to both the sand and the town."
+      },
+      {
+        "sub": "Village & water",
+        "title": "Bougainvillea & Breeze",
+        "text": "Village-scale homes with a signature pool club, plus residences looking onto gently flowing water and the green spines."
+      }
+    ],
+    "form_disclaimer": "Your details go to Mohamed El Sabagh directly. This form is not operated by Marakez.",
+    "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
+    "footer_disclaimer": "Not an official Marakez website. Personal site of Mohamed El Sabagh, Sales Manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
+    "top_bar": "Personal site of Mohamed El Sabagh, Sales Manager, Marakez. Not an official Marakez website."
+  },
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "hero_text": "",
+    "facts": [
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "usps": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      }
+    ],
+    "panels": [
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      }
+    ],
+    "form_disclaimer": "",
+    "contact_line": "",
+    "footer_disclaimer": "",
+    "top_bar": ""
+  }
 }

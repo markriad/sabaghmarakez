@@ -3,342 +3,639 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Crescent Walk — East Cairo | Marakez · Mohamed El Sabagh</title>
-<meta name="description" content="Crescent Walk by Marakez — 118 acres in East Cairo built around a green spine, with townhomes, twinhomes and villas. Near Sokhna Road, South Teseen and the Mid Ring Road.">
+<title>Crescent Walk — East Cairo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   One ground. One spine. Sections interlock rather than stack.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#ffffff;          /* single ground for the whole page */
+  --ink:#0f2429;
+  --soft:#4f6367;
+  --faint:#8ba0a3;
+  --rule:#e2e8e8;
+  --hair:#d8e0e0;
+  --accent:#14484f;
+  --sand:#c98f4f;
+  --white:#f7fafa;
+  --scrim:.72;   /* hero overlay strength — CMS: light .60 / medium .76 / strong .90 */
+
+  --display:"EB Garamond",Georgia,serif;
+  --body:"Karla",system-ui,sans-serif;
+
+  --gut:clamp(20px,5vw,80px);
+  --maxw:1280px;
+  --spine:clamp(20px,5vw,80px);   /* where the vertical rule sits */
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ── Disclosure + header ─────────────────────────────────── */
+.bar{background:var(--ink);color:#dfe3e1;font-size:.73rem;padding:8px var(--gut);text-align:center;
+  letter-spacing:.01em}
+.bar strong{color:#fff}
+
+.head{position:sticky;top:0;z-index:60;background:rgba(242,241,236,.9);backdrop-filter:blur(12px)}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hair)}
+.head-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--gut);display:flex;align-items:center;gap:26px}
+.mark{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em;
+  text-decoration:none;color:var(--ink)}
+.head nav{margin-left:auto;display:flex;gap:22px;font-size:.83rem;align-items:center}
+.head nav a{color:var(--soft);text-decoration:none;padding:3px 0;border-bottom:1.5px solid transparent}
+.head nav a:hover,.head nav a[aria-current]{color:var(--ink);border-color:var(--accent)}
+.navcta{background:var(--ink);color:#fff!important;padding:9px 18px!important;border:0!important;font-weight:600}
+@media(max-width:860px){.head nav a:not(.navcta){display:none}.head-in{gap:14px}}
+
+/* ── THE SPINE: one hairline running the whole document ──── */
+.doc{position:relative}
+.doc::before{
+  content:"";position:absolute;top:0;bottom:0;
+  left:var(--spine);width:1px;background:var(--hair);z-index:1;
+}
+@media(max-width:860px){.doc::before{display:none}}
+
+/* Section shell — all sections share the ground, so only spacing separates them */
+.sec{position:relative;z-index:2;padding:clamp(60px,8vw,120px) 0}
+.sec--tight{padding-top:0}
+
+/* Section marker sits ON the spine */
+.marker{display:none}
+.secnum{font-family:var(--display);font-size:.95rem;color:var(--sand);
+  margin-right:11px;padding-right:11px;border-right:1px solid var(--rule)}
+@media(max-width:860px){.marker{display:none}}
+
+/* Content sits to the right of the spine */
+.inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut) 0 calc(var(--spine) + 58px)}
+@media(max-width:860px){.inner{padding:0 var(--gut)}}
+
+/* ── HERO: image bleeds behind the fact rail ─────────────── */
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;
+  overflow:hidden;background:#22282a}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    /* contained pool over the text block — the rest of the render stays clear */
+    radial-gradient(120% 88% at 24% 78%,
+      rgba(5,16,19,var(--scrim,.72)) 0%,
+      rgba(5,16,19,calc(var(--scrim,.72) * .92)) 42%,
+      rgba(5,16,19,calc(var(--scrim,.72) * .45)) 66%,
+      rgba(5,16,19,0) 86%),
+    /* light floor so the fact rail meets a dark edge */
+    linear-gradient(180deg, rgba(5,16,19,0) 60%, rgba(5,16,19,.17) 85%, rgba(5,16,19,.34) 100%)}
+.hero-in{position:relative}
+/* Narrow screens: the copy sits below the image rather than over it.
+   The render stays completely untouched and contrast is guaranteed,
+   because the text is on the page background. */
+@media(max-width:820px){
+  .hero{min-height:0;display:block;background:none;overflow:visible}
+  .hero>img{position:static;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .hero::after{display:none}
+  .hero-in{padding:26px var(--gut) 30px;color:var(--ink)}
+  .hero .kicker{color:var(--accent);text-shadow:none}
+  .hero h1{color:var(--ink);text-shadow:none;max-width:20ch}
+  .hero h1 em{color:var(--accent)}
+  .hero p{color:var(--soft);text-shadow:none}
+  .hero .btn{background:var(--ink);color:#fff}
+  .hero .btn--ghost{background:transparent;color:var(--ink);
+    border:1px solid var(--rule);margin-left:8px}
+  .rail-holder{margin-top:0}
+}
+
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--gut) clamp(96px,11vw,150px);color:#fff}
+.kicker{text-shadow:0 1px 10px rgba(4,14,17,.5);font-size:.69rem;letter-spacing:.24em;text-transform:uppercase;margin:0 0 16px;
+  color:var(--sand)}
+.hero h1{text-shadow:0 1px 18px rgba(4,14,17,.42);font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5rem);
+  line-height:1.01;margin:0 0 18px;max-width:14ch;letter-spacing:-.018em}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero p{text-shadow:0 1px 12px rgba(4,14,17,.45);max-width:48ch;font-size:1.05rem;color:rgba(255,255,255,.9);margin:0 0 28px}
+
+.btn{display:inline-block;background:var(--white);color:var(--ink);text-decoration:none;
+  padding:14px 28px;font-size:.9rem;font-weight:600;border:0;cursor:pointer;font-family:inherit;
+  transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.42);margin-left:8px}
+.btn--dark{background:var(--ink);color:var(--white)}
+.btn--full{width:100%;text-align:center}
+.btn:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+
+/* ── FACT RAIL: overlaps the hero, anchored to the spine ─── */
+.rail-holder{position:relative;z-index:5;margin-top:clamp(-84px,-8vw,-64px)}
+.rail{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--white);border:1px solid var(--hair)}
+.rail>div{padding:24px clamp(16px,2vw,26px);border-right:1px solid var(--hair)}
+.rail>div:last-child{border-right:0}
+.rail dt{font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin:0 0 7px}
+.rail dd{margin:0;font-family:var(--display);font-size:1.7rem;letter-spacing:-.01em;line-height:1.1}
+.rail .sub{display:block;font-family:var(--body);font-size:.75rem;color:var(--soft);margin-top:3px}
+@media(max-width:860px){
+  .rail-holder{margin-top:-40px}
+  .rail{grid-template-columns:repeat(2,1fr);padding:0}
+  .rail>div{padding:18px 20px}
+  .rail>div:nth-child(2n){border-right:0}
+  .rail>div:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+  .rail dd{font-size:1.4rem}
+}
+
+/* ── Shared type ─────────────────────────────────────────── */
+.eyebrow{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 14px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.2vw,3.3rem);
+  line-height:1.06;margin:0 0 18px;letter-spacing:-.018em;max-width:17ch}
+h2 em{font-style:italic;color:var(--accent)}
+.lead{font-size:1.06rem;color:var(--soft);max-width:56ch;margin:0}
+
+/* ── DESCRIPTION: text left, tall image bleeding right ───── */
+.desc{max-width:64ch}
+.desc-fig{margin:clamp(34px,4.5vw,54px) 0 0;position:relative}
+.desc-fig img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.desc-fig figcaption{font-family:var(--display);font-style:italic;font-size:.95rem;
+  color:var(--faint);padding-top:11px}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);
+  margin-top:clamp(46px,6vw,76px)}
+@media(max-width:820px){.pillars{grid-template-columns:1fr;gap:0}}
+.pillar{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:820px){.pillar{padding:18px 0}}
+.pillar .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:8px}
+.pillar h3{margin:0 0 6px;font-size:.98rem;font-weight:600}
+.pillar p{margin:0;font-size:.93rem;color:var(--soft)}
+
+/* ── MASTERPLAN: pulled up, plan bleeds past the gutter ──── */
+.mp{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(30px,4vw,48px)}
+@media(max-width:980px){.mp{grid-template-columns:1fr}}
+.mp-fig{margin:0;background:var(--white);border:1px solid var(--hair);overflow:hidden}
+.mp-fig img{width:100%;height:auto}
+.mp-key{list-style:none;margin:0;padding:0}
+.mp-key li{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:11px 0;
+  border-bottom:1px solid var(--rule);align-items:baseline}
+.mp-key li:first-child{border-top:1px solid var(--rule)}
+.mp-key .k{font-family:var(--display);font-size:1rem;color:var(--sand)}
+.mp-key .v{font-size:.95rem}
+.mp-key .v small{display:block;color:var(--soft);font-size:.82rem;margin-top:2px}
+.mp-note{font-size:.78rem;color:var(--faint);margin:14px 0 0;font-style:italic}
+
+/* ── NEIGHBOURHOODS: tabs, borderless, on the ground ─────── */
+.tabs{margin-top:clamp(28px,4vw,44px)}
+.tabnav{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule)}
+.tabnav button{appearance:none;background:none;border:0;padding:13px 20px 15px;
+  font:inherit;font-size:.86rem;font-weight:600;color:var(--faint);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tabnav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabnav button:hover{color:var(--ink)}
+.tabnav button:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+@media(max-width:640px){.tabnav button{flex:1 1 33%;padding:12px 8px;font-size:.8rem}}
+
+.panel{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:clamp(24px,4vw,56px);padding-top:clamp(28px,3.5vw,42px);align-items:center}
+.panel[data-open="true"]{display:grid;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(max-width:820px){.panel[data-open="true"]{grid-template-columns:1fr}}
+.panel .sub{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);
+  font-weight:700;margin:0 0 12px}
+.panel h3{margin:0 0 12px;font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);
+  letter-spacing:-.015em}
+.panel p{margin:0 0 20px;color:var(--soft);font-size:.99rem;max-width:40ch}
+.panel .types{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.panel .types li{border:1px solid var(--rule);padding:6px 13px;font-size:.79rem;color:var(--soft)}
+.panel figure{margin:0;overflow:hidden}
+.panel figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ── USPs: hairline grid, no boxes ──────────────────────── */
+.usps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);
+  margin-top:clamp(30px,4vw,48px)}
+@media(max-width:900px){.usps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.usps{grid-template-columns:1fr;gap:0}}
+.usp{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:560px){.usp{padding:18px 0}}
+.usp .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:9px}
+.usp h3{margin:0 0 6px;font-size:.97rem;font-weight:600}
+.usp p{margin:0;font-size:.9rem;color:var(--soft);line-height:1.55}
+
+/* ── LEAD FORM: dark block, full bleed, ends the document ─ */
+.form-sec{position:relative;z-index:2;background:var(--ink);color:var(--white);
+  padding:clamp(58px,7vw,96px) 0;margin-top:clamp(40px,6vw,80px)}
+.form-sec .wrap{padding-left:calc(var(--spine) + 58px)}
+@media(max-width:860px){.form-sec .wrap{padding-left:var(--gut)}}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr}}
+.form-sec h2{color:var(--white);max-width:15ch}
+.form-sec h2 em{color:var(--sand)}
+.form-sec .eyebrow{color:var(--sand)}
+.form-sec .lead{color:rgba(255,255,255,.7)}
+.contact-line{margin-top:22px;font-size:.93rem;color:rgba(255,255,255,.7)}
+.contact-line a{color:#fff;font-weight:600}
+
+.fbox{background:var(--white);color:var(--ink);padding:clamp(26px,3vw,38px)}
+.fdis{font-size:.78rem;color:var(--soft);border-left:2px solid var(--sand);
+  padding-left:14px;margin-bottom:24px;line-height:1.5}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:.79rem;font-weight:600;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;font:inherit;
+  font-size:.94rem;border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);
+  outline-offset:1px;border-color:transparent}
+.field textarea{min-height:82px;resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+
+
+
+
+
+
+/* ── Logo slots (image from CMS, text wordmark as fallback) ─ */
+.mark{display:inline-flex;align-items:center;gap:10px;line-height:1}
+.mark img{height:26px;width:auto;display:none}
+.mark img[src]:not([src=""]){display:block}
+.mark img[src]:not([src=""]) + .marktext{display:none}
+.marktext{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em}
+
+.projlogo{height:30px;width:auto;margin-bottom:12px;display:none}
+.projlogo[src]:not([src=""]){display:block}
+
+/* ── Availability states on chips ────────────────────────── */
+.chip{position:relative}
+.chip[data-status="limited"]::after{
+  content:"Few left";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--sand);color:#1b1204;font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chip[data-status="sold_out"]{
+  color:var(--faint);background:transparent;border-style:dashed;
+  cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px;
+  text-decoration-color:var(--faint)}
+.chip[data-status="sold_out"]:hover{border-color:var(--rule);color:var(--faint)}
+.chip[data-status="sold_out"]::after{
+  content:"Sold out";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--rule);color:var(--soft);font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chipnote{font-size:.78rem;color:var(--faint);margin:9px 0 0}
+
+/* Availability badge on the tab panels */
+.availbadge{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  padding:4px 10px;margin-bottom:12px;border-radius:2px}
+.availbadge[data-status="available"]{background:rgba(20,72,79,.09);color:var(--accent)}
+.availbadge[data-status="limited"]{background:rgba(201,143,79,.16);color:#8a5a22}
+.availbadge[data-status="sold_out"]{background:var(--rule);color:var(--soft)}
+.availbadge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* ── Lead form controls ──────────────────────────────────── */
+.req{color:var(--sand);font-weight:400}
+.opt-tag{color:var(--faint);font-weight:400;font-size:.72rem;letter-spacing:.04em}
+.ferr{display:none;color:#b4402f;font-size:.79rem;margin-top:6px}
+.fmsg{margin-top:14px;font-size:.9rem;display:none}
+.fmsg.ok{display:block;color:#1d6b45}
+.fmsg.err{display:block;color:#b4402f}
+
+/* phone row */
+.phone-row{display:flex;gap:8px;position:relative}
+.cc-btn{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:var(--paper);
+  border:1px solid var(--rule);padding:12px 13px;font:inherit;font-size:.94rem;cursor:pointer;
+  color:var(--ink);white-space:nowrap}
+.cc-btn:hover{border-color:var(--accent)}
+.cc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.cc-caret{font-size:.62rem;color:var(--faint)}
+.phone-row input[type=tel]{flex:1 1 auto;min-width:0}
+.cc-pop{position:absolute;z-index:70;top:calc(100% + 5px);left:0;width:min(330px,100%);
+  background:#fff;border:1px solid var(--rule);box-shadow:0 14px 38px rgba(0,0,0,.15)}
+.cc-search{width:100%;padding:11px 13px;font:inherit;font-size:.92rem;border:0;
+  border-bottom:1px solid var(--rule);background:#fff;color:var(--ink)}
+.cc-search:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.cc-list{list-style:none;margin:0;padding:0;max-height:260px;overflow-y:auto}
+.cc-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;
+  font-size:.9rem;cursor:pointer}
+.cc-list li:hover,.cc-list li:focus{background:var(--paper);outline:none}
+.cc-list .cc-num{color:var(--faint);font-variant-numeric:tabular-nums}
+.cc-list .cc-none{color:var(--faint);cursor:default;justify-content:center}
+
+/* chips for multi-select */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{appearance:none;background:var(--paper);border:1px solid var(--rule);
+  padding:8px 14px;font:inherit;font-size:.84rem;color:var(--soft);cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hp{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.foot{background:#0e1112;color:#9aa4a2;padding:clamp(44px,5vw,68px) 0 30px;font-size:.89rem;
+  position:relative;z-index:2}
+.foot a{color:#fff;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:30px;margin-bottom:34px}
+.foot h4{color:#fff;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 13px;font-weight:700}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot li{margin-bottom:7px}
+.foot-dis{border-top:1px solid rgba(255,255,255,.13);padding-top:22px;font-size:.78rem;
+  line-height:1.62;color:#78827f}
+.foot-dis strong{color:#bcc4c2}
+
+/* ── Scroll reveal ──────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+@media(max-width:860px){
+  .sec{padding:52px 0}
+  h2{font-size:1.85rem}
+}
+</style>
 </head>
-<body class="t-crescent" data-project="crescent">
+<body data-project="crescent">
 
-<div class="disclose">
-  <span lang="en">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</span>
-  <span lang="ar">الموقع الشخصي لـ <strong data-agent-name-ar>محمد الصباغ</strong>، <span data-agent-title-ar>مدير مبيعات، مراكز</span>. هذا ليس الموقع الرسمي لمراكز.</span>
-</div>
+<div class="bar">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</div>
 
-<header class="site-head">
+<header class="head">
   <div class="head-in">
-    <a class="brand" href="index.html">Marakez<span style="color:var(--accent)">.</span></a>
-    <nav class="nav">
-      <a href="ramla.html" data-en="Ramla" data-ar="رملة"></a>
-      <a href="crescent-walk.html" aria-current="page" data-en="Crescent Walk" data-ar="كريسنت ووك"></a>
-      <a href="district-5.html" data-en="District 5" data-ar="ديستريكت ٥"></a>
-      <a href="#enquire" class="nav-keep" data-en="Enquire" data-ar="تواصل"></a>
-      <button class="lang nav-keep" type="button">العربية</button>
+    <a class="mark" href="index.html"><img data-logo="marakez" alt="Marakez"><span class="marktext">Marakez</span></a>
+    <nav>
+      <a href="ramla.html">Ramla</a>
+      <a href="#" aria-current="page">Crescent Walk</a>
+      <a href="district-5.html">District 5</a>
+      <a class="navcta" href="#enquire">Request prices</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="hero-tag" data-en="East Cairo" data-ar="القاهرة الجديدة"></span>
-    <h1>
-      <span lang="en">Follow the path home.</span>
-      <span lang="ar">اتبع الطريق إلى البيت.</span>
-    </h1>
-    <p class="lead">
-      <span lang="en">118 acres in East Cairo, organised around a single green pathway that runs the length of the community. It widens into parks, narrows into a cycling lane, and ends at your back gate.</span>
-      <span lang="ar">١١٨ فداناً في القاهرة الجديدة، منتظمة حول ممر أخضر واحد يمتد بطول المجتمع السكني. يتّسع ليصبح حدائق، ويضيق ليصبح مساراً للدراجات، وينتهي عند بوابة منزلك الخلفية.</span>
-    </p>
-    <div class="hero-img"><img data-hero-img src="assets/img/crescent/p11.jpeg" alt="Crescent Walk green spine"></div>
+  <img src="assets/img/crescent/hero.jpeg" alt="Crescent Walk, East Cairo">
+  <div class="hero-in">
+    <img class="projlogo" data-logo="project" alt="">
+    <p class="kicker">East Cairo</p>
+    <h1>Follow the path <em>home.</em></h1>
+    <p>118 acres in East Cairo built around a single green pathway you can walk or cycle end to end — from the central park to your own back gate.</p>
+    <a class="btn" href="#enquire">Request prices &amp; availability</a>
+    <a class="btn btn--ghost" href="#">WhatsApp</a>
   </div>
 </section>
 
-<div class="facts">
-  <div class="facts-in">
-    <div class="fact">
-      <div class="k" data-en="Land area" data-ar="مساحة الأرض"></div>
-      <div class="v"><span lang="en">118 acres</span><span lang="ar">١١٨ فداناً</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Home types" data-ar="أنماط الوحدات"></div>
-      <div class="v"><span lang="en">Four</span><span lang="ar">أربعة</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Master planner" data-ar="المخطط الرئيسي"></div>
-      <div class="v">WATG</div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Architect" data-ar="التصميم المعماري"></div>
-      <div class="v">PBD</div>
-    </div>
-  </div>
+<div class="rail-holder">
+  <dl class="rail">
+    <div><dt>Location</dt><dd>East Cairo<span class="sub">Sokhna Rd &middot; South Teseen</span></dd></div>
+    <div><dt>Land area</dt><dd>118 acres<span class="sub">Low density</span></dd></div>
+    <div><dt>Home types</dt><dd>Four<span class="sub">Villas to townhomes</span></dd></div>
+    <div><dt>Master planner</dt><dd>WATG<span class="sub">Architecture by PBD</span></dd></div>
+  </dl>
 </div>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="split">
+<div class="doc">
+
+  <section class="sec">
+    <div class="inner">
+      <div class="desc rv">
+        <p class="eyebrow"><span class="secnum">01</span>The project</p>
+        <h2>A neighbourhood where everyone <em>knows your name.</em></h2>
+        <p class="lead">Crescent Walk takes its cue from the garden neighbourhoods of old Cairo &mdash; the ones where children roamed freely and neighbours greeted each other by name. 118 acres in East Cairo, organised around a green pathway that runs the length of the community, widening into parks and narrowing into a cycling lane before it reaches your back gate.</p>
+      </div>
+      <figure class="desc-fig rv">
+        <img src="assets/img/crescent/about.jpeg" alt="Crescent Walk green spine" loading="lazy">
+        <figcaption>The green spine, Crescent Walk</figcaption>
+      </figure>
+
+      <div class="pillars">
+        <div class="pillar rv"><span class="n">i</span>
+          <h3>Connected without the traffic</h3>
+          <p>Direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly, far enough not to hear it.</p></div>
+        <div class="pillar rv"><span class="n">ii</span>
+          <h3>Green space came first</h3>
+          <p>Most compounds lay roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it.</p></div>
+        <div class="pillar rv"><span class="n">iii</span>
+          <h3>Built for the climate</h3>
+          <p>Brickwork, masonry banding and timber hues, with double-height ceilings and deep terraces that handle Cairo's heat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="inner">
       <div class="rv">
-        <p class="eyebrow" data-en="Location" data-ar="الموقع"></p>
-        <h2>
-          <span lang="en">Connected, without the traffic.</span>
-          <span lang="ar">متصل بالمدينة، بعيداً عن زحامها.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">Crescent Walk sits in East Cairo's growing residential belt, with direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly; far enough that you don't hear it.</span>
-          <span lang="ar">تقع كريسنت ووك في الحزام السكني المتنامي بشرق القاهرة، مع اتصال مباشر بطريق السخنة، وجنوب التسعين، والطريق الدائري الأوسط. قريبة بما يكفي للوصول إلى المدينة سريعاً، وبعيدة بما يكفي ألا تسمع ضجيجها.</span>
-        </p>
+        <p class="eyebrow"><span class="secnum">02</span>Masterplan</p>
+        <h2>One path, <em>end to end.</em></h2>
+        <p class="lead">The green spine connects every part of the community, from the central park to the clubhouse to the commercial park.</p>
       </div>
-      <div class="split-img rv"><img src="assets/img/crescent/p13.jpeg" alt="Crescent Walk parks" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="The idea" data-ar="الفكرة"></p>
-      <h2>
-        <span lang="en">The green spine does the work.</span>
-        <span lang="ar">المحور الأخضر هو أساس التصميم.</span>
-      </h2>
-      <p class="lead" style="margin-top:1.2rem">
-        <span lang="en">Most compounds put roads first and green space in whatever's left over. Crescent Walk reverses that: the pathway is laid first, and the homes are arranged along it.</span>
-        <span lang="ar">تبدأ معظم الكمبوندات بالطرق ثم تضع المساحات الخضراء فيما تبقّى. كريسنت ووك تعكس ذلك: يُرسم الممر أولاً، ثم تُنظَّم المنازل على امتداده.</span>
-      </p>
-    </div>
-    <div class="cols">
-      <div class="col rv">
-        <h3><span lang="en">A cycling loop</span><span lang="ar">مسار دراجات متكامل</span></h3>
-        <p>
-          <span lang="en">The path becomes a dedicated cycling lane, lined with flowering shrubs and benches, looping the full community.</span>
-          <span lang="ar">يتحوّل الممر إلى مسار مخصص للدراجات، تصطف عليه الشجيرات المزهرة والمقاعد، ويدور حول المجتمع بالكامل.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">Private garden exits</span><span lang="ar">مخارج خاصة من الحدائق</span></h3>
-        <p>
-          <span lang="en">Homes have a back gate opening directly onto the green spine — you step out of your garden and you're already on the path.</span>
-          <span lang="ar">للمنازل بوابة خلفية تفتح مباشرةً على المحور الأخضر — تخرج من حديقتك فتجد نفسك على الممر.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">Parks at every scale</span><span lang="ar">حدائق بمقاييس متعددة</span></h3>
-        <p>
-          <span lang="en">A central park, neighbourhood parks, street-side gardens and a commercial park — each sized for a different kind of afternoon.</span>
-          <span lang="ar">حديقة مركزية، وحدائق للأحياء، وحدائق على جانبي الطرق، وحديقة تجارية — كل منها بمقياس يناسب نوعاً مختلفاً من الأمسيات.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">Activity nodes</span><span lang="ar">محطات نشاط</span></h3>
-        <p>
-          <span lang="en">Sports courts, playgrounds and outdoor work spaces scattered along the route rather than concentrated in one clubhouse.</span>
-          <span lang="ar">ملاعب رياضية ومناطق ألعاب ومساحات عمل خارجية موزّعة على امتداد المسار بدلاً من تجميعها في نادٍ واحد.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="split">
-      <div class="split-img rv"><img src="assets/img/crescent/p25.jpeg" alt="Crescent Walk architecture" loading="lazy"></div>
-      <div class="rv">
-        <p class="eyebrow" data-en="Architecture" data-ar="العمارة"></p>
-        <h2>
-          <span lang="en">Brick, timber, and double-height ceilings.</span>
-          <span lang="ar">الطوب والخشب والأسقف المزدوجة الارتفاع.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">The homes borrow from Cairo's golden-age neighbourhoods: art deco proportion, brickwork and masonry banding, and materials that change character as the light moves across them through the day.</span>
-          <span lang="ar">تستلهم المنازل أحياء القاهرة في عصرها الذهبي: نِسَب الآرت ديكو، وأعمال الطوب والأشرطة الحجرية، ومواد يتبدّل طابعها مع حركة الضوء عليها طوال اليوم.</span>
-        </p>
-        <p>
-          <span lang="en">Expansive glass opens the living areas onto terraces and gardens. A winter garden gives you somewhere to sit out the colder months without going indoors.</span>
-          <span lang="ar">تفتح الواجهات الزجاجية الواسعة مناطق المعيشة على التراسات والحدائق. وتمنحك حديقة الشتاء مكاناً للجلوس في الأشهر الأبرد دون أن تدخل إلى الداخل.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="Homes" data-ar="أنماط الوحدات"></p>
-      <h2>
-        <span lang="en">Four ways to live here.</span>
-        <span lang="ar">أربعة أنماط للسكن هنا.</span>
-      </h2>
-    </div>
-    <ul class="flist rv">
-      <li>
-        <span class="fl-t"><span lang="en">Villas</span><span lang="ar">فيلات</span></span>
-        <span class="fl-d">
-          <span lang="en">Standalone homes in two design types, with the largest gardens and the most privacy.</span>
-          <span lang="ar">منازل مستقلة بنمطين تصميميين، بأكبر مساحات حدائق وأعلى درجة خصوصية.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Twinhomes</span><span lang="ar">توين هاوس</span></span>
-        <span class="fl-d">
-          <span lang="en">Paired homes sharing one wall — most of the villa footprint at a lower entry point.</span>
-          <span lang="ar">منازل مزدوجة تشترك في جدار واحد — بمعظم مساحة الفيلا وبنقطة دخول سعرية أقل.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Townhomes</span><span lang="ar">تاون هاوس</span></span>
-        <span class="fl-d">
-          <span lang="en">Terraced homes arranged in short rows, each with a private garden backing onto the green spine.</span>
-          <span lang="ar">منازل متلاصقة في صفوف قصيرة، لكل منها حديقة خاصة تطل على المحور الأخضر.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Private residences</span><span lang="ar">وحدات خاصة</span></span>
-        <span class="fl-d">
-          <span lang="en">A limited collection within the community. Ask me what's currently released.</span>
-          <span lang="ar">مجموعة محدودة داخل المجتمع السكني. اسألني عمّا هو مطروح حالياً.</span>
-        </span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="Amenities" data-ar="المرافق"></p>
-      <h2>
-        <span lang="en">Everything inside the gate.</span>
-        <span lang="ar">كل شيء داخل البوابة.</span>
-      </h2>
-    </div>
-    <ul class="chips rv" style="margin-bottom:2.4rem">
-      <li><span lang="en">Clubhouse</span><span lang="ar">النادي الاجتماعي</span></li>
-      <li><span lang="en">Sports facilities</span><span lang="ar">مرافق رياضية</span></li>
-      <li><span lang="en">Central park</span><span lang="ar">الحديقة المركزية</span></li>
-      <li><span lang="en">Commercial park</span><span lang="ar">الحديقة التجارية</span></li>
-      <li><span lang="en">Cycling loop</span><span lang="ar">مسار الدراجات</span></li>
-      <li><span lang="en">Pedestrian trails</span><span lang="ar">ممرات للمشاة</span></li>
-      <li><span lang="en">Playgrounds</span><span lang="ar">مناطق ألعاب</span></li>
-      <li><span lang="en">Cafés &amp; groceries</span><span lang="ar">مقاهٍ وبقالة</span></li>
-      <li><span lang="en">Outdoor work spaces</span><span lang="ar">مساحات عمل خارجية</span></li>
-    </ul>
-    <div class="gal rv" data-gallery>
-      <figure><img src="assets/img/crescent/p15.jpeg" alt="Crescent Walk community" loading="lazy"></figure>
-      <figure><img src="assets/img/crescent/p22.jpeg" alt="Crescent Walk activity areas" loading="lazy"></figure>
-      <figure><img src="assets/img/crescent/p30.jpeg" alt="Crescent Walk homes" loading="lazy"></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash">
-  <div class="wrap" style="max-width:760px">
-    <div class="rv">
-      <p class="eyebrow" data-en="Prices &amp; payment" data-ar="الأسعار والسداد"></p>
-      <h2>
-        <span lang="en">Current pricing.</span>
-        <span lang="ar">الأسعار الحالية.</span>
-      </h2>
-      <div id="pricing" style="margin-top:1.8rem"></div>
-      <p style="margin-top:2rem">
-        <a class="btn btn--wa" data-wa="Hi Mohamed, could you send me the current prices and payment plans for Crescent Walk?"
-           data-en="Ask about Crescent Walk prices" data-ar="اسأل عن أسعار كريسنت ووك"></a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="enquire">
-  <div class="wrap">
-    <div class="split">
-      <div class="rv">
-        <p class="eyebrow" data-en="Enquire about Crescent Walk" data-ar="استفسر عن كريسنت ووك"></p>
-        <h2>
-          <span lang="en">Let's find the right home.</span>
-          <span lang="ar">لنجد المنزل المناسب.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">Tell me your budget and what you need from the space, and I'll send back what's actually available this month.</span>
-          <span lang="ar">أخبرني بميزانيتك وبما تحتاجه من المساحة، وسأرسل لك ما هو متاح فعلياً هذا الشهر.</span>
-        </p>
-        <p style="margin-top:2rem">
-          <a class="btn btn--wa" data-wa="Hi Mohamed, I'm interested in Crescent Walk."
-             data-en="Message me on WhatsApp" data-ar="راسلني على واتساب"></a>
-        </p>
-        <p style="font-size:.92rem;color:var(--ink-soft)">
-          <span lang="en">Or call </span><span lang="ar">أو اتصل على </span>
-          <a data-tel href="#" style="font-weight:600"></a>
-        </p>
-      </div>
-
-      <div class="formwrap rv">
-        <div class="fdis">
-          <span lang="en">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</span>
-          <span lang="ar">تصل بياناتك إلى <span data-agent-name-ar>محمد الصباغ</span> مباشرةً. هذا النموذج غير مُشغَّل من قِبل شركة مراكز.</span>
+      <div class="mp">
+        <figure class="mp-fig rv"><img src="assets/img/crescent/masterplan.jpeg" alt="Crescent Walk masterplan" loading="lazy"></figure>
+        <div class="rv">
+          <ul class="mp-key">
+            <li><span class="k">1</span><span class="v">Central Park<small>The largest open space</small></span></li>
+            <li><span class="k">2</span><span class="v">Green spine &amp; paseo<small>Walking and cycling loop</small></span></li>
+            <li><span class="k">3</span><span class="v">Clubhouse &amp; sports<small>Courts, pools, gathering</small></span></li>
+            <li><span class="k">4</span><span class="v">Commercial park<small>Groceries, cafés, boutiques</small></span></li>
+            <li><span class="k">5</span><span class="v">Neighbourhood parks<small>Smaller local greens</small></span></li>
+            <li><span class="k">6</span><span class="v">Street-side gardens<small>Planting along the roads</small></span></li>
+          </ul>
+          <p class="mp-note">Layout is indicative and subject to change by the developer.</p>
         </div>
-        <form data-lead="Crescent Walk">
-          <div class="frow">
-            <div class="field">
-              <label for="crescent-walk-f1" data-en="Name" data-ar="الاسم"></label><input id="crescent-walk-f1" type="text" name="name" required data-ph-en="Your full name" data-ph-ar="الاسم بالكامل">
-            </div>
-            <div class="field">
-              <label for="crescent-walk-f2" data-en="Phone" data-ar="رقم الهاتف"></label><input id="crescent-walk-f2" type="tel" name="phone" required data-ph-en="+20 ..." data-ph-ar="+20 ...">
-            </div>
-          </div>
-          <div class="field">
-            <label for="crescent-walk-f3" data-en="Email" data-ar="البريد الإلكتروني"></label><input id="crescent-walk-f3" type="email" name="email" data-ph-en="Optional" data-ph-ar="اختياري">
-          </div>
-          <div class="field">
-            <label for="crescent-walk-f4" data-en="Home type" data-ar="نوع الوحدة"></label><select id="crescent-walk-f4" name="unit">
-              <option value="Villa" data-en="Villa" data-ar="فيلا"></option>
-              <option value="Twinhome" data-en="Twinhome" data-ar="توين هاوس"></option>
-              <option value="Townhome" data-en="Townhome" data-ar="تاون هاوس"></option>
-              <option value="Open to suggestions" data-en="Open to suggestions" data-ar="أرحّب بالاقتراحات"></option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="crescent-walk-f5" data-en="Anything else?" data-ar="أي تفاصيل أخرى؟"></label><textarea id="crescent-walk-f5" name="message" data-ph-en="Budget, bedrooms, timing — whatever helps." data-ph-ar="الميزانية، عدد الغرف، التوقيت — أي تفاصيل تساعدني."></textarea>
-          </div>
-          <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-          <button class="btn btn--full" type="submit" data-en="Send enquiry" data-ar="إرسال الطلب"></button>
-          <div class="fmsg"></div>
-        </form>
       </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="inner">
+      <div class="rv">
+        <p class="eyebrow"><span class="secnum">03</span>Home types</p>
+        <h2>Four ways to <em>live here.</em></h2>
+        <p class="lead">From standalone villas with the largest gardens through to terraced townhomes backing onto the green spine.</p>
+      </div>
+
+      <div class="tabs rv">
+        <div class="tabnav" role="tablist">
+          <button role="tab" aria-selected="true"  data-t="0">Villas</button>
+          <button role="tab" aria-selected="false" data-t="1">Twinhomes</button>
+          <button role="tab" aria-selected="false" data-t="2">Townhomes</button>
+          <button role="tab" aria-selected="false" data-t="3">Private residences</button>
+        </div>
+
+        <div class="panel" data-p="0" data-open="true">
+          <div><p class="sub">Standalone</p><h3>Villas</h3><span data-avail-for="Villa"></span>
+            <p>Detached homes in two design types, with the largest gardens and the most privacy in the community. Double-height living areas and expansive glass onto the terrace.</p>
+            <ul class="types"><li>Two design types</li><li>Largest gardens</li><li>Winter garden</li></ul></div>
+          <figure><img src="assets/img/crescent/t-villa.jpeg" alt="Villa" loading="lazy"></figure>
+        </div>
+        <div class="panel" data-p="1">
+          <div><p class="sub">Semi-detached</p><h3>Twinhomes</h3><span data-avail-for="Twinhouse"></span>
+            <p>Paired homes sharing a single wall &mdash; most of the villa footprint and the same architecture, at a lower entry point.</p>
+            <ul class="types"><li>Shared single wall</li><li>Private garden</li><li>Terraces</li></ul></div>
+          <figure><img src="assets/img/crescent/t-twin.jpeg" alt="Twinhome" loading="lazy"></figure>
+        </div>
+        <div class="panel" data-p="2">
+          <div><p class="sub">Terraced</p><h3>Townhomes</h3><span data-avail-for="Townhouse"></span>
+            <p>Arranged in short rows, each with a private garden and a back gate opening directly onto the green spine. Step out and you're already on the path.</p>
+            <ul class="types"><li>Private back gate</li><li>Garden</li><li>Spine access</li></ul></div>
+          <figure><img src="assets/img/crescent/t-town.jpeg" alt="Townhome" loading="lazy"></figure>
+        </div>
+        <div class="panel" data-p="3">
+          <div><p class="sub">Limited collection</p><h3>Private residences</h3><span data-avail-for="Private residence"></span>
+            <p>A small number of homes within the community, released in limited phases. Ask about what's currently available.</p>
+            <ul class="types"><li>Limited release</li><li>Enquire for details</li></ul></div>
+          <figure><img src="assets/img/crescent/t-private.jpeg" alt="Private residence" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight">
+    <div class="inner">
+      <div class="rv">
+        <p class="eyebrow"><span class="secnum">04</span>Why Crescent Walk</p>
+        <h2>What the green spine <em>actually gives you.</em></h2>
+      </div>
+      <div class="usps">
+        <div class="usp rv"><span class="n">i</span><h3>A back gate onto the park</h3>
+          <p>Homes open directly onto the green spine &mdash; no walking around the block to reach it.</p></div>
+        <div class="usp rv"><span class="n">ii</span><h3>A full cycling loop</h3>
+          <p>The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community.</p></div>
+        <div class="usp rv"><span class="n">iii</span><h3>Shops without leaving</h3>
+          <p>The commercial park carries groceries, cafés and daily essentials inside the gates.</p></div>
+        <div class="usp rv"><span class="n">iv</span><h3>Art deco, built for heat</h3>
+          <p>PBD's architecture uses brick, masonry banding and deep terraces &mdash; nostalgic, but designed for the climate.</p></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /doc -->
+
+<section class="form-sec" id="enquire">
+  <div class="wrap form-grid">
+    <div>
+      <p class="eyebrow">Enquire</p>
+      <h2>Availability changes <em>weekly.</em></h2>
+      <p class="lead">Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation.</p>
+      <p class="contact-line">Or message directly on <a data-wa="Hi Mohamed," href="#">WhatsApp</a> · <a data-tel href="#">+20 122 017 0162</a></p>
+    </div>
+    <div class="fbox">
+      <div class="fdis">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</div>
+      <form data-lead="Crescent Walk" novalidate>
+        <input type="hidden" name="project" value="Crescent Walk">
+
+        <div class="field">
+          <label for="f-name">Name <span class="req">*</span></label>
+          <input id="f-name" type="text" name="name" required placeholder="Your full name">
+        </div>
+
+        <div class="field" data-phone-field>
+          <label for="f-phone">Phone <span class="req">*</span></label>
+          <div class="phone-row" data-phone>
+            <button type="button" class="cc-btn" aria-expanded="false" aria-haspopup="listbox">
+              <span class="cc-dial">+20</span><span class="cc-caret">&#9660;</span>
+            </button>
+            <input id="f-phone" type="tel" name="phone_local" required
+                   inputmode="tel" autocomplete="tel" placeholder="01221011789">
+            <div class="cc-pop" hidden>
+              <input type="text" class="cc-search" placeholder="Search country or code"
+                     aria-label="Search for a country">
+              <ul class="cc-list" role="listbox" aria-label="Country codes"></ul>
+            </div>
+          </div>
+          <p class="ferr" role="alert"></p>
+          <input type="hidden" name="phone_e164">
+          <input type="hidden" name="phone_country">
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email <span class="opt-tag">optional</span></label>
+          <input id="f-email" type="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="f-budget">Budget range <span class="opt-tag">optional</span></label>
+          <select id="f-budget" name="budget">
+            <option value="">No preference</option>
+            <option>Under EGP 10M</option>
+            <option>EGP 10M &ndash; 20M</option>
+            <option>EGP 20M &ndash; 35M</option>
+            <option>EGP 35M &ndash; 50M</option>
+            <option>Above EGP 50M</option>
+          </select>
+        </div>
+
+        <div class="field" data-multi="property">
+          <label>Property type <span class="opt-tag">optional &middot; choose any</span></label>
+          <div class="chips">
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Villa">Villa</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Twinhouse">Twinhouse</button>
+            <button type="button" class="chip" data-status="limited" aria-pressed="false" data-label="Townhouse">Townhouse</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Private residence">Private residence</button>
+          </div>
+          <input type="hidden" name="property_types">
+        </div>
+
+        
+
+        <div class="field">
+          <label for="f-msg">Anything else? <span class="opt-tag">optional</span></label>
+          <textarea id="f-msg" name="message" placeholder="Timing, unit size, questions &mdash; whatever helps."></textarea>
+        </div>
+
+        <input class="hp" type="text" name="website_url" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--dark btn--full" type="submit">Send enquiry</button>
+        <p class="fmsg" role="status"></p>
+      </form>
     </div>
   </div>
 </section>
 
-<footer class="site-foot">
+<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <h4 data-en="Projects" data-ar="المشروعات"></h4>
-        <ul>
-          <li><a href="ramla.html" data-en="Ramla — North Coast" data-ar="رملة — الساحل الشمالي"></a></li>
-          <li><a href="crescent-walk.html" data-en="Crescent Walk — East Cairo" data-ar="كريسنت ووك — القاهرة الجديدة"></a></li>
-          <li><a href="district-5.html" data-en="District 5 — New Katameya" data-ar="ديستريكت ٥ — القطامية الجديدة"></a></li>
-        </ul>
+      <div><h4>Projects</h4>
+        <ul><li><a href="#">Ramla — North Coast</a></li>
+            <li><a href="#">Crescent Walk — East Cairo</a></li>
+            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+      <div><h4>Contact</h4>
+        <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hi Mohamed," href="#">WhatsApp</a></li></ul></div>
       </div>
-      <div>
-        <h4 data-en="Contact" data-ar="للتواصل"></h4>
-        <ul>
-          <li><a data-tel href="#"></a></li>
-          <li><a data-wa="Hi Mohamed," data-en="WhatsApp" data-ar="واتساب"></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-en="Official" data-ar="الموقع الرسمي"></h4>
-        <ul>
-          <li><a href="https://www.marakez.net" target="_blank" rel="noopener">marakez.net</a></li>
-          <li><span lang="en">Marakez hotline 19876</span><span lang="ar">الخط الساخن لمراكز ١٩٨٧٦</span></li>
-        </ul>
-      </div>
-    </div>
     <div class="foot-dis">
-      <p lang="en"><strong>This is not an official Marakez website.</strong> It is the personal site of Mohamed El Sabagh, who works as a <span data-agent-title-en>Sales Manager</span> at Marakez. Project information here is drawn from Marakez marketing material and is provided for general guidance only. All renders, layouts, areas, prices and payment terms are indicative and subject to change. Nothing on this site is an offer or a contract — official terms are confirmed by Marakez directly at the point of sale. For the official company website, visit marakez.net.</p>
-      <p lang="ar"><strong>هذا ليس الموقع الرسمي لشركة مراكز.</strong> إنه الموقع الشخصي لمحمد الصباغ، الذي يعمل <span data-agent-title-ar>مدير مبيعات</span> لدى مراكز. المعلومات الواردة هنا مستقاة من المواد التسويقية لمراكز، وهي للاسترشاد العام فقط. جميع الصور التوضيحية والمخططات والمساحات والأسعار وشروط السداد استرشادية وقابلة للتغيير. لا يُعد أي مما ورد في هذا الموقع عرضاً أو عقداً — تُعتمد الشروط الرسمية من مراكز مباشرةً عند التعاقد. لزيارة الموقع الرسمي للشركة: marakez.net</p>
+      <p><strong>Not an official Marakez website.</strong> Personal site of <span data-agent-name-en>Mohamed El Sabagh</span>, <span data-agent-title-en>Sales Manager at Marakez</span>. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.</p>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa="Hi Mohamed, I'm interested in Crescent Walk.">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.6 8.4-8 8.4z"/></svg>
-  <span data-en="WhatsApp" data-ar="واتساب"></span>
-</a>
+<script>
+document.querySelectorAll('.tabnav button').forEach(function(b){
+  b.addEventListener('click', function(){
+    var i = b.dataset.t;
+    b.closest('.tabnav').querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('.panel').forEach(function(p){
+      p.setAttribute('data-open', p.dataset.p === i ? 'true' : 'false');
+    });
+  });
+});
 
-<script src="assets/app.js"></script>
+var els = document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+} else { els.forEach(function(e){ e.classList.add('in'); }); }
+</script>
+<script src="assets/content.js"></script>
+<script src="assets/availability.js"></script>
+<script src="assets/form.js"></script>
+
+
+
 </body>
 </html>

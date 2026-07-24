@@ -3,247 +3,674 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Marakez Properties — Mohamed El Sabagh, Sales Consultant</title>
-<meta name="description" content="Marakez residential projects in Egypt — Ramla North Coast, Crescent Walk East Cairo, and District 5 New Katameya. Personal site of Mohamed El Sabagh, Sales Consultant at Marakez.">
+<title>Marakez Properties — Mohamed El Sabagh, Sales Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   One ground. One spine. Sections interlock rather than stack.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#ffffff;          /* single ground for the whole page */
+  --ink:#0f2429;
+  --soft:#4f6367;
+  --faint:#8ba0a3;
+  --rule:#e2e8e8;
+  --hair:#d8e0e0;
+  --accent:#14484f;
+  --sand:#c98f4f;
+  --white:#f7fafa;
+  --scrim:.72;   /* hero overlay strength — CMS: light .60 / medium .76 / strong .90 */
+
+  --display:"EB Garamond",Georgia,serif;
+  --body:"Karla",system-ui,sans-serif;
+
+  --gut:clamp(20px,5vw,80px);
+  --maxw:1280px;
+  --spine:clamp(20px,5vw,80px);   /* where the vertical rule sits */
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ── Disclosure + header ─────────────────────────────────── */
+.bar{background:var(--ink);color:#dfe3e1;font-size:.73rem;padding:8px var(--gut);text-align:center;
+  letter-spacing:.01em}
+.bar strong{color:#fff}
+
+.head{position:sticky;top:0;z-index:60;background:rgba(242,241,236,.9);backdrop-filter:blur(12px)}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hair)}
+.head-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--gut);display:flex;align-items:center;gap:26px}
+.mark{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em;
+  text-decoration:none;color:var(--ink)}
+.head nav{margin-left:auto;display:flex;gap:22px;font-size:.83rem;align-items:center}
+.head nav a{color:var(--soft);text-decoration:none;padding:3px 0;border-bottom:1.5px solid transparent}
+.head nav a:hover,.head nav a[aria-current]{color:var(--ink);border-color:var(--accent)}
+.navcta{background:var(--ink);color:#fff!important;padding:9px 18px!important;border:0!important;font-weight:600}
+@media(max-width:860px){.head nav a:not(.navcta){display:none}.head-in{gap:14px}}
+
+/* ── THE SPINE: one hairline running the whole document ──── */
+.doc{position:relative}
+.doc::before{
+  content:"";position:absolute;top:0;bottom:0;
+  left:var(--spine);width:1px;background:var(--hair);z-index:1;
+}
+@media(max-width:860px){.doc::before{display:none}}
+
+/* Section shell — all sections share the ground, so only spacing separates them */
+.sec{position:relative;z-index:2;padding:clamp(60px,8vw,120px) 0}
+.sec--tight{padding-top:0}
+
+/* Section marker sits ON the spine */
+.marker{display:none}
+.secnum{font-family:var(--display);font-size:.95rem;color:var(--sand);
+  margin-right:11px;padding-right:11px;border-right:1px solid var(--rule)}
+@media(max-width:860px){.marker{display:none}}
+
+/* Content sits to the right of the spine */
+.inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut) 0 calc(var(--spine) + 58px)}
+@media(max-width:860px){.inner{padding:0 var(--gut)}}
+
+/* ── HERO: image bleeds behind the fact rail ─────────────── */
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;
+  overflow:hidden;background:#22282a}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    /* contained pool over the text block — the rest of the render stays clear */
+    radial-gradient(120% 88% at 24% 78%,
+      rgba(5,16,19,var(--scrim,.72)) 0%,
+      rgba(5,16,19,calc(var(--scrim,.72) * .92)) 42%,
+      rgba(5,16,19,calc(var(--scrim,.72) * .45)) 66%,
+      rgba(5,16,19,0) 86%),
+    /* light floor so the fact rail meets a dark edge */
+    linear-gradient(180deg, rgba(5,16,19,0) 60%, rgba(5,16,19,.17) 85%, rgba(5,16,19,.34) 100%)}
+.hero-in{position:relative}
+/* Narrow screens: the copy sits below the image rather than over it.
+   The render stays completely untouched and contrast is guaranteed,
+   because the text is on the page background. */
+@media(max-width:820px){
+  .hero{min-height:0;display:block;background:none;overflow:visible}
+  .hero>img{position:static;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .hero::after{display:none}
+  .hero-in{padding:26px var(--gut) 30px;color:var(--ink)}
+  .hero .kicker{color:var(--accent);text-shadow:none}
+  .hero h1{color:var(--ink);text-shadow:none;max-width:20ch}
+  .hero h1 em{color:var(--accent)}
+  .hero p{color:var(--soft);text-shadow:none}
+  .hero .btn{background:var(--ink);color:#fff}
+  .hero .btn--ghost{background:transparent;color:var(--ink);
+    border:1px solid var(--rule);margin-left:8px}
+  .rail-holder{margin-top:0}
+}
+
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--gut) clamp(96px,11vw,150px);color:#fff}
+.kicker{text-shadow:0 1px 10px rgba(4,14,17,.5);font-size:.69rem;letter-spacing:.24em;text-transform:uppercase;margin:0 0 16px;
+  color:var(--sand)}
+.hero h1{text-shadow:0 1px 18px rgba(4,14,17,.42);font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5rem);
+  line-height:1.01;margin:0 0 18px;max-width:14ch;letter-spacing:-.018em}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero p{text-shadow:0 1px 12px rgba(4,14,17,.45);max-width:48ch;font-size:1.05rem;color:rgba(255,255,255,.9);margin:0 0 28px}
+
+.btn{display:inline-block;background:var(--white);color:var(--ink);text-decoration:none;
+  padding:14px 28px;font-size:.9rem;font-weight:600;border:0;cursor:pointer;font-family:inherit;
+  transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.42);margin-left:8px}
+.btn--dark{background:var(--ink);color:var(--white)}
+.btn--full{width:100%;text-align:center}
+.btn:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+
+/* ── FACT RAIL: overlaps the hero, anchored to the spine ─── */
+.rail-holder{position:relative;z-index:5;margin-top:clamp(-84px,-8vw,-64px)}
+.rail{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--white);border:1px solid var(--hair)}
+.rail>div{padding:24px clamp(16px,2vw,26px);border-right:1px solid var(--hair)}
+.rail>div:last-child{border-right:0}
+.rail dt{font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin:0 0 7px}
+.rail dd{margin:0;font-family:var(--display);font-size:1.7rem;letter-spacing:-.01em;line-height:1.1}
+.rail .sub{display:block;font-family:var(--body);font-size:.75rem;color:var(--soft);margin-top:3px}
+@media(max-width:860px){
+  .rail-holder{margin-top:-40px}
+  .rail{grid-template-columns:repeat(2,1fr);padding:0}
+  .rail>div{padding:18px 20px}
+  .rail>div:nth-child(2n){border-right:0}
+  .rail>div:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+  .rail dd{font-size:1.4rem}
+}
+
+/* ── Shared type ─────────────────────────────────────────── */
+.eyebrow{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 14px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.2vw,3.3rem);
+  line-height:1.06;margin:0 0 18px;letter-spacing:-.018em;max-width:17ch}
+h2 em{font-style:italic;color:var(--accent)}
+.lead{font-size:1.06rem;color:var(--soft);max-width:56ch;margin:0}
+
+/* ── DESCRIPTION: text left, tall image bleeding right ───── */
+.desc{max-width:64ch}
+.desc-fig{margin:clamp(34px,4.5vw,54px) 0 0;position:relative}
+.desc-fig img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.desc-fig figcaption{font-family:var(--display);font-style:italic;font-size:.95rem;
+  color:var(--faint);padding-top:11px}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);
+  margin-top:clamp(46px,6vw,76px)}
+@media(max-width:820px){.pillars{grid-template-columns:1fr;gap:0}}
+.pillar{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:820px){.pillar{padding:18px 0}}
+.pillar .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:8px}
+.pillar h3{margin:0 0 6px;font-size:.98rem;font-weight:600}
+.pillar p{margin:0;font-size:.93rem;color:var(--soft)}
+
+/* ── MASTERPLAN: pulled up, plan bleeds past the gutter ──── */
+.mp{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(30px,4vw,48px)}
+@media(max-width:980px){.mp{grid-template-columns:1fr}}
+.mp-fig{margin:0;background:var(--white);border:1px solid var(--hair);overflow:hidden}
+.mp-fig img{width:100%;height:auto}
+.mp-key{list-style:none;margin:0;padding:0}
+.mp-key li{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:11px 0;
+  border-bottom:1px solid var(--rule);align-items:baseline}
+.mp-key li:first-child{border-top:1px solid var(--rule)}
+.mp-key .k{font-family:var(--display);font-size:1rem;color:var(--sand)}
+.mp-key .v{font-size:.95rem}
+.mp-key .v small{display:block;color:var(--soft);font-size:.82rem;margin-top:2px}
+.mp-note{font-size:.78rem;color:var(--faint);margin:14px 0 0;font-style:italic}
+
+/* ── NEIGHBOURHOODS: tabs, borderless, on the ground ─────── */
+.tabs{margin-top:clamp(28px,4vw,44px)}
+.tabnav{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule)}
+.tabnav button{appearance:none;background:none;border:0;padding:13px 20px 15px;
+  font:inherit;font-size:.86rem;font-weight:600;color:var(--faint);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tabnav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabnav button:hover{color:var(--ink)}
+.tabnav button:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+@media(max-width:640px){.tabnav button{flex:1 1 33%;padding:12px 8px;font-size:.8rem}}
+
+.panel{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:clamp(24px,4vw,56px);padding-top:clamp(28px,3.5vw,42px);align-items:center}
+.panel[data-open="true"]{display:grid;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(max-width:820px){.panel[data-open="true"]{grid-template-columns:1fr}}
+.panel .sub{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);
+  font-weight:700;margin:0 0 12px}
+.panel h3{margin:0 0 12px;font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);
+  letter-spacing:-.015em}
+.panel p{margin:0 0 20px;color:var(--soft);font-size:.99rem;max-width:40ch}
+.panel .types{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.panel .types li{border:1px solid var(--rule);padding:6px 13px;font-size:.79rem;color:var(--soft)}
+.panel figure{margin:0;overflow:hidden}
+.panel figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ── USPs: hairline grid, no boxes ──────────────────────── */
+.usps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);
+  margin-top:clamp(30px,4vw,48px)}
+@media(max-width:900px){.usps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.usps{grid-template-columns:1fr;gap:0}}
+.usp{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:560px){.usp{padding:18px 0}}
+.usp .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:9px}
+.usp h3{margin:0 0 6px;font-size:.97rem;font-weight:600}
+.usp p{margin:0;font-size:.9rem;color:var(--soft);line-height:1.55}
+
+/* ── LEAD FORM: dark block, full bleed, ends the document ─ */
+.form-sec{position:relative;z-index:2;background:var(--ink);color:var(--white);
+  padding:clamp(58px,7vw,96px) 0;margin-top:clamp(40px,6vw,80px)}
+.form-sec .wrap{padding-left:calc(var(--spine) + 58px)}
+@media(max-width:860px){.form-sec .wrap{padding-left:var(--gut)}}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr}}
+.form-sec h2{color:var(--white);max-width:15ch}
+.form-sec h2 em{color:var(--sand)}
+.form-sec .eyebrow{color:var(--sand)}
+.form-sec .lead{color:rgba(255,255,255,.7)}
+.contact-line{margin-top:22px;font-size:.93rem;color:rgba(255,255,255,.7)}
+.contact-line a{color:#fff;font-weight:600}
+
+.fbox{background:var(--white);color:var(--ink);padding:clamp(26px,3vw,38px)}
+.fdis{font-size:.78rem;color:var(--soft);border-left:2px solid var(--sand);
+  padding-left:14px;margin-bottom:24px;line-height:1.5}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:.79rem;font-weight:600;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;font:inherit;
+  font-size:.94rem;border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);
+  outline-offset:1px;border-color:transparent}
+.field textarea{min-height:82px;resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+
+
+
+
+
+
+/* ── Project cards (homepage) ────────────────────────────── */
+.projcards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px);
+  margin-top:clamp(34px,4vw,52px)}
+@media(max-width:900px){.projcards{grid-template-columns:1fr;gap:26px}}
+.projcard{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  border:1px solid var(--rule);background:var(--white);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s,border-color .35s}
+.projcard:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(15,36,41,.10);border-color:var(--hair)}
+.projcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.projcard figure{margin:0;overflow:hidden;aspect-ratio:4/3;background:var(--rule)}
+.projcard figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.projcard:hover figure img{transform:scale(1.04)}
+.pc-body{padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;flex:1}
+.pc-loc{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);
+  font-weight:700;margin:0 0 8px}
+.projcard h3{font-family:var(--display);font-weight:400;font-size:1.75rem;margin:0 0 9px;
+  letter-spacing:-.015em}
+.pc-body>p{margin:0 0 14px;font-size:.93rem;color:var(--soft);flex:1}
+.pc-go{font-size:.83rem;font-weight:700;color:var(--accent);margin-top:14px}
+
+
+
+/* ── Wider portfolio list ────────────────────────────────── */
+.portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,3vw,48px);
+  margin-top:clamp(28px,3.5vw,44px)}
+@media(max-width:820px){.portfolio{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.portfolio{grid-template-columns:1fr}}
+.pf{padding:15px 0;border-top:1px solid var(--rule)}
+.pf h4{margin:0 0 3px;font-size:.96rem;font-weight:600}
+.pf p{margin:0;font-size:.86rem;color:var(--soft);line-height:1.5}
+.pf .pf-loc{color:var(--sand);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;display:block;margin-bottom:5px}
+
+/* ── Logo slots (image from CMS, text wordmark as fallback) ─ */
+.mark{display:inline-flex;align-items:center;gap:10px;line-height:1}
+.mark img{height:26px;width:auto;display:none}
+.mark img[src]:not([src=""]){display:block}
+.mark img[src]:not([src=""]) + .marktext{display:none}
+.marktext{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em}
+
+.projlogo{height:30px;width:auto;margin-bottom:12px;display:none}
+.projlogo[src]:not([src=""]){display:block}
+
+/* ── Availability states on chips ────────────────────────── */
+.chip{position:relative}
+.chip[data-status="limited"]::after{
+  content:"Few left";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--sand);color:#1b1204;font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chip[data-status="sold_out"]{
+  color:var(--faint);background:transparent;border-style:dashed;
+  cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px;
+  text-decoration-color:var(--faint)}
+.chip[data-status="sold_out"]:hover{border-color:var(--rule);color:var(--faint)}
+.chip[data-status="sold_out"]::after{
+  content:"Sold out";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--rule);color:var(--soft);font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chipnote{font-size:.78rem;color:var(--faint);margin:9px 0 0}
+
+/* Availability badge on the tab panels */
+.availbadge{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  padding:4px 10px;margin-bottom:12px;border-radius:2px}
+.availbadge[data-status="available"]{background:rgba(20,72,79,.09);color:var(--accent)}
+.availbadge[data-status="limited"]{background:rgba(201,143,79,.16);color:#8a5a22}
+.availbadge[data-status="sold_out"]{background:var(--rule);color:var(--soft)}
+.availbadge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* ── Lead form controls ──────────────────────────────────── */
+.req{color:var(--sand);font-weight:400}
+.opt-tag{color:var(--faint);font-weight:400;font-size:.72rem;letter-spacing:.04em}
+.ferr{display:none;color:#b4402f;font-size:.79rem;margin-top:6px}
+.fmsg{margin-top:14px;font-size:.9rem;display:none}
+.fmsg.ok{display:block;color:#1d6b45}
+.fmsg.err{display:block;color:#b4402f}
+
+/* phone row */
+.phone-row{display:flex;gap:8px;position:relative}
+.cc-btn{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:var(--paper);
+  border:1px solid var(--rule);padding:12px 13px;font:inherit;font-size:.94rem;cursor:pointer;
+  color:var(--ink);white-space:nowrap}
+.cc-btn:hover{border-color:var(--accent)}
+.cc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.cc-caret{font-size:.62rem;color:var(--faint)}
+.phone-row input[type=tel]{flex:1 1 auto;min-width:0}
+.cc-pop{position:absolute;z-index:70;top:calc(100% + 5px);left:0;width:min(330px,100%);
+  background:#fff;border:1px solid var(--rule);box-shadow:0 14px 38px rgba(0,0,0,.15)}
+.cc-search{width:100%;padding:11px 13px;font:inherit;font-size:.92rem;border:0;
+  border-bottom:1px solid var(--rule);background:#fff;color:var(--ink)}
+.cc-search:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.cc-list{list-style:none;margin:0;padding:0;max-height:260px;overflow-y:auto}
+.cc-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;
+  font-size:.9rem;cursor:pointer}
+.cc-list li:hover,.cc-list li:focus{background:var(--paper);outline:none}
+.cc-list .cc-num{color:var(--faint);font-variant-numeric:tabular-nums}
+.cc-list .cc-none{color:var(--faint);cursor:default;justify-content:center}
+
+/* chips for multi-select */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{appearance:none;background:var(--paper);border:1px solid var(--rule);
+  padding:8px 14px;font:inherit;font-size:.84rem;color:var(--soft);cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hp{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.foot{background:#0e1112;color:#9aa4a2;padding:clamp(44px,5vw,68px) 0 30px;font-size:.89rem;
+  position:relative;z-index:2}
+.foot a{color:#fff;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:30px;margin-bottom:34px}
+.foot h4{color:#fff;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 13px;font-weight:700}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot li{margin-bottom:7px}
+.foot-dis{border-top:1px solid rgba(255,255,255,.13);padding-top:22px;font-size:.78rem;
+  line-height:1.62;color:#78827f}
+.foot-dis strong{color:#bcc4c2}
+
+/* ── Scroll reveal ──────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+@media(max-width:860px){
+  .sec{padding:52px 0}
+  h2{font-size:1.85rem}
+}
+</style>
 </head>
-<body class="t-marakez">
+<body data-project="home">
 
-<div class="disclose">
-  <span lang="en">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</span>
-  <span lang="ar">الموقع الشخصي لـ <strong data-agent-name-ar>محمد الصباغ</strong>، <span data-agent-title-ar>مدير مبيعات، مراكز</span>. هذا ليس الموقع الرسمي لمراكز.</span>
-</div>
+<div class="bar">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</div>
 
-<header class="site-head">
+<header class="head">
   <div class="head-in">
-    <a class="brand" href="index.html">Marakez<span style="color:var(--accent)">.</span></a>
-    <nav class="nav">
-      <a href="ramla.html" data-en="Ramla" data-ar="رملة">Ramla</a>
-      <a href="crescent-walk.html" data-en="Crescent Walk" data-ar="كريسنت ووك">Crescent Walk</a>
-      <a href="district-5.html" data-en="District 5" data-ar="ديستريكت ٥">District 5</a>
-      <a href="#enquire" class="nav-keep" data-en="Enquire" data-ar="تواصل">Enquire</a>
-      <button class="lang nav-keep" type="button">العربية</button>
+    <a class="mark" href="index.html"><img data-logo="marakez" alt="Marakez"><span class="marktext">Marakez</span></a>
+    <nav>
+      <a href="ramla.html">Ramla</a>
+      <a href="crescent-walk.html">Crescent Walk</a>
+      <a href="district-5.html">District 5</a>
+      <a class="navcta" href="#enquire">Request prices</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow" data-en="Marakez — Egypt" data-ar="مراكز — مصر"></p>
-    <h1>
-      <span lang="en">Three places to live, from Egypt's leading mixed-use developer.</span>
-      <span lang="ar">ثلاثة أماكن للحياة، من أكبر مطوّر متعدد الاستخدامات في مصر.</span>
-    </h1>
-    <p class="lead">
-      <span lang="en">Marakez builds communities where homes, shops, offices and open space sit within walking distance of each other. I'm Mohamed El Sabagh, a sales consultant at Marakez — I'll walk you through the three residential projects below and help you find the right fit.</span>
-      <span lang="ar">تبني مراكز مجتمعات تجمع بين المنازل والمتاجر والمكاتب والمساحات المفتوحة على مسافة قريبة من بعضها. أنا محمد الصباغ، مستشار مبيعات في مراكز — سأساعدك في التعرّف على المشروعات السكنية الثلاثة أدناه واختيار الأنسب لك.</span>
-    </p>
-    <p style="margin-top:2rem">
-      <a class="btn" href="#projects" data-en="See the projects" data-ar="استعرض المشروعات"></a>
-    </p>
+  <img src="assets/img/marakez/hero.jpeg" alt="Marakez developments">
+  <div class="hero-in">
+    <p class="kicker">Marakez · Egypt</p>
+    <h1>The Leading Mixed-Use <em>Developer in Egypt.</em></h1>
+    <p>Marakez builds mixed-use communities across Egypt &mdash; where the mall, the offices and the open space are part of the plan, not a promise for a later phase.</p>
+    <a class="btn" href="#enquire">Request prices &amp; availability</a>
+    <a class="btn btn--ghost" href="#">WhatsApp</a>
   </div>
 </section>
 
-<div class="facts">
-  <div class="facts-in">
-    <div class="fact">
-      <div class="k" data-en="Founded" data-ar="التأسيس"></div>
-      <div class="v">1989</div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Retail managed" data-ar="مساحات تجارية"></div>
-      <div class="v"><span lang="en">1.5M sqm</span><span lang="ar">١.٥ مليون م٢</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Shopping malls" data-ar="مراكز تجارية"></div>
-      <div class="v">21+</div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="Countries" data-ar="دول"></div>
-      <div class="v">11</div>
-    </div>
-  </div>
+<div class="rail-holder">
+  <dl class="rail">
+    <div><dt>Founded</dt><dd>1989<span class="sub">Fawaz Al Hokair Group</span></dd></div>
+    <div><dt>Retail managed</dt><dd>1.5M sqm<span class="sub">Across 21 malls</span></dd></div>
+    <div><dt>Countries</dt><dd>11<span class="sub">MENA, Europe, USA</span></dd></div>
+    <div><dt>Available now</dt><dd>Three<span class="sub">Coast, garden, city</span></dd></div>
+  </dl>
 </div>
 
-<section class="sec" id="projects">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="Residential" data-ar="المشروعات السكنية"></p>
-      <h2>
-        <span lang="en">Coast, garden district, and city.</span>
-        <span lang="ar">الساحل، والحي الأخضر، والمدينة.</span>
-      </h2>
+<div class="doc">
+
+  <section class="sec">
+    <div class="inner">
+      <div class="desc rv">
+        <p class="eyebrow"><span class="secnum">01</span>Residential projects</p>
+        <h2>Coast, garden district, <em>and city.</em></h2>
+        <p class="lead">Three residential communities, each solving a different problem: a summer place on the north coast, a low-density family neighbourhood in East Cairo, or a home inside a development where the mall and the offices are a walk away.</p>
+      </div>
+
+      <div class="projcards">
+        <a class="projcard rv" href="ramla.html">
+          <figure><img src="assets/img/marakez/card-ramla.jpeg" alt="Ramla" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">North Coast &middot; Ras El Hekma</p>
+            <h3>Ramla</h3>
+            <p>A beachside village on 1.4&nbsp;km of white sand, with six neighbourhoods, a swimmable lagoon and rare natural tidal pools.</p>
+            <ul class="types"><li>Villas</li><li>Chalets</li></ul>
+            <span class="pc-go">Explore Ramla &rarr;</span>
+          </div>
+        </a>
+
+        <a class="projcard rv" href="crescent-walk.html">
+          <figure><img src="assets/img/marakez/card-crescent.jpeg" alt="Crescent Walk" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">East Cairo</p>
+            <h3>Crescent Walk</h3>
+            <p>118 acres built around a green pathway you can walk or cycle end to end, with a back gate from every home onto the park.</p>
+            <ul class="types"><li>Villas</li><li>Twinhomes</li><li>Townhomes</li></ul>
+            <span class="pc-go">Explore Crescent Walk &rarr;</span>
+          </div>
+        </a>
+
+        <a class="projcard rv" href="district-5.html">
+          <figure><img src="assets/img/marakez/card-d5.jpeg" alt="District 5" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">New Katameya</p>
+            <h3>District 5</h3>
+            <p>268 acres where homes, the D5M mall, Mindhaus offices and Clubfive share one address. Seven minutes from Road 90.</p>
+            <ul class="types"><li>Apartments</li><li>Villas</li><li>Offices</li></ul>
+            <span class="pc-go">Explore District 5 &rarr;</span>
+          </div>
+        </a>
+      </div>
     </div>
+  </section>
 
-    <div class="cards">
+  <section class="sec sec--tight">
+    <div class="inner">
+      <div class="desc rv">
+        <p class="eyebrow"><span class="secnum">02</span>About Marakez</p>
+        <h2>The developer behind <em>Mall of Arabia.</em></h2>
+        <p class="lead">Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus.</p>
+      </div>
 
-      <a class="card rv" href="ramla.html">
-        <div class="card-img"><img src="assets/img/ramla/p13.jpeg" alt="Ramla, Ras El Hekma" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-loc" data-en="North Coast · Ras El Hekma" data-ar="الساحل الشمالي · رأس الحكمة"></div>
-          <h3><span lang="en">Ramla</span><span lang="ar">رملة</span></h3>
-          <p>
-            <span lang="en">A beachside village on 1.4 km of white sand, with six neighbourhoods, a lagoon at its centre and rare natural tidal pools along the shore.</span>
-            <span lang="ar">قرية على شاطئ يمتد ١.٤ كم من الرمال البيضاء، تضم ستة أحياء وبحيرة في قلبها وبِرَك مدّية طبيعية نادرة على امتداد الشاطئ.</span>
-          </p>
-          <div class="card-go" data-en="Explore Ramla →" data-ar="← تعرّف على رملة"></div>
-        </div>
-      </a>
-
-      <a class="card rv" href="crescent-walk.html">
-        <div class="card-img"><img src="assets/img/crescent/p11.jpeg" alt="Crescent Walk, East Cairo" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-loc" data-en="East Cairo" data-ar="القاهرة الجديدة"></div>
-          <h3><span lang="en">Crescent Walk</span><span lang="ar">كريسنت ووك</span></h3>
-          <p>
-            <span lang="en">118 acres built around a green spine you can walk or cycle end to end — an homage to the garden neighbourhoods of old Cairo.</span>
-            <span lang="ar">١١٨ فداناً حول محور أخضر يمكنك السير أو ركوب الدراجة على امتداده — استلهاماً من أحياء القاهرة ذات الحدائق.</span>
-          </p>
-          <div class="card-go" data-en="Explore Crescent Walk →" data-ar="← تعرّف على كريسنت ووك"></div>
-        </div>
-      </a>
-
-      <a class="card rv" href="district-5.html">
-        <div class="card-img"><img src="assets/img/d5/p13.jpeg" alt="District 5, New Katameya" loading="lazy"></div>
-        <div class="card-body">
-          <div class="card-loc" data-en="New Katameya" data-ar="القطامية الجديدة"></div>
-          <h3><span lang="en">District 5</span><span lang="ar">ديستريكت ٥</span></h3>
-          <p>
-            <span lang="en">268 acres where homes, the D5M mall, Mindhaus offices and Clubfive share one address. Seven minutes from Road 90.</span>
-            <span lang="ar">٢٦٨ فداناً تجمع المنازل ومول D5M ومكاتب مايندهاوس ونادي كلوب فايف في عنوان واحد. على بُعد ٧ دقائق من التسعين.</span>
-          </p>
-          <div class="card-go" data-en="Explore District 5 →" data-ar="← تعرّف على ديستريكت ٥"></div>
-        </div>
-      </a>
-
+      <div class="pillars">
+        <div class="pillar rv"><span class="n">i</span>
+          <h3>Part of Fawaz Al Hokair Group</h3>
+          <p>Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries.</p></div>
+        <div class="pillar rv"><span class="n">ii</span>
+          <h3>Retail comes built in</h3>
+          <p>Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later.</p></div>
+        <div class="pillar rv"><span class="n">iii</span>
+          <h3>International design partners</h3>
+          <p>WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture.</p></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="sec sec--wash">
-  <div class="wrap">
-    <div class="split">
+  <section class="sec sec--tight">
+    <div class="inner">
       <div class="rv">
-        <p class="eyebrow" data-en="About Marakez" data-ar="عن مراكز"></p>
-        <h2>
-          <span lang="en">The developer behind Mall of Arabia.</span>
-          <span lang="ar">المطوّر صاحب مول العرب.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus.</span>
-          <span lang="ar">أنشأت مراكز أول حديقة داخل مركز تجاري في مصر، وأول برج سكني خارج وسط القاهرة، وأول مول بمعايير عالمية في إحدى المحافظات. وتضم محفظتها مول العرب، ومول طنطا، ومول المنصورة، وتاون سنتر، وD5M، وأيون، ومايندهاوس.</span>
-        </p>
-        <p>
-          <span lang="en">The company is part of the Fawaz Al Hokair Group, founded in 1989, which manages more than 1.5 million square metres of retail across 21 shopping malls in 11 countries.</span>
-          <span lang="ar">الشركة جزء من مجموعة فواز الحكير، التي تأسست عام ١٩٨٩، وتدير أكثر من ١.٥ مليون متر مربع من المساحات التجارية عبر ٢١ مركزاً تجارياً في ١١ دولة.</span>
-        </p>
+        <p class="eyebrow"><span class="secnum">03</span>The wider portfolio</p>
+        <h2>What else Marakez <em>has built.</em></h2>
+        <p class="lead">Beyond the three residential projects above, the portfolio covers malls, offices and entertainment across Egypt. I can answer questions on any of them.</p>
       </div>
-      <div class="split-img rv"><img src="assets/img/marakez/p15.jpeg" alt="Mall of Arabia" loading="lazy"></div>
+      <div class="portfolio">
+        <div class="pf rv"><span class="pf-loc">6th of October</span><h4>Mall of Arabia</h4>
+          <p>621,000 sqm with over 350 stores, cinemas and The Park &mdash; 34,000 sqm of greenery inside the mall.</p></div>
+        <div class="pf rv"><span class="pf-loc">West Cairo</span><h4>Aeon Towers &amp; Courtyards</h4>
+          <p>21 acres. The first high-rise residential buildings in West Cairo, plus mid-rise apartments from 90 to 270 sqm.</p></div>
+        <div class="pf rv"><span class="pf-loc">New Katameya</span><h4>D5M</h4>
+          <p>The first shopping mall in New Katameya, at the heart of District 5.</p></div>
+        <div class="pf rv"><span class="pf-loc">New Katameya</span><h4>Mindhaus</h4>
+          <p>An office campus and strip &mdash; 106,000 sqm with over 110 modules, plus boutique buildings from 600 to 2,400 sqm.</p></div>
+        <div class="pf rv"><span class="pf-loc">Gharbeya</span><h4>Mall of Tanta</h4>
+          <p>35,000 sqm of leasable area, 140+ shops, a hypermarket and multiplex cinemas.</p></div>
+        <div class="pf rv"><span class="pf-loc">Dakahlia</span><h4>Mall of Mansoura</h4>
+          <p>155,000 sqm open mall around three plazas &mdash; the first planned public realm in the city.</p></div>
+        <div class="pf rv"><span class="pf-loc">Cairo</span><h4>Town Center</h4>
+          <p>64,000 sqm with a hypermarket, retail and everyday services including a post office and pharmacy.</p></div>
+        <div class="pf rv"><span class="pf-loc">Mall of Arabia</span><h4>Billy Beez &amp; The Park</h4>
+          <p>Indoor play for ages 3&ndash;12, and 34,000 sqm of outdoor greenery at the mall&rsquo;s core.</p></div>
+        <div class="pf rv"><span class="pf-loc">Group</span><h4>FAS Construction &amp; Energy</h4>
+          <p>The group&rsquo;s construction arm and its renewable energy subsidiary, including a 62.5 MW solar plant at Benban.</p></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="sec" id="enquire">
-  <div class="wrap">
-    <div class="split">
+  <section class="sec sec--tight">
+    <div class="inner">
       <div class="rv">
-        <p class="eyebrow" data-en="Get in touch" data-ar="تواصل معي"></p>
-        <h2>
-          <span lang="en">Tell me what you're looking for.</span>
-          <span lang="ar">أخبرني بما تبحث عنه.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">Send a message and I'll come back with current availability, prices and payment plans for the projects that fit. No obligation.</span>
-          <span lang="ar">أرسل رسالة وسأوافيك بالوحدات المتاحة والأسعار وخطط السداد الحالية للمشروعات المناسبة لك. دون أي التزام.</span>
-        </p>
-        <p style="margin-top:2rem">
-          <a class="btn btn--wa" data-wa="Hi Mohamed, I'd like to know more about Marakez projects."
-             data-en="Message me on WhatsApp" data-ar="راسلني على واتساب"></a>
-        </p>
-        <p style="font-size:.92rem;color:var(--ink-soft)">
-          <span lang="en">Or call </span><span lang="ar">أو اتصل على </span>
-          <a data-tel href="#" style="font-weight:600"></a>
-        </p>
+        <p class="eyebrow"><span class="secnum">04</span>Working with me</p>
+        <h2>What you get from <em>a direct line.</em></h2>
       </div>
+      <div class="usps">
+        <div class="usp rv"><span class="n">i</span><h3>Current availability</h3>
+          <p>What's actually released this week, not what a portal listed last month.</p></div>
+        <div class="usp rv"><span class="n">ii</span><h3>The real payment plan</h3>
+          <p>Plans and offers change through the season. You get this month's terms, in writing.</p></div>
+        <div class="usp rv"><span class="n">iii</span><h3>Honest comparison</h3>
+          <p>If another project fits you better than the one you asked about, I'll say so.</p></div>
+        <div class="usp rv"><span class="n">iv</span><h3>No middleman</h3>
+          <p>I work at Marakez. Your enquiry reaches me, not a call centre queue.</p></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="formwrap rv">
-        <div class="fdis">
-          <span lang="en">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</span>
-          <span lang="ar">تصل بياناتك إلى <span data-agent-name-ar>محمد الصباغ</span> مباشرةً. هذا النموذج غير مُشغَّل من قِبل شركة مراكز.</span>
+</div><!-- /doc -->
+
+<section class="form-sec" id="enquire">
+  <div class="wrap form-grid">
+    <div>
+      <p class="eyebrow">Enquire</p>
+      <h2>Tell me what <em>you’re looking for.</em></h2>
+      <p class="lead">Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation.</p>
+      <p class="contact-line">Or message directly on <a data-wa="Hi Mohamed," href="#">WhatsApp</a> · <a data-tel href="#">+20 122 017 0162</a></p>
+    </div>
+    <div class="fbox">
+      <div class="fdis">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</div>
+      <form data-lead="Homepage" novalidate>
+        
+
+        <div class="field">
+          <label for="f-name">Name <span class="req">*</span></label>
+          <input id="f-name" type="text" name="name" required placeholder="Your full name">
         </div>
-        <form data-lead="General enquiry">
-          <div class="frow">
-            <div class="field">
-              <label for="index-f1" data-en="Name" data-ar="الاسم"></label><input id="index-f1" type="text" name="name" required data-ph-en="Your full name" data-ph-ar="الاسم بالكامل">
+
+        <div class="field" data-phone-field>
+          <label for="f-phone">Phone <span class="req">*</span></label>
+          <div class="phone-row" data-phone>
+            <button type="button" class="cc-btn" aria-expanded="false" aria-haspopup="listbox">
+              <span class="cc-dial">+20</span><span class="cc-caret">&#9660;</span>
+            </button>
+            <input id="f-phone" type="tel" name="phone_local" required
+                   inputmode="tel" autocomplete="tel" placeholder="01221011789">
+            <div class="cc-pop" hidden>
+              <input type="text" class="cc-search" placeholder="Search country or code"
+                     aria-label="Search for a country">
+              <ul class="cc-list" role="listbox" aria-label="Country codes"></ul>
             </div>
-            <div class="field">
-              <label for="index-f2" data-en="Phone" data-ar="رقم الهاتف"></label><input id="index-f2" type="tel" name="phone" required data-ph-en="+20 ..." data-ph-ar="+20 ...">
-            </div>
           </div>
-          <div class="field">
-            <label for="index-f3" data-en="Email" data-ar="البريد الإلكتروني"></label><input id="index-f3" type="email" name="email" data-ph-en="Optional" data-ph-ar="اختياري">
+          <p class="ferr" role="alert"></p>
+          <input type="hidden" name="phone_e164">
+          <input type="hidden" name="phone_country">
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email <span class="opt-tag">optional</span></label>
+          <input id="f-email" type="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="f-budget">Budget range <span class="opt-tag">optional</span></label>
+          <select id="f-budget" name="budget">
+            <option value="">No preference</option>
+            <option>Under EGP 10M</option>
+            <option>EGP 10M &ndash; 20M</option>
+            <option>EGP 20M &ndash; 35M</option>
+            <option>EGP 35M &ndash; 50M</option>
+            <option>Above EGP 50M</option>
+          </select>
+        </div>
+
+        <div class="field" data-multi="projects">
+          <label>Which project? <span class="opt-tag">choose any</span></label>
+          <div class="chips">
+            <button type="button" class="chip" aria-pressed="false" data-label="Ramla">Ramla</button>
+            <button type="button" class="chip" aria-pressed="false" data-label="Crescent Walk">Crescent Walk</button>
+            <button type="button" class="chip" aria-pressed="false" data-label="District 5">District 5</button>
+            <button type="button" class="chip" aria-pressed="false" data-label="Not sure yet">Not sure yet</button>
           </div>
-          <div class="field">
-            <label for="index-f4" data-en="Which project interests you?" data-ar="ما المشروع الذي يهمك؟"></label><select id="index-f4" name="interest">
-              <option value="Ramla" data-en="Ramla — North Coast" data-ar="رملة — الساحل الشمالي"></option>
-              <option value="Crescent Walk" data-en="Crescent Walk — East Cairo" data-ar="كريسنت ووك — القاهرة الجديدة"></option>
-              <option value="District 5" data-en="District 5 — New Katameya" data-ar="ديستريكت ٥ — القطامية الجديدة"></option>
-              <option value="Not sure yet" data-en="Not sure yet" data-ar="لم أقرر بعد"></option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="index-f5" data-en="Anything else?" data-ar="أي تفاصيل أخرى؟"></label><textarea id="index-f5" name="message" data-ph-en="Budget, unit type, timing — whatever helps." data-ph-ar="الميزانية، نوع الوحدة، التوقيت — أي تفاصيل تساعدني."></textarea>
-          </div>
-          <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-          <button class="btn btn--full" type="submit" data-en="Send enquiry" data-ar="إرسال الطلب"></button>
-          <div class="fmsg"></div>
-        </form>
-      </div>
+          <input type="hidden" name="projects">
+        </div>
+
+        
+
+        <div class="field">
+          <label for="f-msg">Anything else? <span class="opt-tag">optional</span></label>
+          <textarea id="f-msg" name="message" placeholder="Timing, unit size, questions &mdash; whatever helps."></textarea>
+        </div>
+
+        <input class="hp" type="text" name="website_url" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--dark btn--full" type="submit">Send enquiry</button>
+        <p class="fmsg" role="status"></p>
+      </form>
     </div>
   </div>
 </section>
 
-<footer class="site-foot">
+<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <h4 data-en="Projects" data-ar="المشروعات"></h4>
-        <ul>
-          <li><a href="ramla.html" data-en="Ramla — North Coast" data-ar="رملة — الساحل الشمالي"></a></li>
-          <li><a href="crescent-walk.html" data-en="Crescent Walk — East Cairo" data-ar="كريسنت ووك — القاهرة الجديدة"></a></li>
-          <li><a href="district-5.html" data-en="District 5 — New Katameya" data-ar="ديستريكت ٥ — القطامية الجديدة"></a></li>
-        </ul>
+      <div><h4>Projects</h4>
+        <ul><li><a href="#">Ramla — North Coast</a></li>
+            <li><a href="#">Crescent Walk — East Cairo</a></li>
+            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+      <div><h4>Contact</h4>
+        <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hi Mohamed," href="#">WhatsApp</a></li></ul></div>
       </div>
-      <div>
-        <h4 data-en="Contact" data-ar="للتواصل"></h4>
-        <ul>
-          <li><a data-tel href="#"></a></li>
-          <li><a data-wa="Hi Mohamed," data-en="WhatsApp" data-ar="واتساب"></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-en="Official" data-ar="الموقع الرسمي"></h4>
-        <ul>
-          <li><a href="https://www.marakez.net" target="_blank" rel="noopener">marakez.net</a></li>
-          <li><span lang="en">Marakez hotline 19876</span><span lang="ar">الخط الساخن لمراكز ١٩٨٧٦</span></li>
-        </ul>
-      </div>
-    </div>
     <div class="foot-dis">
-      <p lang="en"><strong>This is not an official Marakez website.</strong> It is the personal site of Mohamed El Sabagh, who works as a <span data-agent-title-en>Sales Manager</span> at Marakez. Project information here is drawn from Marakez marketing material and is provided for general guidance only. All renders, layouts, areas, prices and payment terms are indicative and subject to change. Nothing on this site is an offer or a contract — official terms are confirmed by Marakez directly at the point of sale. For the official company website, visit marakez.net.</p>
-      <p lang="ar"><strong>هذا ليس الموقع الرسمي لشركة مراكز.</strong> إنه الموقع الشخصي لمحمد الصباغ، الذي يعمل <span data-agent-title-ar>مدير مبيعات</span> لدى مراكز. المعلومات الواردة هنا مستقاة من المواد التسويقية لمراكز، وهي للاسترشاد العام فقط. جميع الصور التوضيحية والمخططات والمساحات والأسعار وشروط السداد استرشادية وقابلة للتغيير. لا يُعد أي مما ورد في هذا الموقع عرضاً أو عقداً — تُعتمد الشروط الرسمية من مراكز مباشرةً عند التعاقد. لزيارة الموقع الرسمي للشركة: marakez.net</p>
+      <p><strong>Not an official Marakez website.</strong> Personal site of <span data-agent-name-en>Mohamed El Sabagh</span>, <span data-agent-title-en>Sales Manager at Marakez</span>. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.</p>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa="Hi Mohamed, I'd like to know more about Marakez projects.">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.6 8.4-8 8.4z"/></svg>
-  <span data-en="WhatsApp" data-ar="واتساب"></span>
-</a>
+<script>
+document.querySelectorAll('.tabnav button').forEach(function(b){
+  b.addEventListener('click', function(){
+    var i = b.dataset.t;
+    b.closest('.tabnav').querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('.panel').forEach(function(p){
+      p.setAttribute('data-open', p.dataset.p === i ? 'true' : 'false');
+    });
+  });
+});
 
-<script src="assets/app.js"></script>
+var els = document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+} else { els.forEach(function(e){ e.classList.add('in'); }); }
+</script>
+<script src="assets/content.js"></script>
+<script src="assets/availability.js"></script>
+<script src="assets/form.js"></script>
+
+
+
 </body>
 </html>

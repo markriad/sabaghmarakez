@@ -28,16 +28,448 @@
     }
   ],
   "offers": [],
-  "heroImage": "assets/img/d5/p13.jpeg",
-  "gallery": [
+  "heroImage": "assets/img/d5/hero.jpeg",
+  "heroScrim": "strong",
+  "propertyTypes": [
     {
-      "image": "assets/img/d5/p20.jpeg"
+      "label_en": "Apartment",
+      "label_ar": "شقة",
+      "status": "available"
     },
     {
-      "image": "assets/img/d5/p44.jpeg"
+      "label_en": "Townhome",
+      "label_ar": "تاون هاوس",
+      "status": "available"
     },
     {
-      "image": "assets/img/d5/p49.jpeg"
+      "label_en": "Court home",
+      "label_ar": "كورت هاوس",
+      "status": "sold_out"
+    },
+    {
+      "label_en": "Twinhouse",
+      "label_ar": "توين هاوس",
+      "status": "limited"
+    },
+    {
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "status": "available"
     }
-  ]
+  ],
+  "officeFormats": [
+    {
+      "label_en": "Private",
+      "label_ar": "مستقل",
+      "status": "available"
+    },
+    {
+      "label_en": "Twin",
+      "label_ar": "مزدوج",
+      "status": "available"
+    },
+    {
+      "label_en": "Quad",
+      "label_ar": "رباعي",
+      "status": "limited"
+    },
+    {
+      "label_en": "Campus module",
+      "label_ar": "وحدة بالحرم",
+      "status": "available"
+    },
+    {
+      "label_en": "Not sure yet",
+      "label_ar": "لم أقرر بعد",
+      "status": "available"
+    }
+  ],
+  "logos": {
+    "marakez": "",
+    "project": ""
+  },
+  "en": {
+    "hero_kicker": "New Katameya · East Cairo",
+    "hero_title": "Live, work and shop at one address.",
+    "hero_title_em": "at one address.",
+    "hero_text": "268 acres in New Katameya where homes, the D5M mall, Mindhaus offices and Clubfive are a walk from each other. Seven minutes from Road 90.",
+    "facts": [
+      {
+        "label": "Location",
+        "value": "New Katameya",
+        "sub": "Cairo–Ain Sokhna Rd"
+      },
+      {
+        "label": "Land area",
+        "value": "268 acres",
+        "sub": "Integrated mixed-use"
+      },
+      {
+        "label": "To Road 90",
+        "value": "7 min",
+        "sub": "AUC 8 min · Maadi 13 min"
+      },
+      {
+        "label": "Developer",
+        "value": "Marakez",
+        "sub": "Flagship East Cairo project"
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "Five journeys, one destination.",
+        "title_em": "one destination.",
+        "lead": "District 5 is Marakez’s flagship East Cairo development — 268 acres on the Cairo–Ain Sokhna highway at the centre of New Katameya. Because Marakez builds malls first, the retail and workspace are part of the plan rather than promised for a later phase: homes, the D5M mall, Mindhaus offices and the Clubfive sports club all share one address."
+      },
+      {
+        "eyebrow": "Masterplan",
+        "title": "How District 5 is laid out.",
+        "title_em": "laid out.",
+        "lead": "A single 268-acre plan holding the residential neighbourhoods, the commercial zone and the office campus."
+      },
+      {
+        "eyebrow": "What’s available",
+        "title": "Homes and offices, same address.",
+        "title_em": "same address.",
+        "lead": "District 5 sells both. Choose which you’re looking for."
+      },
+      {
+        "eyebrow": "Residences",
+        "title": "Four ways to live here.",
+        "title_em": "live here.",
+        "lead": "Apartments through to standalone villas, spread across four neighbourhoods inside the development."
+      },
+      {
+        "eyebrow": "Mindhaus",
+        "title": "Workspace inside the gates.",
+        "title_em": "inside the gates.",
+        "lead": "Marakez’s office product at District 5, split between a campus and a strip, both in the non-residential zone with their own road access."
+      },
+      {
+        "eyebrow": "Enquire",
+        "title": "Availability changes weekly.",
+        "title_em": "weekly.",
+        "lead": "Send your details and receive current prices, released units and this month’s payment plan for District 5. No obligation."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Connected both ways",
+        "text": "Two bridges built over the Ain Sokhna highway link District 5 back to New Cairo. Road 90 in seven minutes, the airport in nineteen."
+      },
+      {
+        "title": "Wadi Degla on the doorstep",
+        "text": "The protectorate runs along the southern edge, so open desert is minutes away when you want it."
+      },
+      {
+        "title": "Everything walkable",
+        "text": "Trails, bike lanes and landscaped parks connect the neighbourhoods to the mall, the offices and the club."
+      }
+    ],
+    "usps": [
+      {
+        "title": "D5M mall on site",
+        "text": "The first mall in New Katameya — fashion, cinemas, food court and a kids zone."
+      },
+      {
+        "title": "Clubfive",
+        "text": "The sports and social club sits at the centre of the residential zone."
+      },
+      {
+        "title": "Dstreet dining",
+        "text": "A dining strip developed with established restaurateurs rather than filled with whoever signs first."
+      },
+      {
+        "title": "Work five minutes away",
+        "text": "Mindhaus is inside the development, so the commute can be a walk."
+      },
+      {
+        "title": "76,000 sqm site",
+        "text": "The Strip runs across 76,000 sqm of land with 45,000 sqm built-up area."
+      },
+      {
+        "title": "Eight minutes to Road 90",
+        "text": "Connectivity to the business district without the traffic or the parking problem."
+      },
+      {
+        "title": "Retail at the door",
+        "text": "D5M and Dstreet are walkable, so staff have lunch and shops on site."
+      },
+      {
+        "title": "Flexible internally",
+        "text": "One, two or four separate vertical units, with common areas for each office."
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "1",
+        "title": "Mindhaus Campus",
+        "sub": "Offices & retail modules"
+      },
+      {
+        "num": "2",
+        "title": "D5M",
+        "sub": "The mall"
+      },
+      {
+        "num": "3",
+        "title": "Mindhaus Strip",
+        "sub": "Boutique office buildings"
+      },
+      {
+        "num": "4",
+        "title": "Dstreet",
+        "sub": "Dining"
+      },
+      {
+        "num": "5",
+        "title": "Clubfive",
+        "sub": "Sports & social club"
+      },
+      {
+        "num": "6",
+        "title": "Residences",
+        "sub": "Plateau, Clubside, D Parks, villas"
+      }
+    ],
+    "panels": [
+      {
+        "sub": "Apartments",
+        "title": "The Plateau",
+        "text": "On the highest ground in the development, with underground parking and storage — a first for District 5. Efficient one to three-bedroom units, some with roof terraces looking over the whole site."
+      },
+      {
+        "sub": "Apartments",
+        "title": "Clubside",
+        "text": "Two and three-bedroom apartments overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus."
+      },
+      {
+        "sub": "Apartments",
+        "title": "D Parks",
+        "text": "The last multi-family neighbourhood, three clusters each facing its own park — the Mind, the Body and the Soul — each with a different set of outdoor amenities."
+      },
+      {
+        "sub": "Houses",
+        "title": "Villas & Homes",
+        "text": "Townhomes, court homes, twinvilles and single-family houses in modern earthy architecture, with generous interiors and mature landscaping."
+      },
+      {
+        "sub": "Boutique office buildings",
+        "title": "Mindhaus Strip",
+        "text": "For established medium-sized businesses wanting an independent building rather than a floor in someone else’s. Sellable offices in G+3 and G+4 formats, arranged as Privates, Twins and Quads — one, two or four vertical units, each with its own entrance."
+      },
+      {
+        "sub": "Campus modules",
+        "title": "Mindhaus Campus",
+        "text": "106,000 sqm of land with over 60,000 sqm of leasable office and retail across more than 110 modules, arranged around communal piazzas. Each module is built for daylight and can be divided or combined, with the option of adding a mezzanine."
+      },
+      {
+        "sub": "Unit formats",
+        "title": "Privates, Twins & Quads",
+        "text": "Each building divides into one, two or four separate vertical units. Every unit gets its own entrance and its own common areas, so a business can take a whole building or a quarter of one without sharing a lobby."
+      },
+      {
+        "sub": "Where it sits",
+        "title": "Beside Gate 01",
+        "text": "The office zone sits in District 5’s non-residential area with direct access onto the Cairo–Ain Sokhna road, so staff and visitors never drive through the residential streets. Road 90 is eight minutes away."
+      }
+    ],
+    "form_disclaimer": "Your details go to Mohamed El Sabagh directly. This form is not operated by Marakez.",
+    "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
+    "footer_disclaimer": "Not an official Marakez website. Personal site of Mohamed El Sabagh, Sales Manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
+    "top_bar": "Personal site of Mohamed El Sabagh, Sales Manager, Marakez. Not an official Marakez website."
+  },
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "hero_text": "",
+    "facts": [
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      },
+      {
+        "label": "",
+        "value": "",
+        "sub": ""
+      }
+    ],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "usps": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      }
+    ],
+    "panels": [
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      }
+    ],
+    "form_disclaimer": "",
+    "contact_line": "",
+    "footer_disclaimer": "",
+    "top_bar": ""
+  }
 }

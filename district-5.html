@@ -3,329 +3,818 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>District 5 — New Katameya | Marakez · Mohamed El Sabagh</title>
-<meta name="description" content="District 5 by Marakez — 268 acres in New Katameya combining homes, the D5M mall, Mindhaus offices and Clubfive. Seven minutes from Road 90.">
+<title>District 5 — New Katameya, East Cairo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   One ground. One spine. Sections interlock rather than stack.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#ffffff;          /* single ground for the whole page */
+  --ink:#0f2429;
+  --soft:#4f6367;
+  --faint:#8ba0a3;
+  --rule:#e2e8e8;
+  --hair:#d8e0e0;
+  --accent:#14484f;
+  --sand:#c98f4f;
+  --white:#f7fafa;
+  --scrim:.86;   /* hero overlay strength — CMS: light .60 / medium .76 / strong .90 */
+
+  --display:"EB Garamond",Georgia,serif;
+  --body:"Karla",system-ui,sans-serif;
+
+  --gut:clamp(20px,5vw,80px);
+  --maxw:1280px;
+  --spine:clamp(20px,5vw,80px);   /* where the vertical rule sits */
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ── Disclosure + header ─────────────────────────────────── */
+.bar{background:var(--ink);color:#dfe3e1;font-size:.73rem;padding:8px var(--gut);text-align:center;
+  letter-spacing:.01em}
+.bar strong{color:#fff}
+
+.head{position:sticky;top:0;z-index:60;background:rgba(242,241,236,.9);backdrop-filter:blur(12px)}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hair)}
+.head-in{max-width:var(--maxw);margin:0 auto;padding:15px var(--gut);display:flex;align-items:center;gap:26px}
+.mark{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em;
+  text-decoration:none;color:var(--ink)}
+.head nav{margin-left:auto;display:flex;gap:22px;font-size:.83rem;align-items:center}
+.head nav a{color:var(--soft);text-decoration:none;padding:3px 0;border-bottom:1.5px solid transparent}
+.head nav a:hover,.head nav a[aria-current]{color:var(--ink);border-color:var(--accent)}
+.navcta{background:var(--ink);color:#fff!important;padding:9px 18px!important;border:0!important;font-weight:600}
+@media(max-width:860px){.head nav a:not(.navcta){display:none}.head-in{gap:14px}}
+
+/* ── THE SPINE: one hairline running the whole document ──── */
+.doc{position:relative}
+.doc::before{
+  content:"";position:absolute;top:0;bottom:0;
+  left:var(--spine);width:1px;background:var(--hair);z-index:1;
+}
+@media(max-width:860px){.doc::before{display:none}}
+
+/* Section shell — all sections share the ground, so only spacing separates them */
+.sec{position:relative;z-index:2;padding:clamp(60px,8vw,120px) 0}
+.sec--tight{padding-top:0}
+
+/* Section marker sits ON the spine */
+.marker{display:none}
+.secnum{font-family:var(--display);font-size:.95rem;color:var(--sand);
+  margin-right:11px;padding-right:11px;border-right:1px solid var(--rule)}
+@media(max-width:860px){.marker{display:none}}
+
+/* Content sits to the right of the spine */
+.inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut) 0 calc(var(--spine) + 58px)}
+@media(max-width:860px){.inner{padding:0 var(--gut)}}
+
+/* ── HERO: image bleeds behind the fact rail ─────────────── */
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;
+  overflow:hidden;background:#22282a}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    /* contained pool over the text block — the rest of the render stays clear */
+    radial-gradient(120% 88% at 24% 78%,
+      rgba(5,16,19,var(--scrim,.86)) 0%,
+      rgba(5,16,19,calc(var(--scrim,.86) * .92)) 42%,
+      rgba(5,16,19,calc(var(--scrim,.86) * .45)) 66%,
+      rgba(5,16,19,0) 86%),
+    /* light floor so the fact rail meets a dark edge */
+    linear-gradient(180deg, rgba(5,16,19,0) 60%, rgba(5,16,19,.17) 85%, rgba(5,16,19,.34) 100%)}
+.hero-in{position:relative}
+/* Narrow screens: the copy sits below the image rather than over it.
+   The render stays completely untouched and contrast is guaranteed,
+   because the text is on the page background. */
+@media(max-width:820px){
+  .hero{min-height:0;display:block;background:none;overflow:visible}
+  .hero>img{position:static;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .hero::after{display:none}
+  .hero-in{padding:26px var(--gut) 30px;color:var(--ink)}
+  .hero .kicker{color:var(--accent);text-shadow:none}
+  .hero h1{color:var(--ink);text-shadow:none;max-width:20ch}
+  .hero h1 em{color:var(--accent)}
+  .hero p{color:var(--soft);text-shadow:none}
+  .hero .btn{background:var(--ink);color:#fff}
+  .hero .btn--ghost{background:transparent;color:var(--ink);
+    border:1px solid var(--rule);margin-left:8px}
+  .rail-holder{margin-top:0}
+}
+
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--gut) clamp(96px,11vw,150px);color:#fff}
+.kicker{text-shadow:0 1px 10px rgba(4,14,17,.5);font-size:.69rem;letter-spacing:.24em;text-transform:uppercase;margin:0 0 16px;
+  color:var(--sand)}
+.hero h1{text-shadow:0 1px 18px rgba(4,14,17,.42);font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,6.4vw,5rem);
+  line-height:1.01;margin:0 0 18px;max-width:14ch;letter-spacing:-.018em}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero p{text-shadow:0 1px 12px rgba(4,14,17,.45);max-width:48ch;font-size:1.05rem;color:rgba(255,255,255,.9);margin:0 0 28px}
+
+.btn{display:inline-block;background:var(--white);color:var(--ink);text-decoration:none;
+  padding:14px 28px;font-size:.9rem;font-weight:600;border:0;cursor:pointer;font-family:inherit;
+  transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.42);margin-left:8px}
+.btn--dark{background:var(--ink);color:var(--white)}
+.btn--full{width:100%;text-align:center}
+.btn:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+
+/* ── FACT RAIL: overlaps the hero, anchored to the spine ─── */
+.rail-holder{position:relative;z-index:5;margin-top:clamp(-84px,-8vw,-64px)}
+.rail{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--white);border:1px solid var(--hair)}
+.rail>div{padding:24px clamp(16px,2vw,26px);border-right:1px solid var(--hair)}
+.rail>div:last-child{border-right:0}
+.rail dt{font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin:0 0 7px}
+.rail dd{margin:0;font-family:var(--display);font-size:1.7rem;letter-spacing:-.01em;line-height:1.1}
+.rail .sub{display:block;font-family:var(--body);font-size:.75rem;color:var(--soft);margin-top:3px}
+@media(max-width:860px){
+  .rail-holder{margin-top:-40px}
+  .rail{grid-template-columns:repeat(2,1fr);padding:0}
+  .rail>div{padding:18px 20px}
+  .rail>div:nth-child(2n){border-right:0}
+  .rail>div:nth-child(-n+2){border-bottom:1px solid var(--hair)}
+  .rail dd{font-size:1.4rem}
+}
+
+/* ── Shared type ─────────────────────────────────────────── */
+.eyebrow{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 14px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.2vw,3.3rem);
+  line-height:1.06;margin:0 0 18px;letter-spacing:-.018em;max-width:17ch}
+h2 em{font-style:italic;color:var(--accent)}
+.lead{font-size:1.06rem;color:var(--soft);max-width:56ch;margin:0}
+
+/* ── DESCRIPTION: text left, tall image bleeding right ───── */
+.desc{max-width:64ch}
+.desc-fig{margin:clamp(34px,4.5vw,54px) 0 0;position:relative}
+.desc-fig img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.desc-fig figcaption{font-family:var(--display);font-style:italic;font-size:.95rem;
+  color:var(--faint);padding-top:11px}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);
+  margin-top:clamp(46px,6vw,76px)}
+@media(max-width:820px){.pillars{grid-template-columns:1fr;gap:0}}
+.pillar{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:820px){.pillar{padding:18px 0}}
+.pillar .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:8px}
+.pillar h3{margin:0 0 6px;font-size:.98rem;font-weight:600}
+.pillar p{margin:0;font-size:.93rem;color:var(--soft)}
+
+/* ── MASTERPLAN: pulled up, plan bleeds past the gutter ──── */
+.mp{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(30px,4vw,48px)}
+@media(max-width:980px){.mp{grid-template-columns:1fr}}
+.mp-fig{margin:0;background:var(--white);border:1px solid var(--hair);overflow:hidden}
+.mp-fig img{width:100%;height:auto}
+.mp-key{list-style:none;margin:0;padding:0}
+.mp-key li{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:11px 0;
+  border-bottom:1px solid var(--rule);align-items:baseline}
+.mp-key li:first-child{border-top:1px solid var(--rule)}
+.mp-key .k{font-family:var(--display);font-size:1rem;color:var(--sand)}
+.mp-key .v{font-size:.95rem}
+.mp-key .v small{display:block;color:var(--soft);font-size:.82rem;margin-top:2px}
+.mp-note{font-size:.78rem;color:var(--faint);margin:14px 0 0;font-style:italic}
+
+/* ── NEIGHBOURHOODS: tabs, borderless, on the ground ─────── */
+.tabs{margin-top:clamp(28px,4vw,44px)}
+.tabnav{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule)}
+.tabnav button{appearance:none;background:none;border:0;padding:13px 20px 15px;
+  font:inherit;font-size:.86rem;font-weight:600;color:var(--faint);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tabnav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabnav button:hover{color:var(--ink)}
+.tabnav button:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+@media(max-width:640px){.tabnav button{flex:1 1 33%;padding:12px 8px;font-size:.8rem}}
+
+.panel{display:none;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:clamp(24px,4vw,56px);padding-top:clamp(28px,3.5vw,42px);align-items:center}
+.panel[data-open="true"]{display:grid;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(max-width:820px){.panel[data-open="true"]{grid-template-columns:1fr}}
+.panel .sub{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);
+  font-weight:700;margin:0 0 12px}
+.panel h3{margin:0 0 12px;font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);
+  letter-spacing:-.015em}
+.panel p{margin:0 0 20px;color:var(--soft);font-size:.99rem;max-width:40ch}
+.panel .types{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.panel .types li{border:1px solid var(--rule);padding:6px 13px;font-size:.79rem;color:var(--soft)}
+.panel figure{margin:0;overflow:hidden}
+.panel figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ── USPs: hairline grid, no boxes ──────────────────────── */
+.usps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);
+  margin-top:clamp(30px,4vw,48px)}
+@media(max-width:900px){.usps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.usps{grid-template-columns:1fr;gap:0}}
+.usp{padding-top:20px;border-top:1px solid var(--rule)}
+@media(max-width:560px){.usp{padding:18px 0}}
+.usp .n{font-family:var(--display);font-size:.9rem;color:var(--sand);display:block;margin-bottom:9px}
+.usp h3{margin:0 0 6px;font-size:.97rem;font-weight:600}
+.usp p{margin:0;font-size:.9rem;color:var(--soft);line-height:1.55}
+
+/* ── LEAD FORM: dark block, full bleed, ends the document ─ */
+.form-sec{position:relative;z-index:2;background:var(--ink);color:var(--white);
+  padding:clamp(58px,7vw,96px) 0;margin-top:clamp(40px,6vw,80px)}
+.form-sec .wrap{padding-left:calc(var(--spine) + 58px)}
+@media(max-width:860px){.form-sec .wrap{padding-left:var(--gut)}}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr}}
+.form-sec h2{color:var(--white);max-width:15ch}
+.form-sec h2 em{color:var(--sand)}
+.form-sec .eyebrow{color:var(--sand)}
+.form-sec .lead{color:rgba(255,255,255,.7)}
+.contact-line{margin-top:22px;font-size:.93rem;color:rgba(255,255,255,.7)}
+.contact-line a{color:#fff;font-weight:600}
+
+.fbox{background:var(--white);color:var(--ink);padding:clamp(26px,3vw,38px)}
+.fdis{font-size:.78rem;color:var(--soft);border-left:2px solid var(--sand);
+  padding-left:14px;margin-bottom:24px;line-height:1.5}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:.79rem;font-weight:600;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;font:inherit;
+  font-size:.94rem;border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);
+  outline-offset:1px;border-color:transparent}
+.field textarea{min-height:82px;resize:vertical}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+
+
+/* ── Palette switcher (preview only — removed in the final build) ── */
+.pal{position:fixed;right:14px;bottom:14px;z-index:200;background:#fff;
+  border:1px solid #ccc;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:12px 14px;
+  font-family:system-ui,sans-serif;font-size:12px;max-width:230px}
+.pal h5{margin:0 0 9px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#666}
+.pal button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;
+  background:none;border:1px solid transparent;padding:6px 7px;font:inherit;cursor:pointer;
+  border-radius:3px;color:#222}
+.pal button:hover{background:#f2f2f2}
+.pal button[aria-pressed=true]{border-color:#333;background:#f6f6f6;font-weight:600}
+.pal .sw{display:flex;flex:0 0 auto}
+.pal .sw i{width:12px;height:12px;display:block}
+
+
+/* ── Residential / Offices toggle ────────────────────────── */
+.switch{display:inline-flex;gap:0;border:1px solid var(--rule);width:auto;
+  margin:0;background:var(--white);border-radius:2px;overflow:hidden}
+.switchbar{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;padding:0 0 clamp(26px,3vw,36px);margin-bottom:clamp(30px,4vw,44px);
+  border-bottom:1px solid var(--rule)}
+.switchbar .hint{font-size:.86rem;color:var(--faint);margin:0}
+.switch button{appearance:none;background:none;border:0;padding:14px 30px;font:inherit;
+  font-size:.92rem;font-weight:600;color:var(--faint);cursor:pointer;
+  transition:background .22s,color .22s;white-space:nowrap}
+.switch button + button{border-left:1px solid var(--rule)}
+.switch button[aria-selected="true"]{background:var(--accent);color:#fff}
+.switch button:hover:not([aria-selected="true"]){color:var(--ink)}
+.switch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:520px){.switch{width:100%}.switch button{flex:1;padding:13px 12px;font-size:.86rem}}
+
+.track{display:none}
+.track[data-open="true"]{display:block;animation:trackin .35s ease}
+/* Both tracks share one shape: intro -> tabs -> USP row.
+   Reserving height stops the page shifting when you switch. */
+.track > .desc{min-height:212px}
+@media(max-width:900px){.track > .desc{min-height:196px}}
+@media(max-width:560px){.track > .desc{min-height:230px}}
+@keyframes trackin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+
+/* segmented control inside the form */
+.seg{display:flex;border:1px solid var(--rule);overflow:hidden;border-radius:2px}
+.segbtn{flex:1;appearance:none;background:var(--paper);border:0;padding:11px 14px;
+  font:inherit;font-size:.88rem;font-weight:600;color:var(--soft);cursor:pointer;
+  transition:background .2s,color .2s}
+.segbtn + .segbtn{border-left:1px solid var(--rule)}
+.segbtn[aria-checked="true"]{background:var(--accent);color:#fff}
+.segbtn:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+
+
+
+/* ── Logo slots (image from CMS, text wordmark as fallback) ─ */
+.mark{display:inline-flex;align-items:center;gap:10px;line-height:1}
+.mark img{height:26px;width:auto;display:none}
+.mark img[src]:not([src=""]){display:block}
+.mark img[src]:not([src=""]) + .marktext{display:none}
+.marktext{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em}
+
+.projlogo{height:30px;width:auto;margin-bottom:12px;display:none}
+.projlogo[src]:not([src=""]){display:block}
+
+/* ── Availability states on chips ────────────────────────── */
+.chip{position:relative}
+.chip[data-status="limited"]::after{
+  content:"Few left";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--sand);color:#1b1204;font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chip[data-status="sold_out"]{
+  color:var(--faint);background:transparent;border-style:dashed;
+  cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px;
+  text-decoration-color:var(--faint)}
+.chip[data-status="sold_out"]:hover{border-color:var(--rule);color:var(--faint)}
+.chip[data-status="sold_out"]::after{
+  content:"Sold out";position:absolute;top:-8px;inset-inline-end:-6px;
+  background:var(--rule);color:var(--soft);font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;
+  line-height:1.3;pointer-events:none}
+.chipnote{font-size:.78rem;color:var(--faint);margin:9px 0 0}
+
+/* Availability badge on the tab panels */
+.availbadge{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  padding:4px 10px;margin-bottom:12px;border-radius:2px}
+.availbadge[data-status="available"]{background:rgba(20,72,79,.09);color:var(--accent)}
+.availbadge[data-status="limited"]{background:rgba(201,143,79,.16);color:#8a5a22}
+.availbadge[data-status="sold_out"]{background:var(--rule);color:var(--soft)}
+.availbadge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* ── Lead form controls ──────────────────────────────────── */
+.req{color:var(--sand);font-weight:400}
+.opt-tag{color:var(--faint);font-weight:400;font-size:.72rem;letter-spacing:.04em}
+.ferr{display:none;color:#b4402f;font-size:.79rem;margin-top:6px}
+.fmsg{margin-top:14px;font-size:.9rem;display:none}
+.fmsg.ok{display:block;color:#1d6b45}
+.fmsg.err{display:block;color:#b4402f}
+
+/* phone row */
+.phone-row{display:flex;gap:8px;position:relative}
+.cc-btn{flex:0 0 auto;display:flex;align-items:center;gap:7px;background:var(--paper);
+  border:1px solid var(--rule);padding:12px 13px;font:inherit;font-size:.94rem;cursor:pointer;
+  color:var(--ink);white-space:nowrap}
+.cc-btn:hover{border-color:var(--accent)}
+.cc-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.cc-caret{font-size:.62rem;color:var(--faint)}
+.phone-row input[type=tel]{flex:1 1 auto;min-width:0}
+.cc-pop{position:absolute;z-index:70;top:calc(100% + 5px);left:0;width:min(330px,100%);
+  background:#fff;border:1px solid var(--rule);box-shadow:0 14px 38px rgba(0,0,0,.15)}
+.cc-search{width:100%;padding:11px 13px;font:inherit;font-size:.92rem;border:0;
+  border-bottom:1px solid var(--rule);background:#fff;color:var(--ink)}
+.cc-search:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.cc-list{list-style:none;margin:0;padding:0;max-height:260px;overflow-y:auto}
+.cc-list li{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;
+  font-size:.9rem;cursor:pointer}
+.cc-list li:hover,.cc-list li:focus{background:var(--paper);outline:none}
+.cc-list .cc-num{color:var(--faint);font-variant-numeric:tabular-nums}
+.cc-list .cc-none{color:var(--faint);cursor:default;justify-content:center}
+
+/* chips for multi-select */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{appearance:none;background:var(--paper);border:1px solid var(--rule);
+  padding:8px 14px;font:inherit;font-size:.84rem;color:var(--soft);cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hp{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.foot{background:#0e1112;color:#9aa4a2;padding:clamp(44px,5vw,68px) 0 30px;font-size:.89rem;
+  position:relative;z-index:2}
+.foot a{color:#fff;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:30px;margin-bottom:34px}
+.foot h4{color:#fff;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 13px;font-weight:700}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot li{margin-bottom:7px}
+.foot-dis{border-top:1px solid rgba(255,255,255,.13);padding-top:22px;font-size:.78rem;
+  line-height:1.62;color:#78827f}
+.foot-dis strong{color:#bcc4c2}
+
+/* ── Scroll reveal ──────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+@media(max-width:860px){
+  .sec{padding:52px 0}
+  h2{font-size:1.85rem}
+}
+</style>
 </head>
-<body class="t-d5" data-project="district5">
+<body data-project="district5">
 
-<div class="disclose">
-  <span lang="en">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</span>
-  <span lang="ar">الموقع الشخصي لـ <strong data-agent-name-ar>محمد الصباغ</strong>، <span data-agent-title-ar>مدير مبيعات، مراكز</span>. هذا ليس الموقع الرسمي لمراكز.</span>
-</div>
+<div class="bar">Personal site of <strong data-agent-name-en>Mohamed El Sabagh</strong>, <span data-agent-title-en>Sales Manager, Marakez</span>. Not an official Marakez website.</div>
 
-<header class="site-head">
+<header class="head">
   <div class="head-in">
-    <a class="brand" href="index.html">Marakez<span style="color:var(--accent)">.</span></a>
-    <nav class="nav">
-      <a href="ramla.html" data-en="Ramla" data-ar="رملة"></a>
-      <a href="crescent-walk.html" data-en="Crescent Walk" data-ar="كريسنت ووك"></a>
-      <a href="district-5.html" aria-current="page" data-en="District 5" data-ar="ديستريكت ٥"></a>
-      <a href="#enquire" class="nav-keep" data-en="Enquire" data-ar="تواصل"></a>
-      <button class="lang nav-keep" type="button">العربية</button>
+    <a class="mark" href="index.html"><img data-logo="marakez" alt="Marakez"><span class="marktext">Marakez</span></a>
+    <nav>
+      <a href="ramla.html">Ramla</a>
+      <a href="#">Crescent Walk</a>
+      <a href="#" aria-current="page">District 5</a>
+      <a class="navcta" href="#enquire">Request prices</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="hero-tag" data-en="New Katameya" data-ar="القطامية الجديدة"></span>
-    <h1>
-      <span lang="en">Live, shop, play, work and grow — in one place.</span>
-      <span lang="ar">تسكن، وتتسوّق، وتلعب، وتعمل، وتنمو — في مكان واحد.</span>
-    </h1>
-    <p class="lead">
-      <span lang="en">268 acres in New Katameya where the homes, the mall, the offices and the club aren't separate destinations — they're a walk from your front door. Seven minutes from Road 90.</span>
-      <span lang="ar">٢٦٨ فداناً في القطامية الجديدة، حيث المنازل والمول والمكاتب والنادي ليست وجهات منفصلة — بل على مسافة سير من باب منزلك. على بُعد ٧ دقائق من التسعين.</span>
-    </p>
-    <div class="hero-img"><img data-hero-img src="assets/img/d5/p13.jpeg" alt="District 5 residences"></div>
+  <img src="assets/img/d5/hero.jpeg" alt="District 5, New Katameya">
+  <div class="hero-in">
+    <img class="projlogo" data-logo="project" alt="">
+    <p class="kicker">New Katameya · East Cairo</p>
+    <h1>Live, work and shop <em>at one address.</em></h1>
+    <p>268 acres in New Katameya where homes, the D5M mall, Mindhaus offices and Clubfive are a walk from each other. Seven minutes from Road 90.</p>
+    <a class="btn" href="#enquire">Request prices &amp; availability</a>
+    <a class="btn btn--ghost" href="#">WhatsApp</a>
   </div>
 </section>
 
-<div class="facts">
-  <div class="facts-in">
-    <div class="fact">
-      <div class="k" data-en="Land area" data-ar="مساحة الأرض"></div>
-      <div class="v"><span lang="en">268 acres</span><span lang="ar">٢٦٨ فداناً</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="To Road 90" data-ar="إلى التسعين"></div>
-      <div class="v"><span lang="en">7 min</span><span lang="ar">٧ دقائق</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="To AUC" data-ar="إلى الجامعة الأمريكية"></div>
-      <div class="v"><span lang="en">8 min</span><span lang="ar">٨ دقائق</span></div>
-    </div>
-    <div class="fact">
-      <div class="k" data-en="To the airport" data-ar="إلى المطار"></div>
-      <div class="v"><span lang="en">19 min</span><span lang="ar">١٩ دقيقة</span></div>
-    </div>
-  </div>
+<div class="rail-holder">
+  <dl class="rail">
+    <div><dt>Location</dt><dd>New Katameya<span class="sub">Cairo&ndash;Ain Sokhna Rd</span></dd></div>
+    <div><dt>Land area</dt><dd>268 acres<span class="sub">Integrated mixed-use</span></dd></div>
+    <div><dt>To Road 90</dt><dd>7 min<span class="sub">AUC 8 min &middot; Maadi 13 min</span></dd></div>
+    <div><dt>Developer</dt><dd>Marakez<span class="sub">Flagship East Cairo project</span></dd></div>
+  </dl>
 </div>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="split">
+<div class="doc">
+
+  <!-- 01 THE PROJECT (shared) -->
+  <section class="sec">
+    <div class="inner">
+      <div class="desc rv">
+        <p class="eyebrow"><span class="secnum">01</span>The project</p>
+        <h2>Five journeys, <em>one destination.</em></h2>
+        <p class="lead">District 5 is Marakez&rsquo;s flagship East Cairo development &mdash; 268 acres on the Cairo&ndash;Ain Sokhna highway at the centre of New Katameya. Because Marakez builds malls first, the retail and workspace are part of the plan rather than promised for a later phase: homes, the D5M mall, Mindhaus offices and the Clubfive sports club all share one address.</p>
+      </div>
+      <figure class="desc-fig rv">
+        <img src="assets/img/d5/about.jpeg" alt="District 5 masterplan area" loading="lazy">
+        <figcaption>The residential quarter at District 5</figcaption>
+      </figure>
+
+      <div class="pillars">
+        <div class="pillar rv"><span class="n">i</span>
+          <h3>Connected both ways</h3>
+          <p>Two bridges built over the Ain Sokhna highway link District 5 back to New Cairo. Road 90 in seven minutes, the airport in nineteen.</p></div>
+        <div class="pillar rv"><span class="n">ii</span>
+          <h3>Wadi Degla on the doorstep</h3>
+          <p>The protectorate runs along the southern edge, so open desert is minutes away when you want it.</p></div>
+        <div class="pillar rv"><span class="n">iii</span>
+          <h3>Everything walkable</h3>
+          <p>Trails, bike lanes and landscaped parks connect the neighbourhoods to the mall, the offices and the club.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 MASTERPLAN (shared) -->
+  <section class="sec sec--tight">
+    <div class="inner">
       <div class="rv">
-        <p class="eyebrow" data-en="Location" data-ar="الموقع"></p>
-        <h2>
-          <span lang="en">At the centre of New Katameya.</span>
-          <span lang="ar">في قلب القطامية الجديدة.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">District 5 sits on the Cairo–Ain Sokhna highway within the planned 13,000-acre southern extension of New Cairo. Marakez built two bridges over the highway specifically to connect it back to New Cairo.</span>
-          <span lang="ar">تقع ديستريكت ٥ على طريق القاهرة – العين السخنة، ضمن الامتداد الجنوبي المخطط للقاهرة الجديدة بمساحة ١٣٠٠٠ فدان. وقد أنشأت مراكز كوبريين فوق الطريق تحديداً لربطها بالقاهرة الجديدة.</span>
-        </p>
-        <p>
-          <span lang="en">Wadi Degla Protectorate runs along the southern edge, so the desert is a few minutes away when you want it.</span>
-          <span lang="ar">تمتد محمية وادي دجلة على الحافة الجنوبية، فالصحراء على بُعد دقائق حين ترغب فيها.</span>
-        </p>
+        <p class="eyebrow"><span class="secnum">02</span>Masterplan</p>
+        <h2>How District 5 is <em>laid out.</em></h2>
+        <p class="lead">A single 268-acre plan holding the residential neighbourhoods, the commercial zone and the office campus.</p>
       </div>
-      <div class="split-img rv"><img src="assets/img/d5/p11.jpeg" alt="District 5 masterplan" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="What's inside" data-ar="ما بداخل المشروع"></p>
-      <h2>
-        <span lang="en">Five things, one address.</span>
-        <span lang="ar">خمسة عناصر، عنوان واحد.</span>
-      </h2>
-      <p class="lead" style="margin-top:1.2rem">
-        <span lang="en">Marakez is a mall developer first, which is why District 5 has retail and workspace built in rather than promised for a later phase.</span>
-        <span lang="ar">مراكز في الأساس مطوّر مراكز تجارية، ولهذا تضم ديستريكت ٥ مساحات تجارية ومكتبية مدمجة في التصميم بدلاً من الوعد بها في مرحلة لاحقة.</span>
-      </p>
-    </div>
-    <ul class="flist rv">
-      <li>
-        <span class="fl-t"><span lang="en">D5M</span><span lang="ar">D5M</span></span>
-        <span class="fl-d">
-          <span lang="en">The first shopping mall in New Katameya — fashion, cinemas, a food court and a kids zone, at the heart of the development.</span>
-          <span lang="ar">أول مركز تجاري في القطامية الجديدة — أزياء ودور سينما ومنطقة مطاعم ومنطقة للأطفال، في قلب المشروع.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Mindhaus</span><span lang="ar">مايندهاوس</span></span>
-        <span class="fl-d">
-          <span lang="en">An office campus and office strip on 76,000 sqm, so the commute can be a walk. Eight minutes from the Road 90 business district.</span>
-          <span lang="ar">حرم مكتبي وشريط مكاتب على ٧٦٠٠٠ متر مربع، ليصبح الذهاب إلى العمل مجرد نزهة. على بُعد ٨ دقائق من منطقة أعمال التسعين.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Clubfive</span><span lang="ar">كلوب فايف</span></span>
-        <span class="fl-d">
-          <span lang="en">The sports and social club at the centre of the residential zone.</span>
-          <span lang="ar">النادي الرياضي والاجتماعي في قلب المنطقة السكنية.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">Dstreet</span><span lang="ar">دي ستريت</span></span>
-        <span class="fl-d">
-          <span lang="en">The dining strip, developed with established restaurateurs rather than filled with whoever signs first.</span>
-          <span lang="ar">شريط المطاعم، تم تطويره بالشراكة مع مطاعم راسخة بدلاً من ملئه بأول من يوقّع.</span>
-        </span>
-      </li>
-      <li>
-        <span class="fl-t"><span lang="en">The residences</span><span lang="ar">الوحدات السكنية</span></span>
-        <span class="fl-d">
-          <span lang="en">Apartments, townhomes, twins and villas across distinct neighbourhoods, linked by trails, bike lanes and parks.</span>
-          <span lang="ar">شقق وتاون هاوس وتوين هاوس وفيلات موزّعة على أحياء متمايزة، تربطها ممرات ومسارات دراجات وحدائق.</span>
-        </span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="Neighbourhoods" data-ar="الأحياء"></p>
-      <h2>
-        <span lang="en">Different neighbourhoods, different lives.</span>
-        <span lang="ar">أحياء مختلفة، أنماط حياة مختلفة.</span>
-      </h2>
-    </div>
-    <div class="cols">
-      <div class="col rv">
-        <h3><span lang="en">The Plateau</span><span lang="ar">ذا بلاتوه</span></h3>
-        <p>
-          <span lang="en">On the highest ground, with underground parking and storage — a first for District 5. Efficient one to three-bedroom apartments, some with roof terraces overlooking the whole development.</span>
-          <span lang="ar">على أعلى نقطة في المشروع، مع جراج وتخزين تحت الأرض — وهو الأول من نوعه في ديستريكت ٥. شقق عملية من غرفة إلى ثلاث غرف، بعضها بتراسات على السطح تطل على المشروع بالكامل.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">Clubside</span><span lang="ar">كلوب سايد</span></h3>
-        <p>
-          <span lang="en">Two and three-bedroom apartments overlooking Clubfive, with wide spacing between buildings so views stay open. Walkable to D5M and Mindhaus.</span>
-          <span lang="ar">شقق من غرفتين وثلاث غرف تطل على كلوب فايف، مع مسافات واسعة بين المباني تحافظ على الإطلالات مفتوحة. على مسافة سير من D5M ومايندهاوس.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">D Parks</span><span lang="ar">دي باركس</span></h3>
-        <p>
-          <span lang="en">The last multi-family neighbourhood, three clusters each facing its own park — the Mind, the Body and the Soul, each with a different set of outdoor amenities.</span>
-          <span lang="ar">آخر حي متعدد العائلات، ثلاث مجموعات تطل كل منها على حديقتها الخاصة — العقل والجسد والروح، لكل منها مجموعة مختلفة من المرافق الخارجية.</span>
-        </p>
-      </div>
-      <div class="col rv">
-        <h3><span lang="en">Homes &amp; Greenville</span><span lang="ar">الفيلات وجرينفيل</span></h3>
-        <p>
-          <span lang="en">Townhomes, twinvilles and single-family homes in modern, earthy architecture with generous interiors and mature landscaping.</span>
-          <span lang="ar">تاون هاوس وتوين هاوس ومنازل مستقلة بعمارة حديثة بألوان ترابية، بمساحات داخلية سخية ومساحات خضراء ناضجة.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow" data-en="Getting around" data-ar="المسافات"></p>
-      <h2>
-        <span lang="en">Drive times from District 5.</span>
-        <span lang="ar">أزمنة القيادة من ديستريكت ٥.</span>
-      </h2>
-    </div>
-    <ul class="flist rv">
-      <li><span class="fl-t"><span lang="en">Road 90</span><span lang="ar">التسعين</span></span><span class="fl-d"><span lang="en">7 minutes</span><span lang="ar">٧ دقائق</span></span></li>
-      <li><span class="fl-t">AUC</span><span class="fl-d"><span lang="en">8 minutes</span><span lang="ar">٨ دقائق</span></span></li>
-      <li><span class="fl-t"><span lang="en">Maadi</span><span lang="ar">المعادي</span></span><span class="fl-d"><span lang="en">13 minutes</span><span lang="ar">١٣ دقيقة</span></span></li>
-      <li><span class="fl-t"><span lang="en">Cairo Airport</span><span lang="ar">مطار القاهرة</span></span><span class="fl-d"><span lang="en">19 minutes</span><span lang="ar">١٩ دقيقة</span></span></li>
-      <li><span class="fl-t"><span lang="en">Heliopolis</span><span lang="ar">مصر الجديدة</span></span><span class="fl-d"><span lang="en">30 minutes</span><span lang="ar">٣٠ دقيقة</span></span></li>
-      <li><span class="fl-t"><span lang="en">Ain Sokhna</span><span lang="ar">العين السخنة</span></span><span class="fl-d"><span lang="en">45 minutes</span><span lang="ar">٤٥ دقيقة</span></span></li>
-    </ul>
-    <div class="gal rv" data-gallery style="margin-top:2.6rem">
-      <figure><img src="assets/img/d5/p20.jpeg" alt="District 5 homes" loading="lazy"></figure>
-      <figure><img src="assets/img/d5/p44.jpeg" alt="The Plateau" loading="lazy"></figure>
-      <figure><img src="assets/img/d5/p49.jpeg" alt="Clubside apartments" loading="lazy"></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap" style="max-width:760px">
-    <div class="rv">
-      <p class="eyebrow" data-en="Prices &amp; payment" data-ar="الأسعار والسداد"></p>
-      <h2>
-        <span lang="en">Current pricing.</span>
-        <span lang="ar">الأسعار الحالية.</span>
-      </h2>
-      <div id="pricing" style="margin-top:1.8rem"></div>
-      <p style="margin-top:2rem">
-        <a class="btn btn--wa" data-wa="Hi Mohamed, could you send me the current prices and payment plans for District 5?"
-           data-en="Ask about District 5 prices" data-ar="اسأل عن أسعار ديستريكت ٥"></a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--wash" id="enquire">
-  <div class="wrap">
-    <div class="split">
-      <div class="rv">
-        <p class="eyebrow" data-en="Enquire about District 5" data-ar="استفسر عن ديستريكت ٥"></p>
-        <h2>
-          <span lang="en">Tell me what you need.</span>
-          <span lang="ar">أخبرني بما تحتاجه.</span>
-        </h2>
-        <p class="lead" style="margin-top:1.4rem">
-          <span lang="en">Apartment or villa, which neighbourhood, what you're working with — send a message and I'll come back with what's released and what it costs.</span>
-          <span lang="ar">شقة أم فيلا، وأي حي، وما الميزانية المتاحة — أرسل رسالة وسأوافيك بالمطروح حالياً وبأسعاره.</span>
-        </p>
-        <p style="margin-top:2rem">
-          <a class="btn btn--wa" data-wa="Hi Mohamed, I'm interested in District 5."
-             data-en="Message me on WhatsApp" data-ar="راسلني على واتساب"></a>
-        </p>
-        <p style="font-size:.92rem;color:var(--ink-soft)">
-          <span lang="en">Or call </span><span lang="ar">أو اتصل على </span>
-          <a data-tel href="#" style="font-weight:600"></a>
-        </p>
-      </div>
-
-      <div class="formwrap rv">
-        <div class="fdis">
-          <span lang="en">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</span>
-          <span lang="ar">تصل بياناتك إلى <span data-agent-name-ar>محمد الصباغ</span> مباشرةً. هذا النموذج غير مُشغَّل من قِبل شركة مراكز.</span>
+      <div class="mp">
+        <figure class="mp-fig rv"><img src="assets/img/d5/masterplan.jpeg" alt="District 5 masterplan" loading="lazy"></figure>
+        <div class="rv">
+          <ul class="mp-key">
+            <li><span class="k">1</span><span class="v">Mindhaus Campus<small>Offices &amp; retail modules</small></span></li>
+            <li><span class="k">2</span><span class="v">D5M<small>The mall</small></span></li>
+            <li><span class="k">3</span><span class="v">Mindhaus Strip<small>Boutique office buildings</small></span></li>
+            <li><span class="k">4</span><span class="v">Dstreet<small>Dining</small></span></li>
+            <li><span class="k">5</span><span class="v">Clubfive<small>Sports &amp; social club</small></span></li>
+            <li><span class="k">6</span><span class="v">Residences<small>Plateau, Clubside, D Parks, villas</small></span></li>
+          </ul>
+          <p class="mp-note">Layout is indicative and subject to change by the developer.</p>
         </div>
-        <form data-lead="District 5">
-          <div class="frow">
-            <div class="field">
-              <label for="district-5-f1" data-en="Name" data-ar="الاسم"></label><input id="district-5-f1" type="text" name="name" required data-ph-en="Your full name" data-ph-ar="الاسم بالكامل">
-            </div>
-            <div class="field">
-              <label for="district-5-f2" data-en="Phone" data-ar="رقم الهاتف"></label><input id="district-5-f2" type="tel" name="phone" required data-ph-en="+20 ..." data-ph-ar="+20 ...">
-            </div>
-          </div>
-          <div class="field">
-            <label for="district-5-f3" data-en="Email" data-ar="البريد الإلكتروني"></label><input id="district-5-f3" type="email" name="email" data-ph-en="Optional" data-ph-ar="اختياري">
-          </div>
-          <div class="field">
-            <label for="district-5-f4" data-en="Unit type" data-ar="نوع الوحدة"></label><select id="district-5-f4" name="unit">
-              <option value="Apartment" data-en="Apartment" data-ar="شقة"></option>
-              <option value="Townhome" data-en="Townhome" data-ar="تاون هاوس"></option>
-              <option value="Twinhome" data-en="Twinhome" data-ar="توين هاوس"></option>
-              <option value="Villa" data-en="Villa" data-ar="فيلا"></option>
-              <option value="Office" data-en="Office — Mindhaus" data-ar="مكتب — مايندهاوس"></option>
-              <option value="Open to suggestions" data-en="Open to suggestions" data-ar="أرحّب بالاقتراحات"></option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="district-5-f5" data-en="Anything else?" data-ar="أي تفاصيل أخرى؟"></label><textarea id="district-5-f5" name="message" data-ph-en="Budget, bedrooms, timing — whatever helps." data-ph-ar="الميزانية، عدد الغرف، التوقيت — أي تفاصيل تساعدني."></textarea>
-          </div>
-          <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-          <button class="btn btn--full" type="submit" data-en="Send enquiry" data-ar="إرسال الطلب"></button>
-          <div class="fmsg"></div>
-        </form>
       </div>
+    </div>
+  </section>
+
+  <!-- 03 TOGGLE: residential / offices -->
+  <section class="sec">
+    <div class="inner">
+      <div class="rv">
+        <p class="eyebrow"><span class="secnum">03</span>What&rsquo;s available</p>
+        <h2>Homes and offices, <em>same address.</em></h2>
+        <p class="lead" style="margin-bottom:clamp(26px,3vw,38px)">District 5 sells both. Choose which you&rsquo;re looking for.</p>
+      </div>
+
+      <div class="switchbar rv">
+        <div class="switch" role="tablist" aria-label="Property category">
+          <button role="tab" aria-selected="true"  data-track="res">Residential</button>
+          <button role="tab" aria-selected="false" data-track="off">Mindhaus Offices</button>
+        </div>
+        <p class="hint">Both are sold at District 5 &mdash; the enquiry form covers either.</p>
+      </div>
+
+      <!-- ── RESIDENTIAL TRACK ── -->
+      <div class="track" data-t="res" data-open="true">
+        <div class="desc rv">
+          <p class="eyebrow">Residences</p>
+          <h2>Four ways to <em>live here.</em></h2>
+          <p class="lead">Apartments through to standalone villas, spread across four neighbourhoods inside the development.</p>
+        </div>
+        <div class="tabs" style="margin-top:clamp(28px,3.5vw,42px)">
+          <div class="tabnav" role="tablist">
+            <button role="tab" aria-selected="true"  data-t="0">The Plateau</button>
+            <button role="tab" aria-selected="false" data-t="1">Clubside</button>
+            <button role="tab" aria-selected="false" data-t="2">D Parks</button>
+            <button role="tab" aria-selected="false" data-t="3">Villas &amp; Homes</button>
+          </div>
+
+          <div class="panel" data-p="0" data-open="true">
+            <div><p class="sub">Apartments</p><h3>The Plateau</h3><span data-avail-for="Apartment"></span>
+              <p>On the highest ground in the development, with underground parking and storage &mdash; a first for District 5. Efficient one to three-bedroom units, some with roof terraces looking over the whole site.</p>
+              <ul class="types"><li>1&ndash;3 bedrooms</li><li>Roof terraces</li><li>Underground parking</li></ul></div>
+            <figure><img src="assets/img/d5/r-plateau.jpeg" alt="The Plateau" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="1">
+            <div><p class="sub">Apartments</p><h3>Clubside</h3><span data-avail-for="Apartment"></span>
+              <p>Two and three-bedroom apartments overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus.</p>
+              <ul class="types"><li>2&ndash;3 bedrooms</li><li>Club views</li><li>Rooftop terraces</li></ul></div>
+            <figure><img src="assets/img/d5/r-clubside.jpeg" alt="Clubside" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="2">
+            <div><p class="sub">Apartments</p><h3>D Parks</h3><span data-avail-for="Apartment"></span>
+              <p>The last multi-family neighbourhood, three clusters each facing its own park &mdash; the Mind, the Body and the Soul &mdash; each with a different set of outdoor amenities.</p>
+              <ul class="types"><li>Park-facing</li><li>Three clusters</li></ul></div>
+            <figure><img src="assets/img/d5/r-dparks.jpeg" alt="D Parks" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="3">
+            <div><p class="sub">Houses</p><h3>Villas &amp; Homes</h3><span data-avail-for="Villa"></span>
+              <p>Townhomes, court homes, twinvilles and single-family houses in modern earthy architecture, with generous interiors and mature landscaping.</p>
+              <ul class="types"><li>Townhomes</li><li>Court homes</li><li>Twins</li><li>Standalone villas</li></ul></div>
+            <figure><img src="assets/img/d5/r-homes.jpeg" alt="Villas and homes" loading="lazy"></figure>
+          </div>
+        </div>
+
+        <div class="usps" style="margin-top:clamp(34px,4vw,52px)">
+          <div class="usp rv"><span class="n">i</span><h3>D5M mall on site</h3>
+            <p>The first mall in New Katameya &mdash; fashion, cinemas, food court and a kids zone.</p></div>
+          <div class="usp rv"><span class="n">ii</span><h3>Clubfive</h3>
+            <p>The sports and social club sits at the centre of the residential zone.</p></div>
+          <div class="usp rv"><span class="n">iii</span><h3>Dstreet dining</h3>
+            <p>A dining strip developed with established restaurateurs rather than filled with whoever signs first.</p></div>
+          <div class="usp rv"><span class="n">iv</span><h3>Work five minutes away</h3>
+            <p>Mindhaus is inside the development, so the commute can be a walk.</p></div>
+        </div>
+      </div>
+
+      <!-- ── OFFICES TRACK ── -->
+      <div class="track" data-t="off">
+        <div class="desc rv">
+          <p class="eyebrow">Mindhaus</p>
+          <h2>Workspace <em>inside the gates.</em></h2>
+          <p class="lead">Marakez&rsquo;s office product at District 5, split between a campus and a strip, both in the non-residential zone with their own road access.</p>
+        </div>
+
+        <div class="tabs" style="margin-top:clamp(28px,3.5vw,42px)">
+          <div class="tabnav" role="tablist">
+            <button role="tab" aria-selected="true"  data-t="10">Mindhaus Strip</button>
+            <button role="tab" aria-selected="false" data-t="11">Mindhaus Campus</button>
+            <button role="tab" aria-selected="false" data-t="12">Formats</button>
+            <button role="tab" aria-selected="false" data-t="13">Location</button>
+          </div>
+
+          <div class="panel" data-p="10" data-open="true">
+            <div><p class="sub">Boutique office buildings</p><h3>Mindhaus Strip</h3>
+              <p>For established medium-sized businesses wanting an independent building rather than a floor in someone else&rsquo;s. Sellable offices in G+3 and G+4 formats, arranged as Privates, Twins and Quads &mdash; one, two or four vertical units, each with its own entrance.</p>
+              <ul class="types"><li>600&ndash;2,400 sqm</li><li>G+3 / G+4</li><li>Private &middot; Twin &middot; Quad</li><li>Independent entrances</li></ul></div>
+            <figure><img src="assets/img/d5/o-campus.jpeg" alt="Mindhaus Strip offices" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="11">
+            <div><p class="sub">Campus modules</p><h3>Mindhaus Campus</h3>
+              <p>106,000 sqm of land with over 60,000 sqm of leasable office and retail across more than 110 modules, arranged around communal piazzas. Each module is built for daylight and can be divided or combined, with the option of adding a mezzanine.</p>
+              <ul class="types"><li>110+ modules</li><li>60,000 sqm leasable</li><li>Divisible layouts</li><li>Mezzanine option</li></ul></div>
+            <figure><img src="assets/img/d5/o-interior.jpeg" alt="Mindhaus Campus" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="12">
+            <div><p class="sub">Unit formats</p><h3>Privates, Twins &amp; Quads</h3>
+              <p>Each building divides into one, two or four separate vertical units. Every unit gets its own entrance and its own common areas, so a business can take a whole building or a quarter of one without sharing a lobby.</p>
+              <ul class="types"><li>Private &mdash; whole building</li><li>Twin &mdash; two units</li><li>Quad &mdash; four units</li><li>Mezzanine option</li></ul></div>
+            <figure><img src="assets/img/d5/o-strip.jpeg" alt="Mindhaus office formats" loading="lazy"></figure>
+          </div>
+          <div class="panel" data-p="13">
+            <div><p class="sub">Where it sits</p><h3>Beside Gate 01</h3>
+              <p>The office zone sits in District 5&rsquo;s non-residential area with direct access onto the Cairo&ndash;Ain Sokhna road, so staff and visitors never drive through the residential streets. Road 90 is eight minutes away.</p>
+              <ul class="types"><li>Gate 01 access</li><li>8 min to Road 90</li><li>D5M walkable</li><li>Dedicated parking</li></ul></div>
+            <figure><img src="assets/img/d5/hero.jpeg" alt="District 5 location" loading="lazy"></figure>
+          </div>
+        </div>
+
+        <div class="usps" style="margin-top:clamp(34px,4vw,52px)">
+          <div class="usp rv"><span class="n">i</span><h3>76,000 sqm site</h3>
+            <p>The Strip runs across 76,000 sqm of land with 45,000 sqm built-up area.</p></div>
+          <div class="usp rv"><span class="n">ii</span><h3>Eight minutes to Road 90</h3>
+            <p>Connectivity to the business district without the traffic or the parking problem.</p></div>
+          <div class="usp rv"><span class="n">iii</span><h3>Retail at the door</h3>
+            <p>D5M and Dstreet are walkable, so staff have lunch and shops on site.</p></div>
+          <div class="usp rv"><span class="n">iv</span><h3>Flexible internally</h3>
+            <p>One, two or four separate vertical units, with common areas for each office.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /doc -->
+
+<section class="form-sec" id="enquire">
+  <div class="wrap form-grid">
+    <div>
+      <p class="eyebrow">Enquire</p>
+      <h2>Availability changes <em>weekly.</em></h2>
+      <p class="lead">Send your details and receive current prices, released units and this month&rsquo;s payment plan for District 5. No obligation.</p>
+      <p class="contact-line">Or message directly on <a data-wa="Hi Mohamed," href="#">WhatsApp</a> &middot; <a data-tel href="#">+20 122 017 0162</a></p>
+    </div>
+
+    <div class="fbox">
+      <div class="fdis">Your details go to <span data-agent-name-en>Mohamed El Sabagh</span> directly. This form is not operated by Marakez.</div>
+      <form data-lead="District 5" novalidate>
+        <input type="hidden" name="project" value="District 5">
+
+        <div class="field">
+          <label>I&rsquo;m looking for <span class="req">*</span></label>
+          <div class="seg" role="radiogroup" aria-label="Enquiry type">
+            <button type="button" class="segbtn" role="radio" aria-checked="true"  data-kind="res">A home</button>
+            <button type="button" class="segbtn" role="radio" aria-checked="false" data-kind="off">Office space</button>
+          </div>
+          <input type="hidden" name="enquiry_type" value="Residential">
+        </div>
+
+        <div class="field"><label for="d-name">Name <span class="req">*</span></label>
+          <input id="d-name" type="text" name="name" required placeholder="Your full name"></div>
+
+        <div class="field only-off" hidden><label for="d-co">Company <span class="opt-tag">optional</span></label>
+          <input id="d-co" type="text" name="company_name" placeholder="Your company"></div>
+
+        <div class="field" data-phone-field>
+          <label for="d-phone">Phone <span class="req">*</span></label>
+          <div class="phone-row" data-phone>
+            <button type="button" class="cc-btn" aria-expanded="false" aria-haspopup="listbox">
+              <span class="cc-dial">+20</span><span class="cc-caret">&#9660;</span></button>
+            <input id="d-phone" type="tel" name="phone_local" required inputmode="tel"
+                   autocomplete="tel" placeholder="01221011789">
+            <div class="cc-pop" hidden>
+              <input type="text" class="cc-search" placeholder="Search country or code" aria-label="Search for a country">
+              <ul class="cc-list" role="listbox" aria-label="Country codes"></ul>
+            </div>
+          </div>
+          <p class="ferr" role="alert"></p>
+          <input type="hidden" name="phone_e164"><input type="hidden" name="phone_country">
+        </div>
+
+        <div class="field"><label for="d-email">Email <span class="opt-tag">optional</span></label>
+          <input id="d-email" type="email" name="email" placeholder="you@example.com"></div>
+
+        <div class="field only-res"><label for="d-budget">Budget range <span class="opt-tag">optional</span></label>
+          <select id="d-budget" name="budget">
+            <option value="">No preference</option>
+            <option>Under EGP 8M</option><option>EGP 8M &ndash; 15M</option>
+            <option>EGP 15M &ndash; 25M</option><option>EGP 25M &ndash; 40M</option>
+            <option>Above EGP 40M</option></select></div>
+
+        <div class="field only-off" hidden><label for="d-size">Space required <span class="opt-tag">optional</span></label>
+          <select id="d-size" name="space_required">
+            <option value="">No preference</option>
+            <option>Under 600 sqm</option><option>600 &ndash; 1,000 sqm</option>
+            <option>1,000 &ndash; 1,600 sqm</option><option>1,600 &ndash; 2,400 sqm</option>
+            <option>Above 2,400 sqm</option></select></div>
+
+        <div class="field only-res" data-multi="property">
+          <label>Property type <span class="opt-tag">optional &middot; choose any</span></label>
+          <div class="chips">
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Apartment">Apartment</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Townhome">Townhome</button>
+            <button type="button" class="chip" data-status="sold_out" aria-pressed="false" data-label="Court home" disabled aria-disabled="true" tabindex="-1">Court home</button>
+            <button type="button" class="chip" data-status="limited" aria-pressed="false" data-label="Twinhouse">Twinhouse</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Villa">Villa</button>
+          </div>
+          <input type="hidden" name="property_types"></div>
+
+        <div class="field only-off" hidden data-multi="office">
+          <label>Office format <span class="opt-tag">optional &middot; choose any</span></label>
+          <div class="chips">
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Private">Private</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Twin">Twin</button>
+            <button type="button" class="chip" data-status="limited" aria-pressed="false" data-label="Quad">Quad</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Campus module">Campus module</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Not sure yet">Not sure yet</button>
+          </div>
+          <input type="hidden" name="office_format"></div>
+
+        <div class="field"><label for="d-msg">Anything else? <span class="opt-tag">optional</span></label>
+          <textarea id="d-msg" name="message" placeholder="Timing, size, questions &mdash; whatever helps."></textarea></div>
+
+        <input class="hp" type="text" name="website_url" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--dark btn--full" type="submit">Send enquiry</button>
+        <p class="fmsg" role="status"></p>
+      </form>
     </div>
   </div>
 </section>
 
-<footer class="site-foot">
+<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <h4 data-en="Projects" data-ar="المشروعات"></h4>
-        <ul>
-          <li><a href="ramla.html" data-en="Ramla — North Coast" data-ar="رملة — الساحل الشمالي"></a></li>
-          <li><a href="crescent-walk.html" data-en="Crescent Walk — East Cairo" data-ar="كريسنت ووك — القاهرة الجديدة"></a></li>
-          <li><a href="district-5.html" data-en="District 5 — New Katameya" data-ar="ديستريكت ٥ — القطامية الجديدة"></a></li>
-        </ul>
+      <div><h4>Projects</h4>
+        <ul><li><a href="#">Ramla — North Coast</a></li>
+            <li><a href="#">Crescent Walk — East Cairo</a></li>
+            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+      <div><h4>Contact</h4>
+        <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hi Mohamed," href="#">WhatsApp</a></li></ul></div>
       </div>
-      <div>
-        <h4 data-en="Contact" data-ar="للتواصل"></h4>
-        <ul>
-          <li><a data-tel href="#"></a></li>
-          <li><a data-wa="Hi Mohamed," data-en="WhatsApp" data-ar="واتساب"></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-en="Official" data-ar="الموقع الرسمي"></h4>
-        <ul>
-          <li><a href="https://www.marakez.net" target="_blank" rel="noopener">marakez.net</a></li>
-          <li><span lang="en">Marakez hotline 19876</span><span lang="ar">الخط الساخن لمراكز ١٩٨٧٦</span></li>
-        </ul>
-      </div>
-    </div>
     <div class="foot-dis">
-      <p lang="en"><strong>This is not an official Marakez website.</strong> It is the personal site of Mohamed El Sabagh, who works as a <span data-agent-title-en>Sales Manager</span> at Marakez. Project information here is drawn from Marakez marketing material and is provided for general guidance only. All renders, layouts, areas, prices and payment terms are indicative and subject to change. Nothing on this site is an offer or a contract — official terms are confirmed by Marakez directly at the point of sale. For the official company website, visit marakez.net.</p>
-      <p lang="ar"><strong>هذا ليس الموقع الرسمي لشركة مراكز.</strong> إنه الموقع الشخصي لمحمد الصباغ، الذي يعمل <span data-agent-title-ar>مدير مبيعات</span> لدى مراكز. المعلومات الواردة هنا مستقاة من المواد التسويقية لمراكز، وهي للاسترشاد العام فقط. جميع الصور التوضيحية والمخططات والمساحات والأسعار وشروط السداد استرشادية وقابلة للتغيير. لا يُعد أي مما ورد في هذا الموقع عرضاً أو عقداً — تُعتمد الشروط الرسمية من مراكز مباشرةً عند التعاقد. لزيارة الموقع الرسمي للشركة: marakez.net</p>
+      <p><strong>Not an official Marakez website.</strong> Personal site of <span data-agent-name-en>Mohamed El Sabagh</span>, <span data-agent-title-en>Sales Manager at Marakez</span>. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.</p>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" data-wa="Hi Mohamed, I'm interested in District 5.">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.6 8.4-8 8.4z"/></svg>
-  <span data-en="WhatsApp" data-ar="واتساب"></span>
-</a>
+<script>
+document.querySelectorAll('.tabnav button').forEach(function(b){
+  b.addEventListener('click', function(){
+    var i = b.dataset.t;
+    b.closest('.tabnav').querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('.panel').forEach(function(p){
+      p.setAttribute('data-open', p.dataset.p === i ? 'true' : 'false');
+    });
+  });
+});
 
-<script src="assets/app.js"></script>
+var els = document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+} else { els.forEach(function(e){ e.classList.add('in'); }); }
+</script>
+<script>
+document.querySelectorAll('.switch button').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = b.dataset.track;
+    document.querySelectorAll('.switch button').forEach(function(x){
+      x.setAttribute('aria-selected', x.dataset.track === t ? 'true' : 'false');
+    });
+    document.querySelectorAll('.track').forEach(function(tr){
+      tr.setAttribute('data-open', tr.dataset.t === t ? 'true' : 'false');
+    });
+  });
+});
+</script>
+<script>
+(function(){
+  var form = document.querySelector('form[data-lead]');
+  if(!form) return;
+  var kindInput = form.querySelector('[name=enquiry_type]');
+
+  function setKind(kind, scroll){
+    form.querySelectorAll('.segbtn').forEach(function(b){
+      b.setAttribute('aria-checked', b.dataset.kind === kind ? 'true' : 'false');
+    });
+    form.querySelectorAll('.only-res').forEach(function(el){ el.hidden = (kind !== 'res'); });
+    form.querySelectorAll('.only-off').forEach(function(el){ el.hidden = (kind !== 'off'); });
+    kindInput.value = kind === 'off' ? 'Office' : 'Residential';
+    if(scroll){
+      document.getElementById('enquire').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+
+  form.querySelectorAll('.segbtn').forEach(function(b){
+    b.addEventListener('click', function(){ setKind(b.dataset.kind, false); });
+  });
+
+  // When the page toggle changes, preselect the matching form type —
+  // but the visitor can still switch it in the form itself.
+  document.querySelectorAll('.switch button').forEach(function(b){
+    b.addEventListener('click', function(){ setKind(b.dataset.track, false); });
+  });
+
+  // Any "request prices" link jumps to the form
+  document.querySelectorAll('a[href="#enquire"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var open = document.querySelector('.switch button[aria-selected=true]');
+      if(open) setKind(open.dataset.track, false);
+    });
+  });
+
+  setKind('res', false);
+})();
+</script>
+<script src="assets/content.js"></script>
+<script src="assets/availability.js"></script>
+<script src="assets/form.js"></script>
+
+
+
 </body>
 </html>

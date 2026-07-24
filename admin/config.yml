@@ -1,205 +1,1669 @@
 backend:
   name: github
-  repo: OWNER/REPO          # <-- replace with your GitHub username/repository
+  repo: OWNER/REPO
   branch: main
-  base_url: WORKER_URL      # <-- replace with your Cloudflare Worker URL
+  base_url: WORKER_URL
   commit_messages:
-    update: 'Update {{collection}}'
-    uploadMedia: 'Upload {{path}}'
-    deleteMedia: 'Delete {{path}}'
-
+    update: Update {{collection}}
+    uploadMedia: Upload {{path}}
+    deleteMedia: Delete {{path}}
 media_folder: assets/img/uploads
 public_folder: assets/img/uploads
-
 publish_mode: simple
-
 collections:
-  - name: settings
-    label: My details
-    files:
-      - name: contact
-        label: Name, phone and WhatsApp
-        file: content/settings.json
-        description: >-
-          Your contact details. These appear in the header, footer and on every
-          button across all four pages.
+- name: settings
+  label: 1. My details
+  files:
+  - name: contact
+    label: Name, phone and WhatsApp
+    file: content/settings.json
+    description: Appears in the header, footer and on every button across all four pages.
+    fields:
+    - name: name_en
+      label: Your name (English)
+      widget: string
+      required: false
+    - name: name_ar
+      label: Your name (Arabic)
+      widget: string
+      required: false
+    - name: title_en
+      label: Your job title (English)
+      widget: string
+      required: false
+      hint: 'For example: Sales Manager, Marakez'
+    - name: title_ar
+      label: Your job title (Arabic)
+      widget: string
+      required: false
+    - name: phone
+      label: Phone number
+      widget: string
+      required: false
+      hint: Include the country code, e.g. +201220170162
+    - name: whatsapp
+      label: WhatsApp number
+      widget: string
+      required: false
+      hint: Digits only — no plus sign, no spaces
+    - name: formEndpoint
+      label: Lead form address
+      widget: string
+      required: false
+      hint: The Google Script link. Leave alone unless it stops working.
+- name: home
+  label: 2. Homepage
+  files:
+  - name: home
+    label: Homepage
+    file: content/home.json
+    fields:
+    - name: logos
+      label: Logos
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: Leave empty to show the word "Marakez" instead.
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+    - name: heroImage
+      label: Main image at the top
+      widget: image
+      required: false
+      hint: About 1600 pixels wide works best.
+    - name: heroScrim
+      label: Darken the hero image
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
+    - name: cards
+      label: Project cards
+      widget: list
+      required: false
+      summary: '{{fields.key}}'
+      hint: The three cards on the homepage. Swap the photo for each project here.
+      fields:
+      - name: key
+        label: Project
+        widget: select
+        options:
+        - label: Ramla
+          value: ramla
+        - label: Crescent Walk
+          value: crescent
+        - label: District 5
+          value: district5
+      - name: image
+        label: Card photo
+        widget: image
+        required: false
+      - name: status
+        label: Availability
+        widget: select
+        default: available
+        options:
+        - label: Available
+          value: available
+        - label: Few left
+          value: limited
+        - label: Sold out
+          value: sold_out
+    - name: en
+      label: English text
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
         fields:
-          - { name: name_en, label: 'Your name (English)', widget: string }
-          - { name: name_ar, label: 'Your name (Arabic)', widget: string }
-          - { name: title_en, label: 'Your job title (English)', widget: string, hint: 'For example: Sales Manager, Marakez' }
-          - { name: title_ar, label: 'Your job title (Arabic)', widget: string }
-          - { name: phone, label: 'Phone number', widget: string, hint: 'Include the country code, e.g. +201220170162' }
-          - { name: whatsapp, label: 'WhatsApp number', widget: string, hint: 'Digits only — no plus sign and no spaces, e.g. 201220170162' }
-          - { name: formEndpoint, label: 'Lead form address', widget: string, required: false, hint: 'The Google Script link. Leave this alone unless it stops working.' }
-
-  - name: projects
-    label: Projects
-    files:
-      - name: ramla
-        label: Ramla — North Coast
-        file: content/ramla.json
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
         fields:
-          - name: showPrices
-            label: 'Show prices on the page?'
-            widget: boolean
-            default: false
-            hint: 'Turn off to show "available on request" instead of a price table.'
-          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
-          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
-          - name: prices
-            label: 'Starting prices'
-            label_singular: 'price'
-            widget: list
-            required: false
-            summary: '{{fields.type_en}} — {{fields.from}}'
-            fields:
-              - { name: type_en, label: 'Property type (English)', widget: string, hint: 'For example: Chalets' }
-              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
-              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
-          - name: paymentPlans
-            label: 'Payment plans'
-            label_singular: 'payment plan'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            fields:
-              - { name: name_en, label: 'Plan name (English)', widget: string }
-              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string, hint: 'For example: 10% down payment over 8 years' }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: offers
-            label: 'Limited-time offers'
-            label_singular: 'offer'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            hint: 'These appear highlighted. Delete them when the offer ends.'
-            fields:
-              - { name: name_en, label: 'Offer name (English)', widget: string }
-              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: heroImage
-            label: 'Main image at the top of the page'
-            widget: image
-            required: false
-            hint: 'Best at about 1600 pixels wide.'
-          - name: gallery
-            label: 'Gallery images'
-            label_singular: 'image'
-            widget: list
-            required: false
-            fields:
-              - { name: image, label: 'Image', widget: image }
-
-      - name: crescent
-        label: Crescent Walk — East Cairo
-        file: content/crescent.json
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
         fields:
-          - name: showPrices
-            label: 'Show prices on the page?'
-            widget: boolean
-            default: true
-            hint: 'Turn off to show "available on request" instead of a price table.'
-          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
-          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
-          - name: prices
-            label: 'Starting prices'
-            label_singular: 'price'
-            widget: list
-            required: false
-            summary: '{{fields.type_en}} — {{fields.from}}'
-            fields:
-              - { name: type_en, label: 'Property type (English)', widget: string }
-              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
-              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
-          - name: paymentPlans
-            label: 'Payment plans'
-            label_singular: 'payment plan'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            fields:
-              - { name: name_en, label: 'Plan name (English)', widget: string }
-              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: offers
-            label: 'Limited-time offers'
-            label_singular: 'offer'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            hint: 'These appear highlighted. Delete them when the offer ends.'
-            fields:
-              - { name: name_en, label: 'Offer name (English)', widget: string }
-              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: heroImage
-            label: 'Main image at the top of the page'
-            widget: image
-            required: false
-          - name: gallery
-            label: 'Gallery images'
-            label_singular: 'image'
-            widget: list
-            required: false
-            fields:
-              - { name: image, label: 'Image', widget: image }
-
-      - name: district5
-        label: District 5 — New Katameya
-        file: content/district5.json
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
         fields:
-          - name: showPrices
-            label: 'Show prices on the page?'
-            widget: boolean
-            default: true
-            hint: 'Turn off to show "available on request" instead of a price table.'
-          - { name: priceNote_en, label: 'Note under the prices (English)', widget: string, required: false }
-          - { name: priceNote_ar, label: 'Note under the prices (Arabic)', widget: string, required: false }
-          - name: prices
-            label: 'Starting prices'
-            label_singular: 'price'
-            widget: list
-            required: false
-            summary: '{{fields.type_en}} — {{fields.from}}'
-            fields:
-              - { name: type_en, label: 'Property type (English)', widget: string }
-              - { name: type_ar, label: 'Property type (Arabic)', widget: string }
-              - { name: from, label: 'Starting price', widget: string, hint: 'For example: EGP 12,500,000' }
-          - name: paymentPlans
-            label: 'Payment plans'
-            label_singular: 'payment plan'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            fields:
-              - { name: name_en, label: 'Plan name (English)', widget: string }
-              - { name: name_ar, label: 'Plan name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: offers
-            label: 'Limited-time offers'
-            label_singular: 'offer'
-            widget: list
-            required: false
-            summary: '{{fields.name_en}}'
-            hint: 'These appear highlighted. Delete them when the offer ends.'
-            fields:
-              - { name: name_en, label: 'Offer name (English)', widget: string }
-              - { name: name_ar, label: 'Offer name (Arabic)', widget: string }
-              - { name: terms_en, label: 'Terms (English)', widget: string }
-              - { name: terms_ar, label: 'Terms (Arabic)', widget: string }
-          - name: heroImage
-            label: 'Main image at the top of the page'
-            widget: image
-            required: false
-          - name: gallery
-            label: 'Gallery images'
-            label_singular: 'image'
-            widget: list
-            required: false
-            fields:
-              - { name: image, label: 'Image', widget: image }
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+    - name: ar
+      label: Arabic text — العربية
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+- name: ramla
+  label: 3. Ramla
+  files:
+  - name: ramla
+    label: Ramla — North Coast
+    file: content/ramla.json
+    fields:
+    - name: logos
+      label: Logos
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: Leave empty to show the word "Marakez" instead.
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+    - name: heroImage
+      label: Main image at the top
+      widget: image
+      required: false
+      hint: About 1600 pixels wide works best.
+    - name: heroScrim
+      label: Darken the hero image
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
+    - name: propertyTypes
+      label: Property types & availability
+      label_singular: type
+      widget: list
+      required: false
+      summary: '{{fields.label_en}} — {{fields.status}}'
+      hint: Sold-out types are greyed out and cannot be picked in the enquiry form.
+      fields:
+      - name: label_en
+        label: Name (English)
+        widget: string
+        required: false
+      - name: label_ar
+        label: Name (Arabic)
+        widget: string
+        required: false
+      - name: status
+        label: Availability
+        widget: select
+        default: available
+        options:
+        - label: Available
+          value: available
+        - label: Few left
+          value: limited
+        - label: Sold out
+          value: sold_out
+    - name: showPrices
+      label: Show prices on the page?
+      widget: boolean
+      default: true
+    - name: priceNote_en
+      label: Note under the prices (English)
+      widget: string
+      required: false
+    - name: priceNote_ar
+      label: Note under the prices (Arabic)
+      widget: string
+      required: false
+    - name: prices
+      label: Starting prices
+      widget: list
+      required: false
+      summary: '{{fields.type_en}} — {{fields.from}}'
+      fields:
+      - name: type_en
+        label: Property type (English)
+        widget: string
+        required: false
+      - name: type_ar
+        label: Property type (Arabic)
+        widget: string
+        required: false
+      - name: from
+        label: Starting price
+        widget: string
+        required: false
+        hint: 'For example: EGP 12,500,000'
+    - name: paymentPlans
+      label: Payment plans
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      fields:
+      - name: name_en
+        label: Plan name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Plan name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: offers
+      label: Limited-time offers
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      hint: These show highlighted. Delete a row when the offer ends.
+      fields:
+      - name: name_en
+        label: Offer name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Offer name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: en
+      label: English text
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+    - name: ar
+      label: Arabic text — العربية
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+- name: crescent
+  label: 4. Crescent Walk
+  files:
+  - name: crescent
+    label: Crescent Walk — East Cairo
+    file: content/crescent.json
+    fields:
+    - name: logos
+      label: Logos
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: Leave empty to show the word "Marakez" instead.
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+    - name: heroImage
+      label: Main image at the top
+      widget: image
+      required: false
+      hint: About 1600 pixels wide works best.
+    - name: heroScrim
+      label: Darken the hero image
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
+    - name: propertyTypes
+      label: Property types & availability
+      label_singular: type
+      widget: list
+      required: false
+      summary: '{{fields.label_en}} — {{fields.status}}'
+      hint: Sold-out types are greyed out and cannot be picked in the enquiry form.
+      fields:
+      - name: label_en
+        label: Name (English)
+        widget: string
+        required: false
+      - name: label_ar
+        label: Name (Arabic)
+        widget: string
+        required: false
+      - name: status
+        label: Availability
+        widget: select
+        default: available
+        options:
+        - label: Available
+          value: available
+        - label: Few left
+          value: limited
+        - label: Sold out
+          value: sold_out
+    - name: showPrices
+      label: Show prices on the page?
+      widget: boolean
+      default: true
+    - name: priceNote_en
+      label: Note under the prices (English)
+      widget: string
+      required: false
+    - name: priceNote_ar
+      label: Note under the prices (Arabic)
+      widget: string
+      required: false
+    - name: prices
+      label: Starting prices
+      widget: list
+      required: false
+      summary: '{{fields.type_en}} — {{fields.from}}'
+      fields:
+      - name: type_en
+        label: Property type (English)
+        widget: string
+        required: false
+      - name: type_ar
+        label: Property type (Arabic)
+        widget: string
+        required: false
+      - name: from
+        label: Starting price
+        widget: string
+        required: false
+        hint: 'For example: EGP 12,500,000'
+    - name: paymentPlans
+      label: Payment plans
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      fields:
+      - name: name_en
+        label: Plan name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Plan name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: offers
+      label: Limited-time offers
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      hint: These show highlighted. Delete a row when the offer ends.
+      fields:
+      - name: name_en
+        label: Offer name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Offer name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: en
+      label: English text
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+    - name: ar
+      label: Arabic text — العربية
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+- name: district5
+  label: 5. District 5
+  files:
+  - name: district5
+    label: District 5 — New Katameya
+    file: content/district5.json
+    fields:
+    - name: logos
+      label: Logos
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: Leave empty to show the word "Marakez" instead.
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+    - name: heroImage
+      label: Main image at the top
+      widget: image
+      required: false
+      hint: About 1600 pixels wide works best.
+    - name: heroScrim
+      label: Darken the hero image
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
+    - name: propertyTypes
+      label: Property types & availability
+      label_singular: type
+      widget: list
+      required: false
+      summary: '{{fields.label_en}} — {{fields.status}}'
+      hint: Sold-out types are greyed out and cannot be picked in the enquiry form.
+      fields:
+      - name: label_en
+        label: Name (English)
+        widget: string
+        required: false
+      - name: label_ar
+        label: Name (Arabic)
+        widget: string
+        required: false
+      - name: status
+        label: Availability
+        widget: select
+        default: available
+        options:
+        - label: Available
+          value: available
+        - label: Few left
+          value: limited
+        - label: Sold out
+          value: sold_out
+    - name: officeFormats
+      label: Office formats & availability
+      label_singular: type
+      widget: list
+      required: false
+      summary: '{{fields.label_en}} — {{fields.status}}'
+      hint: Mindhaus office options. Same availability rules apply.
+      fields:
+      - name: label_en
+        label: Name (English)
+        widget: string
+        required: false
+      - name: label_ar
+        label: Name (Arabic)
+        widget: string
+        required: false
+      - name: status
+        label: Availability
+        widget: select
+        default: available
+        options:
+        - label: Available
+          value: available
+        - label: Few left
+          value: limited
+        - label: Sold out
+          value: sold_out
+    - name: showPrices
+      label: Show prices on the page?
+      widget: boolean
+      default: true
+    - name: priceNote_en
+      label: Note under the prices (English)
+      widget: string
+      required: false
+    - name: priceNote_ar
+      label: Note under the prices (Arabic)
+      widget: string
+      required: false
+    - name: prices
+      label: Starting prices
+      widget: list
+      required: false
+      summary: '{{fields.type_en}} — {{fields.from}}'
+      fields:
+      - name: type_en
+        label: Property type (English)
+        widget: string
+        required: false
+      - name: type_ar
+        label: Property type (Arabic)
+        widget: string
+        required: false
+      - name: from
+        label: Starting price
+        widget: string
+        required: false
+        hint: 'For example: EGP 12,500,000'
+    - name: paymentPlans
+      label: Payment plans
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      fields:
+      - name: name_en
+        label: Plan name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Plan name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: offers
+      label: Limited-time offers
+      widget: list
+      required: false
+      summary: '{{fields.name_en}}'
+      hint: These show highlighted. Delete a row when the offer ends.
+      fields:
+      - name: name_en
+        label: Offer name (English)
+        widget: string
+        required: false
+      - name: name_ar
+        label: Offer name (Arabic)
+        widget: string
+        required: false
+      - name: terms_en
+        label: Terms (English)
+        widget: string
+        required: false
+      - name: terms_ar
+        label: Terms (Arabic)
+        widget: string
+        required: false
+    - name: en
+      label: English text
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
+    - name: ar
+      label: Arabic text — العربية
+      widget: object
+      collapsed: true
+      fields:
+      - name: hero_kicker
+        label: Small label above the headline
+        widget: string
+        required: false
+      - name: hero_title
+        label: Headline
+        widget: string
+        required: false
+        hint: The full headline including the italic part.
+      - name: hero_title_em
+        label: Which words are italic?
+        widget: string
+        required: false
+        hint: Copy the exact words from the headline that should be italic and coloured.
+      - name: hero_text
+        label: Paragraph under the headline
+        widget: text
+        required: false
+      - name: facts
+        label: The four facts below the image
+        widget: list
+        required: false
+        summary: '{{fields.label}} — {{fields.value}}'
+        fields:
+        - name: label
+          label: Small label
+          widget: string
+          required: false
+        - name: value
+          label: Big number or word
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: sections
+        label: Section headings
+        widget: list
+        required: false
+        summary: '{{fields.eyebrow}} — {{fields.title}}'
+        hint: One row per section, in the order they appear down the page.
+        fields:
+        - name: eyebrow
+          label: Small label above the heading
+          widget: string
+          required: false
+        - name: title
+          label: Heading
+          widget: string
+          required: false
+        - name: title_em
+          label: Which words are italic?
+          widget: string
+          required: false
+        - name: lead
+          label: Paragraph under the heading
+          widget: text
+          required: false
+      - name: pillars
+        label: The three points under the description
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: masterplanKey
+        label: Masterplan key
+        widget: list
+        required: false
+        summary: '{{fields.num}}. {{fields.title}}'
+        fields:
+        - name: num
+          label: Number
+          widget: string
+          required: false
+        - name: title
+          label: Name
+          widget: string
+          required: false
+        - name: sub
+          label: Small line underneath
+          widget: string
+          required: false
+      - name: panels
+        label: Property type / neighbourhood tabs
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        hint: The content shown when someone clicks each tab.
+        fields:
+        - name: sub
+          label: Small label
+          widget: string
+          required: false
+        - name: title
+          label: Tab heading
+          widget: string
+          required: false
+        - name: text
+          label: Description
+          widget: text
+          required: false
+      - name: usps
+        label: '"Why this project" points'
+        widget: list
+        required: false
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          label: Title
+          widget: string
+          required: false
+        - name: text
+          label: Text
+          widget: text
+          required: false
+      - name: form_disclaimer
+        label: Notice above the enquiry form
+        widget: text
+        required: false
+      - name: footer_disclaimer
+        label: Disclaimer at the bottom of the page
+        widget: text
+        required: false
