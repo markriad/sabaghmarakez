@@ -85,7 +85,7 @@ a{color:inherit}
 /* ── HERO: image bleeds behind the fact rail ─────────────── */
 .hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;
   overflow:hidden;background:#1a2434}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:
     /* contained pool over the text block — the rest of the render stays clear */
@@ -164,7 +164,7 @@ h2 em{font-style:italic;color:var(--accent)}
 /* ── DESCRIPTION: text left, tall image bleeding right ───── */
 .desc{max-width:64ch}
 .desc-fig{margin:clamp(34px,4.5vw,54px) 0 0;position:relative}
-.desc-fig img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.desc-fig img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;display:block}
 .desc-fig figcaption{font-family:var(--display);font-style:italic;font-size:.95rem;
   color:var(--faint);padding-top:11px}
 
@@ -181,8 +181,11 @@ h2 em{font-style:italic;color:var(--accent)}
 .mp{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
   gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(30px,4vw,48px)}
 @media(max-width:980px){.mp{grid-template-columns:1fr}}
-.mp-fig{margin:0;background:var(--white);border:1px solid var(--hair);overflow:hidden}
-.mp-fig img{width:100%;height:auto}
+.mp-fig{margin:0;background:var(--white);border:1px solid var(--hair);overflow:hidden;
+  aspect-ratio:4/3;padding:10px;box-sizing:border-box}
+/* contain, not cover: a masterplan must never be cropped. Odd shapes letterbox
+   against the panel instead of resizing the section. */
+.mp-fig img{width:100%;height:100%;object-fit:contain;object-position:center}
 .mp-key{list-style:none;margin:0;padding:0}
 .mp-key li{display:grid;grid-template-columns:26px 1fr;gap:14px;padding:11px 0;
   border-bottom:1px solid var(--rule);align-items:baseline}
@@ -216,7 +219,7 @@ h2 em{font-style:italic;color:var(--accent)}
 .panel .types{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .panel .types li{border:1px solid var(--rule);padding:6px 13px;font-size:.79rem;color:var(--soft)}
 .panel figure{margin:0;overflow:hidden}
-.panel figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.panel figure img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;object-position:center}
 
 /* ── USPs: hairline grid, no boxes ──────────────────────── */
 .usps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);
@@ -282,7 +285,7 @@ h2 em{font-style:italic;color:var(--accent)}
 .projcard:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(11,22,38,.10);border-color:var(--hair)}
 .projcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .projcard figure{margin:0;overflow:hidden;aspect-ratio:4/3;background:var(--rule)}
-.projcard figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.projcard figure img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s}
 .projcard:hover figure img{transform:scale(1.04)}
 .pc-body{padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;flex:1}
 .pc-loc{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);
@@ -414,29 +417,38 @@ h2 em{font-style:italic;color:var(--accent)}
   .head{position:sticky}
   .head-in{position:relative}
 }
-@media(max-width:340px){
-  /* smallest phones: shorten the CTA so nothing clips */
-  .navcta{padding:9px 10px;font-size:.75rem;
-    max-width:96px;overflow:hidden;white-space:nowrap;text-indent:-9999px;position:relative}
+@media(max-width:430px){
+  /* The menu keeps its full "Developments" label at every width — the CTA is
+     what gives way, since "Prices" reads fine on its own next to a phone. */
+  .nav{gap:6px}
+  .navbtn{padding:8px 9px;font-size:.75rem;gap:5px}
+  /* The label is swapped, not scaled. text-indent hides the long text; the box
+     needs an explicit width or it collapses to its padding and "Prices" spills
+     outside the border. */
+  .navcta{padding:9px 0;font-size:.75rem;
+    width:74px;overflow:hidden;white-space:nowrap;text-indent:-9999px;position:relative}
   .navcta::after{content:"Prices";position:absolute;inset:0;
     display:flex;align-items:center;justify-content:center;text-indent:0}
-}
-@media(max-width:400px){
-  .navbtn span{display:none}
-  .navbtn{padding:8px 10px}
-  .navbtn::before{content:"Projects";font-size:.79rem}
-  .navcta{padding:9px 11px;font-size:.76rem}
   .mark,.marktext{font-size:1rem}
+}
+@media(max-width:360px){
+  /* Below this the gutter leaves ~280px of usable header. Everything tightens
+     rather than anything being dropped or relabelled. */
+  .nav{gap:5px}
+  .navbtn{padding:7px 7px;font-size:.71rem;gap:4px}
+  .navcta{width:62px;font-size:.71rem;padding:9px 0}
 }
 
 /* ── Logo slots (image from CMS, text wordmark as fallback) ─ */
 .mark{display:inline-flex;align-items:center;gap:10px;line-height:1}
-.mark img{height:26px;width:auto;display:none}
+.mark img{height:26px;width:auto;max-width:170px;object-fit:contain;
+  object-position:left center;display:none}
 .mark img[src]:not([src=""]){display:block}
 .mark img[src]:not([src=""]) + .marktext{display:none}
 .marktext{font-family:var(--display);font-size:1.4rem;font-weight:500;letter-spacing:-.01em}
 
-.projlogo{height:30px;width:auto;margin-bottom:12px;display:none}
+.projlogo{height:30px;width:auto;max-width:240px;object-fit:contain;
+  object-position:left center;margin-bottom:12px;display:none}
 .projlogo[src]:not([src=""]){display:block}
 
 /* ── Availability states on chips ────────────────────────── */
@@ -606,7 +618,7 @@ h2 em{font-style:italic;color:var(--accent)}
             <p class="pc-loc">East Cairo</p>
             <h3>Crescent Walk</h3>
             <p>118 acres built around a green pathway you can walk or cycle end to end, with a back gate from every home onto the park.</p>
-            <ul class="types"><li>Villas</li><li>Twinhomes</li><li>Townhomes</li></ul>
+            <ul class="types"><li>Villas</li><li>Townhomes</li><li>Apartments</li></ul>
             <span class="pc-go">Explore Crescent Walk &rarr;</span>
           </div>
         </a>

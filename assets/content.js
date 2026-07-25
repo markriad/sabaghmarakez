@@ -36,6 +36,36 @@
     el.textContent = value;
   }
 
+  /* ── Image slots ────────────────────────────────────────────────────────
+     Every slot below has a fixed aspect ratio in CSS with object-fit, so an
+     uploaded image is fitted into the box — it can never resize the box.
+     Photo slots crop to fill (cover); the masterplan and the logos are shown
+     whole (contain). Blank in the CMS means the built-in photo stays.
+     Target sizes are listed in IMAGES.md and repeated as hints in the panel. */
+  function setImg(el, path) {
+    if (!el || !path) return;
+    el.setAttribute("src", String(path).replace(/^\//, ""));
+  }
+
+  function applyImages(data) {
+    var im = data.images || {};
+
+    setImg(document.querySelector(".hero > img"), im.hero || data.heroImage);
+    setImg(document.querySelector(".desc-fig img"), im.about);
+    setImg(document.querySelector(".mp-fig img"), im.masterplan);
+
+    /* neighbourhood / property-type / office panels, in page order */
+    document.querySelectorAll(".panel figure img").forEach(function (el, i) {
+      setImg(el, im["panel" + (i + 1)]);
+    });
+
+    /* homepage project cards, in page order */
+    var cards = data.cards || [];
+    document.querySelectorAll(".projcard figure img").forEach(function (el, i) {
+      setImg(el, cards[i] && cards[i].image);
+    });
+  }
+
   /* Headline with an italic tail: "Plain words <em>emphasis.</em>" */
   function setTitle(el, full, em) {
     if (!el || !full) return;
@@ -53,6 +83,8 @@
 
   function apply(data) {
     var L = lang();
+
+    applyImages(data);
 
     /* hero */
     setText(document.querySelector(".hero .kicker"), pick(data, "hero_kicker"));
@@ -115,11 +147,13 @@
       if (small && sub) small.textContent = sub;
     });
 
-    /* tab panels */
+    /* tab panels
+       The sub-label is itself a <p>, so querySelector("p") used to match it and
+       the description overwrote the label — same sentence printed twice. */
     document.querySelectorAll(".panel").forEach(function (el, i) {
-      setText(el.querySelector(".sub"), pick(data, "panels", i, "sub"));
-      setText(el.querySelector("h3"),   pick(data, "panels", i, "title"));
-      setText(el.querySelector("p"),    pick(data, "panels", i, "text"));
+      setText(el.querySelector("p.sub"),      pick(data, "panels", i, "sub"));
+      setText(el.querySelector("h3"),         pick(data, "panels", i, "title"));
+      setText(el.querySelector("p:not(.sub)"), pick(data, "panels", i, "text"));
     });
 
     /* fixed copy */

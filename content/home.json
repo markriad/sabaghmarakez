@@ -1,221 +1,223 @@
 {
-  "heroImage": "assets/img/marakez/hero.jpeg",
-  "heroScrim": "strong",
-  "cards": [
-    {
-      "key": "ramla",
-      "image": "assets/img/marakez/card-ramla.jpeg",
-      "status": "available"
-    },
-    {
-      "key": "crescent",
-      "image": "assets/img/marakez/card-crescent.jpeg",
-      "status": "available"
-    },
-    {
-      "key": "district5",
-      "image": "assets/img/marakez/card-d5.jpeg",
-      "status": "available"
-    }
-  ],
-  "logos": {
-    "marakez": "",
-    "project": ""
+ "images": {
+  "hero": "assets/img/marakez/hero.jpeg"
+ },
+ "heroScrim": "strong",
+ "cards": [
+  {
+   "key": "ramla",
+   "image": "assets/img/marakez/card-ramla.jpeg",
+   "status": "available"
   },
-  "en": {
-    "hero_kicker": "Marakez · Egypt",
-    "hero_title": "The Leading Mixed-Use Developer in Egypt.",
-    "hero_title_em": "Developer in Egypt.",
-    "hero_text": "Marakez builds mixed-use communities across Egypt — where the mall, the offices and the open space are part of the plan, not a promise for a later phase.",
-    "facts": [
-      {
-        "label": "Founded",
-        "value": "1989",
-        "sub": "Fawaz Al Hokair Group"
-      },
-      {
-        "label": "Retail managed",
-        "value": "1.5M sqm",
-        "sub": "Across 21 malls"
-      },
-      {
-        "label": "Countries",
-        "value": "11",
-        "sub": "MENA, Europe, USA"
-      },
-      {
-        "label": "Available now",
-        "value": "Three",
-        "sub": "Coast, garden, city"
-      }
-    ],
-    "sections": [
-      {
-        "eyebrow": "Residential projects",
-        "title": "Coast, garden district, and city.",
-        "title_em": "and city.",
-        "lead": "Three residential communities, each solving a different problem: a summer place on the north coast, a low-density family neighbourhood in East Cairo, or a home inside a development where the mall and the offices are a walk away."
-      },
-      {
-        "eyebrow": "About Marakez",
-        "title": "The developer behind Mall of Arabia.",
-        "title_em": "Mall of Arabia.",
-        "lead": "Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus."
-      },
-      {
-        "eyebrow": "The wider portfolio",
-        "title": "What else Marakez has built.",
-        "title_em": "has built.",
-        "lead": "Beyond the three residential projects above, the portfolio covers malls, offices and entertainment across Egypt. I can answer questions on any of them."
-      },
-      {
-        "eyebrow": "Working with me",
-        "title": "What you get from a direct line.",
-        "title_em": "a direct line.",
-        "lead": ""
-      },
-      {
-        "eyebrow": "Enquire",
-        "title": "Tell me what you’re looking for.",
-        "title_em": "you’re looking for.",
-        "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
-      }
-    ],
-    "pillars": [
-      {
-        "title": "Part of Fawaz Al Hokair Group",
-        "text": "Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries."
-      },
-      {
-        "title": "Retail comes built in",
-        "text": "Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later."
-      },
-      {
-        "title": "International design partners",
-        "text": "WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture."
-      }
-    ],
-    "usps": [
-      {
-        "title": "Current availability",
-        "text": "What's actually released this week, not what a portal listed last month."
-      },
-      {
-        "title": "The real payment plan",
-        "text": "Plans and offers change through the season. You get this month's terms, in writing."
-      },
-      {
-        "title": "Honest comparison",
-        "text": "If another project fits you better than the one you asked about, I'll say so."
-      },
-      {
-        "title": "No middleman",
-        "text": "I work at Marakez. Your enquiry reaches me, not a call centre queue."
-      }
-    ],
-    "masterplanKey": [],
-    "panels": [],
-    "form_disclaimer": "Your details go to Mohamed El Sabagh directly. This form is not operated by Marakez.",
-    "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
-    "footer_disclaimer": "Not an official Marakez website. Personal site of Mohamed El Sabagh, Sales Manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
-    "top_bar": "Personal site of Mohamed El Sabagh, Sales Manager, Marakez. Not an official Marakez website."
+  {
+   "key": "crescent",
+   "image": "assets/img/marakez/card-crescent.jpeg",
+   "status": "available"
   },
-  "ar": {
-    "hero_kicker": "",
-    "hero_title": "",
-    "hero_title_em": "",
-    "hero_text": "",
-    "facts": [
-      {
-        "label": "",
-        "value": "",
-        "sub": ""
-      },
-      {
-        "label": "",
-        "value": "",
-        "sub": ""
-      },
-      {
-        "label": "",
-        "value": "",
-        "sub": ""
-      },
-      {
-        "label": "",
-        "value": "",
-        "sub": ""
-      }
-    ],
-    "sections": [
-      {
-        "eyebrow": "",
-        "title": "",
-        "title_em": "",
-        "lead": ""
-      },
-      {
-        "eyebrow": "",
-        "title": "",
-        "title_em": "",
-        "lead": ""
-      },
-      {
-        "eyebrow": "",
-        "title": "",
-        "title_em": "",
-        "lead": ""
-      },
-      {
-        "eyebrow": "",
-        "title": "",
-        "title_em": "",
-        "lead": ""
-      },
-      {
-        "eyebrow": "",
-        "title": "",
-        "title_em": "",
-        "lead": ""
-      }
-    ],
-    "pillars": [
-      {
-        "title": "",
-        "text": ""
-      },
-      {
-        "title": "",
-        "text": ""
-      },
-      {
-        "title": "",
-        "text": ""
-      }
-    ],
-    "usps": [
-      {
-        "title": "",
-        "text": ""
-      },
-      {
-        "title": "",
-        "text": ""
-      },
-      {
-        "title": "",
-        "text": ""
-      },
-      {
-        "title": "",
-        "text": ""
-      }
-    ],
-    "masterplanKey": [],
-    "panels": [],
-    "form_disclaimer": "",
-    "contact_line": "",
-    "footer_disclaimer": "",
-    "top_bar": ""
+  {
+   "key": "district5",
+   "image": "assets/img/marakez/card-d5.jpeg",
+   "status": "available"
   }
+ ],
+ "logos": {
+  "marakez": "",
+  "project": ""
+ },
+ "en": {
+  "hero_kicker": "Marakez · Egypt",
+  "hero_title": "The Leading Mixed-Use Developer in Egypt.",
+  "hero_title_em": "Developer in Egypt.",
+  "hero_text": "Marakez builds mixed-use communities across Egypt — where the mall, the offices and the open space are part of the plan, not a promise for a later phase.",
+  "facts": [
+   {
+    "label": "Founded",
+    "value": "1989",
+    "sub": "Fawaz Al Hokair Group"
+   },
+   {
+    "label": "Retail managed",
+    "value": "1.5M sqm",
+    "sub": "Across 21 malls"
+   },
+   {
+    "label": "Countries",
+    "value": "11",
+    "sub": "MENA, Europe, USA"
+   },
+   {
+    "label": "Available now",
+    "value": "Three",
+    "sub": "Coast, garden, city"
+   }
+  ],
+  "sections": [
+   {
+    "eyebrow": "Residential projects",
+    "title": "Coast, garden district, and city.",
+    "title_em": "and city.",
+    "lead": "Three residential communities, each solving a different problem: a summer place on the north coast, a low-density family neighbourhood in East Cairo, or a home inside a development where the mall and the offices are a walk away."
+   },
+   {
+    "eyebrow": "About Marakez",
+    "title": "The developer behind Mall of Arabia.",
+    "title_em": "Mall of Arabia.",
+    "lead": "Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus."
+   },
+   {
+    "eyebrow": "The wider portfolio",
+    "title": "What else Marakez has built.",
+    "title_em": "has built.",
+    "lead": "Beyond the three residential projects above, the portfolio covers malls, offices and entertainment across Egypt. I can answer questions on any of them."
+   },
+   {
+    "eyebrow": "Working with me",
+    "title": "What you get from a direct line.",
+    "title_em": "a direct line.",
+    "lead": ""
+   },
+   {
+    "eyebrow": "Enquire",
+    "title": "Tell me what you’re looking for.",
+    "title_em": "you’re looking for.",
+    "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
+   }
+  ],
+  "pillars": [
+   {
+    "title": "Part of Fawaz Al Hokair Group",
+    "text": "Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries."
+   },
+   {
+    "title": "Retail comes built in",
+    "text": "Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later."
+   },
+   {
+    "title": "International design partners",
+    "text": "WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture."
+   }
+  ],
+  "usps": [
+   {
+    "title": "Current availability",
+    "text": "What's actually released this week, not what a portal listed last month."
+   },
+   {
+    "title": "The real payment plan",
+    "text": "Plans and offers change through the season. You get this month's terms, in writing."
+   },
+   {
+    "title": "Honest comparison",
+    "text": "If another project fits you better than the one you asked about, I'll say so."
+   },
+   {
+    "title": "No middleman",
+    "text": "I work at Marakez. Your enquiry reaches me, not a call centre queue."
+   }
+  ],
+  "masterplanKey": [],
+  "panels": [],
+  "form_disclaimer": "Your details go to Mohamed El Sabagh directly. This form is not operated by Marakez.",
+  "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
+  "footer_disclaimer": "Not an official Marakez website. Personal site of Mohamed El Sabagh, Sales Manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
+  "top_bar": "Personal site of Mohamed El Sabagh, Sales Manager, Marakez. Not an official Marakez website."
+ },
+ "ar": {
+  "hero_kicker": "",
+  "hero_title": "",
+  "hero_title_em": "",
+  "hero_text": "",
+  "facts": [
+   {
+    "label": "",
+    "value": "",
+    "sub": ""
+   },
+   {
+    "label": "",
+    "value": "",
+    "sub": ""
+   },
+   {
+    "label": "",
+    "value": "",
+    "sub": ""
+   },
+   {
+    "label": "",
+    "value": "",
+    "sub": ""
+   }
+  ],
+  "sections": [
+   {
+    "eyebrow": "",
+    "title": "",
+    "title_em": "",
+    "lead": ""
+   },
+   {
+    "eyebrow": "",
+    "title": "",
+    "title_em": "",
+    "lead": ""
+   },
+   {
+    "eyebrow": "",
+    "title": "",
+    "title_em": "",
+    "lead": ""
+   },
+   {
+    "eyebrow": "",
+    "title": "",
+    "title_em": "",
+    "lead": ""
+   },
+   {
+    "eyebrow": "",
+    "title": "",
+    "title_em": "",
+    "lead": ""
+   }
+  ],
+  "pillars": [
+   {
+    "title": "",
+    "text": ""
+   },
+   {
+    "title": "",
+    "text": ""
+   },
+   {
+    "title": "",
+    "text": ""
+   }
+  ],
+  "usps": [
+   {
+    "title": "",
+    "text": ""
+   },
+   {
+    "title": "",
+    "text": ""
+   },
+   {
+    "title": "",
+    "text": ""
+   },
+   {
+    "title": "",
+    "text": ""
+   }
+  ],
+  "masterplanKey": [],
+  "panels": [],
+  "form_disclaimer": "",
+  "contact_line": "",
+  "footer_disclaimer": "",
+  "top_bar": ""
+ }
 }

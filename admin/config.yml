@@ -10,6 +10,21 @@ backend:
 media_folder: assets/img/uploads
 public_folder: assets/img/uploads
 publish_mode: simple
+# Every uploaded photo is converted to WebP and scaled down to fit 2400x2400
+# before it is saved. Combined with the fixed slot shapes in the CSS, this means
+# an oversized upload can neither slow the site down nor change any layout.
+media_libraries:
+  all:
+    max_file_size: 12000000
+    slugify_filename: true
+    transformations:
+      raster_image:
+        format: webp
+        quality: 82
+        width: 2400
+        height: 2400
+      svg:
+        optimize: true
 collections:
 - name: settings
   label: 1. My details
@@ -92,16 +107,28 @@ collections:
         label: Marakez logo (header)
         widget: image
         required: false
-        hint: Leave empty to show the word "Marakez" instead.
+        hint: >-
+          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
+          tall and never wider than 170 px. Leave empty to show the word "Marakez".
       - name: project
         label: Project logo (hero)
         widget: image
         required: false
-    - name: heroImage
-      label: Main image at the top
-      widget: image
-      required: false
-      hint: About 1600 pixels wide works best.
+        hint: >-
+          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
+          tall and never wider than 240 px.
+    - name: images
+      label: Photos on this page
+      widget: object
+      collapsed: true
+      hint: >-
+        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
     - name: heroScrim
       label: Darken the hero image
       widget: select
@@ -135,6 +162,7 @@ collections:
         label: Card photo
         widget: image
         required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
       - name: status
         label: Availability
         widget: select
@@ -436,16 +464,68 @@ collections:
         label: Marakez logo (header)
         widget: image
         required: false
-        hint: Leave empty to show the word "Marakez" instead.
+        hint: >-
+          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
+          tall and never wider than 170 px. Leave empty to show the word "Marakez".
       - name: project
         label: Project logo (hero)
         widget: image
         required: false
-    - name: heroImage
-      label: Main image at the top
-      widget: image
-      required: false
-      hint: About 1600 pixels wide works best.
+        hint: >-
+          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
+          tall and never wider than 240 px.
+    - name: images
+      label: Photos on this page
+      widget: object
+      collapsed: true
+      hint: >-
+        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
+      - name: about
+        label: Photo in the About section
+        widget: image
+        required: false
+        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
+      - name: panel1
+        label: Neighbourhood 1 — Dunes
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel2
+        label: Neighbourhood 2 — The Town
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel3
+        label: Neighbourhood 3 — Oasis
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel4
+        label: Neighbourhood 4 — The Grove
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel5
+        label: Neighbourhood 5 — Acacia
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel6
+        label: Neighbourhood 6 — Bougainvillea & Breeze
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
     - name: heroScrim
       label: Darken the hero image
       widget: select
@@ -851,16 +931,58 @@ collections:
         label: Marakez logo (header)
         widget: image
         required: false
-        hint: Leave empty to show the word "Marakez" instead.
+        hint: >-
+          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
+          tall and never wider than 170 px. Leave empty to show the word "Marakez".
       - name: project
         label: Project logo (hero)
         widget: image
         required: false
-    - name: heroImage
-      label: Main image at the top
-      widget: image
-      required: false
-      hint: About 1600 pixels wide works best.
+        hint: >-
+          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
+          tall and never wider than 240 px.
+    - name: images
+      label: Photos on this page
+      widget: object
+      collapsed: true
+      hint: >-
+        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
+      - name: about
+        label: Photo in the About section
+        widget: image
+        required: false
+        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
+      - name: panel1
+        label: Property type 1 — Villas
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel2
+        label: Property type 2 — Twinhomes
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel3
+        label: Property type 3 — Townhomes
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel4
+        label: Property type 4 — Private residences
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
     - name: heroScrim
       label: Darken the hero image
       widget: select
@@ -1266,16 +1388,78 @@ collections:
         label: Marakez logo (header)
         widget: image
         required: false
-        hint: Leave empty to show the word "Marakez" instead.
+        hint: >-
+          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
+          tall and never wider than 170 px. Leave empty to show the word "Marakez".
       - name: project
         label: Project logo (hero)
         widget: image
         required: false
-    - name: heroImage
-      label: Main image at the top
-      widget: image
-      required: false
-      hint: About 1600 pixels wide works best.
+        hint: >-
+          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
+          tall and never wider than 240 px.
+    - name: images
+      label: Photos on this page
+      widget: object
+      collapsed: true
+      hint: >-
+        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
+      - name: about
+        label: Photo in the About section
+        widget: image
+        required: false
+        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
+      - name: panel1
+        label: Home type 1 — The Plateau
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel2
+        label: Home type 2 — Clubside
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel3
+        label: Home type 3 — D Parks
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel4
+        label: Home type 4 — Villas and homes
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel5
+        label: Office 1 — Mindhaus Campus
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel6
+        label: Office 2 — Interiors
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel7
+        label: Office 3 — Mindhaus Strip
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: panel8
+        label: Office 4 — Location
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
     - name: heroScrim
       label: Darken the hero image
       widget: select
