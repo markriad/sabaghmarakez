@@ -17,7 +17,7 @@
   --soft:#4a5568;
   --faint:#646d7b;
   --rule:#e4e7ec;
-  --hair:#d6dbe3;
+  --hair:#d6dbe3;--stone:#efe9dd;--stone-ink:#5f584a;
   --accent:#16305c;
   --sand:#16305c;
   --accent-light:#8fb0e0;   /* accent for dark backgrounds */
@@ -715,6 +715,41 @@ h2{margin-bottom:12px}
 @media(max-width:999px){
   .about-fig{margin-top:clamp(20px,3vw,30px)}
 }
+
+/* ═══ LAYOUT RULE ══════════════════════════════════════════════════════════
+   A section may be a screen tall, but the content inside it is never stretched
+   to fill that height. It keeps its natural size and centres as a block, so
+   leftover space collects at the top and bottom where it reads as margin.
+   Stretching short content into a tall box only ever produces a hole in the
+   middle or a box that no longer matches what's in it.                       */
+
+/* was justify-content:space-between, which opened a 271px hole between the
+   numeral and the heading */
+@media(min-width:1000px){
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usps{
+    min-height:0;gap:0 clamp(18px,2.2vw,30px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp{
+    display:block;padding-left:clamp(14px,1.8vw,22px);border-left:1px solid var(--rule)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp:first-child{
+    padding-left:0;border-left:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp .n{
+    /* #d6dbe3 measured 1.39:1 on white — invisible. This still reads as a quiet
+       marker but clears the 3:1 needed at this size (measures 3.36:1). */
+    font-size:1.6rem;color:#7f8da4;font-style:italic;line-height:1;
+    display:block;margin-bottom:var(--s2,12px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp h3{margin-top:0}
+
+  /* the photo variant: text used to stop 74px above the image because the box
+     was forced past the content */
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])){min-height:0;align-items:start}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usps{gap:clamp(26px,3vw,38px) clamp(24px,3vw,42px)}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig{height:100%;min-height:100%}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig img{min-height:260px}
+}
+
+/* tab panels centred the figure against the text, so the offset changed with
+   every tab — 29px, 17px, 4px depending on how long the copy was */
+.panel{align-items:start}
 </style>
 </head>
 <body data-project="home">

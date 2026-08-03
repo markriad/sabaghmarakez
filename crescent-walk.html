@@ -17,7 +17,7 @@
   --soft:#4a5568;
   --faint:#646d7b;
   --rule:#e4e7ec;
-  --hair:#d6dbe3;
+  --hair:#d6dbe3;--stone:#efe9dd;--stone-ink:#5f584a;
   --accent:#16305c;
   --sand:#16305c;
   --accent-light:#8fb0e0;   /* accent for dark backgrounds */
@@ -640,6 +640,134 @@ h2{margin-bottom:12px}
 @media(max-width:999px){
   .about-fig{margin-top:clamp(20px,3vw,30px)}
 }
+
+/* ═══ LAYOUT RULE ══════════════════════════════════════════════════════════
+   A section may be a screen tall, but the content inside it is never stretched
+   to fill that height. It keeps its natural size and centres as a block, so
+   leftover space collects at the top and bottom where it reads as margin.
+   Stretching short content into a tall box only ever produces a hole in the
+   middle or a box that no longer matches what's in it.                       */
+
+/* was justify-content:space-between, which opened a 271px hole between the
+   numeral and the heading */
+@media(min-width:1000px){
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usps{
+    min-height:0;gap:0 clamp(18px,2.2vw,30px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp{
+    display:block;padding-left:clamp(14px,1.8vw,22px);border-left:1px solid var(--rule)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp:first-child{
+    padding-left:0;border-left:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp .n{
+    /* #d6dbe3 measured 1.39:1 on white — invisible. This still reads as a quiet
+       marker but clears the 3:1 needed at this size (measures 3.36:1). */
+    font-size:1.6rem;color:#7f8da4;font-style:italic;line-height:1;
+    display:block;margin-bottom:var(--s2,12px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp h3{margin-top:0}
+
+  /* the photo variant: text used to stop 74px above the image because the box
+     was forced past the content */
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])){min-height:0;align-items:start}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usps{gap:clamp(26px,3vw,38px) clamp(24px,3vw,42px)}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig{height:100%;min-height:100%}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig img{min-height:260px}
+}
+
+/* tab panels centred the figure against the text, so the offset changed with
+   every tab — 29px, 17px, 4px depending on how long the copy was */
+.panel{align-items:start}
+
+/* ═══ SECTION 01 · split, edge to edge ═════════════════════════════════════
+   The panel runs the full width with no page margin. Its job is the thinking
+   behind the place; the hero strip above it carries the figures and the names.
+   Nothing here repeats anything in the strip.                                */
+.sec--split{padding:0;min-height:0;display:block}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.split .pic{position:relative;background:var(--hair)}
+.split .pic img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center}
+.split .txt{background:var(--stone,#efe9dd);padding:clamp(28px,3.6vw,56px);
+  display:flex;flex-direction:column;justify-content:center}
+.split .eyebrow{color:#5f584a;margin-bottom:var(--s3,20px)}
+.split .eyebrow .secnum{color:#5f584a;border-right-color:rgba(11,22,38,.18)}
+.split h2{margin:0 0 var(--s3,20px)}
+.split .lead{margin:0 0 clamp(24px,2.8vw,36px);color:#5a5344;max-width:42ch}
+/* One grid for the whole list. A grid per row would size the term column from
+   that row alone, and every description would start at a different left edge. */
+.split dl{margin:0;display:grid;grid-template-columns:auto 1fr;
+  column-gap:clamp(18px,2vw,28px)}
+.split .drow{display:contents}
+/* five rows now the sections are merged, so the row rhythm is tighter than
+   the sample's three-row version */
+.split dt,.split dd{padding-top:14px;margin-top:14px;
+  border-top:1px solid rgba(11,22,38,.13)}
+.split dt{font-family:var(--display);font-size:1.12rem;color:var(--accent);
+  line-height:1.35}
+.split dd{margin-left:0;font-size:.86rem;color:#5a5344;line-height:1.48}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split .pic{min-height:290px}
+  .split dl{grid-template-columns:1fr}
+  .split dt{padding-top:var(--s3,20px);margin-top:var(--s3,20px)}
+  .split dd{padding-top:0;margin-top:var(--s1,6px);border-top:0}
+}
+
+/* ═══ PRICES & PAYMENT ═════════════════════════════════════════════════════
+   Three layers, deliberately different materials:
+     navy   — the summary. Permanent facts.
+     darker — the individual plans, only rendered when there is more than one.
+     warm   — offers. Temporary, each with its own end date, and each removes
+              itself from the page the day after that date passes.
+   The two summary figures are computed from the plans, never typed, so the
+   headline can't drift out of step with the list underneath it.             */
+.money{background:#0d1c30;color:#fff;position:relative;z-index:2}
+.money .top{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(20px,2.6vw,30px) var(--gut);
+  display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:clamp(20px,3.6vw,56px);
+  align-items:center}
+.money .m .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);display:block;margin-bottom:6px}
+.money .m .v{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,1.95rem);
+  line-height:1;display:block;letter-spacing:-.01em;white-space:nowrap}
+.money .m .v small{font-family:var(--body);font-size:.7rem;letter-spacing:.06em;
+  color:rgba(255,255,255,.6);margin-left:5px}
+.money .act{justify-self:end;text-align:right}
+.money .act a{display:inline-block;background:#fff;color:var(--ink);text-decoration:none;
+  padding:12px 20px;font-size:.85rem;font-weight:600;white-space:nowrap;
+  transition:background .2s}
+.money .act a:hover{background:var(--accent-light)}
+.money .act p{margin:7px 0 0;font-size:.67rem;color:rgba(255,255,255,.5)}
+.money .plans{background:#132539;border-top:1px solid rgba(255,255,255,.1)}
+.money .plans .in{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(14px,1.6vw,18px) var(--gut);
+  display:flex;gap:clamp(10px,1.4vw,16px);align-items:center;flex-wrap:wrap}
+.money .plans .lab{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-right:6px}
+.money .plans .p{border:1px solid rgba(255,255,255,.22);padding:7px 13px;font-size:.83rem;
+  color:rgba(255,255,255,.92);white-space:nowrap}
+.money .plans .p .nm{color:rgba(255,255,255,.55);margin-right:7px;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase}
+.money .offers{background:#fbf4e9;border-top:2px solid #8f5a1c}
+.money .offers .in{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(12px,1.5vw,16px) var(--gut)}
+.money .offers .o{display:flex;gap:clamp(12px,2vw,22px);align-items:baseline;flex-wrap:wrap;
+  padding:clamp(10px,1.2vw,13px) 0;border-top:1px solid #e0c9a4}
+.money .offers .o:first-child{border-top:0}
+.money .offers .flag{font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;
+  background:#8f5a1c;color:#fff;padding:4px 9px;flex:0 0 auto}
+.money .offers .txt{font-size:.9rem;color:#4a3a20;flex:1 1 240px;min-width:0}
+.money .offers .until{font-size:.75rem;color:#8f5a1c;font-weight:600;white-space:nowrap}
+.money .offers .cond{width:100%;font-size:.71rem;color:#7a6647;margin:4px 0 0}
+@media(max-width:900px){
+  .money .top{grid-template-columns:repeat(2,1fr);gap:26px 18px}
+  .money .act{grid-column:1/-1;justify-self:stretch;text-align:left}
+  .money .act a{display:block;text-align:center}
+  .money .plans .in{gap:8px}
+  .money .plans .p{font-size:.78rem;padding:6px 10px}
+}
+@media(max-width:560px){
+  .money .m .v{font-size:1.35rem}
+  .money .plans .lab{width:100%;margin-bottom:2px}
+}
 </style>
 </head>
 <body data-project="crescent">
@@ -687,35 +815,30 @@ h2{margin-bottom:12px}
   <dl class="rail">
     <div><dt>Location</dt><dd>East Cairo<span class="sub">Sokhna Rd &middot; South Teseen</span></dd></div>
     <div><dt>Land area</dt><dd>118 acres<span class="sub">Low density</span></dd></div>
-    <div><dt>Home types</dt><dd>Four<span class="sub">Villas to townhomes</span></dd></div>
+    <div><dt>Green space</dt><dd>Five parks<span class="sub">Along one continuous spine</span></dd></div>
     <div><dt>Master planner</dt><dd>WATG<span class="sub">Architecture by PBD</span></dd></div>
   </dl>
 </div>
 
+<div class="money" data-money hidden></div>
+
 <div class="doc">
 
-  <section class="sec">
-    <div class="inner">
-      <div class="desc rv">
+  <section class="sec sec--split">
+    <span class="marker" data-n="01"></span>
+    <div class="split">
+      <div class="pic"><img data-img="about" src="assets/img/crescent/about.jpeg" alt="The green spine at Crescent Walk" loading="lazy"></div>
+      <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>A neighbourhood where everyone <em>knows your name.</em></h2>
-        <p class="lead">Crescent Walk takes its cue from the garden neighbourhoods of old Cairo &mdash; the ones where children roamed freely and neighbours greeted each other by name. 118 acres in East Cairo, organised around a green pathway that runs the length of the community, widening into parks and narrowing into a cycling lane before it reaches your back gate.</p>
-      </div>
-      <figure class="desc-fig rv">
-        <img src="assets/img/crescent/about.jpeg" alt="Crescent Walk green spine" loading="lazy">
-        <figcaption>The green spine, Crescent Walk</figcaption>
-      </figure>
-
-      <div class="pillars">
-        <div class="pillar rv"><span class="n">i</span>
-          <h3>Connected without the traffic</h3>
-          <p>Direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly, far enough not to hear it.</p></div>
-        <div class="pillar rv"><span class="n">ii</span>
-          <h3>Green space came first</h3>
-          <p>Most compounds lay roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it.</p></div>
-        <div class="pillar rv"><span class="n">iii</span>
-          <h3>Built for the climate</h3>
-          <p>Brickwork, masonry banding and timber hues, with double-height ceilings and deep terraces that handle Cairo's heat.</p></div>
+        <p class="lead">Crescent Walk takes its cue from the garden neighbourhoods of old Cairo &mdash; low, quiet streets where nothing towers over anything else and children roamed freely.</p>
+        <dl>
+          <div class="drow"><dt>A back gate onto the park</dt><dd>Homes open directly onto the green spine &mdash; no walking around the block to reach it.</dd></div>
+          <div class="drow"><dt>A full cycling loop</dt><dd>The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community.</dd></div>
+          <div class="drow"><dt>Shops without leaving</dt><dd>The commercial park carries groceries, cafés and daily essentials inside the gates.</dd></div>
+          <div class="drow"><dt>The path came first</dt><dd>Most compounds lay the roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it.</dd></div>
+          <div class="drow"><dt>Built for the heat</dt><dd>Brick, masonry banding and deep terraces &mdash; nostalgic to look at, and shaded where it matters.</dd></div>
+        </dl>
       </div>
     </div>
   </section>
@@ -788,29 +911,7 @@ h2{margin-bottom:12px}
     </div>
   </section>
 
-  <section class="sec sec--tight">
-    <div class="inner">
-      <div class="rv">
-        <p class="eyebrow"><span class="secnum">04</span>Why Crescent Walk</p>
-        <h2>What the green spine <em>actually gives you.</em></h2>
-      </div>
-      <div class="usp-wrap">
-        <div class="usps">
-          <div class="usp rv"><span class="n">i</span><h3>A back gate onto the park</h3>
-            <p>Homes open directly onto the green spine &mdash; no walking around the block to reach it.</p></div>
-          <div class="usp rv"><span class="n">ii</span><h3>A full cycling loop</h3>
-            <p>The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community.</p></div>
-          <div class="usp rv"><span class="n">iii</span><h3>Shops without leaving</h3>
-            <p>The commercial park carries groceries, cafés and daily essentials inside the gates.</p></div>
-          <div class="usp rv"><span class="n">iv</span><h3>Art deco, built for heat</h3>
-            <p>PBD's architecture uses brick, masonry banding and deep terraces &mdash; nostalgic, but designed for the climate.</p></div>
-      </div>
-        <figure class="usp-fig"><img data-img="why" src="assets/img/crescent/t-private.jpeg" alt="" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /doc -->
+  </div><!-- /doc -->
 
 <section class="form-sec" id="enquire">
   <div class="wrap form-grid">

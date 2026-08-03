@@ -83,10 +83,93 @@
     }
   }
 
+
+  /* ── Prices, payment plans and offers ───────────────────────────────────
+     The band renders from the CMS. Two rules built in on purpose:
+       1. "from X% down" and "up to Y years" are computed from the plan list,
+          never entered separately, so the headline cannot contradict it.
+       2. Every offer carries an end date and is dropped the day after it
+          passes. Nothing stale can survive on the page by being forgotten.
+     A cash plan (0 instalment years) is shown but excluded from the summary,
+     or it would drag "up to N years" down to zero.                         */
+  function renderMoney(data) {
+    var root = document.querySelector("[data-money]");
+    if (!root) return;
+    var money = data.money || {};
+    var price = money.priceFrom;
+    var plans = money.plans || [];
+    var offers = money.offers || [];
+
+    if (!price && !plans.length) { root.hidden = true; return; }
+
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var esc = function (t) {
+      return String(t == null ? "" : t)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    var fin = plans.filter(function (p) { return Number(p.years) > 0; });
+    var downs = fin.map(function (p) { return Number(p.down); });
+    var yrs = fin.map(function (p) { return Number(p.years); });
+    var minDown = downs.length ? Math.min.apply(null, downs) : null;
+    var maxYrs = yrs.length ? Math.max.apply(null, yrs) : null;
+    var one = fin.length === 1;
+
+    var h = '<div class="top">';
+    if (price) {
+      h += '<div class="m"><span class="k">Homes from</span><span class="v">' +
+        esc(price) + "</span></div>";
+    }
+    if (minDown !== null) {
+      h += '<div class="m"><span class="k">' + (one ? "Down payment" : "Down payment from") +
+        '</span><span class="v">' + minDown + "<small>%</small></span></div>" +
+        '<div class="m"><span class="k">' + (one ? "Instalments" : "Instalments up to") +
+        '</span><span class="v">' + maxYrs + "<small>" +
+        (maxYrs === 1 ? "year" : "years") + "</small></span></div>";
+    }
+    h += '<div class="act"><a href="#enquire">' + esc(money.ctaLabel || "Get the current price list") +
+      "</a>" + '<p>' + esc(money.priceNote || "Indicative \u00b7 subject to change") +
+      "</p></div></div>";
+
+    if (plans.length > 1) {
+      h += '<div class="plans"><div class="in"><span class="lab">Plans</span>';
+      plans.forEach(function (p) {
+        var body = Number(p.years) > 0
+          ? "<b>" + esc(p.down) + "% down</b> \u00b7 " + esc(p.years) + " yrs"
+          : "<b>" + esc(p.down) + "%</b>" + (p.note ? " \u00b7 " + esc(p.note) : "");
+        h += '<span class="p">' + (p.name ? '<span class="nm">' + esc(p.name) + "</span>" : "") +
+          body + "</span>";
+      });
+      h += "</div></div>";
+    }
+
+    var live = offers.filter(function (o) {
+      if (!o.until) return false;
+      var end = new Date(o.until + "T23:59:59");
+      return !isNaN(end.getTime()) && end >= today;
+    });
+    if (live.length) {
+      h += '<div class="offers"><div class="in">';
+      live.forEach(function (o) {
+        var d = new Date(o.until + "T00:00:00");
+        var when = d.toLocaleDateString("en-GB",
+          { day: "numeric", month: "short", year: "numeric" });
+        h += '<div class="o">' +
+          (o.flag ? '<span class="flag">' + esc(o.flag) + "</span>" : "") +
+          '<span class="txt">' + esc(o.text) + "</span>" +
+          '<span class="until">Until ' + when + "</span>" +
+          (o.cond ? '<p class="cond">' + esc(o.cond) + "</p>" : "") + "</div>";
+      });
+      h += "</div></div>";
+    }
+    root.innerHTML = h;
+    root.hidden = false;
+  }
+
   function apply(data) {
     var L = lang();
 
     applyImages(data);
+    renderMoney(data);
 
     /* hero */
     setText(document.querySelector(".hero .kicker"), pick(data, "hero_kicker"));

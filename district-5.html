@@ -17,7 +17,7 @@
   --soft:#4a5568;
   --faint:#646d7b;
   --rule:#e4e7ec;
-  --hair:#d6dbe3;
+  --hair:#d6dbe3;--stone:#efe9dd;--stone-ink:#5f584a;
   --accent:#16305c;
   --sand:#16305c;
   --accent-light:#8fb0e0;   /* accent for dark backgrounds */
@@ -628,6 +628,134 @@ h2{margin-bottom:12px}
   .sec .inner:has(> .desc-fig) > .pillars .pillar .n{margin-bottom:5px}
   .desc-fig figcaption{margin-top:8px}
 }
+
+/* ═══ LAYOUT RULE ══════════════════════════════════════════════════════════
+   A section may be a screen tall, but the content inside it is never stretched
+   to fill that height. It keeps its natural size and centres as a block, so
+   leftover space collects at the top and bottom where it reads as margin.
+   Stretching short content into a tall box only ever produces a hole in the
+   middle or a box that no longer matches what's in it.                       */
+
+/* was justify-content:space-between, which opened a 271px hole between the
+   numeral and the heading */
+@media(min-width:1000px){
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usps{
+    min-height:0;gap:0 clamp(18px,2.2vw,30px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp{
+    display:block;padding-left:clamp(14px,1.8vw,22px);border-left:1px solid var(--rule)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp:first-child{
+    padding-left:0;border-left:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp .n{
+    /* #d6dbe3 measured 1.39:1 on white — invisible. This still reads as a quiet
+       marker but clears the 3:1 needed at this size (measures 3.36:1). */
+    font-size:1.6rem;color:#7f8da4;font-style:italic;line-height:1;
+    display:block;margin-bottom:var(--s2,12px)}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp h3{margin-top:0}
+
+  /* the photo variant: text used to stop 74px above the image because the box
+     was forced past the content */
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])){min-height:0;align-items:start}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usps{gap:clamp(26px,3vw,38px) clamp(24px,3vw,42px)}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig{height:100%;min-height:100%}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig img{min-height:260px}
+}
+
+/* tab panels centred the figure against the text, so the offset changed with
+   every tab — 29px, 17px, 4px depending on how long the copy was */
+.panel{align-items:start}
+
+/* ═══ SECTION 01 · split, edge to edge ═════════════════════════════════════
+   The panel runs the full width with no page margin. Its job is the thinking
+   behind the place; the hero strip above it carries the figures and the names.
+   Nothing here repeats anything in the strip.                                */
+.sec--split{padding:0;min-height:0;display:block}
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.split .pic{position:relative;background:var(--hair)}
+.split .pic img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center}
+.split .txt{background:var(--stone,#efe9dd);padding:clamp(28px,3.6vw,56px);
+  display:flex;flex-direction:column;justify-content:center}
+.split .eyebrow{color:#5f584a;margin-bottom:var(--s3,20px)}
+.split .eyebrow .secnum{color:#5f584a;border-right-color:rgba(11,22,38,.18)}
+.split h2{margin:0 0 var(--s3,20px)}
+.split .lead{margin:0 0 clamp(24px,2.8vw,36px);color:#5a5344;max-width:42ch}
+/* One grid for the whole list. A grid per row would size the term column from
+   that row alone, and every description would start at a different left edge. */
+.split dl{margin:0;display:grid;grid-template-columns:auto 1fr;
+  column-gap:clamp(18px,2vw,28px)}
+.split .drow{display:contents}
+/* five rows now the sections are merged, so the row rhythm is tighter than
+   the sample's three-row version */
+.split dt,.split dd{padding-top:14px;margin-top:14px;
+  border-top:1px solid rgba(11,22,38,.13)}
+.split dt{font-family:var(--display);font-size:1.12rem;color:var(--accent);
+  line-height:1.35}
+.split dd{margin-left:0;font-size:.86rem;color:#5a5344;line-height:1.48}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split .pic{min-height:290px}
+  .split dl{grid-template-columns:1fr}
+  .split dt{padding-top:var(--s3,20px);margin-top:var(--s3,20px)}
+  .split dd{padding-top:0;margin-top:var(--s1,6px);border-top:0}
+}
+
+/* ═══ PRICES & PAYMENT ═════════════════════════════════════════════════════
+   Three layers, deliberately different materials:
+     navy   — the summary. Permanent facts.
+     darker — the individual plans, only rendered when there is more than one.
+     warm   — offers. Temporary, each with its own end date, and each removes
+              itself from the page the day after that date passes.
+   The two summary figures are computed from the plans, never typed, so the
+   headline can't drift out of step with the list underneath it.             */
+.money{background:#0d1c30;color:#fff;position:relative;z-index:2}
+.money .top{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(20px,2.6vw,30px) var(--gut);
+  display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:clamp(20px,3.6vw,56px);
+  align-items:center}
+.money .m .k{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);display:block;margin-bottom:6px}
+.money .m .v{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,1.95rem);
+  line-height:1;display:block;letter-spacing:-.01em;white-space:nowrap}
+.money .m .v small{font-family:var(--body);font-size:.7rem;letter-spacing:.06em;
+  color:rgba(255,255,255,.6);margin-left:5px}
+.money .act{justify-self:end;text-align:right}
+.money .act a{display:inline-block;background:#fff;color:var(--ink);text-decoration:none;
+  padding:12px 20px;font-size:.85rem;font-weight:600;white-space:nowrap;
+  transition:background .2s}
+.money .act a:hover{background:var(--accent-light)}
+.money .act p{margin:7px 0 0;font-size:.67rem;color:rgba(255,255,255,.5)}
+.money .plans{background:#132539;border-top:1px solid rgba(255,255,255,.1)}
+.money .plans .in{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(14px,1.6vw,18px) var(--gut);
+  display:flex;gap:clamp(10px,1.4vw,16px);align-items:center;flex-wrap:wrap}
+.money .plans .lab{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-right:6px}
+.money .plans .p{border:1px solid rgba(255,255,255,.22);padding:7px 13px;font-size:.83rem;
+  color:rgba(255,255,255,.92);white-space:nowrap}
+.money .plans .p .nm{color:rgba(255,255,255,.55);margin-right:7px;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase}
+.money .offers{background:#fbf4e9;border-top:2px solid #8f5a1c}
+.money .offers .in{max-width:var(--maxw);margin:0 auto;
+  padding:clamp(12px,1.5vw,16px) var(--gut)}
+.money .offers .o{display:flex;gap:clamp(12px,2vw,22px);align-items:baseline;flex-wrap:wrap;
+  padding:clamp(10px,1.2vw,13px) 0;border-top:1px solid #e0c9a4}
+.money .offers .o:first-child{border-top:0}
+.money .offers .flag{font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;
+  background:#8f5a1c;color:#fff;padding:4px 9px;flex:0 0 auto}
+.money .offers .txt{font-size:.9rem;color:#4a3a20;flex:1 1 240px;min-width:0}
+.money .offers .until{font-size:.75rem;color:#8f5a1c;font-weight:600;white-space:nowrap}
+.money .offers .cond{width:100%;font-size:.71rem;color:#7a6647;margin:4px 0 0}
+@media(max-width:900px){
+  .money .top{grid-template-columns:repeat(2,1fr);gap:26px 18px}
+  .money .act{grid-column:1/-1;justify-self:stretch;text-align:left}
+  .money .act a{display:block;text-align:center}
+  .money .plans .in{gap:8px}
+  .money .plans .p{font-size:.78rem;padding:6px 10px}
+}
+@media(max-width:560px){
+  .money .m .v{font-size:1.35rem}
+  .money .plans .lab{width:100%;margin-bottom:2px}
+}
 </style>
 </head>
 <body data-project="district5">
@@ -680,31 +808,24 @@ h2{margin-bottom:12px}
   </dl>
 </div>
 
+<div class="money" data-money hidden></div>
+
 <div class="doc">
 
   <!-- 01 THE PROJECT (shared) -->
-  <section class="sec">
-    <div class="inner">
-      <div class="desc rv">
+  <section class="sec sec--split">
+    <span class="marker" data-n="01"></span>
+    <div class="split">
+      <div class="pic"><img data-img="about" src="assets/img/d5/about.jpeg" alt="The residential quarter at District 5" loading="lazy"></div>
+      <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>Five journeys, <em>one destination.</em></h2>
-        <p class="lead">District 5 is Marakez&rsquo;s flagship East Cairo development &mdash; 268 acres on the Cairo&ndash;Ain Sokhna highway at the centre of New Katameya. Because Marakez builds malls first, the retail and workspace are part of the plan rather than promised for a later phase: homes, the D5M mall, Mindhaus offices and the Clubfive sports club all share one address.</p>
-      </div>
-      <figure class="desc-fig rv">
-        <img src="assets/img/d5/about.jpeg" alt="District 5 masterplan area" loading="lazy">
-        <figcaption>The residential quarter at District 5</figcaption>
-      </figure>
-
-      <div class="pillars">
-        <div class="pillar rv"><span class="n">i</span>
-          <h3>Connected both ways</h3>
-          <p>Two bridges built over the Ain Sokhna highway link District 5 back to New Cairo. Road 90 in seven minutes, the airport in nineteen.</p></div>
-        <div class="pillar rv"><span class="n">ii</span>
-          <h3>Wadi Degla on the doorstep</h3>
-          <p>The protectorate runs along the southern edge, so open desert is minutes away when you want it.</p></div>
-        <div class="pillar rv"><span class="n">iii</span>
-          <h3>Everything walkable</h3>
-          <p>Trails, bike lanes and landscaped parks connect the neighbourhoods to the mall, the offices and the club.</p></div>
+        <p class="lead">Homes, a mall, an office campus and a sports club share a single address &mdash; which is unusual, and comes down to the order they were built in.</p>
+        <dl>
+          <div class="drow"><dt>Retail came first</dt><dd>Because the malls are built before the homes, D5M and Mindhaus are part of the plan rather than promised for a later phase.</dd></div>
+          <div class="drow"><dt>Wadi Degla on the doorstep</dt><dd>The protectorate runs along the southern edge, so open desert is minutes away when you want it.</dd></div>
+          <div class="drow"><dt>Suburban, city conveniences</dt><dd>A residential community with the shops, workspace and sport usually only found in the middle of the city.</dd></div>
+        </dl>
       </div>
     </div>
   </section>

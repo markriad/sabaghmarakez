@@ -82,9 +82,9 @@
     "sub": "Low density"
    },
    {
-    "label": "Home types",
-    "value": "Four",
-    "sub": "Villas to townhomes"
+    "label": "Green space",
+    "value": "Five parks",
+    "sub": "Along one continuous spine"
    },
    {
     "label": "Master planner",
@@ -106,7 +106,7 @@
     "lead": "The green spine connects every part of the community, from the central park to the clubhouse to the commercial park."
    },
    {
-    "eyebrow": "Home types",
+    "eyebrow": "Green space",
     "title": "Four ways to live here.",
     "title_em": "live here.",
     "lead": "From standalone villas with the largest gardens through to terraced townhomes backing onto the green spine."
@@ -364,5 +364,18 @@
   "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
+ },
+ "money": {
+  "priceFrom": "EGP 18M",
+  "priceNote": "Indicative · subject to change",
+  "ctaLabel": "Get the current price list",
+  "plans": [
+   {
+    "name": "Standard",
+    "down": 10,
+    "years": 8
+   }
+  ],
+  "offers": []
  }
 }

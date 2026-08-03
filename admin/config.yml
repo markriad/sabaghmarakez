@@ -481,6 +481,94 @@ collections:
         hint: >-
           PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
           tall and never wider than 240 px.
+    - name: money
+      label: Prices and payment
+      widget: object
+      collapsed: true
+      hint: >-
+        The band under the hero. Leave the price empty and the whole band is
+        hidden.
+      fields:
+      - name: priceFrom
+        label: Homes from
+        widget: string
+        required: false
+        hint: 'For example: EGP 12.5M'
+      - name: priceNote
+        label: Small print under the button
+        widget: string
+        required: false
+      - name: ctaLabel
+        label: Button label
+        widget: string
+        required: false
+      - name: plans
+        label: Payment plans
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
+        hint: >-
+          Add one row per plan you offer. The headline figures above ("from 10%
+          down", "up to 8 years") are worked out from these, so you never type
+          them twice. For a cash plan put 100 in down and 0 in years.
+        fields:
+        - name: name
+          label: Plan name
+          widget: string
+          required: false
+        - name: down
+          label: Down payment %
+          widget: number
+          value_type: int
+          min: 0
+          max: 100
+          required: false
+        - name: years
+          label: Instalment years
+          widget: number
+          value_type: int
+          min: 0
+          max: 30
+          required: false
+        - name: note
+          label: Note
+          widget: string
+          required: false
+          hint: 'Only used for cash plans, e.g. 15% discount'
+      - name: offers
+        label: Current offers
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.flag}} - until {{fields.until}}'
+        hint: >-
+          Leave empty and no offer shows. Each offer disappears from the site by
+          itself the day after its end date, so there is nothing to remember to
+          take down. More than three at once and the block gets taller than the
+          band above it.
+        fields:
+        - name: flag
+          label: Short flag
+          widget: string
+          required: false
+          hint: 'For example: This month, Launch, Referral'
+        - name: text
+          label: What the offer is
+          widget: text
+          required: false
+        - name: cond
+          label: Conditions
+          widget: string
+          required: false
+        - name: until
+          label: Runs until
+          widget: datetime
+          date_format: 'YYYY-MM-DD'
+          time_format: false
+          picker_utc: true
+          required: true
+          hint: Required. After this date the offer is removed from the site.
     - name: images
       label: Photos on this page
       widget: object
@@ -966,6 +1054,94 @@ collections:
         hint: >-
           PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
           tall and never wider than 240 px.
+    - name: money
+      label: Prices and payment
+      widget: object
+      collapsed: true
+      hint: >-
+        The band under the hero. Leave the price empty and the whole band is
+        hidden.
+      fields:
+      - name: priceFrom
+        label: Homes from
+        widget: string
+        required: false
+        hint: 'For example: EGP 12.5M'
+      - name: priceNote
+        label: Small print under the button
+        widget: string
+        required: false
+      - name: ctaLabel
+        label: Button label
+        widget: string
+        required: false
+      - name: plans
+        label: Payment plans
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
+        hint: >-
+          Add one row per plan you offer. The headline figures above ("from 10%
+          down", "up to 8 years") are worked out from these, so you never type
+          them twice. For a cash plan put 100 in down and 0 in years.
+        fields:
+        - name: name
+          label: Plan name
+          widget: string
+          required: false
+        - name: down
+          label: Down payment %
+          widget: number
+          value_type: int
+          min: 0
+          max: 100
+          required: false
+        - name: years
+          label: Instalment years
+          widget: number
+          value_type: int
+          min: 0
+          max: 30
+          required: false
+        - name: note
+          label: Note
+          widget: string
+          required: false
+          hint: 'Only used for cash plans, e.g. 15% discount'
+      - name: offers
+        label: Current offers
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.flag}} - until {{fields.until}}'
+        hint: >-
+          Leave empty and no offer shows. Each offer disappears from the site by
+          itself the day after its end date, so there is nothing to remember to
+          take down. More than three at once and the block gets taller than the
+          band above it.
+        fields:
+        - name: flag
+          label: Short flag
+          widget: string
+          required: false
+          hint: 'For example: This month, Launch, Referral'
+        - name: text
+          label: What the offer is
+          widget: text
+          required: false
+        - name: cond
+          label: Conditions
+          widget: string
+          required: false
+        - name: until
+          label: Runs until
+          widget: datetime
+          date_format: 'YYYY-MM-DD'
+          time_format: false
+          picker_utc: true
+          required: true
+          hint: Required. After this date the offer is removed from the site.
     - name: images
       label: Photos on this page
       widget: object
@@ -1441,6 +1617,94 @@ collections:
         hint: >-
           PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
           tall and never wider than 240 px.
+    - name: money
+      label: Prices and payment
+      widget: object
+      collapsed: true
+      hint: >-
+        The band under the hero. Leave the price empty and the whole band is
+        hidden.
+      fields:
+      - name: priceFrom
+        label: Homes from
+        widget: string
+        required: false
+        hint: 'For example: EGP 12.5M'
+      - name: priceNote
+        label: Small print under the button
+        widget: string
+        required: false
+      - name: ctaLabel
+        label: Button label
+        widget: string
+        required: false
+      - name: plans
+        label: Payment plans
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
+        hint: >-
+          Add one row per plan you offer. The headline figures above ("from 10%
+          down", "up to 8 years") are worked out from these, so you never type
+          them twice. For a cash plan put 100 in down and 0 in years.
+        fields:
+        - name: name
+          label: Plan name
+          widget: string
+          required: false
+        - name: down
+          label: Down payment %
+          widget: number
+          value_type: int
+          min: 0
+          max: 100
+          required: false
+        - name: years
+          label: Instalment years
+          widget: number
+          value_type: int
+          min: 0
+          max: 30
+          required: false
+        - name: note
+          label: Note
+          widget: string
+          required: false
+          hint: 'Only used for cash plans, e.g. 15% discount'
+      - name: offers
+        label: Current offers
+        widget: list
+        required: false
+        collapsed: false
+        summary: '{{fields.flag}} - until {{fields.until}}'
+        hint: >-
+          Leave empty and no offer shows. Each offer disappears from the site by
+          itself the day after its end date, so there is nothing to remember to
+          take down. More than three at once and the block gets taller than the
+          band above it.
+        fields:
+        - name: flag
+          label: Short flag
+          widget: string
+          required: false
+          hint: 'For example: This month, Launch, Referral'
+        - name: text
+          label: What the offer is
+          widget: text
+          required: false
+        - name: cond
+          label: Conditions
+          widget: string
+          required: false
+        - name: until
+          label: Runs until
+          widget: datetime
+          date_format: 'YYYY-MM-DD'
+          time_format: false
+          picker_utc: true
+          required: true
+          hint: Required. After this date the offer is removed from the site.
     - name: images
       label: Photos on this page
       widget: object

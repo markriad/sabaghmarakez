@@ -483,5 +483,23 @@
   "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
+ },
+ "money": {
+  "priceFrom": "EGP 9M",
+  "priceNote": "Indicative · subject to change",
+  "ctaLabel": "Get the current price list",
+  "plans": [
+   {
+    "name": "Standard",
+    "down": 10,
+    "years": 8
+   },
+   {
+    "name": "Extended",
+    "down": 20,
+    "years": 5
+   }
+  ],
+  "offers": []
  }
 }

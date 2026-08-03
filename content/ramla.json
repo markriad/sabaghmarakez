@@ -58,12 +58,12 @@
    {
     "label": "Beachfront",
     "value": "1.4 km",
-    "sub": "White sand, tidal pools"
+    "sub": "White sand"
    },
    {
-    "label": "Neighbourhoods",
-    "value": "Six",
-    "sub": "Villas to chalets"
+    "label": "Land area",
+    "value": "400 acres",
+    "sub": "Ras El Hekma bay"
    },
    {
     "label": "Master planner",
@@ -363,5 +363,23 @@
   "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
+ },
+ "money": {
+  "priceFrom": "EGP 12.5M",
+  "priceNote": "Indicative · subject to change",
+  "ctaLabel": "Get the current price list",
+  "plans": [
+   {
+    "name": "Standard",
+    "down": 10,
+    "years": 8
+   },
+   {
+    "name": "Extended",
+    "down": 20,
+    "years": 5
+   }
+  ],
+  "offers": []
  }
 }
