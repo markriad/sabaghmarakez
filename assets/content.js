@@ -159,6 +159,7 @@
     });
 
     /* fixed copy */
+    setText(document.querySelector(".bar"),  pick(data, "top_bar"));
     setText(document.querySelector(".fdis"), pick(data, "form_disclaimer"));
     setText(document.querySelector(".foot-dis p"), pick(data, "footer_disclaimer"));
 
@@ -177,12 +178,6 @@
     document.querySelectorAll("[data-tel]").forEach(function (el) {
       el.setAttribute("href", "tel:" + (st.phone || ""));
       if (st.phone) el.textContent = st.phone;
-    });
-    ["name_en","name_ar","title_en","title_ar"].forEach(function (k) {
-      var v = st[k];
-      if (!v) return;
-      document.querySelectorAll("[data-agent-" + k.replace("_","-") + "]")
-        .forEach(function (el) { el.textContent = v; });
     });
     if (st.formEndpoint) {
       window.SITE_SETTINGS = window.SITE_SETTINGS || {};

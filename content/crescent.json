@@ -210,10 +210,10 @@
     "text": "A small number of homes within the community, released in limited phases. Ask about what's currently available."
    }
   ],
-  "form_disclaimer": "Your details go directly to a Marakez sales manager. This form is not operated by Marakez.",
+  "form_disclaimer": "Your details go to a Marakez sales manager. This form is not operated by Marakez.",
   "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
-  "footer_disclaimer": "Not an official Marakez website. Run by a sales manager at Marakez. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
-  "top_bar": "Run by a Marakez sales manager. Not an official Marakez website."
+  "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
+  "top_bar": "Not the official Marakez website."
  },
  "ar": {
   "hero_kicker": "",

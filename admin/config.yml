@@ -30,19 +30,10 @@ collections:
   label: 1. My details
   files:
   - name: contact
-    label: How you're described, phone and WhatsApp
+    label: Phone and WhatsApp
     file: content/settings.json
-    description: Appears in the header, footer and on every button across all four pages.
+    description: Used by every call and WhatsApp button across all four pages.
     fields:
-    - name: title_en
-      label: How you're described on the site (English)
-      widget: string
-      required: false
-      hint: 'For example: Sales Manager, Marakez'
-    - name: title_ar
-      label: How you're described on the site (Arabic)
-      widget: string
-      required: false
     - name: phone
       label: Phone number
       widget: string
@@ -307,6 +298,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -444,6 +441,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -780,6 +783,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -917,6 +926,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -1243,6 +1258,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -1380,6 +1401,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -1747,6 +1774,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
@@ -1884,6 +1917,12 @@ collections:
           label: Text
           widget: text
           required: false
+      - name: top_bar
+        label: Thin bar at the very top
+        widget: string
+        required: false
+        hint: The line above the header. Keep it clear that this is not the official
+          Marakez website.
       - name: form_disclaimer
         label: Notice above the enquiry form
         widget: text
