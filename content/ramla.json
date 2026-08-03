@@ -14,7 +14,8 @@
   "panel3": "assets/img/ramla/n-oasis.jpeg",
   "panel4": "assets/img/ramla/n-grove.jpeg",
   "panel5": "assets/img/ramla/n-acacia.jpeg",
-  "panel6": "assets/img/ramla/n-breeze.jpeg"
+  "panel6": "assets/img/ramla/n-breeze.jpeg",
+  "why": "assets/img/ramla/n-acacia.jpeg"
  },
  "heroScrim": "medium",
  "propertyTypes": [

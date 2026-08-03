@@ -129,6 +129,18 @@ collections:
         widget: image
         required: false
         hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
+      - name: about2
+        label: Photo in the About Marakez section
+        widget: image
+        required: false
+        hint: '1200 x 900 px (4:3) — centre-cropped to fill. A photograph of Mall of
+          Arabia suits this best; a Marakez development shot is standing in for now.'
+      - name: why
+        label: Your portrait, beside "Working with me"
+        widget: image
+        required: false
+        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
+          the four points become full-height columns instead.'
     - name: heroScrim
       label: Darken the hero image
       widget: select
@@ -496,6 +508,12 @@ collections:
         widget: image
         required: false
         hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
+      - name: why
+        label: Photo beside the "Why" points
+        widget: image
+        required: false
+        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
+          the four points become full-height columns instead.'
       - name: panel1
         label: Neighbourhood 1 — Dunes
         widget: image
@@ -963,6 +981,12 @@ collections:
         widget: image
         required: false
         hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
+      - name: why
+        label: Photo beside the "Why" points
+        widget: image
+        required: false
+        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
+          the four points become full-height columns instead.'
       - name: panel1
         label: Property type 1 — Villas
         widget: image

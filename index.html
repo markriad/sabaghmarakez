@@ -656,6 +656,65 @@ h2{margin-bottom:12px}
   .sec .inner:has(> .desc-fig) > .pillars .pillar .n{margin-bottom:5px}
   .desc-fig figcaption{margin-top:8px}
 }
+
+/* ═══ A3: numbered points beside a photograph ══════════════════════════════
+   The four points are short, so on their own they filled about half a screen.
+   Beside a tall photo they fill ~82%. If no photo is set the layout falls back
+   to full-height columns (treatment A2), which fills ~80% with no asset at
+   all — so an empty slot degrades to a good layout, never a broken one. */
+.usp-fig{margin:0;overflow:hidden;background:var(--rule);position:relative;display:none}
+.usp-fig img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center}
+.usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp-fig{display:block}
+
+@media(min-width:1000px){
+  /* with a photo */
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])){
+    display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+    gap:clamp(28px,3.6vw,58px);align-items:stretch;
+    min-height:clamp(340px,48vh,500px)}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usps{
+    grid-template-columns:1fr 1fr;gap:0 clamp(24px,3vw,42px);margin-top:0}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp{
+    padding:clamp(15px,1.9vw,22px) 0;border-top:1px solid var(--rule)}
+  .usp-wrap:has(.usp-fig img[src]:not([src=""])) .usp:nth-child(-n+2){
+    border-top:0;padding-top:0}
+
+  /* without a photo — full-height columns instead */
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usps{
+    min-height:clamp(330px,46vh,470px);gap:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp{
+    padding:0 clamp(16px,2vw,28px);border-top:0;border-left:1px solid var(--rule);
+    display:flex;flex-direction:column;justify-content:space-between}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp:first-child{
+    padding-left:0;border-left:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp:last-child{padding-right:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp .n{
+    font-size:clamp(2rem,3.2vw,2.8rem);color:var(--accent);font-style:italic;
+    line-height:1;margin-bottom:0}
+  .usp-wrap:not(:has(.usp-fig img[src]:not([src=""]))) .usp h3{margin-top:auto}
+}
+@media(max-width:999px){
+  .usp-fig{aspect-ratio:16/10;position:static;margin-top:clamp(20px,3vw,30px)}
+  .usp-fig img{position:static}
+}
+
+/* ═══ B1: About Marakez gains the photo column the project pages already have ═══ */
+.about-fig{margin:0;overflow:hidden;background:var(--rule);aspect-ratio:4/3;display:none}
+.about-fig img{width:100%;height:100%;object-fit:cover;object-position:center}
+.about-wrap:has(.about-fig img[src]:not([src=""])) .about-fig{display:block}
+@media(min-width:1000px){
+  .about-wrap:has(.about-fig img[src]:not([src=""])){
+    display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);
+    gap:clamp(24px,3vw,44px) clamp(30px,3.6vw,58px);align-items:start;
+    margin-top:clamp(22px,2.8vw,34px)}
+  .about-wrap:has(.about-fig img[src]:not([src=""])) .pillars{
+    display:flex;flex-direction:column;gap:clamp(13px,1.6vw,20px);margin-top:0}
+  .about-wrap:has(.about-fig img[src]:not([src=""])) .pillar{padding-top:13px}
+}
+@media(max-width:999px){
+  .about-fig{margin-top:clamp(20px,3vw,30px)}
+}
 </style>
 </head>
 <body data-project="home">
@@ -762,16 +821,19 @@ h2{margin-bottom:12px}
         <p class="lead">Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus.</p>
       </div>
 
-      <div class="pillars">
-        <div class="pillar rv"><span class="n">i</span>
-          <h3>Part of Fawaz Al Hokair Group</h3>
-          <p>Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries.</p></div>
-        <div class="pillar rv"><span class="n">ii</span>
-          <h3>Retail comes built in</h3>
-          <p>Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later.</p></div>
-        <div class="pillar rv"><span class="n">iii</span>
-          <h3>International design partners</h3>
-          <p>WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture.</p></div>
+      <div class="about-wrap">
+        <div class="pillars">
+          <div class="pillar rv"><span class="n">i</span>
+            <h3>Part of Fawaz Al Hokair Group</h3>
+            <p>Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries.</p></div>
+          <div class="pillar rv"><span class="n">ii</span>
+            <h3>Retail comes built in</h3>
+            <p>Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later.</p></div>
+          <div class="pillar rv"><span class="n">iii</span>
+            <h3>International design partners</h3>
+            <p>WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture.</p></div>
+      </div>
+        <figure class="about-fig"><img data-img="about2" src="assets/img/marakez/hero.jpeg" alt="" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -839,8 +901,8 @@ h2{margin-bottom:12px}
           <div class="gp" id="g3" hidden>
             <div class="rows">
             <div class="row">
-              <span class="rt"><span class="rn">Mindhaus Campus</span><span class="rl">New Katameya</span><span class="rs">76,000 sqm land</span></span>
-              <p class="rd">45,000 sqm built, G+3. Seven minutes from the Road 90 business district.</p></div>
+              <span class="rt"><span class="rn">Mindhaus Campus</span><span class="rl">New Katameya</span><span class="rs">106,000 sqm</span></span>
+              <p class="rd">Over 60,000 sqm of leasable office and retail across more than 110 modules, arranged around communal piazzas.</p></div>
             <div class="row">
               <span class="rt"><span class="rn">Mindhaus Strip</span><span class="rl">New Katameya</span><span class="rs">600&ndash;2,400 sqm</span></span>
               <p class="rd">Boutique office buildings in G+3 and G+4, overlooking District 5's residential side.</p></div>
@@ -889,15 +951,18 @@ h2{margin-bottom:12px}
         <p class="eyebrow"><span class="secnum">04</span>Working with me</p>
         <h2>What you get from <em>a direct line.</em></h2>
       </div>
-      <div class="usps">
-        <div class="usp rv"><span class="n">i</span><h3>Current availability</h3>
-          <p>What's actually released this week, not what a portal listed last month.</p></div>
-        <div class="usp rv"><span class="n">ii</span><h3>The real payment plan</h3>
-          <p>Plans and offers change through the season. You get this month's terms, in writing.</p></div>
-        <div class="usp rv"><span class="n">iii</span><h3>Honest comparison</h3>
-          <p>If another project fits you better than the one you asked about, I'll say so.</p></div>
-        <div class="usp rv"><span class="n">iv</span><h3>No middleman</h3>
-          <p>I work at Marakez. Your enquiry reaches me, not a call centre queue.</p></div>
+      <div class="usp-wrap">
+        <div class="usps">
+          <div class="usp rv"><span class="n">i</span><h3>Current availability</h3>
+            <p>What's actually released this week, not what a portal listed last month.</p></div>
+          <div class="usp rv"><span class="n">ii</span><h3>The real payment plan</h3>
+            <p>Plans and offers change through the season. You get this month's terms, in writing.</p></div>
+          <div class="usp rv"><span class="n">iii</span><h3>Honest comparison</h3>
+            <p>If another project fits you better than the one you asked about, I'll say so.</p></div>
+          <div class="usp rv"><span class="n">iv</span><h3>No middleman</h3>
+            <p>I work at Marakez. Your enquiry reaches me, not a call centre queue.</p></div>
+      </div>
+        <figure class="usp-fig"><img data-img="why" src="" alt="" loading="lazy"></figure>
       </div>
     </div>
   </section>

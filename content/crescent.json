@@ -35,7 +35,8 @@
   "panel1": "assets/img/crescent/t-villa.jpeg",
   "panel2": "assets/img/crescent/t-twin.jpeg",
   "panel3": "assets/img/crescent/t-town.jpeg",
-  "panel4": "assets/img/crescent/t-private.jpeg"
+  "panel4": "assets/img/crescent/t-private.jpeg",
+  "why": "assets/img/crescent/t-private.jpeg"
  },
  "heroScrim": "medium",
  "propertyTypes": [

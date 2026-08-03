@@ -53,6 +53,8 @@
     setImg(document.querySelector(".hero > img"), im.hero || data.heroImage);
     setImg(document.querySelector(".desc-fig img"), im.about);
     setImg(document.querySelector(".mp-fig img"), im.masterplan);
+    setImg(document.querySelector(".about-fig img"), im.about2);
+    setImg(document.querySelector(".usp-fig img"), im.why);
 
     /* neighbourhood / property-type / office panels, in page order */
     document.querySelectorAll(".panel figure img").forEach(function (el, i) {
