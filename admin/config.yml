@@ -30,25 +30,17 @@ collections:
   label: 1. My details
   files:
   - name: contact
-    label: Name, phone and WhatsApp
+    label: How you're described, phone and WhatsApp
     file: content/settings.json
     description: Appears in the header, footer and on every button across all four pages.
     fields:
-    - name: name_en
-      label: Your name (English)
-      widget: string
-      required: false
-    - name: name_ar
-      label: Your name (Arabic)
-      widget: string
-      required: false
     - name: title_en
-      label: Your job title (English)
+      label: How you're described on the site (English)
       widget: string
       required: false
       hint: 'For example: Sales Manager, Marakez'
     - name: title_ar
-      label: Your job title (Arabic)
+      label: How you're described on the site (Arabic)
       widget: string
       required: false
     - name: phone

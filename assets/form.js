@@ -273,7 +273,7 @@
               .forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
           form.querySelectorAll("[data-multi] input[type=hidden]")
               .forEach(function (h) { h.value = ""; });
-          show(msg, "ok", "Thank you. Mohamed will be in touch shortly.");
+          show(msg, "ok", "Thank you. You'll be contacted shortly.");
         })
         .catch(function () {
           show(msg, "err", "Couldn't send. Please reach out on WhatsApp instead.");
