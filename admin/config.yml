@@ -100,6 +100,46 @@ collections:
         hint: >-
           PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
           tall and never wider than 240 px.
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and
+        the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and the
+        strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -569,6 +609,46 @@ collections:
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and
+        the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and the
+        strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -666,82 +746,15 @@ collections:
           value: limited
         - label: Sold out
           value: sold_out
-    - name: showPrices
-      label: Show prices on the page?
-      widget: boolean
-      default: true
-    - name: priceNote_en
-      label: Note under the prices (English)
-      widget: string
-      required: false
-    - name: priceNote_ar
-      label: Note under the prices (Arabic)
-      widget: string
-      required: false
-    - name: prices
-      label: Starting prices
-      widget: list
-      required: false
-      summary: '{{fields.type_en}} — {{fields.from}}'
-      fields:
-      - name: type_en
-        label: Property type (English)
+      - name: options
+        label: Bedroom options
         widget: string
         required: false
-      - name: type_ar
-        label: Property type (Arabic)
-        widget: string
-        required: false
-      - name: from
-        label: Starting price
-        widget: string
-        required: false
-        hint: 'For example: EGP 12,500,000'
-    - name: paymentPlans
-      label: Payment plans
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      fields:
-      - name: name_en
-        label: Plan name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Plan name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
-    - name: offers
-      label: Limited-time offers
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      hint: These show highlighted. Delete a row when the offer ends.
-      fields:
-      - name: name_en
-        label: Offer name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Offer name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+      - name: optionKind
+        label: What the options are
+        widget: hidden
+        default: beds
     - name: en
       label: English text
       widget: object
@@ -1142,6 +1155,46 @@ collections:
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and
+        the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and the
+        strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -1229,82 +1282,15 @@ collections:
           value: limited
         - label: Sold out
           value: sold_out
-    - name: showPrices
-      label: Show prices on the page?
-      widget: boolean
-      default: true
-    - name: priceNote_en
-      label: Note under the prices (English)
-      widget: string
-      required: false
-    - name: priceNote_ar
-      label: Note under the prices (Arabic)
-      widget: string
-      required: false
-    - name: prices
-      label: Starting prices
-      widget: list
-      required: false
-      summary: '{{fields.type_en}} — {{fields.from}}'
-      fields:
-      - name: type_en
-        label: Property type (English)
+      - name: options
+        label: Bedroom options
         widget: string
         required: false
-      - name: type_ar
-        label: Property type (Arabic)
-        widget: string
-        required: false
-      - name: from
-        label: Starting price
-        widget: string
-        required: false
-        hint: 'For example: EGP 12,500,000'
-    - name: paymentPlans
-      label: Payment plans
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      fields:
-      - name: name_en
-        label: Plan name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Plan name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
-    - name: offers
-      label: Limited-time offers
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      hint: These show highlighted. Delete a row when the offer ends.
-      fields:
-      - name: name_en
-        label: Offer name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Offer name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+      - name: optionKind
+        label: What the options are
+        widget: hidden
+        default: beds
     - name: en
       label: English text
       widget: object
@@ -1705,6 +1691,46 @@ collections:
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and
+        the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
+    - name: heroFacts
+      label: Key facts under the headline
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: >-
+        Up to four sit on one line before they wrap. Leave the list empty and the
+        strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres'
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -1806,6 +1832,15 @@ collections:
           value: limited
         - label: Sold out
           value: sold_out
+      - name: options
+        label: Bedroom options
+        widget: string
+        required: false
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+      - name: optionKind
+        label: What the options are
+        widget: hidden
+        default: beds
     - name: officeFormats
       label: Office formats & availability
       label_singular: type
@@ -1833,82 +1868,15 @@ collections:
           value: limited
         - label: Sold out
           value: sold_out
-    - name: showPrices
-      label: Show prices on the page?
-      widget: boolean
-      default: true
-    - name: priceNote_en
-      label: Note under the prices (English)
-      widget: string
-      required: false
-    - name: priceNote_ar
-      label: Note under the prices (Arabic)
-      widget: string
-      required: false
-    - name: prices
-      label: Starting prices
-      widget: list
-      required: false
-      summary: '{{fields.type_en}} — {{fields.from}}'
-      fields:
-      - name: type_en
-        label: Property type (English)
+      - name: options
+        label: Area options
         widget: string
         required: false
-      - name: type_ar
-        label: Property type (Arabic)
-        widget: string
-        required: false
-      - name: from
-        label: Starting price
-        widget: string
-        required: false
-        hint: 'For example: EGP 12,500,000'
-    - name: paymentPlans
-      label: Payment plans
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      fields:
-      - name: name_en
-        label: Plan name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Plan name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
-    - name: offers
-      label: Limited-time offers
-      widget: list
-      required: false
-      summary: '{{fields.name_en}}'
-      hint: These show highlighted. Delete a row when the offer ends.
-      fields:
-      - name: name_en
-        label: Offer name (English)
-        widget: string
-        required: false
-      - name: name_ar
-        label: Offer name (Arabic)
-        widget: string
-        required: false
-      - name: terms_en
-        label: Terms (English)
-        widget: string
-        required: false
-      - name: terms_ar
-        label: Terms (Arabic)
-        widget: string
-        required: false
+        hint: 'Separate with a bar: Under 200 sqm|200 - 600 sqm. Commas work too, and are safe inside a figure like 1,200 - 2,400 sqm.'
+      - name: optionKind
+        label: What the options are
+        widget: hidden
+        default: area
     - name: en
       label: English text
       widget: object

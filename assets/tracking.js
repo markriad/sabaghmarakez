@@ -114,11 +114,14 @@
 
   /* ---- Auto-wired events ---------------------------------------- */
   function wire() {
-    var page = (document.querySelector("[data-project]") || {}).getAttribute
-             ? document.querySelector("[data-project]").getAttribute("data-project")
-             : "unknown";
-
-    track("view_project", { project: page });
+    /* Only a real project page counts as a project view. This used to fire on
+       any page that loaded the script, so the thank-you page — which every
+       conversion passes through — logged a view of project "unknown". */
+    var projectEl = document.querySelector("[data-project]");
+    var page = projectEl ? (projectEl.getAttribute("data-project") || "") : "";
+    if (projectEl) {
+      track("view_project", { project: page });
+    }
 
     document.addEventListener("click", function (e) {
       var wa = e.target.closest("[data-wa], .mobar .wa");

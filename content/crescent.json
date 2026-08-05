@@ -1,33 +1,4 @@
 {
- "showPrices": true,
- "priceNote_en": "Starting prices, subject to change",
- "priceNote_ar": "أسعار تبدأ من، وقابلة للتغيير",
- "prices": [
-  {
-   "type_en": "Townhomes",
-   "type_ar": "تاون هاوس",
-   "from": "EGP 00,000,000"
-  },
-  {
-   "type_en": "Twinhomes",
-   "type_ar": "توين هاوس",
-   "from": "EGP 00,000,000"
-  },
-  {
-   "type_en": "Villas",
-   "type_ar": "فيلات",
-   "from": "EGP 00,000,000"
-  }
- ],
- "paymentPlans": [
-  {
-   "name_en": "Standard plan",
-   "name_ar": "خطة السداد الأساسية",
-   "terms_en": "0% down payment over 0 years",
-   "terms_ar": "٠٪ مقدم على ٠ سنوات"
-  }
- ],
- "offers": [],
  "images": {
   "hero": "assets/img/crescent/hero.jpeg",
   "about": "assets/img/crescent/about.jpeg",
@@ -43,26 +14,34 @@
   {
    "label_en": "Villa",
    "label_ar": "فيلا",
-   "status": "available"
+   "status": "available",
+   "options": "4|5|6+",
+   "optionKind": "beds"
   },
   {
    "label_en": "Twinhouse",
    "label_ar": "توين هاوس",
-   "status": "available"
+   "status": "available",
+   "options": "4|5",
+   "optionKind": "beds"
   },
   {
    "label_en": "Townhouse",
    "label_ar": "تاون هاوس",
-   "status": "limited"
+   "status": "limited",
+   "options": "3|4",
+   "optionKind": "beds"
   },
   {
    "label_en": "Private residence",
    "label_ar": "وحدة خاصة",
-   "status": "available"
+   "status": "available",
+   "options": "3|4|5",
+   "optionKind": "beds"
   }
  ],
  "logos": {
-  "marakez": "",
+  "marakez": "assets/img/logos/marakez-wordmark.png",
   "project": ""
  },
  "en": {
@@ -377,5 +356,19 @@
    }
   ],
   "offers": []
- }
+ },
+ "heroFacts": [
+  {
+   "value": "118 acres",
+   "label": "in East Cairo"
+  },
+  {
+   "value": "Five parks",
+   "label": "along one spine"
+  },
+  {
+   "value": "Every home",
+   "label": "has a back gate onto it"
+  }
+ ]
 }

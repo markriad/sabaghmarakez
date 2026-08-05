@@ -126,7 +126,7 @@
         '</span><span class="v">' + maxYrs + "<small>" +
         (maxYrs === 1 ? "year" : "years") + "</small></span></div>";
     }
-    h += '<div class="act"><a href="#enquire">' + esc(money.ctaLabel || "Get the current price list") +
+    h += '<div class="act"><a href="#lead">' + esc(money.ctaLabel || "Get the current price list") +
       "</a>" + '<p>' + esc(money.priceNote || "Indicative \u00b7 subject to change") +
       "</p></div></div>";
 
@@ -165,11 +165,31 @@
     root.hidden = false;
   }
 
+
+  /* ── Hero key facts ─────────────────────────────────────────────────────
+     A short list under the headline. Empty list, no strip — the headline and
+     form close up around it rather than leaving a rule floating.            */
+  function renderFacts(data) {
+    var el = document.querySelector("[data-facts]");
+    if (!el) return;
+    var facts = (data.heroFacts || []).filter(function (f) { return f && f.value; });
+    if (!facts.length) { el.hidden = true; el.innerHTML = ""; return; }
+    var esc = function (t) {
+      return String(t == null ? "" : t)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    el.innerHTML = facts.slice(0, 4).map(function (f) {
+      return "<div><b>" + esc(f.value) + "</b>" + esc(f.label || "") + "</div>";
+    }).join("");
+    el.hidden = false;
+  }
+
   function apply(data) {
     var L = lang();
 
     applyImages(data);
     renderMoney(data);
+    renderFacts(data);
 
     /* hero */
     setText(document.querySelector(".hero .kicker"), pick(data, "hero_kicker"));

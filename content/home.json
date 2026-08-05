@@ -23,7 +23,7 @@
   }
  ],
  "logos": {
-  "marakez": "",
+  "marakez": "assets/img/logos/marakez-wordmark.png",
   "project": ""
  },
  "en": {
@@ -221,5 +221,19 @@
   "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
- }
+ },
+ "heroFacts": [
+  {
+   "value": "Three",
+   "label": "residential projects"
+  },
+  {
+   "value": "21",
+   "label": "shopping malls built"
+  },
+  {
+   "value": "1989",
+   "label": "founded"
+  }
+ ]
 }

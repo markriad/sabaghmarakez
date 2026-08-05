@@ -1,10 +1,4 @@
 {
- "showPrices": false,
- "priceNote_en": "Prices available on request",
- "priceNote_ar": "الأسعار متاحة عند الطلب",
- "prices": [],
- "paymentPlans": [],
- "offers": [],
  "images": {
   "hero": "assets/img/ramla/hero.jpeg",
   "about": "assets/img/ramla/about.jpeg",
@@ -22,27 +16,35 @@
   {
    "label_en": "Villa",
    "label_ar": "فيلا",
-   "status": "available"
+   "status": "available",
+   "options": "4|5|6+",
+   "optionKind": "beds"
   },
   {
    "label_en": "Twinhouse",
    "label_ar": "توين هاوس",
-   "status": "available"
+   "status": "available",
+   "options": "4|5",
+   "optionKind": "beds"
   },
   {
    "label_en": "Townhouse",
    "label_ar": "تاون هاوس",
-   "status": "limited"
+   "status": "limited",
+   "options": "3|4",
+   "optionKind": "beds"
   },
   {
    "label_en": "Chalet",
    "label_ar": "شاليه",
-   "status": "available"
+   "status": "available",
+   "options": "1|2|3",
+   "optionKind": "beds"
   }
  ],
  "logos": {
-  "marakez": "",
-  "project": ""
+  "marakez": "assets/img/logos/marakez-wordmark.png",
+  "project": "assets/img/logos/ramla-wordmark.png"
  },
  "en": {
   "hero_kicker": "Ras El Hekma · North Coast",
@@ -381,5 +383,19 @@
    }
   ],
   "offers": []
- }
+ },
+ "heroFacts": [
+  {
+   "value": "400 acres",
+   "label": "on Ras El Hekma bay"
+  },
+  {
+   "value": "1.4 km",
+   "label": "of white sand"
+  },
+  {
+   "value": "Six",
+   "label": "neighbourhoods"
+  }
+ ]
 }

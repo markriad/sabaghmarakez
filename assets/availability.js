@@ -58,6 +58,18 @@
       var label = (lang === "ar" ? it.label_ar : it.label_en) || it.label_en;
       if (label) chip.textContent = label;
 
+      /* Options for the dependent field. Held on the chip so the form can read
+         them the moment a type is chosen, with no second lookup. An empty list
+         means that type simply doesn't ask the follow-up question. */
+      var opts = it.options;
+      if (Array.isArray(opts)) opts = opts.join("|");
+      if (opts) {
+        chip.setAttribute("data-options", opts);
+        chip.setAttribute("data-optkind", it.optionKind || "beds");
+      } else {
+        chip.removeAttribute("data-options");
+      }
+
       if (status === "sold_out") {
         anySold = true;
         chip.disabled = true;
@@ -118,8 +130,8 @@
       .then(function (data) {
         var lang = currentLang();
 
-        var resGroup = document.querySelector('[data-multi="property"]');
-        var offGroup = document.querySelector('[data-multi="office"]');
+        var resGroup = document.querySelector('[data-single="property"], [data-multi="property"]');
+        var offGroup = document.querySelector('[data-single="office"], [data-multi="office"]');
 
         updateChips(resGroup, data.propertyTypes, lang);
         updateChips(offGroup, data.officeFormats, lang);

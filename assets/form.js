@@ -178,6 +178,112 @@
     root._validatePhone = validate;
   }
 
+
+  /* ── Single-select chips + the dependent bedrooms / area field ──────────
+     A property type is one choice, not several: "villa and apartment, three
+     bedrooms" doesn't say which. Choosing a type reveals the options that type
+     actually has, read from data-options on the chip (set from the CMS).
+
+     The important bit is the reset. Pick Villa then 6+, switch to Chalet, and
+     without clearing you would submit "Chalet, 6+" — a combination that isn't
+     even on the new list, and you'd only find out on the phone.              */
+  var DEP_LABELS = { beds: "Bedrooms", area: "Approximate area" };
+
+  function depFor(form) {
+    return {
+      wrap:  form.querySelector("[data-dep]"),
+      label: form.querySelector("[data-dep-label]"),
+      chips: form.querySelector("[data-dep-chips]"),
+      input: form.querySelector("[name=unit_size]")
+    };
+  }
+
+  function clearDep(form) {
+    var d = depFor(form);
+    if (!d.wrap) return;
+    d.wrap.hidden = true;
+    if (d.chips) d.chips.innerHTML = "";
+    if (d.input) d.input.value = "";
+  }
+
+
+  /* Options are typed by hand in the panel, so accept the ways people actually
+     write a list. Bars are the documented separator; newlines and commas are
+     the two most likely slips. Commas are only used as a separator when the
+     text has none of the "1,200" thousands-separator pattern — otherwise
+     "1,200 - 2,400 sqm" would split into "1" and "200 - 2,400 sqm". */
+  function parseOptions(raw) {
+    var text = String(raw || "").trim();
+    if (!text) return [];
+    var parts;
+    if (text.indexOf("|") !== -1 || text.indexOf("\n") !== -1) {
+      parts = text.split(/[|\n]/);
+    } else if (text.indexOf(",") !== -1 && !/\d,\d{3}(\D|$)/.test(text)) {
+      parts = text.split(",");
+    } else {
+      parts = [text];
+    }
+    var seen = {}, out = [];
+    parts.forEach(function (x) {
+      var v = x.trim();
+      if (!v || seen[v]) return;      /* drop blanks and accidental repeats */
+      seen[v] = 1;
+      out.push(v);
+    });
+    return out;
+  }
+
+  function showDep(form, chip) {
+    var d = depFor(form);
+    if (!d.wrap) return;
+    var raw = chip.getAttribute("data-options") || "";
+    var opts = parseOptions(raw);
+    if (!opts.length) { clearDep(form); return; }
+
+    var kind = chip.getAttribute("data-optkind") || "beds";
+    d.label.textContent = DEP_LABELS[kind] || "Options";
+    d.chips.innerHTML = "";
+    d.input.value = "";
+    opts.forEach(function (o) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = o;
+      b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () {
+        d.input.value = o;
+        d.chips.querySelectorAll(".chip").forEach(function (x) {
+          x.setAttribute("aria-pressed", String(x === b));
+        });
+      });
+      d.chips.appendChild(b);
+    });
+    d.wrap.hidden = false;
+  }
+
+  function bindSingle(group) {
+    if (group.getAttribute("data-single-bound") === "1") return;
+    group.setAttribute("data-single-bound", "1");
+    var form = group.closest("form");
+    group.addEventListener("click", function (e) {
+      var chip = e.target.closest(".chip");
+      if (!chip || !group.contains(chip)) return;
+      if (chip.disabled || chip.getAttribute("data-status") === "sold_out") return;
+      group.querySelectorAll(".chip").forEach(function (c) {
+        c.setAttribute("aria-pressed", String(c === chip));
+      });
+      var hidden = group.querySelector("input[type=hidden]");
+      if (hidden) hidden.value = chip.getAttribute("data-label") || chip.textContent.trim();
+      if (form) showDep(form, chip);
+    });
+    group.addEventListener("keydown", function (e) {
+      var chip = e.target.closest(".chip");
+      if (chip && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); chip.click(); }
+    });
+  }
+
+  function bindAllSingle(root) {
+    (root || document).querySelectorAll("[data-single]").forEach(bindSingle);
+  }
+
   /* ── Multi-select chips ──────────────────────────────────── */
   function initMulti(root) {
     root.querySelectorAll("[data-multi]").forEach(function (group) {
@@ -261,6 +367,7 @@
         enquiry_type: (form.querySelector("[name=enquiry_type]") || {}).value || "Residential",
         budget: (form.querySelector("[name=budget]") || {}).value || "",
         property_types: (form.querySelector("[name=property_types]") || {}).value || "",
+        unit_size:      (form.querySelector("[name=unit_size]")      || {}).value || "",
         email: (form.querySelector("[name=email]") || {}).value || "",
         phone_e164: (form.querySelector("[name=phone_e164]") || {}).value || ""
       };
@@ -268,12 +375,43 @@
       fetch(url, { method: "POST", body: data })
         .then(function () {
           if (window.trackEvent) window.trackEvent("lead_submit", leadPayload);
+
+          /* Reset first. If the visitor comes back with the browser's back
+             button the form is clean rather than still holding their details. */
           form.reset();
           form.querySelectorAll('.chip[aria-pressed="true"]')
               .forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+          clearDep(form);
+          form.querySelectorAll("[data-single] input[type=hidden]")
+              .forEach(function (h) { h.value = ""; });
           form.querySelectorAll("[data-multi] input[type=hidden]")
               .forEach(function (h) { h.value = ""; });
+
+          /* Hand the thank-you page a one-time token. It fires the conversion
+             only when this is present, so refreshes and direct visits to that
+             URL don't each count as another lead. */
+          try {
+            sessionStorage.setItem("marakez_lead", JSON.stringify(leadPayload));
+          } catch (e) {
+            /* Private browsing, or storage blocked. The redirect still happens
+               and the lead still reaches the sheet — only the thank-you page's
+               conversion event is lost, because the token it checks isn't
+               there. A handful of missed conversions is a fair price for not
+               counting every refresh as a new lead. */
+          }
+
+          /* Shown first so that if the redirect is blocked the visitor still
+             sees confirmation rather than a form that appears to have done
+             nothing. */
           show(msg, "ok", "Thank you. You'll be contacted shortly.");
+
+          /* The project goes in the URL as well as the token, so a conversion
+             can be built on the URL alone — Meta and Google Ads both match
+             query strings, and that is the setup that needs no tag manager. */
+          var slug = String(leadPayload.project || "")
+            .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          window.location.href = "thank-you.html" + (slug ? "?project=" + slug : "");
+          return;
         })
         .catch(function () {
           show(msg, "err", "Couldn't send. Please reach out on WhatsApp instead.");
@@ -295,12 +433,14 @@
   function boot() {
     document.addEventListener("chips:rendered", function () {
       document.querySelectorAll("[data-multi]").forEach(bindGroup);
+      bindAllSingle();
     });
 
     loadCountries().then(function () {
       document.querySelectorAll("form[data-lead]").forEach(function (f) {
         initPhone(f);
         initMulti(f);
+        bindAllSingle(f);
         initSubmit(f);
       });
     });

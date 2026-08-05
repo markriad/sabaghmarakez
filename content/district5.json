@@ -1,33 +1,4 @@
 {
- "showPrices": true,
- "priceNote_en": "Starting prices, subject to change",
- "priceNote_ar": "أسعار تبدأ من، وقابلة للتغيير",
- "prices": [
-  {
-   "type_en": "Apartments",
-   "type_ar": "شقق",
-   "from": "EGP 00,000,000"
-  },
-  {
-   "type_en": "Townhomes",
-   "type_ar": "تاون هاوس",
-   "from": "EGP 00,000,000"
-  },
-  {
-   "type_en": "Villas",
-   "type_ar": "فيلات",
-   "from": "EGP 00,000,000"
-  }
- ],
- "paymentPlans": [
-  {
-   "name_en": "Standard plan",
-   "name_ar": "خطة السداد الأساسية",
-   "terms_en": "0% down payment over 0 years",
-   "terms_ar": "٠٪ مقدم على ٠ سنوات"
-  }
- ],
- "offers": [],
  "images": {
   "hero": "assets/img/d5/hero.jpeg",
   "about": "assets/img/d5/about.jpeg",
@@ -46,58 +17,78 @@
   {
    "label_en": "Apartment",
    "label_ar": "شقة",
-   "status": "available"
+   "status": "available",
+   "options": "1|2|3",
+   "optionKind": "beds"
   },
   {
    "label_en": "Townhome",
    "label_ar": "تاون هاوس",
-   "status": "available"
+   "status": "available",
+   "options": "3|4",
+   "optionKind": "beds"
   },
   {
    "label_en": "Court home",
    "label_ar": "كورت هاوس",
-   "status": "sold_out"
+   "status": "sold_out",
+   "options": "3|4",
+   "optionKind": "beds"
   },
   {
    "label_en": "Twinhouse",
    "label_ar": "توين هاوس",
-   "status": "limited"
+   "status": "limited",
+   "options": "4|5",
+   "optionKind": "beds"
   },
   {
    "label_en": "Villa",
    "label_ar": "فيلا",
-   "status": "available"
+   "status": "available",
+   "options": "4|5|6+",
+   "optionKind": "beds"
   }
  ],
  "officeFormats": [
   {
    "label_en": "Private",
    "label_ar": "مستقل",
-   "status": "available"
+   "status": "available",
+   "options": "600 – 1,200 sqm|1,200 – 2,400 sqm",
+   "optionKind": "area"
   },
   {
    "label_en": "Twin",
    "label_ar": "مزدوج",
-   "status": "available"
+   "status": "available",
+   "options": "600 – 1,200 sqm",
+   "optionKind": "area"
   },
   {
    "label_en": "Quad",
    "label_ar": "رباعي",
-   "status": "limited"
+   "status": "limited",
+   "options": "1,200 – 2,400 sqm",
+   "optionKind": "area"
   },
   {
    "label_en": "Campus module",
    "label_ar": "وحدة بالحرم",
-   "status": "available"
+   "status": "available",
+   "options": "Under 200 sqm|200 – 600 sqm",
+   "optionKind": "area"
   },
   {
    "label_en": "Not sure yet",
    "label_ar": "لم أقرر بعد",
-   "status": "available"
+   "status": "available",
+   "options": "",
+   "optionKind": "area"
   }
  ],
  "logos": {
-  "marakez": "",
+  "marakez": "assets/img/logos/marakez-wordmark.png",
   "project": ""
  },
  "en": {
@@ -501,5 +492,19 @@
    }
   ],
   "offers": []
- }
+ },
+ "heroFacts": [
+  {
+   "value": "268 acres",
+   "label": "in New Katameya"
+  },
+  {
+   "value": "7 min",
+   "label": "to Road 90"
+  },
+  {
+   "value": "D5M &amp; Mindhaus",
+   "label": "on the same address"
+  }
+ ]
 }
