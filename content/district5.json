@@ -135,13 +135,13 @@
     "eyebrow": "What’s available",
     "title": "Homes and offices, same address.",
     "title_em": "same address.",
-    "lead": "District 5 sells both. Choose which you’re looking for."
+    "lead": "Choose which you’re looking for."
    },
    {
     "eyebrow": "Residences",
     "title": "Four ways to live here.",
     "title_em": "live here.",
-    "lead": "Apartments through to standalone villas, spread across four neighbourhoods inside the development."
+    "lead": "Apartments through to standalone villas, across four neighbourhoods."
    },
    {
     "eyebrow": "Mindhaus",
@@ -240,12 +240,12 @@
    {
     "sub": "Apartments",
     "title": "The Plateau",
-    "text": "On the highest ground in the development, with underground parking and storage — a first for District 5. Efficient one to three-bedroom units, some with roof terraces looking over the whole site."
+    "text": "The highest ground in the development, with underground parking and storage. Some units have roof terraces over the whole site."
    },
    {
     "sub": "Apartments",
     "title": "Clubside",
-    "text": "Two and three-bedroom apartments overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus."
+    "text": "Overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus."
    },
    {
     "sub": "Apartments",
@@ -278,7 +278,6 @@
     "text": "The office zone sits in District 5’s non-residential area with direct access onto the Cairo–Ain Sokhna road, so staff and visitors never drive through the residential streets. Road 90 is eight minutes away."
    }
   ],
-  "form_disclaimer": "Your details go to a Marakez sales manager. This form is not operated by Marakez.",
   "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
   "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
   "top_bar": "Not the official Marakez website."
@@ -470,7 +469,6 @@
     "text": ""
    }
   ],
-  "form_disclaimer": "",
   "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""

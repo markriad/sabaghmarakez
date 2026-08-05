@@ -344,10 +344,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -487,10 +483,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -890,10 +882,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -1033,10 +1021,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -1426,10 +1410,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -1569,10 +1549,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -2012,10 +1988,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
@@ -2155,10 +2127,6 @@ collections:
         required: false
         hint: The line above the header. Keep it clear that this is not the official
           Marakez website.
-      - name: form_disclaimer
-        label: Notice above the enquiry form
-        widget: text
-        required: false
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text

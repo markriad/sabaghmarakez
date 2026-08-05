@@ -258,8 +258,6 @@ h2 em{font-style:italic;color:var(--accent)}
 .contact-line a{color:#fff;font-weight:600}
 
 .fbox{background:var(--white);color:var(--ink);padding:clamp(26px,3vw,38px)}
-.fdis{font-size:.78rem;color:var(--soft);border-left:2px solid var(--sand);
-  padding-left:14px;margin-bottom:24px;line-height:1.5}
 .field{margin-bottom:15px}
 .field label{display:block;font-size:.79rem;font-weight:600;margin-bottom:6px}
 .field input,.field select,.field textarea{width:100%;padding:12px 14px;font:inherit;
@@ -787,8 +785,6 @@ h2{margin-bottom:12px}
 .lead-card h4{margin:0 0 3px;font-family:var(--display);font-weight:400;font-size:1.28rem;
   line-height:1.15}
 .lead-card .why{margin:0 0 13px;font-size:.77rem;color:var(--soft);line-height:1.45}
-.lead-card .fdis{font-size:.68rem;color:var(--faint);border-left:2px solid var(--sand);
-  padding-left:9px;margin-bottom:13px;line-height:1.4}
 .lead-card .field{margin-bottom:9px}
 .lead-card label{display:block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);margin-bottom:4px}
@@ -834,7 +830,7 @@ h2{margin-bottom:12px}
 
 /* Anything inside the white form card must not inherit the hero's white text. */
 .lead-card,.lead-card p,.lead-card label,.lead-card .chipnote,
-.lead-card .opt-tag,.lead-card .fdis{color:var(--soft)}
+.lead-card .opt-tag{color:var(--soft)}
 .lead-card .chipnote{color:var(--faint)}
 .lead-card h4,.lead-card input,.lead-card select,.lead-card textarea{color:var(--ink)}
 
@@ -844,7 +840,15 @@ h2{margin-bottom:12px}
 @media(max-width:520px){
   .lead-card form{grid-template-columns:1fr}
   .lead-card form > .field.half{grid-column:1 / -1}
-}</style>
+}
+/* The masterplan moved inside section 01 when sections 01 and 02 merged. The
+   split above it is edge-to-edge and the next section starts immediately after,
+   so the band carries its own vertical rhythm — without this it sat flush
+   against the following section with a 0px gap. */
+.sec--split .mp-band{padding-top:clamp(34px,4.2vw,64px);
+  padding-bottom:clamp(40px,5vw,76px)}
+.sec--split .mp-band .mp{margin-top:0}
+</style>
 </head>
 <body data-project="ramla">
 
@@ -886,8 +890,7 @@ h2{margin-bottom:12px}
     <div class="hero-form" id="lead">
       <div class="lead-card">
         <h4 data-form-title>Get prices &amp; availability</h4>
-        <p class="why" data-form-why>The current price list, this month's payment plans and what is actually released &mdash; sent to you directly.</p>
-        <div class="fdis">Your details go to a Marakez sales manager. This form is not operated by Marakez.</div>
+        <p class="why" data-form-why>Leave your details and a Marakez sales manager will send you the current price list, this month's payment plans and what is actually released.</p>
 <form data-lead="Ramla" novalidate>
         <input type="hidden" name="project" value="Ramla">
 
@@ -987,7 +990,7 @@ h2{margin-bottom:12px}
       <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>A beach town built to be <em>walked barefoot.</em></h2>
-        <p class="lead">The bay here is calm enough that the water reads as one unbroken sheet at high tide. Every building is turned to catch the Mediterranean breeze, and the whole town was laid out to keep you close to the water.</p>
+        <p class="lead">A sheltered bay, and a town laid out to keep you close to the water.</p>
         <dl>
           <div class="drow"><dt>Natural tidal pools</dt><dd>Shallow warm pools carved into the seabed and revealed at low tide. Rare anywhere on this coastline.</dd></div>
           <div class="drow"><dt>A swimmable lagoon</dt><dd>A lake at the centre of the town for swimming and dining, separate from the sea.</dd></div>
@@ -997,17 +1000,8 @@ h2{margin-bottom:12px}
         </dl>
       </div>
     </div>
-  </section>
-
-  <!-- 02 MASTERPLAN -->
-  <section class="sec sec--tight">
-    <span class="marker" data-n="02"></span>
-    <div class="inner">
-      <div class="rv">
-        <p class="eyebrow"><span class="secnum">02</span>Masterplan</p>
-        <h2>How Ramla is <em>laid out.</em></h2>
-        <p class="lead">Six residential neighbourhoods arranged between the beach and the open land behind it, with the town and lagoon at the centre.</p>
-      </div>
+  
+    <div class="inner mp-band">
       <div class="mp">
         <figure class="mp-fig rv"><img src="assets/img/ramla/masterplan.jpeg" alt="Ramla masterplan" loading="lazy"></figure>
         <div class="rv">
@@ -1025,12 +1019,14 @@ h2{margin-bottom:12px}
     </div>
   </section>
 
+  <!-- 02 MASTERPLAN -->
+
   <!-- 03 NEIGHBOURHOODS -->
   <section class="sec">
-    <span class="marker" data-n="03"></span>
+    <span class="marker" data-n="02"></span>
     <div class="inner">
       <div class="rv">
-        <p class="eyebrow"><span class="secnum">03</span>Neighbourhoods &amp; property types</p>
+        <p class="eyebrow"><span class="secnum">02</span>Neighbourhoods &amp; property types</p>
         <h2>Six neighbourhoods, <em>six characters.</em></h2>
       </div>
 

@@ -258,8 +258,6 @@ h2 em{font-style:italic;color:var(--accent)}
 .contact-line a{color:#fff;font-weight:600}
 
 .fbox{background:var(--white);color:var(--ink);padding:clamp(26px,3vw,38px)}
-.fdis{font-size:.78rem;color:var(--soft);border-left:2px solid var(--sand);
-  padding-left:14px;margin-bottom:24px;line-height:1.5}
 .field{margin-bottom:15px}
 .field label{display:block;font-size:.79rem;font-weight:600;margin-bottom:6px}
 .field input,.field select,.field textarea{width:100%;padding:12px 14px;font:inherit;
@@ -775,8 +773,6 @@ h2{margin-bottom:12px}
 .lead-card h4{margin:0 0 3px;font-family:var(--display);font-weight:400;font-size:1.28rem;
   line-height:1.15}
 .lead-card .why{margin:0 0 13px;font-size:.77rem;color:var(--soft);line-height:1.45}
-.lead-card .fdis{font-size:.68rem;color:var(--faint);border-left:2px solid var(--sand);
-  padding-left:9px;margin-bottom:13px;line-height:1.4}
 .lead-card .field{margin-bottom:9px}
 .lead-card label{display:block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);margin-bottom:4px}
@@ -822,7 +818,7 @@ h2{margin-bottom:12px}
 
 /* Anything inside the white form card must not inherit the hero's white text. */
 .lead-card,.lead-card p,.lead-card label,.lead-card .chipnote,
-.lead-card .opt-tag,.lead-card .fdis{color:var(--soft)}
+.lead-card .opt-tag{color:var(--soft)}
 .lead-card .chipnote{color:var(--faint)}
 .lead-card h4,.lead-card input,.lead-card select,.lead-card textarea{color:var(--ink)}
 
@@ -832,7 +828,15 @@ h2{margin-bottom:12px}
 @media(max-width:520px){
   .lead-card form{grid-template-columns:1fr}
   .lead-card form > .field.half{grid-column:1 / -1}
-}</style>
+}
+/* The masterplan moved inside section 01 when sections 01 and 02 merged. The
+   split above it is edge-to-edge and the next section starts immediately after,
+   so the band carries its own vertical rhythm — without this it sat flush
+   against the following section with a 0px gap. */
+.sec--split .mp-band{padding-top:clamp(34px,4.2vw,64px);
+  padding-bottom:clamp(40px,5vw,76px)}
+.sec--split .mp-band .mp{margin-top:0}
+</style>
 </head>
 <body data-project="district5">
 
@@ -874,8 +878,7 @@ h2{margin-bottom:12px}
     <div class="hero-form" id="lead">
       <div class="lead-card">
         <h4 data-form-title>Get prices &amp; availability</h4>
-        <p class="why" data-form-why>The current price list, this month's payment plans and what is actually released &mdash; sent to you directly.</p>
-        <div class="fdis">Your details go to a Marakez sales manager. This form is not operated by Marakez.</div>
+        <p class="why" data-form-why>Leave your details and a Marakez sales manager will send you the current price list, this month's payment plans and what is actually released.</p>
 <form data-lead="District 5" novalidate>
         <input type="hidden" name="project" value="District 5">
 
@@ -982,7 +985,7 @@ h2{margin-bottom:12px}
       <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>Five journeys, <em>one destination.</em></h2>
-        <p class="lead">Homes, a mall, an office campus and a sports club share a single address &mdash; which is unusual, and comes down to the order they were built in.</p>
+        <p class="lead">Homes, a mall, an office campus and a sports club at one address.</p>
         <dl>
           <div class="drow"><dt>Retail came first</dt><dd>Because the malls are built before the homes, D5M and Mindhaus are part of the plan rather than promised for a later phase.</dd></div>
           <div class="drow"><dt>Wadi Degla on the doorstep</dt><dd>The protectorate runs along the southern edge, so open desert is minutes away when you want it.</dd></div>
@@ -990,16 +993,8 @@ h2{margin-bottom:12px}
         </dl>
       </div>
     </div>
-  </section>
-
-  <!-- 02 MASTERPLAN (shared) -->
-  <section class="sec sec--tight">
-    <div class="inner">
-      <div class="rv">
-        <p class="eyebrow"><span class="secnum">02</span>Masterplan</p>
-        <h2>How District 5 is <em>laid out.</em></h2>
-        <p class="lead">A single 268-acre plan holding the residential neighbourhoods, the commercial zone and the office campus.</p>
-      </div>
+  
+    <div class="inner mp-band">
       <div class="mp">
         <figure class="mp-fig rv"><img src="assets/img/d5/masterplan.jpeg" alt="District 5 masterplan" loading="lazy"></figure>
         <div class="rv">
@@ -1017,13 +1012,15 @@ h2{margin-bottom:12px}
     </div>
   </section>
 
+  <!-- 02 MASTERPLAN (shared) -->
+
   <!-- 03 TOGGLE: residential / offices -->
   <section class="sec">
     <div class="inner">
       <div class="rv">
-        <p class="eyebrow"><span class="secnum">03</span>What&rsquo;s available</p>
+        <p class="eyebrow"><span class="secnum">02</span>What&rsquo;s available</p>
         <h2>Homes and offices, <em>same address.</em></h2>
-        <p class="lead" style="margin-bottom:clamp(26px,3vw,38px)">District 5 sells both. Choose which you&rsquo;re looking for.</p>
+        <p class="lead" style="margin-bottom:clamp(26px,3vw,38px)">Choose which you&rsquo;re looking for.</p>
       </div>
 
       <div class="switchbar rv">
@@ -1031,7 +1028,6 @@ h2{margin-bottom:12px}
           <button role="tab" aria-selected="true"  data-track="res">Residential</button>
           <button role="tab" aria-selected="false" data-track="off">Mindhaus Offices</button>
         </div>
-        <p class="hint">Both are sold at District 5 &mdash; the enquiry form covers either.</p>
       </div>
 
       <!-- ── RESIDENTIAL TRACK ── -->
@@ -1039,7 +1035,7 @@ h2{margin-bottom:12px}
         <div class="desc rv">
           <p class="eyebrow">Residences</p>
           <h2>Four ways to <em>live here.</em></h2>
-          <p class="lead">Apartments through to standalone villas, spread across four neighbourhoods inside the development.</p>
+          <p class="lead">Apartments through to standalone villas, across four neighbourhoods.</p>
         </div>
         <div class="tabs" style="margin-top:clamp(28px,3.5vw,42px)">
           <div class="tabnav" role="tablist">
@@ -1051,13 +1047,13 @@ h2{margin-bottom:12px}
 
           <div class="panel" data-p="0" data-open="true">
             <div><p class="sub">Apartments</p><h3>The Plateau</h3><span data-avail-for="Apartment"></span>
-              <p>On the highest ground in the development, with underground parking and storage &mdash; a first for District 5. Efficient one to three-bedroom units, some with roof terraces looking over the whole site.</p>
+              <p>The highest ground in the development, with underground parking and storage. Some units have roof terraces over the whole site.</p>
               <ul class="types"><li>1&ndash;3 bedrooms</li><li>Roof terraces</li><li>Underground parking</li></ul></div>
             <figure><img src="assets/img/d5/r-plateau.jpeg" alt="The Plateau" loading="lazy"></figure>
           </div>
           <div class="panel" data-p="1">
             <div><p class="sub">Apartments</p><h3>Clubside</h3><span data-avail-for="Apartment"></span>
-              <p>Two and three-bedroom apartments overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus.</p>
+              <p>Overlooking Clubfive, with wide spacing between buildings so views stay open. Walking distance to D5M and Mindhaus.</p>
               <ul class="types"><li>2&ndash;3 bedrooms</li><li>Club views</li><li>Rooftop terraces</li></ul></div>
             <figure><img src="assets/img/d5/r-clubside.jpeg" alt="Clubside" loading="lazy"></figure>
           </div>

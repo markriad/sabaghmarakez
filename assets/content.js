@@ -263,7 +263,6 @@
 
     /* fixed copy */
     setText(document.querySelector(".bar"),  pick(data, "top_bar"));
-    setText(document.querySelector(".fdis"), pick(data, "form_disclaimer"));
     setText(document.querySelector(".foot-dis p"), pick(data, "footer_disclaimer"));
 
     document.documentElement.setAttribute("lang", L);
