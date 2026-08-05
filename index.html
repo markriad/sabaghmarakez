@@ -83,7 +83,7 @@ a{color:inherit}
 .inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
 @media(max-width:860px){.inner{padding:0 var(--gut)}}
 
-/* ── HERO: image bleeds behind the fact rail ─────────────── */
+/* ── HERO ─────────────────────────────────────────────────── */
 .hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;
   overflow:hidden;background:#1a2434}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
@@ -96,7 +96,6 @@ a{color:inherit}
       rgba(6,14,26,calc(var(--scrim,.92) * .42)) 70%,
       rgba(6,14,26,0) 90%),
     linear-gradient(180deg, rgba(6,14,26,.45) 0%, rgba(6,14,26,.12) 34%, rgba(6,14,26,0) 55%),
-    /* light floor so the fact rail meets a dark edge */
     linear-gradient(180deg, rgba(6,14,26,0) 60%, rgba(6,14,26,.17) 85%, rgba(6,14,26,.34) 100%)}
 .hero-in{position:relative}
 /* Narrow screens: the copy sits below the image rather than over it.
@@ -117,7 +116,6 @@ a{color:inherit}
      wide and the other shrink-wrapped to its label. */
   .hero-cta{gap:9px}
   .hero-cta .btn{flex:1 1 0;min-width:0;padding:14px 10px;font-size:.86rem}
-  .rail-holder{margin-top:0}
 }
 
 .hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
@@ -153,25 +151,7 @@ a{color:inherit}
 }
 
 /* ── FACT RAIL: overlaps the hero, anchored to the spine ─── */
-.rail-holder{position:relative;z-index:5;margin-top:clamp(-84px,-8vw,-64px)}
-.rail{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);
-  display:grid;grid-template-columns:repeat(4,1fr);
-  background:var(--white);border:1px solid var(--hair)}
-.rail>div{padding:24px clamp(16px,2vw,26px);border-right:1px solid var(--hair)}
 /* first cell's text lines up with the hero and the sections above and below */
-.rail>div:first-child{padding-left:0}
-.rail>div:last-child{border-right:0}
-.rail dt{font-size:.64rem;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin:0 0 7px}
-.rail dd{margin:0;font-family:var(--display);font-size:1.7rem;letter-spacing:-.01em;line-height:1.1}
-.rail .sub{display:block;font-family:var(--body);font-size:.75rem;color:var(--soft);margin-top:3px}
-@media(max-width:860px){
-  .rail-holder{margin-top:-40px}
-  .rail{grid-template-columns:repeat(2,1fr);padding:0}
-  .rail>div{padding:18px 20px}
-  .rail>div:nth-child(2n){border-right:0}
-  .rail>div:nth-child(-n+2){border-bottom:1px solid var(--hair)}
-  .rail dd{font-size:1.4rem}
-}
 
 /* ── Shared type ─────────────────────────────────────────── */
 .eyebrow{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
@@ -352,9 +332,6 @@ h2 em{font-style:italic;color:var(--accent)}
 /* MOBILE-TIGHTEN */
 @media(max-width:760px){
   .sec{padding:38px 0}
-  .rail>div{padding:14px 18px}
-  .rail dd{font-size:1.25rem}
-  .rail .sub{font-size:.7rem}
   .pillars{margin-top:24px}
   .pillar{padding:14px 0}
   .usp{padding:14px 0}
@@ -598,7 +575,6 @@ h2{margin-bottom:12px}
   -webkit-box-orient:vertical;overflow:hidden}
 .projcard .types{margin-top:8px}
 .projcard .pc-go{margin-top:10px}
-.rail-holder{margin-top:0}
 
 /* Section intro: heading and lead side by side above 1000px. .desc caps itself
    at 64ch for a single stacked column; left in place it squeezes both grid
@@ -863,7 +839,7 @@ h2{margin-bottom:12px}
     <div class="hero-form" id="lead">
       <div class="lead-card">
         <h4 data-form-title>Get prices &amp; availability</h4>
-        <p class="why" data-form-why>Leave your details and a Marakez sales manager will send you the current price list, this month's payment plans and what is actually released.</p>
+        <p class="why" data-form-why>Leave your details and a Marakez salesperson will send you prices and payment plans.</p>
 <form data-lead="Homepage" novalidate>
         
 
@@ -935,15 +911,6 @@ h2{margin-bottom:12px}
     </div>
   </div>
 </section>
-
-<div class="rail-holder">
-  <dl class="rail">
-    <div><dt>Founded</dt><dd>1989<span class="sub">Fawaz Al Hokair Group</span></dd></div>
-    <div><dt>Retail managed</dt><dd>1.5M sqm<span class="sub">Across 21 malls</span></dd></div>
-    <div><dt>Countries</dt><dd>11<span class="sub">MENA, Europe, USA</span></dd></div>
-    <div><dt>Available now</dt><dd>Three<span class="sub">Coast, garden, city</span></dd></div>
-  </dl>
-</div>
 
 <div class="doc">
 

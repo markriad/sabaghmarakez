@@ -197,19 +197,6 @@
              pick(data, "hero_title"), pick(data, "hero_title_em"));
     setText(document.querySelector(".hero-in > p:not(.kicker)"), pick(data, "hero_text"));
 
-    /* fact rail */
-    document.querySelectorAll(".rail > div").forEach(function (cell, i) {
-      setText(cell.querySelector("dt"), pick(data, "facts", i, "label"));
-      var dd = cell.querySelector("dd");
-      if (!dd) return;
-      var v = pick(data, "facts", i, "value");
-      var sub = pick(data, "facts", i, "sub");
-      if (v) {
-        var subEl = dd.querySelector(".sub");
-        dd.childNodes[0] && (dd.childNodes[0].nodeValue = v);
-        if (subEl && sub) subEl.textContent = sub;
-      }
-    });
 
     /* sections: eyebrow / heading / lead */
     var eyebrows = document.querySelectorAll(".inner .eyebrow, .form-sec .eyebrow");

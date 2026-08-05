@@ -120,26 +120,6 @@ collections:
         widget: string
         required: false
         hint: 'For example: on Ras El Hekma bay'
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and the
-        strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: 'For example: 400 acres'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -610,26 +590,6 @@ collections:
       hint: >-
         Up to four sit on one line before they wrap. Leave the list empty and
         the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: 'For example: 400 acres'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and the
-        strip disappears.
       fields:
       - name: value
         label: The figure
@@ -1159,26 +1119,6 @@ collections:
         widget: string
         required: false
         hint: 'For example: on Ras El Hekma bay'
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and the
-        strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: 'For example: 400 acres'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
     - name: images
       label: Photos on this page
       widget: object
@@ -1676,26 +1616,6 @@ collections:
       hint: >-
         Up to four sit on one line before they wrap. Leave the list empty and
         the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: 'For example: 400 acres'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and the
-        strip disappears.
       fields:
       - name: value
         label: The figure
