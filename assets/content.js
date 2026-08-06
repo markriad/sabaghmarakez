@@ -71,16 +71,20 @@
   /* Headline with an italic tail: "Plain words <em>emphasis.</em>" */
   function setTitle(el, full, em) {
     if (!el || !full) return;
-    if (em && full.indexOf(em) !== -1) {
-      var head = full.slice(0, full.indexOf(em));
-      el.innerHTML = "";
-      el.appendChild(document.createTextNode(head));
-      var e = document.createElement("em");
-      e.textContent = em;
-      el.appendChild(e);
-    } else {
-      el.textContent = full;
-    }
+    var at = em ? full.indexOf(em) : -1;
+    if (at === -1) { el.textContent = full; return; }
+    /* The tail used to be dropped: only the text before the italic and the
+       italic itself were written back. Ramla's headline is "Sacred summers on
+       1.4 km of white sand." with "1.4 km" italic, so the page showed "Sacred
+       summers on 1.4 km" and the sentence simply stopped. Any heading whose
+       italic isn't the last thing in the line was losing its ending. */
+    el.innerHTML = "";
+    el.appendChild(document.createTextNode(full.slice(0, at)));
+    var e = document.createElement("em");
+    e.textContent = em;
+    el.appendChild(e);
+    var tail = full.slice(at + em.length);
+    if (tail) el.appendChild(document.createTextNode(tail));
   }
 
 

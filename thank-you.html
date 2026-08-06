@@ -71,12 +71,24 @@ h1 em{font-style:italic;color:var(--accent)}
 .btn--ghost{background:transparent;color:var(--accent);border:1px solid rgba(11,22,38,.2)}
 .btn--ghost:hover{background:rgba(255,255,255,.5)}
 .back{display:inline-block;margin-top:22px;font-size:.86rem;color:var(--accent);
-  font-weight:600;text-decoration:none}
+  font-weight:600;text-decoration:none;padding:6px 0;min-height:30px}
 .back:hover{text-decoration:underline}
 
 footer{border-top:1px solid var(--rule);padding:22px var(--gut);
   font-size:.76rem;color:var(--faint)}
 footer .in{max-width:var(--maxw);margin:0 auto}
+
+/* ── Touch targets ──────────────────────────────────────────────────────────
+   Footer links rendered 16px tall and the "Prefer to talk? WhatsApp" link 14px.
+   Both are below the 24px minimum for a finger, so they were easy to miss and
+   easy to hit by accident. Padding rather than font-size, so nothing about the
+   typography changes. */
+@media(max-width:600px){
+  footer a{display:inline-block;padding:6px 0;min-height:28px}
+  .foot-grid li{margin-bottom:2px}
+  .lead-card .alt a{display:inline-block;padding:7px 0;min-height:30px}
+  .mark{padding:4px 0}
+}
 </style>
 </head>
 <body>
