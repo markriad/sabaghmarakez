@@ -16,28 +16,52 @@
    "label_ar": "فيلا",
    "status": "available",
    "options": "4|5|6+",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/crescent/t-villa.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Twinhouse",
    "label_ar": "توين هاوس",
    "status": "available",
    "options": "4|5",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/crescent/t-twin.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Townhouse",
    "label_ar": "تاون هاوس",
    "status": "limited",
    "options": "3|4",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/crescent/t-town.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Private residence",
    "label_ar": "وحدة خاصة",
    "status": "available",
    "options": "3|4|5",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/crescent/t-private.jpeg"
+    }
+   ]
   }
  ],
  "logos": {

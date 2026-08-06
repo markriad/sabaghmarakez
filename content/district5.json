@@ -19,35 +19,68 @@
    "label_ar": "شقة",
    "status": "available",
    "options": "1|2|3",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/d5/r-plateau.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Townhome",
    "label_ar": "تاون هاوس",
    "status": "available",
    "options": "3|4",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/d5/r-clubside.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Court home",
    "label_ar": "كورت هاوس",
    "status": "sold_out",
    "options": "3|4",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/d5/r-dparks.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Twinhouse",
    "label_ar": "توين هاوس",
    "status": "limited",
    "options": "4|5",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/d5/r-homes.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Villa",
    "label_ar": "فيلا",
    "status": "available",
    "options": "4|5|6+",
-   "optionKind": "beds"
+   "optionKind": "beds",
+   "size": "",
+   "photos": [
+    {
+     "image": "assets/img/d5/r-homes.jpeg"
+    },
+    {
+     "image": "assets/img/d5/r-plateau.jpeg"
+    }
+   ]
   }
  ],
  "officeFormats": [

@@ -83,18 +83,73 @@
       }
     });
 
+    /* Each sold-out chip already carries a SOLD OUT badge and is struck
+       through, so a sentence underneath saying the same thing was telling the
+       visitor something the chips had already told them. */
     var note = group.querySelector(".chipnote");
-    if (anySold) {
-      if (!note) {
-        note = document.createElement("p");
-        note.className = "chipnote";
-        box.parentNode.insertBefore(note, box.nextSibling);
+    if (note) note.remove();
+  }
+
+
+  /* ── Section 02 panels ─────────────────────────────────────────────────
+     Size and photos come from the same propertyTypes rows that drive the
+     form, so a type can never show one set of details here and another
+     there. An empty size reads "On request"; an empty photo list leaves the
+     photo that shipped with the page rather than blanking the panel. */
+  function renderTypePanels(types, lang) {
+    if (!types || !types.length) return;
+    /* Matched by name, not position. The tabs are ordered for reading — Villa,
+       Chalet, Townhouse, Twinhouse — while the CMS list is in whatever order it
+       was entered. Mapping by index put the chalet's size on the villa. */
+    var byName = {};
+    types.forEach(function (t) { if (t && t.label_en) byName[t.label_en] = t; });
+
+    document.querySelectorAll(".pick .pickbody").forEach(function (pane) {
+      var t = byName[pane.getAttribute("data-type")];
+      if (!t) return;
+
+      /* addressed directly — reading it as "the first .v that isn't the status"
+         picked up the bedrooms cell instead */
+      var sizeCell = pane.querySelector("[data-size]");
+      if (sizeCell) {
+        if (t.size) {
+          sizeCell.textContent = t.size;
+          sizeCell.classList.remove("none");
+        } else {
+          sizeCell.textContent = lang === "ar" ? "عند الطلب" : "On request";
+          sizeCell.classList.add("none");
+        }
       }
-      note.textContent = lang === "ar"
-        ? "الأنواع التي نفدت غير متاحة للاختيار حالياً."
-        : "Greyed-out types are currently sold out.";
-    } else if (note) {
-      note.remove();
+
+      var shots = (t.photos || [])
+        .map(function (p) { return p && p.image; })
+        .filter(Boolean);
+
+      var track = pane.querySelector(".ptrack");
+      if (!track) return;
+      if (!shots.length) { buildStrip(track); return; }   /* keep what shipped */
+      track.innerHTML = shots.map(function (src) {
+        return '<figure><img src="' + String(src).replace(/^\//, "") +
+               '" alt="" loading="lazy"></figure>';
+      }).join("");
+      buildStrip(track);
+    });
+  }
+
+  /* dots and arrows, rebuilt whenever a strip's contents change */
+  function buildStrip(track) {
+    var shots = track.parentNode;
+    var dots = shots.querySelector(".pdots");
+    var n = track.children.length;
+    if (dots) dots.innerHTML = "";
+    shots.querySelectorAll(".parrow").forEach(function (b) {
+      b.style.display = n < 2 ? "none" : "";
+    });
+    if (n < 2 || !dots) return;
+    for (var k = 0; k < n; k++) {
+      var d = document.createElement("i");
+      if (!k) d.className = "on";
+      dots.appendChild(d);
     }
   }
 
@@ -136,6 +191,7 @@
         updateChips(resGroup, data.propertyTypes, lang);
         updateChips(offGroup, data.officeFormats, lang);
         applyPanelBadges(data.propertyTypes, lang);
+        renderTypePanels(data.propertyTypes, lang);
 
         // logos — image if set in the CMS, otherwise the text wordmark stays
         if (data.logos) {

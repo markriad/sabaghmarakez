@@ -180,6 +180,28 @@ collections:
         widget: image
         required: false
         hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+      - name: size
+        label: Size
+        widget: string
+        required: false
+        hint: >-
+          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
+          and the panel reads "On request" rather than showing a blank.
+      - name: photos
+        label: Photos of this type
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.image}}'
+        hint: >-
+          One or more. They become a swipeable strip on the type's panel; with a
+          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
+          centre-cropped to fill.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+          required: false
       - name: status
         label: Availability
         widget: select
@@ -691,6 +713,28 @@ collections:
         label: Name (Arabic)
         widget: string
         required: false
+      - name: size
+        label: Size
+        widget: string
+        required: false
+        hint: >-
+          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
+          and the panel reads "On request" rather than showing a blank.
+      - name: photos
+        label: Photos of this type
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.image}}'
+        hint: >-
+          One or more. They become a swipeable strip on the type's panel; with a
+          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
+          centre-cropped to fill.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+          required: false
       - name: status
         label: Availability
         widget: select
@@ -1201,6 +1245,28 @@ collections:
         label: Name (Arabic)
         widget: string
         required: false
+      - name: size
+        label: Size
+        widget: string
+        required: false
+        hint: >-
+          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
+          and the panel reads "On request" rather than showing a blank.
+      - name: photos
+        label: Photos of this type
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.image}}'
+        hint: >-
+          One or more. They become a swipeable strip on the type's panel; with a
+          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
+          centre-cropped to fill.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+          required: false
       - name: status
         label: Availability
         widget: select
@@ -1725,6 +1791,28 @@ collections:
         label: Name (Arabic)
         widget: string
         required: false
+      - name: size
+        label: Size
+        widget: string
+        required: false
+        hint: >-
+          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
+          and the panel reads "On request" rather than showing a blank.
+      - name: photos
+        label: Photos of this type
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.image}}'
+        hint: >-
+          One or more. They become a swipeable strip on the type's panel; with a
+          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
+          centre-cropped to fill.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+          required: false
       - name: status
         label: Availability
         widget: select
@@ -1761,6 +1849,28 @@ collections:
         label: Name (Arabic)
         widget: string
         required: false
+      - name: size
+        label: Size
+        widget: string
+        required: false
+        hint: >-
+          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
+          and the panel reads "On request" rather than showing a blank.
+      - name: photos
+        label: Photos of this type
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.image}}'
+        hint: >-
+          One or more. They become a swipeable strip on the type's panel; with a
+          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
+          centre-cropped to fill.
+        fields:
+        - name: image
+          label: Photo
+          widget: image
+          required: false
       - name: status
         label: Availability
         widget: select
