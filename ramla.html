@@ -811,16 +811,10 @@ h2{margin-bottom:12px}
    the drawing meant a very tall or very short upload moved the whole section —
    28px on desktop, 90px on a phone — which is the layout shift these fixed
    slots exist to prevent. The drawing is centred inside whatever it measures. */
-.split .art{background:#eef1f5;display:flex;align-items:center;justify-content:center;
-  padding:clamp(18px,2.4vw,40px);height:clamp(460px,58vh,620px)}
-.split .art img{max-width:100%;max-height:100%;width:auto;height:auto;
-  object-fit:contain}
 @media(max-width:900px){
   /* Fixed, not min-height. With a minimum the panel was sized by whatever
      image was in it, so uploading a small file shrank the section by 90px —
      exactly the layout shift the fixed image slots exist to prevent. */
-  .split .art{height:clamp(300px,62vw,440px);padding:22px}
-  .split .art img{max-height:100%}
 }
 
 /* ── Section 02: one large photo, types as tabs ────────────────────────────
@@ -878,19 +872,40 @@ h2{margin-bottom:12px}
   .picknav button{white-space:nowrap;padding:10px 13px 9px;font-size:.86rem}
 }
 
-/* The panel takes the plan's own proportions, so the image fills it corner to
-   corner with nothing cropped and no grey inside the frame. Cropping to fill a
-   fixed panel cost between 14% and 40% of the drawing depending on window
-   width, which is too much to lose from a masterplan. Where the plan is
-   shorter than the text beside it, the space around it is the section's own
-   ground rather than a grey box. */
+/* The plan is a drawing, not a photograph, so it is set on the page like a
+   figure rather than filling a panel. Earlier attempts put it in a grey box
+   whose height was set by the text beside it — which left up to 139px of empty
+   panel above and below, reading as a broken image rather than as margin. No
+   box now: it sits on the section's own ground, inset from the page edge so a
+   technical drawing isn't running off the side of the screen. */
 @media(min-width:901px){
-  .split{grid-template-columns:0.72fr 1fr;align-items:center}
-  .split .art{aspect-ratio:620/873;align-self:center}
+  .split{align-items:center}
 }
-.split .art{padding:0;background:#eef1f5;overflow:hidden}
-.split .art img{width:100%;height:100%;max-width:none;max-height:none;
-  object-fit:cover;object-position:center}
+
+/* ── Section 01 · the masterplan ────────────────────────────────────────────
+   One rule, replacing several that had accumulated and were overriding each
+   other — the panel was being given a height by an old rule while the image
+   was sized by a newer one, so the drawing overflowed its own column.
+   The plan is a drawing, so it is set like a figure: no box, no crop, sitting
+   on the section's own ground and inset from the page edge. */
+/* min-height matters as much as max: without it, replacing the plan in the
+   panel with a differently shaped file changed the section height — a small
+   upload collapsed District 5's section from 1045px to 727px. The drawing is
+   free to find its own size, but only inside a fixed band. */
+.split .art{background:transparent;padding:clamp(18px,2.2vw,34px);
+  display:flex;align-items:center;justify-content:center;
+  height:648px}
+.split .art img{width:auto;height:auto;max-width:100%;max-height:100%}
+@media(min-width:901px){.split{align-items:center}}
+@media(max-width:900px){
+  .split .art{padding:clamp(16px,4vw,28px);height:clamp(240px,58vw,380px)}
+  .split .art img{max-height:100%}
+}
+
+/* Column width follows the plan's shape, so the drawing sits close to the
+   width of its column instead of stranded in it: narrow for a portrait plan,
+   full half for a wide one. */
+@media(min-width:901px){.split{grid-template-columns:0.50fr 1fr}}
 </style>
 </head>
 <body data-project="ramla">

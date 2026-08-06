@@ -36,6 +36,8 @@ a{color:inherit}
 .mark img{height:26px;width:auto;max-width:170px;object-fit:contain;object-position:left center;
   display:none}
 .mark img[src]:not([src=""]){display:block}
+/* once a logo image loads, the text wordmark beside it is a duplicate */
+.mark img[src]:not([src=""]) + .marktext{display:none}
 .marktext{font-family:var(--display);font-size:1.4rem;font-weight:500}
 @media(max-width:560px){.mark img{max-width:120px}}
 

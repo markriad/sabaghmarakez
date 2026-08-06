@@ -175,9 +175,26 @@
     });
   }
 
+  /* Pages with no project of their own — the thank-you page — still have a
+     header, and the header still needs the Marakez logo. Adding data-project to
+     them would work but would also make analytics log a project view for a page
+     that isn't a project, so they load the homepage file for the logo only. */
+  function logoOnly() {
+    fetch(base() + "content/home.json", { cache: "no-cache" })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var mk = data && data.logos && data.logos.marakez;
+        if (!mk) return;
+        document.querySelectorAll('[data-logo="marakez"]').forEach(function (el) {
+          el.setAttribute("src", String(mk).replace(/^\//, ""));
+        });
+      })
+      .catch(function () { /* the text wordmark stays */ });
+  }
+
   function boot() {
     var host = document.querySelector("[data-project]");
-    if (!host) return;
+    if (!host) { logoOnly(); return; }
     var file = host.getAttribute("data-project");
 
     fetch(base() + "content/" + file + ".json", { cache: "no-cache" })

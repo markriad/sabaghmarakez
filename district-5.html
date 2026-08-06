@@ -799,16 +799,10 @@ h2{margin-bottom:12px}
    the drawing meant a very tall or very short upload moved the whole section —
    28px on desktop, 90px on a phone — which is the layout shift these fixed
    slots exist to prevent. The drawing is centred inside whatever it measures. */
-.split .art{background:#eef1f5;display:flex;align-items:center;justify-content:center;
-  padding:clamp(18px,2.4vw,40px);height:clamp(460px,58vh,620px)}
-.split .art img{max-width:100%;max-height:100%;width:auto;height:auto;
-  object-fit:contain}
 @media(max-width:900px){
   /* Fixed, not min-height. With a minimum the panel was sized by whatever
      image was in it, so uploading a small file shrank the section by 90px —
      exactly the layout shift the fixed image slots exist to prevent. */
-  .split .art{height:clamp(300px,62vw,440px);padding:22px}
-  .split .art img{max-height:100%}
 }
 
 /* ── Section 02: one large photo, types as tabs ────────────────────────────
@@ -873,19 +867,55 @@ h2{margin-bottom:12px}
   border-left:1px solid var(--rule)}
 .pdesc{margin:14px 0 0;font-size:.87rem;color:var(--soft);line-height:1.5;max-width:38ch}
 
-/* The panel takes the plan's own proportions, so the image fills it corner to
-   corner with nothing cropped and no grey inside the frame. Cropping to fill a
-   fixed panel cost between 14% and 40% of the drawing depending on window
-   width, which is too much to lose from a masterplan. Where the plan is
-   shorter than the text beside it, the space around it is the section's own
-   ground rather than a grey box. */
+/* Nine tabs in one row didn't say which were homes and which were offices.
+   This is the same control the enquiry form already uses, so the page teaches
+   it once. */
+.typeseg{display:inline-flex;border:1px solid var(--rule);overflow:hidden;
+  margin:clamp(18px,2.2vw,26px) 0 0}
+.tsegbtn{appearance:none;background:var(--paper);border:0;padding:10px 22px;
+  font:inherit;font-size:.86rem;color:var(--soft);cursor:pointer}
+.tsegbtn + .tsegbtn{border-left:1px solid var(--rule)}
+.tsegbtn[aria-checked="true"]{background:var(--accent);color:#fff;font-weight:600}
+.tsegbtn:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.picknav button[hidden]{display:none}
+/* the divider was only needed while both groups shared one row */
+.picknav button[data-group="office"]:first-of-type{
+  margin-left:0;padding-left:20px;border-left:0}
+
+/* The plan is a drawing, not a photograph, so it is set on the page like a
+   figure rather than filling a panel. Earlier attempts put it in a grey box
+   whose height was set by the text beside it — which left up to 139px of empty
+   panel above and below, reading as a broken image rather than as margin. No
+   box now: it sits on the section's own ground, inset from the page edge so a
+   technical drawing isn't running off the side of the screen. */
 @media(min-width:901px){
-  .split{grid-template-columns:0.92fr 1fr;align-items:center}
-  .split .art{aspect-ratio:1092/1092;align-self:center}
+  .split{align-items:center}
 }
-.split .art{padding:0;background:#eef1f5;overflow:hidden}
-.split .art img{width:100%;height:100%;max-width:none;max-height:none;
-  object-fit:cover;object-position:center}
+
+/* ── Section 01 · the masterplan ────────────────────────────────────────────
+   One rule, replacing several that had accumulated and were overriding each
+   other — the panel was being given a height by an old rule while the image
+   was sized by a newer one, so the drawing overflowed its own column.
+   The plan is a drawing, so it is set like a figure: no box, no crop, sitting
+   on the section's own ground and inset from the page edge. */
+/* min-height matters as much as max: without it, replacing the plan in the
+   panel with a differently shaped file changed the section height — a small
+   upload collapsed District 5's section from 1045px to 727px. The drawing is
+   free to find its own size, but only inside a fixed band. */
+.split .art{background:transparent;padding:clamp(18px,2.2vw,34px);
+  display:flex;align-items:center;justify-content:center;
+  height:620px}
+.split .art img{width:auto;height:auto;max-width:100%;max-height:100%}
+@media(min-width:901px){.split{align-items:center}}
+@media(max-width:900px){
+  .split .art{padding:clamp(16px,4vw,28px);height:clamp(240px,58vw,380px)}
+  .split .art img{max-height:100%}
+}
+
+/* Column width follows the plan's shape, so the drawing sits close to the
+   width of its column instead of stranded in it: narrow for a portrait plan,
+   full half for a wide one. */
+@media(min-width:901px){.split{grid-template-columns:0.88fr 1fr}}
 </style>
 </head>
 <body data-project="district5">
@@ -1048,13 +1078,17 @@ h2{margin-bottom:12px}
         <p class="lead">The only Marakez address where you can do both.</p>
       </div>
 
+              <div class="typeseg rv" role="radiogroup" aria-label="Homes or offices">
+          <button type="button" class="tsegbtn" role="radio" aria-checked="true"  data-group="home">Homes</button>
+          <button type="button" class="tsegbtn" role="radio" aria-checked="false" data-group="office">Office space</button>
+        </div>
       <div class="pick rv">
         <div class="picknav" role="tablist">
-          <button role="tab" aria-selected="true" data-p="0" data-type="Apartment">Apartments</button>
-          <button role="tab" aria-selected="false" data-p="1" data-type="Townhome">Townhomes</button>
-          <button role="tab" aria-selected="false" data-p="2" data-type="Court home">Court homes</button>
-          <button role="tab" aria-selected="false" data-p="3" data-type="Twinhouse">Twinhouses</button>
-          <button role="tab" aria-selected="false" data-p="4" data-type="Villa">Villas</button>
+          <button role="tab" aria-selected="true" data-p="0" data-group="home" data-type="Apartment">Apartments</button>
+          <button role="tab" aria-selected="false" data-p="1" data-group="home" data-type="Townhome">Townhomes</button>
+          <button role="tab" aria-selected="false" data-p="2" data-group="home" data-type="Court home">Court homes</button>
+          <button role="tab" aria-selected="false" data-p="3" data-group="home" data-type="Twinhouse">Twinhouses</button>
+          <button role="tab" aria-selected="false" data-p="4" data-group="home" data-type="Villa">Villas</button>
         
           <button role="tab" aria-selected="false" data-p="5" data-type="Private" data-group="office">Mindhaus Private</button>
           <button role="tab" aria-selected="false" data-p="6" data-type="Twin" data-group="office">Mindhaus Twin</button>
@@ -1455,6 +1489,35 @@ document.querySelectorAll('.switch button').forEach(function(b){
         track.scrollBy({ left: track.clientWidth, behavior: "smooth" }); });
     });
   });
+})();
+</script>
+<script>
+/* Homes / Office space toggle for the property-type tabs. Switching group
+   always opens that group's first tab, so the section can never be left
+   showing a pane that belongs to the group you just switched away from. */
+(function () {
+  var seg  = document.querySelector(".typeseg");
+  var pick = document.querySelector(".pick");
+  if (!seg || !pick) return;
+  var tabs  = [].slice.call(pick.querySelectorAll(".picknav button"));
+  var panes = [].slice.call(pick.querySelectorAll(".pickbody"));
+
+  function show(group) {
+    seg.querySelectorAll(".tsegbtn").forEach(function (b) {
+      b.setAttribute("aria-checked", String(b.getAttribute("data-group") === group));
+    });
+    var first = null;
+    tabs.forEach(function (t) {
+      var mine = t.getAttribute("data-group") === group;
+      t.hidden = !mine;
+      if (mine && !first) first = t;
+    });
+    if (first) first.click();
+  }
+  seg.querySelectorAll(".tsegbtn").forEach(function (b) {
+    b.addEventListener("click", function () { show(b.getAttribute("data-group")); });
+  });
+  show("home");
 })();
 </script>
 </body>
