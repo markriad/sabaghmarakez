@@ -190,7 +190,11 @@
 
         updateChips(resGroup, data.propertyTypes, lang);
         updateChips(offGroup, data.officeFormats, lang);
-        applyPanelBadges(data.propertyTypes, lang);
+        /* District 5 shows office formats in the same section as the homes,
+           so both lists have to feed the availability badges — passing only
+           propertyTypes left every office pane with a blank status. */
+        applyPanelBadges(
+          (data.propertyTypes || []).concat(data.officeFormats || []), lang);
         renderTypePanels(data.propertyTypes, lang);
 
         // logos — image if set in the CMS, otherwise the text wordmark stays

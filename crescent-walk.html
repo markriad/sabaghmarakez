@@ -877,6 +877,20 @@ h2{margin-bottom:12px}
   .picknav{flex-wrap:wrap;overflow:visible}
   .picknav button{white-space:nowrap;padding:10px 13px 9px;font-size:.86rem}
 }
+
+/* The panel takes the plan's own proportions, so the image fills it corner to
+   corner with nothing cropped and no grey inside the frame. Cropping to fill a
+   fixed panel cost between 14% and 40% of the drawing depending on window
+   width, which is too much to lose from a masterplan. Where the plan is
+   shorter than the text beside it, the space around it is the section's own
+   ground rather than a grey box. */
+@media(min-width:901px){
+  .split{grid-template-columns:1.35fr 1fr;align-items:center}
+  .split .art{aspect-ratio:1456/819;align-self:center}
+}
+.split .art{padding:0;background:#eef1f5;overflow:hidden}
+.split .art img{width:100%;height:100%;max-width:none;max-height:none;
+  object-fit:cover;object-position:center}
 </style>
 </head>
 <body data-project="crescent">
@@ -1025,7 +1039,7 @@ h2{margin-bottom:12px}
     <span class="marker" data-n="02"></span>
     <div class="inner">
       <div class="rv">
-        <p class="eyebrow"><span class="secnum">02</span>What you can buy</p>
+        <p class="eyebrow"><span class="secnum">02</span>Property types</p>
         <h2>Every one of them <em>backs onto the park.</em></h2>
         <p class="lead">Four types, one green spine, a private gate from each.</p>
       </div>

@@ -865,6 +865,27 @@ h2{margin-bottom:12px}
   .picknav{flex-wrap:wrap;overflow:visible}
   .picknav button{white-space:nowrap;padding:10px 13px 9px;font-size:.86rem}
 }
+
+/* Nine tabs in one row reads as a single list. A divider and a label before the
+   office group make it clear these are a different kind of thing. */
+.picknav button[data-group="office"]:first-of-type{
+  margin-left:clamp(10px,1.6vw,22px);padding-left:clamp(14px,1.8vw,26px);
+  border-left:1px solid var(--rule)}
+.pdesc{margin:14px 0 0;font-size:.87rem;color:var(--soft);line-height:1.5;max-width:38ch}
+
+/* The panel takes the plan's own proportions, so the image fills it corner to
+   corner with nothing cropped and no grey inside the frame. Cropping to fill a
+   fixed panel cost between 14% and 40% of the drawing depending on window
+   width, which is too much to lose from a masterplan. Where the plan is
+   shorter than the text beside it, the space around it is the section's own
+   ground rather than a grey box. */
+@media(min-width:901px){
+  .split{grid-template-columns:0.92fr 1fr;align-items:center}
+  .split .art{aspect-ratio:1092/1092;align-self:center}
+}
+.split .art{padding:0;background:#eef1f5;overflow:hidden}
+.split .art img{width:100%;height:100%;max-width:none;max-height:none;
+  object-fit:cover;object-position:center}
 </style>
 </head>
 <body data-project="district5">
@@ -1022,7 +1043,7 @@ h2{margin-bottom:12px}
     <span class="marker" data-n="02"></span>
     <div class="inner">
       <div class="rv">
-        <p class="eyebrow"><span class="secnum">02</span>What you can buy</p>
+        <p class="eyebrow"><span class="secnum">02</span>Property types</p>
         <h2>Buy a home, <em>or buy the office too.</em></h2>
         <p class="lead">The only Marakez address where you can do both.</p>
       </div>
@@ -1034,6 +1055,11 @@ h2{margin-bottom:12px}
           <button role="tab" aria-selected="false" data-p="2" data-type="Court home">Court homes</button>
           <button role="tab" aria-selected="false" data-p="3" data-type="Twinhouse">Twinhouses</button>
           <button role="tab" aria-selected="false" data-p="4" data-type="Villa">Villas</button>
+        
+          <button role="tab" aria-selected="false" data-p="5" data-type="Private" data-group="office">Mindhaus Private</button>
+          <button role="tab" aria-selected="false" data-p="6" data-type="Twin" data-group="office">Mindhaus Twin</button>
+          <button role="tab" aria-selected="false" data-p="7" data-type="Quad" data-group="office">Quad</button>
+          <button role="tab" aria-selected="false" data-p="8" data-type="Campus module" data-group="office">Campus module</button>
         </div>
         <div class="pickbody" data-pane="0" data-type="Apartment">
           <div class="pickshots">
@@ -1105,8 +1131,56 @@ h2{margin-bottom:12px}
             <div class="row"><span class="k">Status</span><span class="v" data-avail-for="Villa"></span></div>
           </div>
         </div>
+              <div class="pickbody" data-pane="5" data-type="Private" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="assets/img/d5/o-interior.jpeg" alt="Mindhaus Private" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Mindhaus Private</h3>
+            <div class="row"><span class="k">Floor area</span><span class="v" data-size>600 – 2,400 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Private"></span></span></div>
+            <p class="pdesc">Standalone office buildings on the campus, each with its own entrance.</p>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="6" data-type="Twin" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="assets/img/d5/o-campus.jpeg" alt="Mindhaus Twin" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Mindhaus Twin</h3>
+            <div class="row"><span class="k">Floor area</span><span class="v" data-size>600 – 1,200 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Twin"></span></span></div>
+            <p class="pdesc">Paired buildings sharing a landscaped courtyard.</p>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="7" data-type="Quad" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="assets/img/d5/o-strip.jpeg" alt="Quad" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Quad</h3>
+            <div class="row"><span class="k">Floor area</span><span class="v" data-size>1,200 – 2,400 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Quad"></span></span></div>
+            <p class="pdesc">Four units around a shared core, on the Strip.</p>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="8" data-type="Campus module" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="assets/img/d5/o-campus.jpeg" alt="Campus module" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Campus module</h3>
+            <div class="row"><span class="k">Floor area</span><span class="v" data-size>Under 600 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Campus module"></span></span></div>
+            <p class="pdesc">Smaller modules inside the campus, from a single floor upward.</p>
+          </div>
+        </div>
       </div>
-    </div>
+          </div>
   </section>
 
 </div><!-- /doc -->
