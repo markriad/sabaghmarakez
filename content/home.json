@@ -31,28 +31,6 @@
   "hero_title": "The Leading Mixed-Use Developer in Egypt.",
   "hero_title_em": "Developer in Egypt.",
   "hero_text": "Marakez builds mixed-use communities across Egypt — where the mall, the offices and the open space are part of the plan, not a promise for a later phase.",
-  "facts": [
-   {
-    "label": "Founded",
-    "value": "1989",
-    "sub": "Fawaz Al Hokair Group"
-   },
-   {
-    "label": "Retail managed",
-    "value": "1.5M sqm",
-    "sub": "Across 21 malls"
-   },
-   {
-    "label": "Countries",
-    "value": "11",
-    "sub": "MENA, Europe, USA"
-   },
-   {
-    "label": "Available now",
-    "value": "Three",
-    "sub": "Coast, garden, city"
-   }
-  ],
   "sections": [
    {
     "eyebrow": "Residential projects",
@@ -98,28 +76,6 @@
   "hero_title": "",
   "hero_title_em": "",
   "hero_text": "",
-  "facts": [
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   }
-  ],
   "sections": [
    {
     "eyebrow": "",

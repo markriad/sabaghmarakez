@@ -51,58 +51,18 @@
   "hero_title": "Sacred summers on 1.4 km of white sand.",
   "hero_title_em": "1.4 km",
   "hero_text": "Six neighbourhoods on the shore of Ras El Hekma bay, a lagoon at the centre, and a beach with rare natural tidal pools.",
-  "facts": [
-   {
-    "label": "Location",
-    "value": "KM 215",
-    "sub": "Ras El Hekma, North Coast"
-   },
-   {
-    "label": "Beachfront",
-    "value": "1.4 km",
-    "sub": "White sand"
-   },
-   {
-    "label": "Land area",
-    "value": "400 acres",
-    "sub": "Ras El Hekma bay"
-   },
-   {
-    "label": "Master planner",
-    "value": "WATG",
-    "sub": "International"
-   }
-  ],
   "sections": [
    {
     "eyebrow": "The project",
     "title": "A beach town built to be walked barefoot.",
     "title_em": "walked barefoot.",
-    "lead": "Ramla sits on the calmest stretch of Egypt's north coast, where the bay is sheltered and the sand runs white. At high tide the water reads as an unbroken sheet of turquoise; at low tide it reveals tidal pools carved naturally into the seabed — shallow, warm, and safe enough for children to spend the whole morning in."
-   },
-   {
-    "eyebrow": "Masterplan",
-    "title": "How Ramla is laid out.",
-    "title_em": "laid out.",
-    "lead": "Six residential neighbourhoods arranged between the beach and the open land behind it, with the town and lagoon at the centre."
+    "lead": ""
    },
    {
     "eyebrow": "Property types",
     "title": "Four kinds of home, one shoreline.",
     "title_em": "one shoreline.",
     "lead": ""
-   },
-   {
-    "eyebrow": "Why Ramla",
-    "title": "What you won't find elsewhere on the coast.",
-    "title_em": "elsewhere on the coast.",
-    "lead": ""
-   },
-   {
-    "eyebrow": "Enquire",
-    "title": "Availability changes weekly.",
-    "title_em": "weekly.",
-    "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
    }
   ],
   "pillars": [
@@ -200,47 +160,7 @@
   "hero_title": "",
   "hero_title_em": "",
   "hero_text": "",
-  "facts": [
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   }
-  ],
   "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
    {
     "eyebrow": "",
     "title": "",

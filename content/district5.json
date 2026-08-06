@@ -96,64 +96,18 @@
   "hero_title": "Live, work and shop at one address.",
   "hero_title_em": "at one address.",
   "hero_text": "268 acres in New Katameya where homes, the D5M mall, Mindhaus offices and Clubfive are a walk from each other. Seven minutes from Road 90.",
-  "facts": [
-   {
-    "label": "Location",
-    "value": "New Katameya",
-    "sub": "Cairo–Ain Sokhna Rd"
-   },
-   {
-    "label": "Land area",
-    "value": "268 acres",
-    "sub": "Integrated mixed-use"
-   },
-   {
-    "label": "To Road 90",
-    "value": "7 min",
-    "sub": "AUC 8 min · Maadi 13 min"
-   },
-   {
-    "label": "Developer",
-    "value": "Marakez",
-    "sub": "Flagship East Cairo project"
-   }
-  ],
   "sections": [
    {
     "eyebrow": "The project",
     "title": "Five journeys, one destination.",
     "title_em": "one destination.",
-    "lead": "District 5 is Marakez’s flagship East Cairo development — 268 acres on the Cairo–Ain Sokhna highway at the centre of New Katameya. Because Marakez builds malls first, the retail and workspace are part of the plan rather than promised for a later phase: homes, the D5M mall, Mindhaus offices and the Clubfive sports club all share one address."
+    "lead": ""
    },
    {
-    "eyebrow": "Masterplan",
-    "title": "How District 5 is laid out.",
-    "title_em": "laid out.",
-    "lead": "A single 268-acre plan holding the residential neighbourhoods, the commercial zone and the office campus."
-   },
-   {
-    "eyebrow": "What’s available",
+    "eyebrow": "What's available",
     "title": "Homes and offices, same address.",
     "title_em": "same address.",
-    "lead": "Choose which you’re looking for."
-   },
-   {
-    "eyebrow": "Residences",
-    "title": "Four ways to live here.",
-    "title_em": "live here.",
-    "lead": "Apartments through to standalone villas, across four neighbourhoods."
-   },
-   {
-    "eyebrow": "Mindhaus",
-    "title": "Workspace inside the gates.",
-    "title_em": "inside the gates.",
-    "lead": "Marakez’s office product at District 5, split between a campus and a strip, both in the non-residential zone with their own road access."
-   },
-   {
-    "eyebrow": "Enquire",
-    "title": "Availability changes weekly.",
-    "title_em": "weekly.",
-    "lead": "Send your details and receive current prices, released units and this month’s payment plan for District 5. No obligation."
+    "lead": ""
    }
   ],
   "pillars": [
@@ -287,53 +241,7 @@
   "hero_title": "",
   "hero_title_em": "",
   "hero_text": "",
-  "facts": [
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   }
-  ],
   "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
    {
     "eyebrow": "",
     "title": "",
@@ -501,7 +409,7 @@
    "label": "to Road 90"
   },
   {
-   "value": "D5M &amp; Mindhaus",
+   "value": "D5M & Mindhaus",
    "label": "on the same address"
   }
  ]

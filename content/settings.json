@@ -1,10 +1,10 @@
 {
-  "phone": "+201220170162",
-  "whatsapp": "201220170162",
-  "formEndpoint": "https://script.google.com/macros/s/AKfycbz1T5g-aGuyTc-dXJopCMN0w0USB2FNO3Rw3V4YP0hVT9nSTp9MMLt1a-g6wr9WdT0R/exec",
-  "gtmId": "",
-  "ga4Id": "",
-  "adsId": "",
-  "adsConversionLabel": "",
-  "metaPixelId": ""
+ "phone": "+201220170162",
+ "whatsapp": "201220170162",
+ "formEndpoint": "https://script.google.com/macros/s/AKfycbz1T5g-aGuyTc-dXJopCMN0w0USB2FNO3Rw3V4YP0hVT9nSTp9MMLt1a-g6wr9WdT0R/exec",
+ "gtmId": "",
+ "ga4Id": "",
+ "adsId": "",
+ "adsConversionLabel": "",
+ "metaPixelId": ""
 }

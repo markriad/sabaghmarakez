@@ -198,8 +198,26 @@
     setText(document.querySelector(".hero-in > p:not(.kicker)"), pick(data, "hero_text"));
 
 
-    /* sections: eyebrow / heading / lead */
-    var eyebrows = document.querySelectorAll(".inner .eyebrow, .form-sec .eyebrow");
+    /* sections: eyebrow / heading / lead
+       Matched in document order and mapped by position. The split section's
+       eyebrow sits in .split, not .inner, so leaving it out of this selector
+       shifted every heading up by one — section 02 was showing section 01's
+       title. The count guard below stops a mismatch from silently mislabelling
+       sections again: if the CMS list and the page disagree, the page keeps the
+       headings it shipped with rather than applying the wrong ones. */
+    /* Only numbered section headers. District 5 has sub-headings inside its
+       availability section that use the same class, and counting those made the
+       page look like it had four sections when the CMS listed two. */
+    var eyebrows = [].filter.call(
+      document.querySelectorAll(".inner .eyebrow, .split .eyebrow"),
+      function (eb) { return !!eb.querySelector(".secnum"); });
+    var secList = (data.sections || []);
+    if (secList.length && secList.length !== eyebrows.length) {
+      if (window.console) console.warn(
+        "content.js: " + secList.length + " sections in the CMS but " +
+        eyebrows.length + " on the page — headings left as they are.");
+      eyebrows = [];
+    }
     eyebrows.forEach(function (eb, i) {
       var num = eb.querySelector(".secnum");
       var label = pick(data, "sections", i, "eyebrow");

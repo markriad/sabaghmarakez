@@ -1230,7 +1230,49 @@ document.querySelectorAll('.switch button').forEach(function(b){
     });
   });
 
+  /* The two branches have different fields — office adds Company and drops
+     Budget — so switching them changed the card height by ~51px on desktop and
+     ~78px on a phone, which resized the whole hero under the visitor's cursor.
+     Measuring both once and holding the card at the taller of the two keeps it
+     still. The groups are toggled directly rather than through setKind() so
+     measuring never clears anything the visitor has already chosen. */
+  function lockHeight() {
+    var card = form.closest('.lead-card');
+    if (!card) return;
+    var res = form.querySelectorAll('.only-res');
+    var off = form.querySelectorAll('.only-off');
+    var wasRes = [].map.call(res, function (el) { return el.hidden; });
+    var wasOff = [].map.call(off, function (el) { return el.hidden; });
+
+    card.style.minHeight = '';
+    var heights = [];
+    [[false, true], [true, false]].forEach(function (state) {
+      res.forEach(function (el) { el.hidden = state[0]; });
+      off.forEach(function (el) { el.hidden = state[1]; });
+      heights.push(card.offsetHeight);
+    });
+    res.forEach(function (el, i) { el.hidden = wasRes[i]; });
+    off.forEach(function (el, i) { el.hidden = wasOff[i]; });
+    card.style.minHeight = Math.max.apply(null, heights) + 'px';
+  }
+
   setKind('res', false);
+
+  /* Measuring too early gives the wrong answer: the property-type chips are
+     filled in from the CMS after this script runs, so the residential branch
+     measured shorter than the office one and the card locked to the smaller of
+     the two. Wait for load, then re-measure whenever the form's contents change
+     and whenever the width changes, since wrapping affects the height. */
+  var rt;
+  function relock() { clearTimeout(rt); rt = setTimeout(lockHeight, 120); }
+
+  if (document.readyState === 'complete') relock();
+  else addEventListener('load', relock);
+  addEventListener('resize', relock);
+
+  if (window.MutationObserver) {
+    new MutationObserver(relock).observe(form, { childList: true, subtree: true });
+  }
 })();
 </script>
 

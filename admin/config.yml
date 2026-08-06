@@ -114,7 +114,9 @@ collections:
         label: The figure
         widget: string
         required: false
-        hint: 'For example: 400 acres'
+        hint: >-
+          For example: 400 acres. Type an ampersand as & , not &amp; — the site
+          prints whatever you type here exactly.'
       - name: label
         label: What it means
         widget: string
@@ -595,7 +597,9 @@ collections:
         label: The figure
         widget: string
         required: false
-        hint: 'For example: 400 acres'
+        hint: >-
+          For example: 400 acres. Type an ampersand as & , not &amp; — the site
+          prints whatever you type here exactly.'
       - name: label
         label: What it means
         widget: string
@@ -1113,7 +1117,9 @@ collections:
         label: The figure
         widget: string
         required: false
-        hint: 'For example: 400 acres'
+        hint: >-
+          For example: 400 acres. Type an ampersand as & , not &amp; — the site
+          prints whatever you type here exactly.'
       - name: label
         label: What it means
         widget: string
@@ -1621,7 +1627,9 @@ collections:
         label: The figure
         widget: string
         required: false
-        hint: 'For example: 400 acres'
+        hint: >-
+          For example: 400 acres. Type an ampersand as & , not &amp; — the site
+          prints whatever you type here exactly.'
       - name: label
         label: What it means
         widget: string

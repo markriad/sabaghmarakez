@@ -49,58 +49,18 @@
   "hero_title": "Follow the path home.",
   "hero_title_em": "home.",
   "hero_text": "118 acres in East Cairo built around a single green pathway you can walk or cycle end to end — from the central park to your own back gate.",
-  "facts": [
-   {
-    "label": "Location",
-    "value": "East Cairo",
-    "sub": "Sokhna Rd · South Teseen"
-   },
-   {
-    "label": "Land area",
-    "value": "118 acres",
-    "sub": "Low density"
-   },
-   {
-    "label": "Green space",
-    "value": "Five parks",
-    "sub": "Along one continuous spine"
-   },
-   {
-    "label": "Master planner",
-    "value": "WATG",
-    "sub": "Architecture by PBD"
-   }
-  ],
   "sections": [
    {
     "eyebrow": "The project",
     "title": "A neighbourhood where everyone knows your name.",
     "title_em": "knows your name.",
-    "lead": "Crescent Walk takes its cue from the garden neighbourhoods of old Cairo — the ones where children roamed freely and neighbours greeted each other by name. 118 acres in East Cairo, organised around a green pathway that runs the length of the community, widening into parks and narrowing into a cycling lane before it reaches your back gate."
-   },
-   {
-    "eyebrow": "Masterplan",
-    "title": "One path, end to end.",
-    "title_em": "end to end.",
-    "lead": "The green spine connects every part of the community, from the central park to the clubhouse to the commercial park."
-   },
-   {
-    "eyebrow": "Green space",
-    "title": "Four ways to live here.",
-    "title_em": "live here.",
-    "lead": "From standalone villas with the largest gardens through to terraced townhomes backing onto the green spine."
-   },
-   {
-    "eyebrow": "Why Crescent Walk",
-    "title": "What the green spine actually gives you.",
-    "title_em": "actually gives you.",
     "lead": ""
    },
    {
-    "eyebrow": "Enquire",
-    "title": "Availability changes weekly.",
-    "title_em": "weekly.",
-    "lead": "Send your details and receive current prices, released units and this month's payment plan for Ramla. No obligation."
+    "eyebrow": "Home types",
+    "title": "Four ways to live here.",
+    "title_em": "live here.",
+    "lead": ""
    }
   ],
   "pillars": [
@@ -198,47 +158,7 @@
   "hero_title": "",
   "hero_title_em": "",
   "hero_text": "",
-  "facts": [
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   },
-   {
-    "label": "",
-    "value": "",
-    "sub": ""
-   }
-  ],
   "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
    {
     "eyebrow": "",
     "title": "",
