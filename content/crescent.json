@@ -1,13 +1,7 @@
 {
  "images": {
   "hero": "assets/img/crescent/hero.jpeg",
-  "about": "assets/img/crescent/about.jpeg",
-  "masterplan": "assets/img/crescent/masterplan.jpeg",
-  "panel1": "assets/img/crescent/t-villa.jpeg",
-  "panel2": "assets/img/crescent/t-twin.jpeg",
-  "panel3": "assets/img/crescent/t-town.jpeg",
-  "panel4": "assets/img/crescent/t-private.jpeg",
-  "why": "assets/img/crescent/t-private.jpeg"
+  "masterplan": "assets/img/crescent/masterplan.jpeg"
  },
  "heroScrim": "medium",
  "propertyTypes": [

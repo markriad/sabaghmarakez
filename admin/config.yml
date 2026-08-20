@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: markriad/sabaghmarakez
+  repo: OWNER/REPO
   branch: main
-  base_url: https://sveltia-cms-auth.markriad.workers.dev
+  base_url: WORKER_URL
   commit_messages:
     update: Update {{collection}}
     uploadMedia: Upload {{path}}
@@ -10,9 +10,6 @@ backend:
 media_folder: assets/img/uploads
 public_folder: assets/img/uploads
 publish_mode: simple
-# Every uploaded photo is converted to WebP and scaled down to fit 2400x2400
-# before it is saved. Combined with the fixed slot shapes in the CSS, this means
-# an oversized upload can neither slow the site down nor change any layout.
 media_libraries:
   all:
     max_file_size: 12000000
@@ -27,7 +24,7 @@ media_libraries:
         optimize: true
 collections:
 - name: settings
-  label: 1. My details
+  label: Phone number and tracking
   files:
   - name: contact
     label: Phone and WhatsApp
@@ -81,85 +78,8 @@ collections:
     label: Homepage
     file: content/home.json
     fields:
-    - name: logos
-      label: Logos
-      widget: object
-      collapsed: true
-      fields:
-      - name: marakez
-        label: Marakez logo (header)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
-          tall and never wider than 170 px. Leave empty to show the word "Marakez".
-      - name: project
-        label: Project logo (hero)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
-          tall and never wider than 240 px.
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and
-        the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: >-
-          For example: 400 acres. Type an ampersand as & , not &amp; — the site
-          prints whatever you type here exactly.'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: images
-      label: Photos on this page
-      widget: object
-      collapsed: true
-      hint: >-
-        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
-      fields:
-      - name: hero
-        label: Main image at the top
-        widget: image
-        required: false
-        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
-      - name: about2
-        label: Photo in the About Marakez section
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill. A photograph of Mall of
-          Arabia suits this best; a Marakez development shot is standing in for now.'
-      - name: why
-        label: Your portrait, beside "Working with me"
-        widget: image
-        required: false
-        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
-          the four points become full-height columns instead.'
-    - name: heroScrim
-      label: Darken the hero image
-      widget: select
-      default: medium
-      options:
-      - label: Light — for dark photos
-        value: light
-      - label: Medium — most photos
-        value: medium
-      - label: Strong — for bright photos
-        value: strong
-      hint: If the headline is hard to read over the image, choose Strong.
     - name: cards
-      label: Project cards
+      label: 2 · The three project cards
       widget: list
       required: false
       summary: '{{fields.key}}'
@@ -179,24 +99,21 @@ collections:
         label: Card photo
         widget: image
         required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
+        hint: 1200 x 900 px (4:3) — centre-cropped to fill
       - name: size
         label: Size
         widget: string
         required: false
-        hint: >-
-          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
-          and the panel reads "On request" rather than showing a blank.
+        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
+          "On request" rather than showing a blank.'
       - name: photos
         label: Photos of this type
         widget: list
         required: false
         collapsed: true
         summary: '{{fields.image}}'
-        hint: >-
-          One or more. They become a swipeable strip on the type's panel; with a
-          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
-          centre-cropped to fill.
+        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
+          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
         fields:
         - name: image
           label: Photo
@@ -213,8 +130,47 @@ collections:
           value: limited
         - label: Sold out
           value: sold_out
+      collapsed: false
+    - name: images
+      label: 4 · Main photos
+      widget: object
+      collapsed: false
+      hint: Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout
+        never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave
+        a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: 1920 x 1080 px (16:9) — centre-cropped to fill
+      - name: about2
+        label: Photo in the About Marakez section
+        widget: image
+        required: false
+        hint: 1200 x 900 px (4:3) — centre-cropped to fill. A photograph of Mall of Arabia suits this
+          best; a Marakez development shot is standing in for now.
+    - name: heroFacts
+      label: 5 · The three figures under the headline
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: Up to four sit on one line before they wrap. Leave the list empty and the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres. Type an ampersand as & , not &amp; — the site prints whatever you
+          type here exactly.'''
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: en
-      label: English text
+      label: 6 · Wording (English)
       widget: object
       collapsed: true
       fields:
@@ -346,14 +302,13 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
     - name: ar
-      label: Arabic text — العربية
+      label: 7 · Wording (Arabic)
       widget: object
       collapsed: true
       fields:
@@ -485,12 +440,40 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
+    - name: logos
+      label: 8 · Logos — set once, rarely changed
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px tall and never wider
+          than 170 px. Leave empty to show the word "Marakez".
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px tall and never wider
+          than 240 px.
+    - name: heroScrim
+      label: 9 · Darken the top photo — only if the headline is hard to read
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
 - name: ramla
   label: 3. Ramla
   files:
@@ -498,32 +481,11 @@ collections:
     label: Ramla — North Coast
     file: content/ramla.json
     fields:
-    - name: logos
-      label: Logos
-      widget: object
-      collapsed: true
-      fields:
-      - name: marakez
-        label: Marakez logo (header)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
-          tall and never wider than 170 px. Leave empty to show the word "Marakez".
-      - name: project
-        label: Project logo (hero)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
-          tall and never wider than 240 px.
     - name: money
-      label: Prices and payment
+      label: 1 · Prices and offers
       widget: object
-      collapsed: true
-      hint: >-
-        The band under the hero. Leave the price empty and the whole band is
-        hidden.
+      collapsed: false
+      hint: The band under the hero. Leave the price empty and the whole band is hidden.
       fields:
       - name: priceFrom
         label: Homes from
@@ -544,10 +506,9 @@ collections:
         required: false
         collapsed: false
         summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
-        hint: >-
-          Add one row per plan you offer. The headline figures above ("from 10%
-          down", "up to 8 years") are worked out from these, so you never type
-          them twice. For a cash plan put 100 in down and 0 in years.
+        hint: Add one row per plan you offer. The headline figures above ("from 10% down", "up to 8 years")
+          are worked out from these, so you never type them twice. For a cash plan put 100 in down and
+          0 in years.
         fields:
         - name: name
           label: Plan name
@@ -571,18 +532,16 @@ collections:
           label: Note
           widget: string
           required: false
-          hint: 'Only used for cash plans, e.g. 15% discount'
+          hint: Only used for cash plans, e.g. 15% discount
       - name: offers
         label: Current offers
         widget: list
         required: false
         collapsed: false
         summary: '{{fields.flag}} - until {{fields.until}}'
-        hint: >-
-          Leave empty and no offer shows. Each offer disappears from the site by
-          itself the day after its end date, so there is nothing to remember to
-          take down. More than three at once and the block gets taller than the
-          band above it.
+        hint: Leave empty and no offer shows. Each offer disappears from the site by itself the day after
+          its end date, so there is nothing to remember to take down. More than three at once and the
+          block gets taller than the band above it.
         fields:
         - name: flag
           label: Short flag
@@ -600,105 +559,13 @@ collections:
         - name: until
           label: Runs until
           widget: datetime
-          date_format: 'YYYY-MM-DD'
+          date_format: YYYY-MM-DD
           time_format: false
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and
-        the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: >-
-          For example: 400 acres. Type an ampersand as & , not &amp; — the site
-          prints whatever you type here exactly.'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: images
-      label: Photos on this page
-      widget: object
-      collapsed: true
-      hint: >-
-        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
-      fields:
-      - name: hero
-        label: Main image at the top
-        widget: image
-        required: false
-        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
-      - name: about
-        label: Photo in the About section
-        widget: image
-        required: false
-        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
-      - name: masterplan
-        label: Masterplan drawing
-        widget: image
-        required: false
-        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
-      - name: why
-        label: Photo beside the "Why" points
-        widget: image
-        required: false
-        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
-          the four points become full-height columns instead.'
-      - name: panel1
-        label: Neighbourhood 1 — Dunes
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel2
-        label: Neighbourhood 2 — The Town
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel3
-        label: Neighbourhood 3 — Oasis
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel4
-        label: Neighbourhood 4 — The Grove
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel5
-        label: Neighbourhood 5 — Acacia
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel6
-        label: Neighbourhood 6 — Bougainvillea & Breeze
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-    - name: heroScrim
-      label: Darken the hero image
-      widget: select
-      default: medium
-      options:
-      - label: Light — for dark photos
-        value: light
-      - label: Medium — most photos
-        value: medium
-      - label: Strong — for bright photos
-        value: strong
-      hint: If the headline is hard to read over the image, choose Strong.
     - name: propertyTypes
-      label: Property types & availability
+      label: 2 · What is for sale
       label_singular: type
       widget: list
       required: false
@@ -717,19 +584,16 @@ collections:
         label: Size
         widget: string
         required: false
-        hint: >-
-          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
-          and the panel reads "On request" rather than showing a blank.
+        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
+          "On request" rather than showing a blank.'
       - name: photos
         label: Photos of this type
         widget: list
         required: false
         collapsed: true
         summary: '{{fields.image}}'
-        hint: >-
-          One or more. They become a swipeable strip on the type's panel; with a
-          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
-          centre-cropped to fill.
+        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
+          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
         fields:
         - name: image
           label: Photo
@@ -750,13 +614,52 @@ collections:
         label: Bedroom options
         widget: string
         required: false
-        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up
+          question is asked for this type.'
       - name: optionKind
         label: What the options are
         widget: hidden
         default: beds
+      collapsed: false
+    - name: images
+      label: 4 · Main photos
+      widget: object
+      collapsed: false
+      hint: Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout
+        never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave
+        a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: 1920 x 1080 px (16:9) — centre-cropped to fill
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: 1600 x 1200 px (4:3) — shown whole, never cropped
+    - name: heroFacts
+      label: 5 · The three figures under the headline
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: Up to four sit on one line before they wrap. Leave the list empty and the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres. Type an ampersand as & , not &amp; — the site prints whatever you
+          type here exactly.'''
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: en
-      label: English text
+      label: 6 · Wording (English)
       widget: object
       collapsed: true
       fields:
@@ -888,14 +791,13 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
     - name: ar
-      label: Arabic text — العربية
+      label: 7 · Wording (Arabic)
       widget: object
       collapsed: true
       fields:
@@ -1027,12 +929,40 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
+    - name: logos
+      label: 8 · Logos — set once, rarely changed
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px tall and never wider
+          than 170 px. Leave empty to show the word "Marakez".
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px tall and never wider
+          than 240 px.
+    - name: heroScrim
+      label: 9 · Darken the top photo — only if the headline is hard to read
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
 - name: crescent
   label: 4. Crescent Walk
   files:
@@ -1040,32 +970,11 @@ collections:
     label: Crescent Walk — East Cairo
     file: content/crescent.json
     fields:
-    - name: logos
-      label: Logos
-      widget: object
-      collapsed: true
-      fields:
-      - name: marakez
-        label: Marakez logo (header)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
-          tall and never wider than 170 px. Leave empty to show the word "Marakez".
-      - name: project
-        label: Project logo (hero)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
-          tall and never wider than 240 px.
     - name: money
-      label: Prices and payment
+      label: 1 · Prices and offers
       widget: object
-      collapsed: true
-      hint: >-
-        The band under the hero. Leave the price empty and the whole band is
-        hidden.
+      collapsed: false
+      hint: The band under the hero. Leave the price empty and the whole band is hidden.
       fields:
       - name: priceFrom
         label: Homes from
@@ -1086,10 +995,9 @@ collections:
         required: false
         collapsed: false
         summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
-        hint: >-
-          Add one row per plan you offer. The headline figures above ("from 10%
-          down", "up to 8 years") are worked out from these, so you never type
-          them twice. For a cash plan put 100 in down and 0 in years.
+        hint: Add one row per plan you offer. The headline figures above ("from 10% down", "up to 8 years")
+          are worked out from these, so you never type them twice. For a cash plan put 100 in down and
+          0 in years.
         fields:
         - name: name
           label: Plan name
@@ -1113,18 +1021,16 @@ collections:
           label: Note
           widget: string
           required: false
-          hint: 'Only used for cash plans, e.g. 15% discount'
+          hint: Only used for cash plans, e.g. 15% discount
       - name: offers
         label: Current offers
         widget: list
         required: false
         collapsed: false
         summary: '{{fields.flag}} - until {{fields.until}}'
-        hint: >-
-          Leave empty and no offer shows. Each offer disappears from the site by
-          itself the day after its end date, so there is nothing to remember to
-          take down. More than three at once and the block gets taller than the
-          band above it.
+        hint: Leave empty and no offer shows. Each offer disappears from the site by itself the day after
+          its end date, so there is nothing to remember to take down. More than three at once and the
+          block gets taller than the band above it.
         fields:
         - name: flag
           label: Short flag
@@ -1142,95 +1048,13 @@ collections:
         - name: until
           label: Runs until
           widget: datetime
-          date_format: 'YYYY-MM-DD'
+          date_format: YYYY-MM-DD
           time_format: false
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and
-        the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: >-
-          For example: 400 acres. Type an ampersand as & , not &amp; — the site
-          prints whatever you type here exactly.'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: images
-      label: Photos on this page
-      widget: object
-      collapsed: true
-      hint: >-
-        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
-      fields:
-      - name: hero
-        label: Main image at the top
-        widget: image
-        required: false
-        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
-      - name: about
-        label: Photo in the About section
-        widget: image
-        required: false
-        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
-      - name: masterplan
-        label: Masterplan drawing
-        widget: image
-        required: false
-        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
-      - name: why
-        label: Photo beside the "Why" points
-        widget: image
-        required: false
-        hint: '1000 x 1250 px (4:5, upright) — centre-cropped to fill. Leave empty and
-          the four points become full-height columns instead.'
-      - name: panel1
-        label: Property type 1 — Villas
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel2
-        label: Property type 2 — Twinhomes
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel3
-        label: Property type 3 — Townhomes
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel4
-        label: Property type 4 — Private residences
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-    - name: heroScrim
-      label: Darken the hero image
-      widget: select
-      default: medium
-      options:
-      - label: Light — for dark photos
-        value: light
-      - label: Medium — most photos
-        value: medium
-      - label: Strong — for bright photos
-        value: strong
-      hint: If the headline is hard to read over the image, choose Strong.
     - name: propertyTypes
-      label: Property types & availability
+      label: 2 · What is for sale
       label_singular: type
       widget: list
       required: false
@@ -1249,19 +1073,16 @@ collections:
         label: Size
         widget: string
         required: false
-        hint: >-
-          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
-          and the panel reads "On request" rather than showing a blank.
+        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
+          "On request" rather than showing a blank.'
       - name: photos
         label: Photos of this type
         widget: list
         required: false
         collapsed: true
         summary: '{{fields.image}}'
-        hint: >-
-          One or more. They become a swipeable strip on the type's panel; with a
-          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
-          centre-cropped to fill.
+        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
+          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
         fields:
         - name: image
           label: Photo
@@ -1282,13 +1103,52 @@ collections:
         label: Bedroom options
         widget: string
         required: false
-        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up
+          question is asked for this type.'
       - name: optionKind
         label: What the options are
         widget: hidden
         default: beds
+      collapsed: false
+    - name: images
+      label: 4 · Main photos
+      widget: object
+      collapsed: false
+      hint: Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout
+        never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave
+        a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: 1920 x 1080 px (16:9) — centre-cropped to fill
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: 1600 x 1200 px (4:3) — shown whole, never cropped
+    - name: heroFacts
+      label: 5 · The three figures under the headline
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: Up to four sit on one line before they wrap. Leave the list empty and the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres. Type an ampersand as & , not &amp; — the site prints whatever you
+          type here exactly.'''
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: en
-      label: English text
+      label: 6 · Wording (English)
       widget: object
       collapsed: true
       fields:
@@ -1420,14 +1280,13 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
     - name: ar
-      label: Arabic text — العربية
+      label: 7 · Wording (Arabic)
       widget: object
       collapsed: true
       fields:
@@ -1559,12 +1418,40 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
+    - name: logos
+      label: 8 · Logos — set once, rarely changed
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px tall and never wider
+          than 170 px. Leave empty to show the word "Marakez".
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px tall and never wider
+          than 240 px.
+    - name: heroScrim
+      label: 9 · Darken the top photo — only if the headline is hard to read
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.
 - name: district5
   label: 5. District 5
   files:
@@ -1572,32 +1459,11 @@ collections:
     label: District 5 — New Katameya
     file: content/district5.json
     fields:
-    - name: logos
-      label: Logos
-      widget: object
-      collapsed: true
-      fields:
-      - name: marakez
-        label: Marakez logo (header)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px
-          tall and never wider than 170 px. Leave empty to show the word "Marakez".
-      - name: project
-        label: Project logo (hero)
-        widget: image
-        required: false
-        hint: >-
-          PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px
-          tall and never wider than 240 px.
     - name: money
-      label: Prices and payment
+      label: 1 · Prices and offers
       widget: object
-      collapsed: true
-      hint: >-
-        The band under the hero. Leave the price empty and the whole band is
-        hidden.
+      collapsed: false
+      hint: The band under the hero. Leave the price empty and the whole band is hidden.
       fields:
       - name: priceFrom
         label: Homes from
@@ -1618,10 +1484,9 @@ collections:
         required: false
         collapsed: false
         summary: '{{fields.name}} - {{fields.down}}% over {{fields.years}} years'
-        hint: >-
-          Add one row per plan you offer. The headline figures above ("from 10%
-          down", "up to 8 years") are worked out from these, so you never type
-          them twice. For a cash plan put 100 in down and 0 in years.
+        hint: Add one row per plan you offer. The headline figures above ("from 10% down", "up to 8 years")
+          are worked out from these, so you never type them twice. For a cash plan put 100 in down and
+          0 in years.
         fields:
         - name: name
           label: Plan name
@@ -1645,18 +1510,16 @@ collections:
           label: Note
           widget: string
           required: false
-          hint: 'Only used for cash plans, e.g. 15% discount'
+          hint: Only used for cash plans, e.g. 15% discount
       - name: offers
         label: Current offers
         widget: list
         required: false
         collapsed: false
         summary: '{{fields.flag}} - until {{fields.until}}'
-        hint: >-
-          Leave empty and no offer shows. Each offer disappears from the site by
-          itself the day after its end date, so there is nothing to remember to
-          take down. More than three at once and the block gets taller than the
-          band above it.
+        hint: Leave empty and no offer shows. Each offer disappears from the site by itself the day after
+          its end date, so there is nothing to remember to take down. More than three at once and the
+          block gets taller than the band above it.
         fields:
         - name: flag
           label: Short flag
@@ -1674,109 +1537,13 @@ collections:
         - name: until
           label: Runs until
           widget: datetime
-          date_format: 'YYYY-MM-DD'
+          date_format: YYYY-MM-DD
           time_format: false
           picker_utc: true
           required: true
           hint: Required. After this date the offer is removed from the site.
-    - name: heroFacts
-      label: Key facts under the headline
-      widget: list
-      required: false
-      collapsed: false
-      summary: '{{fields.value}} - {{fields.label}}'
-      hint: >-
-        Up to four sit on one line before they wrap. Leave the list empty and
-        the strip disappears.
-      fields:
-      - name: value
-        label: The figure
-        widget: string
-        required: false
-        hint: >-
-          For example: 400 acres. Type an ampersand as & , not &amp; — the site
-          prints whatever you type here exactly.'
-      - name: label
-        label: What it means
-        widget: string
-        required: false
-        hint: 'For example: on Ras El Hekma bay'
-    - name: images
-      label: Photos on this page
-      widget: object
-      collapsed: true
-      hint: >-
-        Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave a slot empty to keep the current photo.
-      fields:
-      - name: hero
-        label: Main image at the top
-        widget: image
-        required: false
-        hint: '1920 x 1080 px (16:9) — centre-cropped to fill'
-      - name: about
-        label: Photo in the About section
-        widget: image
-        required: false
-        hint: '1600 x 1000 px (16:10) — centre-cropped to fill'
-      - name: masterplan
-        label: Masterplan drawing
-        widget: image
-        required: false
-        hint: '1600 x 1200 px (4:3) — shown whole, never cropped'
-      - name: panel1
-        label: Home type 1 — The Plateau
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel2
-        label: Home type 2 — Clubside
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel3
-        label: Home type 3 — D Parks
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel4
-        label: Home type 4 — Villas and homes
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel5
-        label: Office 1 — Mindhaus Campus
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel6
-        label: Office 2 — Interiors
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel7
-        label: Office 3 — Mindhaus Strip
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-      - name: panel8
-        label: Office 4 — Location
-        widget: image
-        required: false
-        hint: '1200 x 900 px (4:3) — centre-cropped to fill'
-    - name: heroScrim
-      label: Darken the hero image
-      widget: select
-      default: medium
-      options:
-      - label: Light — for dark photos
-        value: light
-      - label: Medium — most photos
-        value: medium
-      - label: Strong — for bright photos
-        value: strong
-      hint: If the headline is hard to read over the image, choose Strong.
     - name: propertyTypes
-      label: Property types & availability
+      label: 2 · What is for sale
       label_singular: type
       widget: list
       required: false
@@ -1795,19 +1562,16 @@ collections:
         label: Size
         widget: string
         required: false
-        hint: >-
-          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
-          and the panel reads "On request" rather than showing a blank.
+        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
+          "On request" rather than showing a blank.'
       - name: photos
         label: Photos of this type
         widget: list
         required: false
         collapsed: true
         summary: '{{fields.image}}'
-        hint: >-
-          One or more. They become a swipeable strip on the type's panel; with a
-          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
-          centre-cropped to fill.
+        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
+          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
         fields:
         - name: image
           label: Photo
@@ -1828,13 +1592,15 @@ collections:
         label: Bedroom options
         widget: string
         required: false
-        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up question is asked for this type.'
+        hint: 'Separate with a bar: 3|4|5. Commas or one per line work too. Leave empty and no follow-up
+          question is asked for this type.'
       - name: optionKind
         label: What the options are
         widget: hidden
         default: beds
+      collapsed: false
     - name: officeFormats
-      label: Office formats & availability
+      label: 3 · Office spaces for sale
       label_singular: type
       widget: list
       required: false
@@ -1853,19 +1619,16 @@ collections:
         label: Size
         widget: string
         required: false
-        hint: >-
-          Shown on the type's panel. For example: 320 - 480 sqm. Leave it empty
-          and the panel reads "On request" rather than showing a blank.
+        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
+          "On request" rather than showing a blank.'
       - name: photos
         label: Photos of this type
         widget: list
         required: false
         collapsed: true
         summary: '{{fields.image}}'
-        hint: >-
-          One or more. They become a swipeable strip on the type's panel; with a
-          single photo there are no arrows or dots. 1600 x 1000 px (16:10),
-          centre-cropped to fill.
+        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
+          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
         fields:
         - name: image
           label: Photo
@@ -1886,13 +1649,52 @@ collections:
         label: Area options
         widget: string
         required: false
-        hint: 'Separate with a bar: Under 200 sqm|200 - 600 sqm. Commas work too, and are safe inside a figure like 1,200 - 2,400 sqm.'
+        hint: 'Separate with a bar: Under 200 sqm|200 - 600 sqm. Commas work too, and are safe inside
+          a figure like 1,200 - 2,400 sqm.'
       - name: optionKind
         label: What the options are
         widget: hidden
         default: area
+      collapsed: false
+    - name: images
+      label: 4 · Main photos
+      widget: object
+      collapsed: false
+      hint: Every slot below is a fixed shape. Whatever you upload is fitted into it, so the page layout
+        never changes. Match the size given for each slot and nothing gets cropped unexpectedly. Leave
+        a slot empty to keep the current photo.
+      fields:
+      - name: hero
+        label: Main image at the top
+        widget: image
+        required: false
+        hint: 1920 x 1080 px (16:9) — centre-cropped to fill
+      - name: masterplan
+        label: Masterplan drawing
+        widget: image
+        required: false
+        hint: 1600 x 1200 px (4:3) — shown whole, never cropped
+    - name: heroFacts
+      label: 5 · The three figures under the headline
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.value}} - {{fields.label}}'
+      hint: Up to four sit on one line before they wrap. Leave the list empty and the strip disappears.
+      fields:
+      - name: value
+        label: The figure
+        widget: string
+        required: false
+        hint: 'For example: 400 acres. Type an ampersand as & , not &amp; — the site prints whatever you
+          type here exactly.'''
+      - name: label
+        label: What it means
+        widget: string
+        required: false
+        hint: 'For example: on Ras El Hekma bay'
     - name: en
-      label: English text
+      label: 6 · Wording (English)
       widget: object
       collapsed: true
       fields:
@@ -2024,14 +1826,13 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
     - name: ar
-      label: Arabic text — العربية
+      label: 7 · Wording (Arabic)
       widget: object
       collapsed: true
       fields:
@@ -2163,9 +1964,37 @@ collections:
         label: Thin bar at the very top
         widget: string
         required: false
-        hint: The line above the header. Keep it clear that this is not the official
-          Marakez website.
+        hint: The line above the header. Keep it clear that this is not the official Marakez website.
       - name: footer_disclaimer
         label: Disclaimer at the bottom of the page
         widget: text
         required: false
+    - name: logos
+      label: 8 · Logos — set once, rarely changed
+      widget: object
+      collapsed: true
+      fields:
+      - name: marakez
+        label: Marakez logo (header)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px tall and never wider
+          than 170 px. Leave empty to show the word "Marakez".
+      - name: project
+        label: Project logo (hero)
+        widget: image
+        required: false
+        hint: PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px tall and never wider
+          than 240 px.
+    - name: heroScrim
+      label: 9 · Darken the top photo — only if the headline is hard to read
+      widget: select
+      default: medium
+      options:
+      - label: Light — for dark photos
+        value: light
+      - label: Medium — most photos
+        value: medium
+      - label: Strong — for bright photos
+        value: strong
+      hint: If the headline is hard to read over the image, choose Strong.

@@ -1,16 +1,7 @@
 {
  "images": {
   "hero": "assets/img/d5/hero.jpeg",
-  "about": "assets/img/d5/about.jpeg",
-  "masterplan": "assets/img/d5/masterplan.jpeg",
-  "panel1": "assets/img/d5/r-plateau.jpeg",
-  "panel2": "assets/img/d5/r-clubside.jpeg",
-  "panel3": "assets/img/d5/r-dparks.jpeg",
-  "panel4": "assets/img/d5/r-homes.jpeg",
-  "panel5": "assets/img/d5/o-campus.jpeg",
-  "panel6": "assets/img/d5/o-interior.jpeg",
-  "panel7": "assets/img/d5/o-strip.jpeg",
-  "panel8": "assets/img/d5/hero.jpeg"
+  "masterplan": "assets/img/d5/masterplan.jpeg"
  },
  "heroScrim": "strong",
  "propertyTypes": [

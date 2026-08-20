@@ -192,6 +192,33 @@ build a separate conversion per project from the URL alone.
 **The panel won't save.** Your GitHub login expired. Sign out of the panel and
 back in.
 
+**The sign-in popup shows a GitHub 404 page.** The worker is sending a client
+ID that GitHub doesn't recognise. Look at the popup's address bar: if it reads
+`client_id=Client+ID+from+4.3` or similar, the placeholder text from the guide
+was saved instead of the real value. Replace `GITHUB_CLIENT_ID` and
+`GITHUB_CLIENT_SECRET` on the worker with the actual values from
+[github.com/settings/developers](https://github.com/settings/developers), then
+deploy the new version.
+
+**The panel says "OAuth app client ID or secret is not configured".** The
+worker is running a version that predates the secrets. Saving a secret in
+Cloudflare creates a new version but doesn't start serving it. Go to the worker
+→ **Deployments**: if the *"Add secret…"* row in Version History is newer than
+the **Active deployment** shown at the top, open the `···` menu on that row and
+deploy it. Full checklist in `SETUP-FIRST-TIME.md`, step 4.4.
+
+**Signing in fails, or the panel says the domain isn't allowed.** Check
+`ALLOWED_DOMAINS` on the Cloudflare worker. It must list the domain the admin
+panel is served from — `dev-marakez.com, *.dev-marakez.com` — not the worker's
+own address.
+
+**Signing in fails with `redirect_uri_mismatch`.** The URL registered on the
+GitHub OAuth app doesn't match the worker. Go to
+[github.com/settings/developers](https://github.com/settings/developers) →
+your app → check the **Redirect URI** is the worker address ending in
+`/callback`. GitHub renamed this field in August 2026; on older screens it's
+called the Authorization callback URL, and it's the same thing.
+
 **A change didn't appear.** Check **Deployments** in Cloudflare — the build may
 still be running or may have failed. Then hard-refresh (Ctrl+Shift+R, or
 Cmd+Shift+R on a Mac).

@@ -166,25 +166,121 @@ https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
 → **OAuth Apps** → **New OAuth App**
 
 - **Application name:** `Marakez site admin`
-- **Homepage URL:** your site address
-- **Authorization callback URL:** the worker address from 4.2 **followed by `/callback`**
+- **Homepage URL:** your site address. GitHub only shows this to people on the
+  authorisation screen, so the worker address works too if you'd rather —
+  nothing breaks either way
+- **Redirect URI:** the worker address from 4.2 **followed by `/callback`**
+
+Leave **Allow wildcard matching** and **Enable Device Flow** unticked. Leave
+**Expire user access tokens** ticked — that's GitHub's default and it's the
+safer setting; it just means you sign in to the panel again occasionally.
 
 Click **Register application**, then **Generate a new client secret**. Keep the
 page open.
 
-> The `/callback` on the end is the step people get wrong. Without it the login
-> fails with a redirect error.
+> **"Redirect URI" and "Authorization callback URL" are the same field.**
+> GitHub renamed it in August 2026, and the "Add redirect URI" button is new.
+> Older guides — including earlier versions of this one — call it the
+> authorization callback URL. One entry is all you need.
+
+> The `/callback` on the end is the step people get wrong. It's part of the
+> URL, not the name of the field. Without it the login fails with a
+> `redirect_uri_mismatch` error.
 
 **4.4** In Cloudflare → `sveltia-cms-auth` worker → **Settings** →
-**Variables and Secrets**. Add three, each as an encrypted **Secret**:
+**Variables and Secrets**. Add three:
 
-| Name | Value |
+| Name | What to paste |
 |---|---|
-| `GITHUB_CLIENT_ID` | Client ID from 4.3 |
-| `GITHUB_CLIENT_SECRET` | Client secret from 4.3 |
-| `ALLOWED_DOMAINS` | your domain, e.g. `example.com` |
+| `GITHUB_CLIENT_ID` | The Client ID shown on the GitHub app page from 4.3 — about 20 characters, e.g. `Ov23liAbCd1234EfGh56` |
+| `GITHUB_CLIENT_SECRET` | The Client secret from that same page — about 40 characters of letters and numbers |
 
-Click **Deploy**.
+> **Paste the real values, not these descriptions.** If the worker ends up with
+> the literal text `Client ID from 4.3`, it passes that to GitHub and you get a
+> GitHub **404 page** in the sign-in popup. The giveaway is the popup's address
+> bar: it will read `client_id=Client+ID+from+4.3` instead of a real ID.
+>
+> If you can no longer see the client secret, GitHub only displays it once —
+> click **Generate a new client secret** and use the fresh one.
+| `ALLOWED_DOMAINS` | your site's domain — see below. Add this one as a
+plain **Text** variable, not a Secret: it isn't a credential, and keeping it
+readable lets you check it later. |
+
+For `ALLOWED_DOMAINS`, use your **site's** domain, not the worker address:
+
+```
+dev-marakez.com, *.dev-marakez.com
+```
+
+Both entries are needed. A bare `dev-marakez.com` matches only the naked
+domain, and `*.dev-marakez.com` matches subdomains but *not* the naked domain —
+so listing both means the panel works whether you reach it with or without
+`www`. If you also use the free `.pages.dev` address, add that too, separated
+by a comma.
+
+This is what stops anyone else pointing their own CMS at your worker and
+signing people into your repository. It's technically optional, but leaving it
+empty means the worker will authenticate requests from any site that finds it.
+
+**Then make the new version active — this is the step that catches everyone.**
+
+Saving a secret creates a *new version* of the worker, but it does not start
+serving it. The worker carries on running the version that was active before,
+which has no secrets in it. Nothing in the Settings screen tells you this: the
+secrets are listed, they look saved, and they are — just not in the version
+that's running.
+
+Go to the **Deployments** tab and compare:
+
+- **Active deployment** at the top shows the version actually serving traffic
+- **Version History** below shows a row like *"Add secret: GITHUB_CLIENT_ID…"*
+
+If the "Add secret" row is **newer** than the active deployment, the secrets
+aren't live. On that row, open the **`···`** menu and deploy it. The Active
+deployment box should then show that version ID.
+
+(If the menu offers no deploy option, use **Edit code** → change nothing →
+**Deploy**. That publishes a new version on top of the current secrets and
+makes it active in one step.)
+
+> **"OAuth app client ID or secret is not configured"**
+>
+> The panel reached the worker and the worker replied, so `base_url`, the
+> domain check and the deployment are all working. The worker just can't read
+> `GITHUB_CLIENT_ID` or `GITHUB_CLIENT_SECRET`. Check, in this order:
+>
+> 1. **Did you click Deploy** after adding the variables? Saving is not enough.
+>    Under **Deployments**, the newest version should be dated *after* the time
+>    you added them.
+> 2. **Are they on the right worker?** They must be on the worker whose address
+>    is in `base_url` in `admin/config.yml`. If you deployed the worker twice
+>    while setting up, it's easy to configure one and point at the other.
+> 3. **Check the names character by character** — `GITHUB_CLIENT_ID` and
+>    `GITHUB_CLIENT_SECRET`, capitals and underscores exactly. A trailing space
+>    after a name is invisible in the dashboard and breaks the match.
+> 4. **Check the value has no stray space** at either end. Pasting from GitHub
+>    often picks one up.
+> 5. **Are they in the Production environment?** If the worker shows Preview
+>    and Production, the variables must be on Production.
+>
+> To test the worker on its own, open this in a browser tab:
+>
+> ```
+> https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev/auth?provider=github&site_id=dev-marakez.com
+> ```
+>
+> **Configured correctly, it sends you to GitHub's authorise screen.**
+>
+> **A blank white page means the test failed.** The worker doesn't display its
+> errors — it returns a page whose only job is to pass the message back to the
+> popup's parent window. Opened directly in a tab there is no parent, so
+> nothing renders. To read it, view the page source (`Ctrl+U`, or
+> `Cmd+Option+U` on a Mac); the error text is in the HTML even though the page
+> looks empty.
+>
+> A blank white page is not a network problem. A network failure gives you the
+> browser's own "This site can't be reached" page. A white page with your URL
+> still in the address bar and no spinner means the server replied.
 
 **4.5** In your GitHub repository, open `admin/config.yml`, click the pencil, and
 edit the first few lines:
@@ -230,8 +326,9 @@ click **Fork** to copy it into your own account, then import that fork.
 **5.** Add the three secrets from Part 4.4 to *this* Worker:
 `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `ALLOWED_DOMAINS`
 
-**6.** Update the GitHub OAuth app's **Authorization callback URL** to the new
-address followed by `/callback`.
+**6.** Update the GitHub OAuth app's **Redirect URI** (older GitHub screens
+call this the Authorization callback URL) to the new address followed by
+`/callback`.
 
 **7.** In your site repo, edit `admin/config.yml` so `base_url` points at the new
 auth Worker address.

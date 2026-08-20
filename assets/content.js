@@ -50,16 +50,13 @@
   function applyImages(data) {
     var im = data.images || {};
 
+    /* These selectors have to match the markup as it is now. Several stopped
+       matching as sections were rebuilt — .mp-fig, .desc-fig, .usp-fig and
+       .panel no longer exist — which left most of the panel's image fields
+       silently doing nothing when changed. */
     setImg(document.querySelector(".hero > img"), im.hero || data.heroImage);
-    setImg(document.querySelector(".desc-fig img"), im.about);
-    setImg(document.querySelector(".mp-fig img"), im.masterplan);
+    setImg(document.querySelector(".split .art img"), im.masterplan);
     setImg(document.querySelector(".about-fig img"), im.about2);
-    setImg(document.querySelector(".usp-fig img"), im.why);
-
-    /* neighbourhood / property-type / office panels, in page order */
-    document.querySelectorAll(".panel figure img").forEach(function (el, i) {
-      setImg(el, im["panel" + (i + 1)]);
-    });
 
     /* homepage project cards, in page order */
     var cards = data.cards || [];

@@ -1,15 +1,7 @@
 {
  "images": {
   "hero": "assets/img/ramla/hero.jpeg",
-  "about": "assets/img/ramla/about.jpeg",
-  "masterplan": "assets/img/ramla/masterplan.jpeg",
-  "panel1": "assets/img/ramla/n-dunes.jpeg",
-  "panel2": "assets/img/ramla/n-town.jpeg",
-  "panel3": "assets/img/ramla/n-oasis.jpeg",
-  "panel4": "assets/img/ramla/n-grove.jpeg",
-  "panel5": "assets/img/ramla/n-acacia.jpeg",
-  "panel6": "assets/img/ramla/n-breeze.jpeg",
-  "why": "assets/img/ramla/n-acacia.jpeg"
+  "masterplan": "assets/img/ramla/masterplan.jpeg"
  },
  "heroScrim": "medium",
  "propertyTypes": [
