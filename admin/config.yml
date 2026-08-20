@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: OWNER/REPO
+  repo: markriad/sabaghmarakez
   branch: main
-  base_url: WORKER_URL
+  base_url: https://sveltia-cms-auth.markriad.workers.dev
   commit_messages:
     update: Update {{collection}}
     uploadMedia: Upload {{path}}
