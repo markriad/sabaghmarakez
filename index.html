@@ -268,7 +268,12 @@ h2 em{font-style:italic;color:var(--accent)}
   font-weight:700;margin:0 0 8px}
 .projcard h3{font-family:var(--display);font-weight:400;font-size:1.75rem;margin:0 0 9px;
   letter-spacing:-.015em}
-.pc-body>p{margin:0 0 14px;font-size:.93rem;color:var(--soft);flex:1}
+/* flex:1 made the paragraph absorb the card's spare height, which overrode the
+   line-clamp and left the box at an arbitrary 31px — 1.5 lines, so the second
+   line was sliced through the middle. The spacer below pushes the link to the
+   bottom instead, so the paragraph keeps whatever height its clamp gives it. */
+.pc-body>p{margin:0 0 14px;font-size:.93rem;color:var(--soft);flex:0 0 auto}
+.pc-body .pc-spacer{flex:1 1 auto;min-height:0}
 .pc-go{font-size:.83rem;font-weight:700;color:var(--accent);margin-top:14px}
 
 
@@ -939,6 +944,7 @@ h2{margin-bottom:12px}
             <h3>Ramla</h3>
             <p>A beachside village on 1.4&nbsp;km of white sand, with six neighbourhoods, a swimmable lagoon and rare natural tidal pools.</p>
             <ul class="types"><li>Villas</li><li>Chalets</li></ul>
+            <span class="pc-spacer"></span>
             <span class="pc-go">Explore Ramla &rarr;</span>
           </div>
         </a>
@@ -950,6 +956,7 @@ h2{margin-bottom:12px}
             <h3>Crescent Walk</h3>
             <p>118 acres built around a green pathway you can walk or cycle end to end, with a back gate from every home onto the park.</p>
             <ul class="types"><li>Villas</li><li>Townhomes</li><li>Apartments</li></ul>
+            <span class="pc-spacer"></span>
             <span class="pc-go">Explore Crescent Walk &rarr;</span>
           </div>
         </a>
@@ -961,6 +968,7 @@ h2{margin-bottom:12px}
             <h3>District 5</h3>
             <p>268 acres where homes, the D5M mall, Mindhaus offices and Clubfive share one address. Seven minutes from Road 90.</p>
             <ul class="types"><li>Apartments</li><li>Villas</li><li>Offices</li></ul>
+            <span class="pc-spacer"></span>
             <span class="pc-go">Explore District 5 &rarr;</span>
           </div>
         </a>
