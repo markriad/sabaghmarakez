@@ -1,8 +1,17 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# The four lines under `backend` are specific to THIS installation. They were
+# placeholders in earlier packages, which meant every re-upload wiped the real
+# values and broke sign-in with a 404. They now hold the real values, so
+# uploading a new build is safe.
+#
+# Only change them if the repository is renamed or the auth worker is
+# redeployed at a different address.
+# ─────────────────────────────────────────────────────────────────────────────
 backend:
   name: github
-  repo: OWNER/REPO
+  repo: markriad/sabaghmarakez
   branch: main
-  base_url: WORKER_URL
+  base_url: https://sveltia-cms-auth.markriad.workers.dev
   commit_messages:
     update: Update {{collection}}
     uploadMedia: Upload {{path}}

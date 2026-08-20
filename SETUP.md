@@ -44,6 +44,14 @@ has one — it isn't a task.
 Cloudflare rebuilds by itself, usually live in about a minute. Watch it under
 **Workers & Pages** → your project → **Deployments**.
 
+> **A new build overwrites `content/settings.json`.** If you changed the phone
+> number, WhatsApp number or tracking IDs in the panel, check them after
+> uploading — the file in the package wins. The same is true of any text you
+> edited in the panel: whatever is in the upload replaces it.
+>
+> The safe habit: make content changes in the **panel**, not by uploading, and
+> use uploads only for design changes I send you.
+
 > **If a build hangs on "Initializing"** for more than a few minutes, that's
 > Cloudflare's side — it fails before it has even read your files. Cancel and
 > retry. If it keeps happening you can publish from your own computer instead:
@@ -191,6 +199,13 @@ build a separate conversion per project from the URL alone.
 
 **The panel won't save.** Your GitHub login expired. Sign out of the panel and
 back in.
+
+**Sign-in fails and the popup URL contains `WORKER_URL` or `/admin/WORKER_URL/`.**
+`admin/config.yml` has placeholder values instead of real ones. Open it on
+GitHub and check the `backend` block reads `repo: markriad/sabaghmarakez` and
+`base_url: https://sveltia-cms-auth.markriad.workers.dev`. Packages from
+before August 2026 shipped placeholders there and wiped the real values on
+upload.
 
 **The sign-in popup shows a GitHub 404 page.** The worker is sending a client
 ID that GitHub doesn't recognise. Look at the popup's address bar: if it reads
