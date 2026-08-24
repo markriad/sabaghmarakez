@@ -32,7 +32,6 @@
   "hero_kicker": "Marakez · Egypt",
   "hero_title": "The Leading Mixed-Use Developer in Egypt.",
   "hero_title_em": "Developer in Egypt.",
-  "hero_text": "Marakez builds mixed-use communities across Egypt — where the mall, the offices and the open space are part of the plan, not a promise for a later phase.",
   "sections": [
    {
     "eyebrow": "Residential projects",
@@ -69,7 +68,6 @@
   ],
   "masterplanKey": [],
   "panels": [],
-  "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
   "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
   "top_bar": "Not the official Marakez website."
  },
@@ -77,7 +75,6 @@
   "hero_kicker": "",
   "hero_title": "",
   "hero_title_em": "",
-  "hero_text": "",
   "sections": [
    {
     "eyebrow": "",
@@ -114,7 +111,6 @@
   ],
   "masterplanKey": [],
   "panels": [],
-  "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
  },

@@ -194,9 +194,18 @@
 
     /* hero */
     setText(document.querySelector(".hero .kicker"), pick(data, "hero_kicker"));
+    /* The hero subtitle had no hook, so hero_sub in the panel did nothing on
+       any page. It went unnoticed while every page's hardcoded text happened
+       to be right — until Shams Soma was cloned from Ramla and kept Ramla's. */
+    setText(document.querySelector(".hero [data-hero-sub]"), pick(data, "hero_sub"));
     setTitle(document.querySelector(".hero h1"),
              pick(data, "hero_title"), pick(data, "hero_title_em"));
-    setText(document.querySelector(".hero-in > p:not(.kicker)"), pick(data, "hero_text"));
+    /* hero_text targeted ".hero-in > p:not(.kicker)", which matches nothing —
+       the hero copy sits inside .hero-copy, not directly under .hero-in. The
+       field was an older duplicate of hero_sub and has been removed.
+       form_title and form_why had markup hooks but nothing writing to them. */
+    setText(document.querySelector("[data-form-title]"), pick(data, "form_title"));
+    setText(document.querySelector("[data-form-why]"), pick(data, "form_why"));
 
 
     /* sections: eyebrow / heading / lead

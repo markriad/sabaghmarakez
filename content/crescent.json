@@ -66,7 +66,6 @@
   "hero_kicker": "East Cairo",
   "hero_title": "Follow the path home.",
   "hero_title_em": "home.",
-  "hero_text": "118 acres in East Cairo built around a single green pathway you can walk or cycle end to end — from the central park to your own back gate.",
   "sections": [
    {
     "eyebrow": "The project",
@@ -167,7 +166,6 @@
     "text": "A small number of homes within the community, released in limited phases. Ask about what's currently available."
    }
   ],
-  "contact_line": "Or message directly on WhatsApp · +20 122 017 0162",
   "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
   "top_bar": "Not the official Marakez website."
  },
@@ -175,7 +173,6 @@
   "hero_kicker": "",
   "hero_title": "",
   "hero_title_em": "",
-  "hero_text": "",
   "sections": [
    {
     "eyebrow": "",
@@ -276,7 +273,6 @@
     "text": ""
    }
   ],
-  "contact_line": "",
   "footer_disclaimer": "",
   "top_bar": ""
  },

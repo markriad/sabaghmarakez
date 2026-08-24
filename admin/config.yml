@@ -188,10 +188,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -326,10 +322,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -677,10 +669,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -815,10 +803,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -1166,10 +1150,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -1304,10 +1284,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -1712,10 +1688,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -1850,10 +1822,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -2201,10 +2169,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
@@ -2339,10 +2303,6 @@ collections:
         widget: string
         required: false
         hint: Copy the exact words from the headline that should be italic and coloured.
-      - name: hero_text
-        label: Paragraph under the headline
-        widget: text
-        required: false
       - name: facts
         label: The four facts below the image
         widget: list
