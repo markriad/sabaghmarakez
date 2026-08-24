@@ -355,6 +355,17 @@
         return;
       }
 
+      /* The hidden "project" input and the form's data-lead attribute both name
+         the project, and a page cloned from another one can leave them
+         disagreeing — Shams Soma shipped with value="Ramla", which would have
+         filed every Red Sea lead under Ramla in the sheet. data-lead is the
+         single source of truth; the hidden input is set from it here so the two
+         cannot drift apart again. */
+      var projectField = form.querySelector("[name=project]");
+      if (projectField && form.getAttribute("data-lead")) {
+        projectField.value = form.getAttribute("data-lead");
+      }
+
       var data = new FormData(form);
       data.append("submitted", new Date().toISOString());
 

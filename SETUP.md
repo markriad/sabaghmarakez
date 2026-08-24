@@ -70,7 +70,7 @@ Phone and WhatsApp, the form's destination, and your tracking IDs. The numbers
 feed every call and message button across all six pages — change them once and
 they change everywhere.
 
-## 2–5. Homepage, Ramla, Crescent Walk, District 5
+## 2–6. Homepage, Ramla, Crescent Walk, District 5, Shams Soma
 
 **Logos** — Marakez in the header, the project logo in the hero. Transparent PNG
 or SVG: roughly 340 × 100 for the header, 480 × 120 for the hero. Both are held
@@ -106,6 +106,12 @@ Leave a slot empty to keep the photo that's already there.
 
 **Darken the hero image** — Light / Medium / Strong. If the headline is hard to
 read over your photo, pick Strong.
+
+**Shams Soma** is a lead-capture page only. Nothing has been announced, so it
+has no prices, no unit types and no sections — just the headline, the three
+figures and the form. As Marakez releases details, fill in *Prices and offers*
+and *What is for sale* and those parts of the page appear by themselves. Add a
+photo under *Main photos* and the plain navy hero is replaced.
 
 **Property types** — each has a name, an availability setting, and its options.
 

@@ -812,6 +812,16 @@ h2{margin-bottom:12px}
   .lead-card .alt a{display:inline-block;padding:7px 0;min-height:30px}
   .mark{padding:4px 0}
 }
+
+/* Shams Soma has no photography yet. Rather than let the card collapse or show
+   a broken frame, an image-less card keeps its shape and shows a plain ground,
+   so the row of four stays even. It becomes a normal photo card the moment one
+   is uploaded in the panel. */
+.projcard figure:not(:has(img[src]:not([src=""]))){
+  background:linear-gradient(160deg,#16305c 0%,#0d1c30 100%);
+  aspect-ratio:4/3}
+.projcard figure:not(:has(img[src]:not([src=""]))) img{display:none}
+.hero > img.bg:not([src]),.hero > img.bg[src=""]{display:none}
 </style>
 </head>
 <body data-project="home">
@@ -834,6 +844,8 @@ h2{margin-bottom:12px}
             <span class="nm-name">Crescent Walk</span><span class="nm-loc">East Cairo</span></a>
           <a role="menuitem" href="district-5.html" data-nav="district5">
             <span class="nm-name">District 5</span><span class="nm-loc">New Katameya</span></a>
+          <a role="menuitem" href="shams-soma.html" data-nav="shams">
+            <span class="nm-name">Shams Soma</span><span class="nm-loc">Somabay &middot; Red Sea</span></a>
         </div>
       </div>
       <a class="navcta" href="#lead">Request prices</a>
@@ -970,6 +982,19 @@ h2{margin-bottom:12px}
             <ul class="types"><li>Apartments</li><li>Villas</li><li>Offices</li></ul>
             <span class="pc-spacer"></span>
             <span class="pc-go">Explore District 5 &rarr;</span>
+          </div>
+        </a>
+
+
+        <a class="projcard rv" href="shams-soma.html">
+          <figure><img src="" alt="Shams Soma" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">Somabay &middot; Red Sea</p>
+            <h3>Shams Soma</h3>
+            <p>Marakez’s first project on the Red Sea, with Somabay. Details to be announced.</p>
+            <ul class="types"><li>Register interest</li></ul>
+            <span class="pc-spacer"></span>
+            <span class="pc-go">Shams Soma &rarr;</span>
           </div>
         </a>
       </div>

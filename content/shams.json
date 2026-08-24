@@ -1,0 +1,51 @@
+{
+ "logos": {
+  "marakez": "assets/img/logos/marakez-wordmark.png",
+  "project": ""
+ },
+ "images": {
+  "hero": "",
+  "masterplan": ""
+ },
+ "heroScrim": "medium",
+ "heroFacts": [
+  {
+   "value": "Somabay",
+   "label": "Red Sea"
+  },
+  {
+   "value": "Marakez",
+   "label": "first Red Sea project"
+  },
+  {
+   "value": "2026",
+   "label": "sales expected to open"
+  }
+ ],
+ "money": {
+  "priceFrom": "",
+  "priceNote": "",
+  "ctaLabel": "Register your interest",
+  "plans": [],
+  "offers": []
+ },
+ "propertyTypes": [],
+ "en": {
+  "hero_kicker": "Somabay · Red Sea",
+  "hero_title": "Marakez is coming to the Red Sea.",
+  "hero_title_em": "the Red Sea.",
+  "hero_sub": "Shams Soma is Marakez's first project on the Red Sea coast, developed with Somabay. Details are still to be announced.",
+  "form_title": "Be first to know",
+  "form_why": "Leave your details and a Marakez salesperson will contact you as soon as prices and unit types are released.",
+  "sections": []
+ },
+ "ar": {
+  "hero_kicker": "سوما باي · البحر الأحمر",
+  "hero_title": "مراكز تصل إلى البحر الأحمر.",
+  "hero_title_em": "البحر الأحمر.",
+  "hero_sub": "شمس سوما هو أول مشروع لمراكز على ساحل البحر الأحمر، بالتعاون مع سوما باي. التفاصيل لم تُعلن بعد.",
+  "form_title": "كن أول من يعرف",
+  "form_why": "اترك بياناتك وسيتواصل معك مندوب مبيعات مراكز فور الإعلان عن الأسعار وأنواع الوحدات.",
+  "sections": []
+ }
+}
