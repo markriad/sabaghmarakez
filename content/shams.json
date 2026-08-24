@@ -10,12 +10,12 @@
  "heroScrim": "medium",
  "heroFacts": [
   {
-   "value": "Somabay",
-   "label": "Red Sea"
+   "value": "84 acres",
+   "label": "on Somabay's coast"
   },
   {
-   "value": "Marakez",
-   "label": "first Red Sea project"
+   "value": "Low density",
+   "label": "fewer homes, more space between them"
   },
   {
    "value": "2026",
@@ -32,20 +32,78 @@
  "propertyTypes": [],
  "en": {
   "hero_kicker": "Somabay · Red Sea",
-  "hero_title": "Marakez is coming to the Red Sea.",
-  "hero_title_em": "the Red Sea.",
-  "hero_sub": "Shams Soma is Marakez's first project on the Red Sea coast, developed with Somabay. Details are still to be announced.",
+  "hero_title": "Marakez's first address on the Red Sea.",
+  "hero_title_em": "on the Red Sea.",
+  "hero_sub": "Shams Soma sits on 84 acres inside Somabay, built with Marakez's partner on the coast. Prices and unit types haven't been released yet.",
   "form_title": "Be first to know",
   "form_why": "Leave your details and a Marakez salesperson will contact you as soon as prices and unit types are released.",
-  "sections": []
+  "sections": [
+   {
+    "eyebrow": "The project",
+    "title": "Room to breathe, on the Red Sea.",
+    "title_em": "on the Red Sea.",
+    "lead": "A low-density plan on 340,000 square metres inside an established resort destination."
+   }
+  ],
+  "panels": [
+   {
+    "title": "Low density by design",
+    "text": "The plan sets a limit on how many homes sit on each square metre, so there is more space between them and more privacy in each one."
+   },
+   {
+    "title": "Built around the outdoors",
+    "text": "Homes are designed around usable outdoor space rather than token balconies, for a coast where you live outside most of the year."
+   },
+   {
+    "title": "Facing the water",
+    "text": "The layout is arranged to give homes views over the Red Sea."
+   },
+   {
+    "title": "Shared space you can walk to",
+    "text": "Public areas are positioned to be easy to reach on foot, with room for a range of activities rather than a single clubhouse."
+   },
+   {
+    "title": "Inside Somabay",
+    "text": "On the coast of an award-winning destination that is already built and running, rather than on an empty stretch of shoreline."
+   }
+  ]
  },
  "ar": {
   "hero_kicker": "سوما باي · البحر الأحمر",
-  "hero_title": "مراكز تصل إلى البحر الأحمر.",
-  "hero_title_em": "البحر الأحمر.",
-  "hero_sub": "شمس سوما هو أول مشروع لمراكز على ساحل البحر الأحمر، بالتعاون مع سوما باي. التفاصيل لم تُعلن بعد.",
+  "hero_title": "أول مشروع لمراكز على البحر الأحمر.",
+  "hero_title_em": "على البحر الأحمر.",
+  "hero_sub": "يقع شمس سوما على مساحة 340 ألف متر مربع داخل سوما باي. لم تُعلن الأسعار وأنواع الوحدات بعد.",
   "form_title": "كن أول من يعرف",
   "form_why": "اترك بياناتك وسيتواصل معك مندوب مبيعات مراكز فور الإعلان عن الأسعار وأنواع الوحدات.",
-  "sections": []
+  "sections": [
+   {
+    "eyebrow": "المشروع",
+    "title": "مساحة أوسع، على البحر الأحمر.",
+    "title_em": "على البحر الأحمر.",
+    "lead": "مخطط منخفض الكثافة على مساحة 340 ألف متر مربع داخل وجهة سياحية قائمة."
+   }
+  ],
+  "panels": [
+   {
+    "title": "كثافة منخفضة",
+    "text": "عدد محدود من الوحدات لكل متر مربع، بما يوفر مساحة وخصوصية أكبر."
+   },
+   {
+    "title": "مصممة للحياة في الخارج",
+    "text": "مساحات خارجية عملية تشجع على الاستمتاع بالحياة في الهواء الطلق."
+   },
+   {
+    "title": "إطلالة على البحر",
+    "text": "تخطيط يتيح للوحدات إطلالات مميزة على البحر الأحمر."
+   },
+   {
+    "title": "مساحات عامة قريبة",
+    "text": "مساحات مشتركة يسهل الوصول إليها وتتيح أنشطة متنوعة."
+   },
+   {
+    "title": "داخل سوما باي",
+    "text": "على ساحل وجهة سياحية حائزة على جوائز وقائمة بالفعل."
+   }
+  ]
  }
 }

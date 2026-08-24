@@ -941,6 +941,17 @@ h2{margin-bottom:12px}
   aspect-ratio:4/3}
 .projcard figure:not(:has(img[src]:not([src=""]))) img{display:none}
 .hero > img.bg:not([src]),.hero > img.bg[src=""]{display:none}
+
+/* With no masterplan yet, the picture column would be an empty panel taking
+   half the section. Until an image is uploaded the section runs as one column
+   with the points in two, and becomes the normal split the moment there is
+   something to show. */
+.sec--split:not(:has(.art img[src]:not([src=""]))) .split{grid-template-columns:1fr}
+.sec--split:not(:has(.art img[src]:not([src=""]))) .art{display:none}
+@media(min-width:900px){
+  .sec--split:not(:has(.art img[src]:not([src=""]))) dl{
+    grid-template-columns:auto 1fr auto 1fr;column-gap:clamp(18px,2vw,30px)}
+}
 </style>
 </head>
 <body data-project="shams">
@@ -1053,9 +1064,28 @@ h2{margin-bottom:12px}
 
 <div class="money" data-money hidden></div>
 
-<!-- No sections yet: nothing about Shams Soma has been announced, so the page
-     is the hero and the form. Sections get added here when Marakez releases
-     the masterplan, unit types and prices. -->
+<!-- Section 01 uses what Marakez announced. The masterplan image slot is empty
+     until one is published; the section drops to a single column while it is,
+     rather than showing half an empty panel. -->
+<section class="sec sec--split">
+    <span class="marker" data-n="01"></span>
+    <div class="split">
+      <div class="art"><img data-img="masterplan" src="" alt="" loading="lazy"></div>
+      <div class="txt">
+        <p class="eyebrow"><span class="secnum">01</span>The project</p>
+        <h2>Room to breathe, <em>on the Red Sea.</em></h2>
+        <p class="lead">A low-density plan on 340,000 square metres inside an established resort destination.</p>
+        <dl>
+          <div class="drow"><dt>Low density by design</dt><dd>The plan sets a limit on how many homes sit on each square metre, so there is more space between them and more privacy in each one.</dd></div>
+          <div class="drow"><dt>Built around the outdoors</dt><dd>Homes are designed around usable outdoor space rather than token balconies, for a coast where you live outside most of the year.</dd></div>
+          <div class="drow"><dt>Facing the water</dt><dd>The layout is arranged to give homes views over the Red Sea.</dd></div>
+          <div class="drow"><dt>Shared space you can walk to</dt><dd>Public areas are positioned to be easy to reach on foot, with room for a range of activities rather than a single clubhouse.</dd></div>
+          <div class="drow"><dt>Inside Somabay</dt><dd>On the coast of an award-winning destination that is already built and running, rather than on an empty stretch of shoreline.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
