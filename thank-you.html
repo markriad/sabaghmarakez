@@ -172,6 +172,12 @@ footer .in{max-width:var(--maxw);margin:0 auto}
   if (!lead) return;   /* someone landed here directly — no conversion counted */
 
   window.dataLayer = window.dataLayer || [];
+  /* Tells tracking.js this is a real, once-only conversion — the same token
+     that gates the dataLayer event also gates the Meta and Ads conversions,
+     so a refresh cannot double-count on any platform. */
+  window.__leadConfirmed = true;
+  if (typeof window.fireConversions === "function") window.fireConversions();
+
   window.dataLayer.push({
     event: "thank_you_view",
     lead_project: lead.project || "",

@@ -50,27 +50,30 @@ collections:
       label: Google Tag Manager ID
       widget: string
       required: false
-      hint: Looks like GTM-XXXXXXX. Leave empty to switch all tracking off.
+      hint: Google Tag Manager container, e.g. GTM-XXXXXXX. Optional. If you use GTM to fire GA4, Ads
+        or Meta, leave those three boxes below EMPTY or every number will be counted twice.
     - name: ga4Id
       label: Google Analytics 4 ID
       widget: string
       required: false
-      hint: Looks like G-XXXXXXXXXX. For reference — the tag itself lives in Tag Manager.
+      hint: GA4 measurement ID, e.g. G-XXXXXXXXXX. Leave empty if GA4 is fired through GTM.
     - name: adsId
       label: Google Ads conversion ID
       widget: string
       required: false
-      hint: Looks like AW-123456789.
+      hint: Google Ads conversion ID, e.g. AW-123456789. Needed for conversion tracking.
     - name: adsConversionLabel
       label: Google Ads conversion label
       widget: string
       required: false
-      hint: The short code beside the conversion ID.
+      hint: The conversion label from Google Ads. Both this and the Ads ID must be filled in before conversions
+        are recorded.
     - name: metaPixelId
       label: Meta Pixel / Dataset ID
       widget: string
       required: false
-      hint: The numeric ID from Meta Events Manager.
+      hint: Meta pixel ID, digits only. Setting this installs the pixel and fires a Lead on the thank-you
+        page. Leave empty if the pixel is fired through GTM.
 - name: home
   label: 2. Homepage
   files:

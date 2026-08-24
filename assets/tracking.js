@@ -148,6 +148,68 @@
     }, { passive: true });
   }
 
+
+  /* ---- Direct tag loaders ----------------------------------------------
+     Only GTM used to be loaded here. The GA4, Google Ads and Meta pixel IDs
+     were read from settings and then never used, so filling them in on the
+     panel installed nothing — the tags only existed if someone also built
+     them inside GTM.
+
+     Each tag now loads when its own ID is present. If you ALSO configure the
+     same tag inside GTM, it will fire twice and every number doubles, so put
+     each tag in one place or the other, never both. --------------------- */
+
+  function loadGtagJs(id) {
+    if (document.getElementById("gtag-js")) return;
+    var s = document.createElement("script");
+    s.id = "gtag-js"; s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(s);
+    gtag("js", new Date());
+  }
+
+  function loadGA4(id) {
+    if (!id) return;
+    loadGtagJs(id);
+    gtag("config", id);
+  }
+
+  function loadAds(id) {
+    if (!id) return;
+    loadGtagJs(id);
+    gtag("config", id);
+  }
+
+  function loadMetaPixel(id) {
+    if (!id || window.fbq) return;
+    /* standard Meta bootstrap, kept verbatim so the pixel behaves as Meta expects */
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+      t = b.createElement(e); t.async = true; t.id = "meta-pixel";
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", id);
+    window.fbq("track", "PageView");
+  }
+
+  /* Fire the platform conversions on the thank-you page, once, using the same
+     one-time token the page already checks. */
+  function fireConversions() {
+    var t = window.TRACKING || {};
+    if (!/thank-you/.test(location.pathname)) return;
+    if (!window.__leadConfirmed) return;
+    if (t.adsId && t.adsLabel) {
+      gtag("event", "conversion", { send_to: t.adsId + "/" + t.adsLabel });
+    }
+    if (window.fbq) window.fbq("track", "Lead");
+  }
+  window.fireConversions = fireConversions;
+
   /* ---- Boot ------------------------------------------------------ */
   function boot() {
     var path = location.pathname;
@@ -156,6 +218,9 @@
       .then(function (r) { return r.json(); })
       .then(function (st) {
         if (st.gtmId) loadGTM(st.gtmId);
+        loadGA4(st.ga4Id);
+        loadAds(st.adsId);
+        loadMetaPixel(st.metaPixelId);
         window.TRACKING = {
           gtmId: st.gtmId || "",
           ga4Id: st.ga4Id || "",
@@ -165,6 +230,7 @@
         };
         maybeShowConsent();
         wire();
+        fireConversions();
       })
       .catch(function () { wire(); });
   }
