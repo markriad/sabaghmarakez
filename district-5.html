@@ -1368,12 +1368,32 @@ document.querySelectorAll('.switch button').forEach(function(b){
     var wasOff = [].map.call(off, function (el) { return el.hidden; });
 
     card.style.minHeight = '';
+    /* Measure each branch with the bedrooms/area field showing. Measuring it
+       hidden gave a height 5px short of the real maximum, so the card still
+       nudged when that field appeared. */
+    var dep = form.querySelector('[data-dep]');
+    var depWasHidden = dep ? dep.hidden : null;
+    var depChips = dep && dep.querySelector('[data-dep-chips]');
+    var injected = false;
+    if (dep) {
+      /* An empty field measures shorter than a real one. Without a chip in it
+         the reserved height was 40px short and the card still grew when a type
+         was picked. */
+      if (depChips && !depChips.children.length) {
+        depChips.innerHTML = '<button type="button" class="chip">0</button>';
+        injected = true;
+      }
+      dep.hidden = false;
+    }
+
     var heights = [];
     [[false, true], [true, false]].forEach(function (state) {
       res.forEach(function (el) { el.hidden = state[0]; });
       off.forEach(function (el) { el.hidden = state[1]; });
       heights.push(card.offsetHeight);
     });
+    if (injected && depChips) depChips.innerHTML = '';
+    if (dep) dep.hidden = depWasHidden;
     res.forEach(function (el, i) { el.hidden = wasRes[i]; });
     off.forEach(function (el, i) { el.hidden = wasOff[i]; });
     card.style.minHeight = Math.max.apply(null, heights) + 'px';
@@ -1547,5 +1567,11 @@ document.querySelectorAll('.switch button').forEach(function(b){
   show("home");
 })();
 </script>
+<!-- The generic bedrooms-field height lock is deliberately not on this page.
+     District 5 has its own lockHeight() above, which measures BOTH the home
+     and office branches with the field showing and holds the taller. Running
+     both meant the generic one, which only ever measures the current branch,
+     overwrote that maximum and the card still moved 5px on switching. -->
+
 </body>
 </html>

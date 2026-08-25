@@ -1317,5 +1317,59 @@ if('IntersectionObserver' in window){
   });
 })();
 </script>
+<script>
+/* ── Reserve room for the bedrooms/area field ───────────────────────────────
+   The field appears only after a property type is picked, which grew the card
+   — and with it the whole hero — by 70px while someone was mid-form. Fields
+   below the cursor jumped down as they typed.
+
+   The card is measured once with the field forced visible, and held at that
+   height. Nothing moves when the field appears or changes.
+
+   Measured after load and on resize, because the reserved height depends on
+   how the chips wrap at the current width. */
+(function () {
+  var card = document.querySelector('.lead-card');
+  var form = card && card.querySelector('form[data-lead]');
+  var dep  = form && form.querySelector('[data-dep]');
+  if (!card || !dep) return;
+
+  var rt;
+  function lockDepHeight() {
+    var wasHidden = dep.hidden;
+    var chips = dep.querySelector('[data-dep-chips]');
+    var injected = false;
+
+    card.style.minHeight = '';
+    if (wasHidden) {
+      /* give it a chip so the reserved height matches a real one, not an
+         empty box */
+      if (chips && !chips.children.length) {
+        chips.innerHTML = '<button type="button" class="chip">0</button>';
+        injected = true;
+      }
+      dep.hidden = false;
+    }
+    var tallest = card.offsetHeight;
+    if (injected && chips) chips.innerHTML = '';
+    dep.hidden = wasHidden;
+    card.style.minHeight = tallest + 'px';
+  }
+  function relock() { clearTimeout(rt); rt = setTimeout(lockDepHeight, 120); }
+
+  if (document.readyState === 'complete') relock();
+  else addEventListener('load', relock);
+  addEventListener('resize', relock);
+  if (window.MutationObserver) {
+    new MutationObserver(function (muts) {
+      /* ignore our own min-height write, or this loops forever */
+      for (var i = 0; i < muts.length; i++) {
+        if (muts[i].type === 'attributes' && muts[i].target === card) return;
+      }
+      relock();
+    }).observe(form, { childList: true, subtree: true });
+  }
+})();
+</script>
 </body>
 </html>

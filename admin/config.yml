@@ -451,12 +451,6 @@ collections:
         required: false
         hint: PNG or SVG on a transparent background, about 340 x 100 px. Shown 26 px tall and never wider
           than 170 px. Leave empty to show the word "Marakez".
-      - name: project
-        label: Project logo (hero)
-        widget: image
-        required: false
-        hint: PNG or SVG on a transparent background, about 480 x 120 px. Shown 30 px tall and never wider
-          than 240 px.
     - name: heroScrim
       label: 9 · Darken the top photo — only if the headline is hard to read
       widget: select
