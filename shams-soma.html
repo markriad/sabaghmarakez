@@ -1040,6 +1040,22 @@ h2{margin-bottom:12px}
             <option>Above EGP 50M</option>
           </select>
         </div>
+        <div class="field" data-single="property">
+          <label>Property type <span class="opt-tag">choose one</span></label>
+          <div class="chips">
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Villa">Villa</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Townhome">Townhome</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Chalet">Chalet</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Loft">Loft</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Penthouse">Penthouse</button>
+          </div>
+          <input type="hidden" name="property_types">
+        </div>
+        <div class="field dep" data-dep hidden>
+          <label data-dep-label>Bedrooms</label>
+          <div class="chips" data-dep-chips></div>
+          <input type="hidden" name="unit_size">
+        </div>
 
         
 
@@ -1082,6 +1098,89 @@ h2{margin-bottom:12px}
           <div class="drow"><dt>Shared space you can walk to</dt><dd>Public areas are positioned to be easy to reach on foot, with room for a range of activities rather than a single clubhouse.</dd></div>
           <div class="drow"><dt>Inside Somabay</dt><dd>On the coast of an award-winning destination that is already built and running, rather than on an empty stretch of shoreline.</dd></div>
         </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="marker" data-n="02"></span>
+    <div class="inner">
+      <div class="rv">
+        <p class="eyebrow"><span class="secnum">02</span>Property types</p>
+        <h2>From a loft <em>to a five-bedroom villa.</em></h2>
+        <p class="lead">Sizes and bedroom counts below are from the technical brochure.</p>
+      </div>
+
+      <div class="pick rv">
+        <div class="picknav" role="tablist">
+          
+          <button role="tab" aria-selected="true" data-p="0" data-type="Villa">Villas</button>
+          <button role="tab" aria-selected="false" data-p="1" data-type="Townhome">Townhomes</button>
+          <button role="tab" aria-selected="false" data-p="2" data-type="Chalet">Chalets</button>
+          <button role="tab" aria-selected="false" data-p="3" data-type="Loft">Lofts</button>
+          <button role="tab" aria-selected="false" data-p="4" data-type="Penthouse">Penthouses</button>
+        
+        </div>
+                <div class="pickbody" data-pane="0" data-type="Villa">
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="" alt="Villa at Shams Soma" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Villa</h3>
+            <div class="row"><span class="k">Bedrooms</span><span class="v">3, 4 or 5</span></div>
+            <div class="row"><span class="k">Size</span><span class="v" data-size>212 – 320 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Villa"></span></span></div>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="1" data-type="Townhome" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="" alt="Townhome at Shams Soma" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Townhome</h3>
+            <div class="row"><span class="k">Bedrooms</span><span class="v">3 or 4</span></div>
+            <div class="row"><span class="k">Size</span><span class="v" data-size>182 – 233 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Townhome"></span></span></div>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="2" data-type="Chalet" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="" alt="Chalet at Shams Soma" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Chalet</h3>
+            <div class="row"><span class="k">Bedrooms</span><span class="v">2 or 3</span></div>
+            <div class="row"><span class="k">Size</span><span class="v" data-size>102 – 165 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Chalet"></span></span></div>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="3" data-type="Loft" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="" alt="Loft at Shams Soma" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Loft</h3>
+            <div class="row"><span class="k">Bedrooms</span><span class="v">2</span></div>
+            <div class="row"><span class="k">Size</span><span class="v" data-size>119 – 123 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Loft"></span></span></div>
+          </div>
+        </div>
+        <div class="pickbody" data-pane="4" data-type="Penthouse" hidden>
+          <div class="pickshots">
+            <div class="ptrack" data-pcar><figure><img src="" alt="Penthouse at Shams Soma" loading="lazy"></figure></div>
+            <div class="pdots"></div>
+          </div>
+          <div class="pickmeta">
+            <h3>Penthouse</h3>
+            <div class="row"><span class="k">Bedrooms</span><span class="v">2</span></div>
+            <div class="row"><span class="k">Size</span><span class="v" data-size>133 sqm</span></div>
+            <div class="row"><span class="k">Status</span><span class="v"><span data-avail-for="Penthouse"></span></span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

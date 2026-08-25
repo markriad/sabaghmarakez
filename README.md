@@ -23,6 +23,7 @@ robots.txt            Nothing to do with this — see SETUP.md
 |---|---|
 | **`SETUP.md`** | **Start here.** Publishing an update, using the admin panel, what's still outstanding |
 | `SHEET-SETUP.md` | The Google Sheet script. **Needs updating — leads are losing fields until you do** |
+| **`SHAMS-SOMA-REBUILD-BRIEF.md`** | **Tracking contract — read before any deploy that touches settings** |
 | **`ADS-BRIEF.md`** | **Everything needed to start advertising — paste into a new chat** |
 | `TRACKING.md` | Meta and Google Ads conversions, including one per project |
 | `IMAGES.md` | What size to upload for every photo slot |

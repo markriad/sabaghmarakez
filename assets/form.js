@@ -421,7 +421,11 @@
              query strings, and that is the setup that needs no tag manager. */
           var slug = String(leadPayload.project || "")
             .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-          window.location.href = "thank-you.html" + (slug ? "?project=" + slug : "");
+          /* Extensionless on purpose. GTM triggers match the path "/thank-you",
+             so redirecting to "thank-you.html" would not match them and the
+             conversion tags would never fire. Cloudflare serves thank-you.html
+             at /thank-you automatically. */
+          window.location.href = "/thank-you" + (slug ? "?project=" + slug : "");
           return;
         })
         .catch(function () {

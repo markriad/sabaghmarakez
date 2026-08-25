@@ -241,7 +241,10 @@ h2 em{font-style:italic;color:var(--accent)}
 
 
 /* ── Project cards (homepage) ────────────────────────────── */
-.projcards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px);
+/* Four projects in a three-column grid left a 3 + 1 row with two empty cells.
+   Two columns divide evenly into four, so the block reads as a balanced
+   2 x 2. If a fifth project is ever added, revisit this. */
+.projcards{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,30px);
   margin-top:clamp(34px,4vw,52px)}
 @media(max-width:900px){.projcards{grid-template-columns:1fr;gap:14px}}
 @media(max-width:760px){
@@ -819,7 +822,10 @@ h2{margin-bottom:12px}
    is uploaded in the panel. */
 .projcard figure:not(:has(img[src]:not([src=""]))){
   background:linear-gradient(160deg,#16305c 0%,#0d1c30 100%);
-  aspect-ratio:4/3}
+  /* Must match the 16/9 the photo cards use. At 4/3 the image-less card was
+     104px taller and dragged its whole row down with it, so the 2 x 2 block
+     looked lopsided. */
+  aspect-ratio:16/9}
 .projcard figure:not(:has(img[src]:not([src=""]))) img{display:none}
 .hero > img.bg:not([src]),.hero > img.bg[src=""]{display:none}
 </style>
@@ -1035,20 +1041,20 @@ h2{margin-bottom:12px}
       </div>
       <div class="acc rv">
         <div class="grp">
-          <button class="gb" type="button" aria-expanded="true" aria-controls="g1">
+          <button class="gb" type="button" aria-expanded="false" aria-controls="g1">
             <span class="gn">01</span><h3>Residential</h3>
             <span class="gsum">Ramla &middot; Crescent Walk &middot; District&nbsp;5 &middot; Aeon</span><span class="gx">+</span>
           </button>
-          <div class="gp" id="g1">
+          <div class="gp" id="g1" hidden>
             <div class="rows">
             <a class="row link" href="ramla.html">
-              <span class="rt"><span class="tag">For sale</span><span class="rn">Ramla</span><span class="rl">Ras El Hekma</span><span class="rs">1.4 km beach</span></span>
+              <span class="rt"><span class="rn">Ramla</span><span class="rl">Ras El Hekma</span><span class="rs">1.4 km beach</span></span>
               <p class="rd">Six neighbourhoods on the bay, a swimmable lagoon and rare natural tidal pools. <span class="arrow">See the project &rarr;</span></p></a>
             <a class="row link" href="crescent-walk.html">
-              <span class="rt"><span class="tag">For sale</span><span class="rn">Crescent Walk</span><span class="rl">East Cairo</span><span class="rs">118 acres</span></span>
+              <span class="rt"><span class="rn">Crescent Walk</span><span class="rl">East Cairo</span><span class="rs">118 acres</span></span>
               <p class="rd">A green pathway you can walk end to end, with a back gate from every home onto the park. <span class="arrow">See the project &rarr;</span></p></a>
             <a class="row link" href="district-5.html">
-              <span class="rt"><span class="tag">For sale</span><span class="rn">District 5 Residences</span><span class="rl">New Katameya</span><span class="rs">268 acres</span></span>
+              <span class="rt"><span class="rn">District 5 Residences</span><span class="rl">New Katameya</span><span class="rs">268 acres</span></span>
               <p class="rd">Apartments, twins, townhomes and villas inside a development that also holds D5M and Mindhaus. <span class="arrow">See the project &rarr;</span></p></a>
             <div class="row">
               <span class="rt"><span class="rn">Aeon Towers &amp; Courtyards</span><span class="rl">6th of October</span><span class="rs">21 acres</span></span>
@@ -1251,7 +1257,9 @@ if('IntersectionObserver' in window){
     var panel=document.getElementById(b.getAttribute('aria-controls'));
     if(panel) panel.hidden=!open;
   }
-  if(window.matchMedia('(max-width:899px)').matches) set(btns[0],false);
+  /* Every group now ships closed, on every screen size — the first one used to
+     open itself on desktop. Nothing to force here any more; the markup is the
+     initial state. */
   btns.forEach(function(b){
     b.addEventListener('click',function(){
       set(b, b.getAttribute('aria-expanded')!=='true');

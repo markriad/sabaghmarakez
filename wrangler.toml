@@ -6,3 +6,8 @@ compatibility_date = "2026-07-01"
 [assets]
 directory = "."
 not_found_handling = "404-page"
+
+# Pinned, not left to the default. GTM triggers match the path "/thank-you";
+# this is what makes Cloudflare serve thank-you.html there. If it were changed
+# to "none", /thank-you would 404 and every conversion tag would stop firing.
+html_handling = "auto-trailing-slash"
