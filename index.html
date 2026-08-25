@@ -882,6 +882,20 @@ h2{margin-bottom:12px}
   .projgroup .projcards{grid-template-columns:1fr}
   .projcard--sold{grid-template-columns:1fr}
 }
+
+/* The sold-out card is full width and has vertical room the half-width cards
+   don't, so its description is not clamped to two lines — it's the only place
+   Aeon is described at all, and clipping it was underselling a delivered
+   project. */
+.projcard--sold .pc-body>p{-webkit-line-clamp:unset;display:block;overflow:visible;
+  font-size:.88rem;line-height:1.55;max-width:62ch}
+.projcard--sold .types{display:flex;flex-wrap:wrap;gap:6px;list-style:none;
+  padding:0;margin:10px 0 0}
+.projcard--sold .types li{font-size:.72rem;letter-spacing:.04em;color:var(--soft);
+  background:#eef1f5;border:1px solid var(--hair);padding:3px 9px}
+@media(max-width:760px){
+  .projcard--sold .pc-body>p{font-size:.85rem}
+}
 </style>
 </head>
 <body data-project="home">
@@ -1081,11 +1095,14 @@ h2{margin-bottom:12px}
           <div class="pc-body">
             <p class="pc-loc">West Cairo &middot; 6th of October</p>
             <h3>Aeon Towers &amp; Courtyards <span class="soldtag">Sold out</span></h3>
-            <p>A 21-acre community of towers and courtyard buildings beside Mall of Arabia,
-              linked to it on foot.</p>
-            <ul class="types"><li>Apartments</li></ul>
+            <p>West Cairo&rsquo;s first high-rise residential towers, on 21 acres beside
+              Mall of Arabia. Four blocks around three landscaped courtyards, with a sky
+              lounge, indoor and outdoor pools, padel, tennis and a football pitch &mdash;
+              and a promenade running straight into the mall&rsquo;s shops and cinemas.
+              Phases 1 and 2 were delivered ahead of schedule.</p>
+            <ul class="types"><li>Apartments 90&ndash;270&nbsp;sqm</li><li>Delivered</li></ul>
             <span class="pc-spacer"></span>
-            <span class="pc-note">No units currently released</span>
+            <span class="pc-note">Fully sold &mdash; shown as part of the track record</span>
           </div>
         </div>
         </div>
