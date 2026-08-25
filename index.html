@@ -849,6 +849,39 @@ h2{margin-bottom:12px}
 @media(max-width:860px){
   .hbadge{background:#fbf4e9;border-color:#e0c9a4;color:#8f5a1c}
 }
+
+/* ── Projects grouped by region ─────────────────────────────────────────────
+   Region beats chronology here: someone shopping already knows whether they
+   want the coast or Cairo, and it lets Aeon be shown honestly — it is part of
+   the record but has nothing to sell, so it appears without a link. */
+.projgroups{display:flex;flex-direction:column;gap:clamp(30px,3.6vw,50px);
+  margin-top:clamp(30px,3.6vw,48px)}
+.pg-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding-bottom:12px;margin-bottom:clamp(16px,2vw,22px);
+  border-bottom:1px solid var(--rule)}
+.pg-head h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0}
+.pg-head p{margin:0;font-size:.84rem;color:var(--soft)}
+.projgroup .projcards{display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(18px,2.4vw,30px);margin-top:0}
+/* the sold-out group has one card; a half-width lone card reads as a mistake,
+   so it runs full width and shorter instead */
+.projgroup--one .projcards{grid-template-columns:1fr}
+.projcard--sold{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);
+  border:1px solid var(--rule);background:#fbfcfd;cursor:default}
+.projcard--sold figure{aspect-ratio:16/9;margin:0;
+  background:linear-gradient(160deg,#3b4655,#232b36)}
+.projcard--sold .pc-body{display:flex;flex-direction:column;justify-content:center}
+.projcard--sold h3,.projcard--sold p,.projcard--sold .pc-loc{color:var(--soft)}
+.projcard--sold h3{color:var(--ink)}
+.soldtag{display:inline-block;vertical-align:middle;margin-left:9px;
+  font:700 .55rem var(--body);letter-spacing:.13em;text-transform:uppercase;
+  background:#f2f3f5;color:#5c6672;border:1px solid var(--hair);padding:2px 7px;
+  white-space:nowrap}
+.pc-note{font-size:.8rem;color:var(--faint);font-style:italic}
+@media(max-width:760px){
+  .projgroup .projcards{grid-template-columns:1fr}
+  .projcard--sold{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body data-project="home">
@@ -973,11 +1006,17 @@ h2{margin-bottom:12px}
       <div class="desc rv">
         <p class="eyebrow"><span class="secnum">01</span>Residential projects</p>
         <h2>Coast, garden district, <em>and city.</em></h2>
-        <p class="lead">Four communities, each solving a different problem: a summer place on the north coast, a low-density family neighbourhood in East Cairo, a home where the mall and the offices are a walk away, or a new launch on the Red Sea.</p>
+        <p class="lead">Marakez builds on two coastlines and both sides of Cairo. What is selling now, and what has already sold out.</p>
       </div>
 
-      <div class="projcards">
-        <a class="projcard rv" href="ramla.html">
+      <div class="projgroups">
+      
+      <section class="projgroup">
+        <div class="pg-head">
+          <h3>On the coast</h3><p>Ramla on the North Coast, Shams Soma on the Red Sea</p>
+        </div>
+        <div class="projcards">
+          <a class="projcard rv" data-card="ramla" href="ramla.html">
           <figure><img src="assets/img/marakez/card-ramla.jpeg" alt="Ramla" loading="lazy"></figure>
           <div class="pc-body">
             <p class="pc-loc">North Coast &middot; Ras El Hekma</p>
@@ -988,33 +1027,7 @@ h2{margin-bottom:12px}
             <span class="pc-go">Explore Ramla &rarr;</span>
           </div>
         </a>
-
-        <a class="projcard rv" href="crescent-walk.html">
-          <figure><img src="assets/img/marakez/card-crescent.jpeg" alt="Crescent Walk" loading="lazy"></figure>
-          <div class="pc-body">
-            <p class="pc-loc">East Cairo</p>
-            <h3>Crescent Walk</h3>
-            <p>118 acres built around a green pathway you can walk or cycle end to end, with a back gate from every home onto the park.</p>
-            <ul class="types"><li>Villas</li><li>Townhomes</li><li>Apartments</li></ul>
-            <span class="pc-spacer"></span>
-            <span class="pc-go">Explore Crescent Walk &rarr;</span>
-          </div>
-        </a>
-
-        <a class="projcard rv" href="district-5.html">
-          <figure><img src="assets/img/marakez/card-d5.jpeg" alt="District 5" loading="lazy"></figure>
-          <div class="pc-body">
-            <p class="pc-loc">New Katameya</p>
-            <h3>District 5</h3>
-            <p>268 acres where homes, the D5M mall, Mindhaus offices and Clubfive share one address. Seven minutes from Road 90.</p>
-            <ul class="types"><li>Apartments</li><li>Villas</li><li>Offices</li></ul>
-            <span class="pc-spacer"></span>
-            <span class="pc-go">Explore District 5 &rarr;</span>
-          </div>
-        </a>
-
-
-        <a class="projcard rv" href="shams-soma.html">
+          <a class="projcard rv" data-card="shams" href="shams-soma.html">
           <figure><img src="" alt="Shams Soma" loading="lazy"></figure>
           <div class="pc-body">
             <p class="pc-loc">Somabay &middot; Red Sea</p>
@@ -1025,7 +1038,60 @@ h2{margin-bottom:12px}
             <span class="pc-go">Shams Soma &rarr;</span>
           </div>
         </a>
-      </div>
+        </div>
+      </section>
+      
+      <section class="projgroup">
+        <div class="pg-head">
+          <h3>East Cairo</h3><p>District 5 in New Katameya, Crescent Walk off Sokhna Road</p>
+        </div>
+        <div class="projcards">
+          <a class="projcard rv" data-card="district5" href="district-5.html">
+          <figure><img src="assets/img/marakez/card-d5.jpeg" alt="District 5" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">New Katameya</p>
+            <h3>District 5</h3>
+            <p>268 acres where homes, the D5M mall, Mindhaus offices and Clubfive share one address. Seven minutes from Road 90.</p>
+            <ul class="types"><li>Apartments</li><li>Villas</li><li>Offices</li></ul>
+            <span class="pc-spacer"></span>
+            <span class="pc-go">Explore District 5 &rarr;</span>
+          </div>
+        </a>
+          <a class="projcard rv" data-card="crescent" href="crescent-walk.html">
+          <figure><img src="assets/img/marakez/card-crescent.jpeg" alt="Crescent Walk" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">East Cairo</p>
+            <h3>Crescent Walk</h3>
+            <p>118 acres built around a green pathway you can walk or cycle end to end, with a back gate from every home onto the park.</p>
+            <ul class="types"><li>Villas</li><li>Townhomes</li><li>Apartments</li></ul>
+            <span class="pc-spacer"></span>
+            <span class="pc-go">Explore Crescent Walk &rarr;</span>
+          </div>
+        </a>
+        </div>
+      </section>
+      
+      <section class="projgroup projgroup--one">
+        <div class="pg-head">
+          <h3>West Cairo</h3><p>Beside Mall of Arabia</p>
+        </div>
+        <div class="projcards">
+          <div class="projcard projcard--sold" data-card="aeon">
+          <figure><img src="" alt="" loading="lazy"></figure>
+          <div class="pc-body">
+            <p class="pc-loc">West Cairo &middot; 6th of October</p>
+            <h3>Aeon Towers &amp; Courtyards <span class="soldtag">Sold out</span></h3>
+            <p>A 21-acre community of towers and courtyard buildings beside Mall of Arabia,
+              linked to it on foot.</p>
+            <ul class="types"><li>Apartments</li></ul>
+            <span class="pc-spacer"></span>
+            <span class="pc-note">No units currently released</span>
+          </div>
+        </div>
+        </div>
+      </section>
+      
+    </div>
     </div>
   </section>
 

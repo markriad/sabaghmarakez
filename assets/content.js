@@ -60,8 +60,15 @@
 
     /* homepage project cards, in page order */
     var cards = data.cards || [];
-    document.querySelectorAll(".projcard figure img").forEach(function (el, i) {
-      setImg(el, cards[i] && cards[i].image);
+    /* Keyed by project, not by position. Position broke the moment the cards
+       were regrouped by region: the list still held Crescent Walk's photo in
+       slot two while slot two in the page had become Shams Soma, so the two
+       cards showed the same building. */
+    var byKey = {};
+    cards.forEach(function (c) { if (c && c.key) byKey[c.key] = c.image; });
+    document.querySelectorAll(".projcard[data-card]").forEach(function (card) {
+      var img = card.querySelector("figure img");
+      if (img) setImg(img, byKey[card.getAttribute("data-card")]);
     });
   }
 

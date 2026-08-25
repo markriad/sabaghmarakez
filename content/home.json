@@ -7,20 +7,27 @@
  "cards": [
   {
    "key": "ramla",
-   "image": "assets/img/marakez/card-ramla.jpeg",
-   "status": "available"
+   "label": "Ramla",
+   "image": "assets/img/marakez/card-ramla.jpeg"
   },
   {
-   "key": "crescent",
-   "image": "assets/img/marakez/card-crescent.jpeg",
-   "status": "available"
+   "key": "shams",
+   "label": "Shams Soma",
+   "image": ""
   },
   {
    "key": "district5",
-   "image": "assets/img/marakez/card-d5.jpeg",
-   "status": "available"
+   "label": "District 5",
+   "image": "assets/img/marakez/card-d5.jpeg"
   },
   {
+   "key": "crescent",
+   "label": "Crescent Walk",
+   "image": "assets/img/marakez/card-crescent.jpeg"
+  },
+  {
+   "key": "aeon",
+   "label": "Aeon Towers",
    "image": ""
   }
  ],
@@ -36,7 +43,7 @@
     "eyebrow": "Residential projects",
     "title": "Coast, garden district, and city.",
     "title_em": "and city.",
-    "lead": "Four communities, each solving a different problem: a summer place on the north coast, a low-density family neighbourhood in East Cairo, a home where the mall and the offices are a walk away, or a new launch on the Red Sea."
+    "lead": "Marakez builds on two coastlines and both sides of Cairo. What is selling now, and what has already sold out."
    },
    {
     "eyebrow": "About Marakez",

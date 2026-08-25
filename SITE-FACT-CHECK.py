@@ -14,11 +14,14 @@ s=pathlib.Path('index.html').read_text(encoding='utf-8')
 b=s[s.index('</style>'):]
 
 # ── counts that must match what is actually on the page ──
-cards=len(re.findall(r'class="projcard rv"', b))
+cards=len(re.findall(r'class="projcard[ "]', b))
 m=re.search(r'\b(One|Two|Three|Four|Five|Six)\s+communities', b)
 WORD={'One':1,'Two':2,'Three':3,'Four':4,'Five':5,'Six':6}
-chk("cards intro count matches the cards shown",
-    bool(m) and WORD[m.group(1)]==cards, f"says {m.group(1) if m else '?'}, shows {cards}")
+# Stating no count is the safe state — a number in prose goes stale silently
+# the moment a project is added, which is exactly what happened twice.
+chk("cards intro states no stale count",
+    (not m) or WORD[m.group(1)]==cards,
+    f"shows {cards} cards" + (f", prose says {m.group(1)}" if m else ", prose states no count"))
 
 panels=re.findall(r'<div class="gp" id="g\d"[^>]*>(.*?)\n          </div>', b, re.S)
 listed=sum(len(re.findall(r'<span class="rn">', p)) for p in panels)

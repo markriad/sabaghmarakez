@@ -126,58 +126,33 @@ collections:
     file: content/home.json
     fields:
     - name: cards
-      label: 2 · The three project cards
+      label: 1 · Project card photos
       widget: list
-      required: false
-      summary: '{{fields.key}}'
-      hint: The three cards on the homepage. Swap the photo for each project here.
+      collapsed: false
+      summary: '{{fields.label}}'
+      hint: One row per card on the homepage. Each is matched to its project by the hidden key, so reordering
+        the cards on the page can never swap the photos.
       fields:
       - name: key
-        label: Project
+        label: Project (do not change)
         widget: select
         options:
-        - label: Ramla
-          value: ramla
-        - label: Crescent Walk
-          value: crescent
-        - label: District 5
-          value: district5
-      - name: image
-        label: Card photo
-        widget: image
-        required: false
-        hint: 1200 x 900 px (4:3) — centre-cropped to fill
-      - name: size
-        label: Size
+        - ramla
+        - shams
+        - district5
+        - crescent
+        - aeon
+        required: true
+        hint: This is how the photo finds its card.
+      - name: label
+        label: Name
         widget: string
         required: false
-        hint: 'Shown on the type''s panel. For example: 320 - 480 sqm. Leave it empty and the panel reads
-          "On request" rather than showing a blank.'
-      - name: photos
-        label: Photos of this type
-        widget: list
+      - name: image
+        label: Photo
+        widget: image
         required: false
-        collapsed: true
-        summary: '{{fields.image}}'
-        hint: One or more. They become a swipeable strip on the type's panel; with a single photo there
-          are no arrows or dots. 1600 x 1000 px (16:10), centre-cropped to fill.
-        fields:
-        - name: image
-          label: Photo
-          widget: image
-          required: false
-      - name: status
-        label: Availability
-        widget: select
-        default: available
-        options:
-        - label: Available
-          value: available
-        - label: Few left
-          value: limited
-        - label: Sold out
-          value: sold_out
-      collapsed: false
+        hint: 1200 x 675.
     - name: images
       label: 4 · Main photos
       widget: object
