@@ -941,6 +941,27 @@ h2{margin-bottom:12px}
   .lead-card .alt a{display:inline-block;padding:7px 0;min-height:30px}
   .mark{padding:4px 0}
 }
+
+/* ── "New launch" markers ───────────────────────────────────────────────────
+   Same warm tone as the offers strip, so "time-sensitive" reads consistently
+   across the site. Injected by content.js from settings.json, so all three
+   appear and expire together. */
+.nametag{display:inline-block;vertical-align:middle;margin-left:9px;
+  font:700 .55rem var(--body);letter-spacing:.13em;text-transform:uppercase;
+  background:#fbf4e9;color:#8f5a1c;border:1px solid #e0c9a4;padding:2px 7px;
+  white-space:nowrap}
+.navtag{margin-left:8px;font:700 .52rem var(--body);letter-spacing:.12em;
+  text-transform:uppercase;background:#fbf4e9;color:#8f5a1c;
+  border:1px solid #e0c9a4;padding:1px 6px;white-space:nowrap}
+.hbadge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.34);
+  padding:6px 13px;font:700 .6rem var(--body);letter-spacing:.14em;
+  text-transform:uppercase;color:#fff}
+.hbadge .dot{width:6px;height:6px;border-radius:50%;background:#e6b45f;flex:0 0 auto}
+/* below the stacking point the hero copy sits on white, so the badge flips */
+@media(max-width:860px){
+  .hbadge{background:#fbf4e9;border-color:#e0c9a4;color:#8f5a1c}
+}
 </style>
 </head>
 <body data-project="district5">
@@ -1031,7 +1052,7 @@ h2{margin-bottom:12px}
             <option>Above EGP 40M</option></select></div>
 
         <div class="field only-res" data-single="property">
-          <label>Property type <span class="opt-tag">choose one</span></label>
+          <label>Property type <span class="opt-tag">choose any</span></label>
           <div class="chips">
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Apartment">Apartment</button>
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Townhome">Townhome</button>
@@ -1042,7 +1063,7 @@ h2{margin-bottom:12px}
           <input type="hidden" name="property_types"></div>
 
         <div class="field only-off" hidden data-single="office">
-          <label>Office format <span class="opt-tag">choose one</span></label>
+          <label>Office format <span class="opt-tag">choose any</span></label>
           <div class="chips">
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Private">Private</button>
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Twin">Twin</button>
@@ -1249,9 +1270,10 @@ h2{margin-bottom:12px}
   <div class="wrap">
     <div class="foot-grid">
       <div><h4>Projects</h4>
-        <ul><li><a href="#">Ramla — North Coast</a></li>
-            <li><a href="#">Crescent Walk — East Cairo</a></li>
-            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+        <ul><li><a href="ramla.html">Ramla — North Coast</a></li>
+            <li><a href="crescent-walk.html">Crescent Walk — East Cairo</a></li>
+            <li><a href="district-5.html">District 5 — New Katameya</a></li>
+            <li><a href="shams-soma.html">Shams Soma — Somabay, Red Sea</a></li></ul></div>
       <div><h4>Contact</h4>
         <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hello," href="#">WhatsApp</a></li></ul></div>
       </div>

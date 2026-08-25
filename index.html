@@ -828,6 +828,27 @@ h2{margin-bottom:12px}
   aspect-ratio:16/9}
 .projcard figure:not(:has(img[src]:not([src=""]))) img{display:none}
 .hero > img.bg:not([src]),.hero > img.bg[src=""]{display:none}
+
+/* ── "New launch" markers ───────────────────────────────────────────────────
+   Same warm tone as the offers strip, so "time-sensitive" reads consistently
+   across the site. Injected by content.js from settings.json, so all three
+   appear and expire together. */
+.nametag{display:inline-block;vertical-align:middle;margin-left:9px;
+  font:700 .55rem var(--body);letter-spacing:.13em;text-transform:uppercase;
+  background:#fbf4e9;color:#8f5a1c;border:1px solid #e0c9a4;padding:2px 7px;
+  white-space:nowrap}
+.navtag{margin-left:8px;font:700 .52rem var(--body);letter-spacing:.12em;
+  text-transform:uppercase;background:#fbf4e9;color:#8f5a1c;
+  border:1px solid #e0c9a4;padding:1px 6px;white-space:nowrap}
+.hbadge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.34);
+  padding:6px 13px;font:700 .6rem var(--body);letter-spacing:.14em;
+  text-transform:uppercase;color:#fff}
+.hbadge .dot{width:6px;height:6px;border-radius:50%;background:#e6b45f;flex:0 0 auto}
+/* below the stacking point the hero copy sits on white, so the badge flips */
+@media(max-width:860px){
+  .hbadge{background:#fbf4e9;border-color:#e0c9a4;color:#8f5a1c}
+}
 </style>
 </head>
 <body data-project="home">
@@ -922,6 +943,7 @@ h2{margin-bottom:12px}
             <button type="button" class="chip" aria-pressed="false" data-label="Ramla">Ramla</button>
             <button type="button" class="chip" aria-pressed="false" data-label="Crescent Walk">Crescent Walk</button>
             <button type="button" class="chip" aria-pressed="false" data-label="District 5">District 5</button>
+            <button type="button" class="chip" aria-pressed="false" data-label="Shams Soma">Shams Soma</button>
             <button type="button" class="chip" aria-pressed="false" data-label="Not sure yet">Not sure yet</button>
           </div>
           <input type="hidden" name="projects">
@@ -997,7 +1019,7 @@ h2{margin-bottom:12px}
           <div class="pc-body">
             <p class="pc-loc">Somabay &middot; Red Sea</p>
             <h3>Shams Soma</h3>
-            <p>84 acres inside Somabay on the Red Sea, planned at low density. Marakez’s first project on the coast.</p>
+            <p>80 feddans inside Somabay on the Red Sea, cascading to two private piers and its own beaches.</p>
             <ul class="types"><li>Register interest</li></ul>
             <span class="pc-spacer"></span>
             <span class="pc-go">Shams Soma &rarr;</span>
@@ -1043,7 +1065,7 @@ h2{margin-bottom:12px}
         <div class="grp">
           <button class="gb" type="button" aria-expanded="false" aria-controls="g1">
             <span class="gn">01</span><h3>Residential</h3>
-            <span class="gsum">Ramla &middot; Crescent Walk &middot; District&nbsp;5 &middot; Aeon</span><span class="gx">+</span>
+            <span class="gsum">Ramla &middot; Crescent Walk &middot; District&nbsp;5 &middot; Shams Soma &middot; Aeon</span><span class="gx">+</span>
           </button>
           <div class="gp" id="g1" hidden>
             <div class="rows">
@@ -1056,6 +1078,9 @@ h2{margin-bottom:12px}
             <a class="row link" href="district-5.html">
               <span class="rt"><span class="rn">District 5 Residences</span><span class="rl">New Katameya</span><span class="rs">268 acres</span></span>
               <p class="rd">Apartments, twins, townhomes and villas inside a development that also holds D5M and Mindhaus. <span class="arrow">See the project &rarr;</span></p></a>
+            <a class="row link" href="shams-soma.html">
+              <span class="rt"><span class="rn">Shams Soma</span><span class="rl">Somabay, Red Sea</span><span class="rs">80 feddans</span></span>
+              <p class="rd">Marakez&rsquo;s first Red Sea project, cascading to two private piers and its own beaches. <span class="arrow">See the project &rarr;</span></p></a>
             <div class="row">
               <span class="rt"><span class="rn">Aeon Towers &amp; Courtyards</span><span class="rl">6th of October</span><span class="rs">21 acres</span></span>
               <p class="rd">The first high-rise residential buildings in West Cairo, plus mid-rise apartments from 90 to 270 sqm.</p></div>
@@ -1144,9 +1169,10 @@ h2{margin-bottom:12px}
   <div class="wrap">
     <div class="foot-grid">
       <div><h4>Projects</h4>
-        <ul><li><a href="#">Ramla — North Coast</a></li>
-            <li><a href="#">Crescent Walk — East Cairo</a></li>
-            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+        <ul><li><a href="ramla.html">Ramla — North Coast</a></li>
+            <li><a href="crescent-walk.html">Crescent Walk — East Cairo</a></li>
+            <li><a href="district-5.html">District 5 — New Katameya</a></li>
+            <li><a href="shams-soma.html">Shams Soma — Somabay, Red Sea</a></li></ul></div>
       <div><h4>Contact</h4>
         <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hello," href="#">WhatsApp</a></li></ul></div>
       </div>

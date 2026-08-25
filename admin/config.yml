@@ -74,6 +74,50 @@ collections:
       required: false
       hint: Meta pixel ID, digits only. Setting this installs the pixel and fires a Lead on the thank-you
         page. Leave empty if the pixel is fired through GTM.
+    - name: newLaunch
+      label: New launch markers
+      widget: list
+      required: false
+      collapsed: false
+      summary: '{{fields.project}} — until {{fields.until}}'
+      hint: Marks a project as newly launched. The tag shows on its homepage card, in the Developments
+        menu and on its own page. Leave the list empty for none. Each entry disappears from the site by
+        itself the day after its end date, so there is nothing to remember to remove.
+      fields:
+      - name: project
+        label: Which project
+        widget: select
+        required: true
+        options:
+        - Ramla
+        - Crescent Walk
+        - District 5
+        - Shams Soma
+        hint: Must match the project name exactly — this is how the tag finds its card.
+      - name: label
+        label: Tag on the card
+        widget: string
+        required: false
+        default: New launch
+      - name: short
+        label: Tag in the menu
+        widget: string
+        required: false
+        default: New
+        hint: Kept short — the menu row is narrow.
+      - name: heroLabel
+        label: Badge on the project page
+        widget: string
+        required: false
+        default: Now launching
+      - name: until
+        label: Show until
+        widget: datetime
+        required: true
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+        hint: Required. After this date the tag is removed from the site automatically.
 - name: home
   label: 2. Homepage
   files:

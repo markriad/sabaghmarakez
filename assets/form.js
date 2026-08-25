@@ -267,12 +267,30 @@
       var chip = e.target.closest(".chip");
       if (!chip || !group.contains(chip)) return;
       if (chip.disabled || chip.getAttribute("data-status") === "sold_out") return;
-      group.querySelectorAll(".chip").forEach(function (c) {
-        c.setAttribute("aria-pressed", String(c === chip));
+
+      /* Multi-select with deselect. Clicking a chip toggles it, so a misclick is
+         undone by clicking again, and someone weighing two types can say so.
+
+         The bedrooms/area question can only be answered for one type — a villa
+         and a chalet have different lists — so it shows only while exactly one
+         type is selected, and clears otherwise. Without that rule the form
+         could submit "Villa, Chalet" with a bedroom count belonging to neither. */
+      var on = chip.getAttribute("aria-pressed") === "true";
+      chip.setAttribute("aria-pressed", String(!on));
+
+      var picked = [].filter.call(group.querySelectorAll(".chip"), function (c) {
+        return c.getAttribute("aria-pressed") === "true";
       });
       var hidden = group.querySelector("input[type=hidden]");
-      if (hidden) hidden.value = chip.getAttribute("data-label") || chip.textContent.trim();
-      if (form) showDep(form, chip);
+      if (hidden) {
+        hidden.value = picked.map(function (c) {
+          return c.getAttribute("data-label") || c.textContent.trim();
+        }).join(", ");
+      }
+      if (form) {
+        if (picked.length === 1) showDep(form, picked[0]);
+        else clearDep(form);
+      }
     });
     group.addEventListener("keydown", function (e) {
       var chip = e.target.closest(".chip");

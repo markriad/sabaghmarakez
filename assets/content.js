@@ -302,10 +302,72 @@
     }
   }
 
+
+  /* ── "New launch" marker ────────────────────────────────────────────────
+     Driven from one place — settings.json — because the marker has to appear
+     on pages that never load the project's own content: the nav sits on every
+     page and the card sits on the homepage. Keeping a copy in each of those
+     files would let them drift out of step.
+
+     Every entry carries an end date and disappears by itself the day after,
+     like the offers strip. A stale "new launch" is worse than none. */
+  function applyNewLaunch(st) {
+    var list = (st && st.newLaunch) || [];
+    if (!list.length) return;
+
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var live = list.filter(function (n) {
+      if (!n || !n.project || !n.until) return false;
+      var end = new Date(n.until + "T23:59:59");
+      return !isNaN(end.getTime()) && end >= today;
+    });
+    if (!live.length) return;
+
+    var names = {};
+    live.forEach(function (n) { names[n.project.trim().toLowerCase()] = n; });
+
+    function tag(text, cls) {
+      var el = document.createElement("span");
+      el.className = cls;
+      el.textContent = text;
+      return el;
+    }
+
+    /* nav dropdown — short form, the row is narrow */
+    document.querySelectorAll(".navmenu .nm-name").forEach(function (el) {
+      if (el.querySelector(".navtag")) return;
+      var n = names[el.textContent.trim().toLowerCase()];
+      if (n) el.appendChild(tag(n.short || "New", "navtag"));
+    });
+
+    /* homepage project card */
+    document.querySelectorAll(".projcard h3").forEach(function (el) {
+      if (el.querySelector(".nametag")) return;
+      var n = names[el.textContent.trim().toLowerCase()];
+      if (n) el.appendChild(tag(n.label || "New launch", "nametag"));
+    });
+
+    /* the project's own hero — it says "Now launching" here, because the
+       visitor has already arrived and the word is about timing, not pointing */
+    var form = document.querySelector("form[data-lead]");
+    var self = form && names[(form.getAttribute("data-lead") || "").trim().toLowerCase()];
+    if (self) {
+      var copy = document.querySelector(".hero .hero-copy") ||
+                 document.querySelector(".hero-in > div");
+      var kicker = copy && copy.querySelector(".kicker");
+      if (copy && kicker && !copy.querySelector(".hbadge")) {
+        var b = document.createElement("span");
+        b.className = "hbadge";
+        b.innerHTML = '<i class="dot"></i>' + (self.heroLabel || "Now launching");
+        kicker.insertAdjacentElement("afterend", b);
+      }
+    }
+  }
+
   function boot() {
     fetch(base() + "content/settings.json", { cache: "no-cache" })
       .then(function (r) { return r.json(); })
-      .then(applySettings)
+      .then(function (st) { applySettings(st); applyNewLaunch(st); })
       .catch(function () {});
 
     var host = document.querySelector("[data-project]");

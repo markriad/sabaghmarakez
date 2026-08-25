@@ -952,6 +952,27 @@ h2{margin-bottom:12px}
   .sec--split:not(:has(.art img[src]:not([src=""]))) dl{
     grid-template-columns:auto 1fr auto 1fr;column-gap:clamp(18px,2vw,30px)}
 }
+
+/* ── "New launch" markers ───────────────────────────────────────────────────
+   Same warm tone as the offers strip, so "time-sensitive" reads consistently
+   across the site. Injected by content.js from settings.json, so all three
+   appear and expire together. */
+.nametag{display:inline-block;vertical-align:middle;margin-left:9px;
+  font:700 .55rem var(--body);letter-spacing:.13em;text-transform:uppercase;
+  background:#fbf4e9;color:#8f5a1c;border:1px solid #e0c9a4;padding:2px 7px;
+  white-space:nowrap}
+.navtag{margin-left:8px;font:700 .52rem var(--body);letter-spacing:.12em;
+  text-transform:uppercase;background:#fbf4e9;color:#8f5a1c;
+  border:1px solid #e0c9a4;padding:1px 6px;white-space:nowrap}
+.hbadge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.34);
+  padding:6px 13px;font:700 .6rem var(--body);letter-spacing:.14em;
+  text-transform:uppercase;color:#fff}
+.hbadge .dot{width:6px;height:6px;border-radius:50%;background:#e6b45f;flex:0 0 auto}
+/* below the stacking point the hero copy sits on white, so the badge flips */
+@media(max-width:860px){
+  .hbadge{background:#fbf4e9;border-color:#e0c9a4;color:#8f5a1c}
+}
 </style>
 </head>
 <body data-project="shams">
@@ -990,7 +1011,7 @@ h2{margin-bottom:12px}
     <img class="projlogo" data-logo="project" alt="">
     <p class="kicker">Somabay &middot; Red Sea</p>
     <h1>Marakez&rsquo;s first address <em>on the Red Sea.</em></h1>
-    <p data-hero-sub>Shams Soma sits on 84 acres inside Somabay, built with Marakez's partner on the coast. Prices and unit types haven't been released yet.</p>
+    <p data-hero-sub>Marakez&rsquo;s first Red Sea project &mdash; 80 feddans inside Somabay, cascading down to two private piers and its own beaches.</p>
     <dl class="facts" data-facts hidden></dl>
     </div>
     <div class="hero-form" id="lead">
@@ -1041,7 +1062,7 @@ h2{margin-bottom:12px}
           </select>
         </div>
         <div class="field" data-single="property">
-          <label>Property type <span class="opt-tag">choose one</span></label>
+          <label>Property type <span class="opt-tag">choose any</span></label>
           <div class="chips">
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Villa">Villa</button>
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Townhome">Townhome</button>
@@ -1090,7 +1111,7 @@ h2{margin-bottom:12px}
       <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>Room to breathe, <em>on the Red Sea.</em></h2>
-        <p class="lead">A low-density plan on 340,000 square metres inside an established resort destination.</p>
+        <p class="lead">The masterplan cascades with the natural terrain, so homes step down the slope and every one of them looks out over the Red Sea.</p>
         <dl>
           <div class="drow"><dt>Low density by design</dt><dd>The plan sets a limit on how many homes sit on each square metre, so there is more space between them and more privacy in each one.</dd></div>
           <div class="drow"><dt>Built around the outdoors</dt><dd>Homes are designed around usable outdoor space rather than token balconies, for a coast where you live outside most of the year.</dd></div>
@@ -1189,9 +1210,10 @@ h2{margin-bottom:12px}
   <div class="wrap">
     <div class="foot-grid">
       <div><h4>Projects</h4>
-        <ul><li><a href="#">Ramla — North Coast</a></li>
-            <li><a href="#">Crescent Walk — East Cairo</a></li>
-            <li><a href="#">District 5 — New Katameya</a></li></ul></div>
+        <ul><li><a href="ramla.html">Ramla — North Coast</a></li>
+            <li><a href="crescent-walk.html">Crescent Walk — East Cairo</a></li>
+            <li><a href="district-5.html">District 5 — New Katameya</a></li>
+            <li><a href="shams-soma.html">Shams Soma — Somabay, Red Sea</a></li></ul></div>
       <div><h4>Contact</h4>
         <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hello," href="#">WhatsApp</a></li></ul></div>
       </div>
