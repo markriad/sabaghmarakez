@@ -170,7 +170,16 @@
     document.querySelectorAll("[data-avail-for]").forEach(function (host) {
       var key = (host.getAttribute("data-avail-for") || "").toLowerCase();
       var st  = map[key];
-      if (!st) { host.innerHTML = ""; return; }
+      /* "Available" is the default state and saying so adds nothing — the row
+         only earns its place when it carries a warning. The whole row is
+         hidden, not just the badge, so no empty label is left behind. */
+      var row = host.closest(".row");
+      if (!st || st === "available") {
+        host.innerHTML = "";
+        if (row) row.hidden = true;
+        return;
+      }
+      if (row) row.hidden = false;
       host.innerHTML = badge(st, lang);
     });
   }
