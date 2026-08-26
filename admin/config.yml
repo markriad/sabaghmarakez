@@ -196,10 +196,6 @@ collections:
       widget: object
       collapsed: true
       fields:
-      - name: hero_kicker
-        label: Small label above the headline
-        widget: string
-        required: false
       - name: hero_title
         label: Headline
         widget: string
@@ -330,10 +326,6 @@ collections:
       widget: object
       collapsed: true
       fields:
-      - name: hero_kicker
-        label: Small label above the headline
-        widget: string
-        required: false
       - name: hero_title
         label: Headline
         widget: string

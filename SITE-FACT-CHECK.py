@@ -48,6 +48,17 @@ for (gname,summ),pan in zip(names,panels):
     missing=[r for r in rows if key(r) not in plain]
     chk(f"summary lists its rows · {gname}", not missing, f"missing {missing}" if missing else "")
 
+# ── the hero fact must match the projects that exist ──
+import json as _json
+home=_json.loads(pathlib.Path('content/home.json').read_text(encoding='utf-8'))
+fact=next((f for f in home.get('heroFacts',[])
+           if 'residential' in (f.get('label') or '')), None)
+NUMW={'One':1,'Two':2,'Three':3,'Four':4,'Five':5,'Six':6}
+projects=len(re.findall(r'class="projcard[ "]', b))
+chk("hero fact 'residential projects' matches the cards",
+    bool(fact) and NUMW.get(fact['value'])==projects,
+    f"says {fact['value'] if fact else '?'}, {projects} projects shown")
+
 # ── 404 must list every real page ──
 pages=[p.name for p in pathlib.Path('.').glob('*.html')
        if p.name not in ('404.html','thank-you.html')]
