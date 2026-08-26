@@ -1,137 +1,141 @@
 {
- "images": {
-  "hero": "assets/img/marakez/hero.jpeg",
-  "about2": "assets/img/marakez/hero.jpeg"
- },
- "heroScrim": "strong",
- "cards": [
-  {
-   "key": "ramla",
-   "label": "Ramla",
-   "image": "assets/img/marakez/card-ramla.jpeg"
-  },
-  {
-   "key": "shams",
-   "label": "Shams Soma",
-   "image": ""
-  },
-  {
-   "key": "district5",
-   "label": "District 5",
-   "image": "assets/img/marakez/card-d5.jpeg"
-  },
-  {
-   "key": "crescent",
-   "label": "Crescent Walk",
-   "image": "assets/img/marakez/card-crescent.jpeg"
-  },
-  {
-   "key": "aeon",
-   "label": "Aeon Towers & Courtyards",
-   "image": ""
-  }
- ],
- "logos": {
-  "marakez": "assets/img/logos/marakez-wordmark.png"
- },
- "en": {
-  "hero_kicker": "Marakez · Egypt",
-  "hero_title": "The Leading Mixed-Use Developer in Egypt.",
-  "hero_title_em": "Developer in Egypt.",
-  "sections": [
-   {
-    "eyebrow": "Residential projects",
-    "title": "Coast, garden district, and city.",
-    "title_em": "and city.",
-    "lead": "Marakez builds on two coastlines and both sides of Cairo. What is selling now, and what has already sold out."
-   },
-   {
-    "eyebrow": "About Marakez",
-    "title": "The developer behind Mall of Arabia.",
-    "title_em": "Mall of Arabia.",
-    "lead": "Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus."
-   },
-   {
-    "eyebrow": "The portfolio",
-    "title": "Everything Marakez has built.",
-    "title_em": "has built.",
-    "lead": "Sixteen developments in five categories — the track record behind the four residential communities above."
-   }
+  "cards": [
+    {
+      "key": "ramla",
+      "label": "Ramla",
+      "image": "assets/img/marakez/card-ramla.jpeg"
+    },
+    {
+      "key": "shams",
+      "label": "Shams Soma",
+      "image": ""
+    },
+    {
+      "key": "district5",
+      "label": "District 5",
+      "image": "assets/img/marakez/card-d5.jpeg"
+    },
+    {
+      "key": "crescent",
+      "label": "Crescent Walk",
+      "image": "assets/img/marakez/card-crescent.jpeg"
+    },
+    {
+      "key": "aeon",
+      "label": "Aeon Towers & Courtyards",
+      "image": ""
+    }
   ],
-  "pillars": [
-   {
-    "title": "Part of Fawaz Al Hokair Group",
-    "text": "Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries."
-   },
-   {
-    "title": "Retail comes built in",
-    "text": "Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later."
-   },
-   {
-    "title": "International design partners",
-    "text": "WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture."
-   }
-  ],
-  "masterplanKey": [],
-  "panels": [],
-  "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
-  "top_bar": "Not the official Marakez website."
- },
- "ar": {
-  "hero_kicker": "",
-  "hero_title": "",
-  "hero_title_em": "",
-  "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   }
-  ],
-  "pillars": [
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   }
-  ],
-  "masterplanKey": [],
-  "panels": [],
-  "footer_disclaimer": "",
-  "top_bar": ""
- },
- "heroFacts": [
-  {
-   "value": "Three",
-   "label": "residential projects"
+  "images": {
+    "hero": "assets/img/marakez/hero.jpeg",
+    "about2": "assets/img/marakez/hero.jpeg"
   },
-  {
-   "value": "21",
-   "label": "shopping malls built"
+  "heroFacts": [
+    {
+      "value": "Five",
+      "label": "residential projects"
+    },
+    {
+      "value": "21",
+      "label": "shopping malls built"
+    },
+    {
+      "value": "1989",
+      "label": "founded"
+    }
+  ],
+  "en": {
+    "hero_kicker": "Marakez · Egypt",
+    "hero_title": "The Leading Mixed-Use Developer in Egypt.",
+    "hero_title_em": "Developer in Egypt.",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "Residential projects",
+        "title": "Coast, garden district, and city.",
+        "title_em": "and city.",
+        "lead": "Marakez builds on two coastlines and both sides of Cairo. What is selling now, and what has already sold out."
+      },
+      {
+        "eyebrow": "About Marakez",
+        "title": "The developer behind Mall of Arabia.",
+        "title_em": "Mall of Arabia.",
+        "lead": "Marakez built the first park inside a shopping centre in Egypt, the first residential tower outside downtown Cairo, and the first international-standard mall in a governorate city. Its portfolio spans Mall of Arabia, Mall of Tanta, Mall of Mansoura, Town Center, D5M, Aeon and Mindhaus."
+      },
+      {
+        "eyebrow": "The portfolio",
+        "title": "Everything Marakez has built.",
+        "title_em": "has built.",
+        "lead": "Sixteen developments in five categories — the track record behind the four residential communities above."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Part of Fawaz Al Hokair Group",
+        "text": "Founded 1989. Over 1.5 million square metres of retail across 21 shopping malls in 11 countries."
+      },
+      {
+        "title": "Retail comes built in",
+        "text": "Because Marakez develops malls first, its residential projects have shops and workspace in the plan rather than promised later."
+      },
+      {
+        "title": "International design partners",
+        "text": "WATG master-planned both Ramla and Crescent Walk; PBD Architects handled the Crescent Walk architecture."
+      }
+    ],
+    "masterplanKey": [],
+    "panels": [],
+    "usps": [],
+    "top_bar": "Not the official Marakez website.",
+    "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale."
   },
-  {
-   "value": "1989",
-   "label": "founded"
-  }
- ]
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [],
+    "panels": [],
+    "usps": [],
+    "top_bar": "",
+    "footer_disclaimer": ""
+  },
+  "logos": {
+    "marakez": "assets/img/logos/marakez-wordmark.png"
+  },
+  "heroScrim": "strong"
 }
