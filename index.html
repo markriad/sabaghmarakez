@@ -867,9 +867,18 @@ h2{margin-bottom:12px}
    so it runs full width and shorter instead */
 .projgroup--one .projcards{grid-template-columns:1fr}
 .projcard--sold{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);
+  align-items:stretch;
   border:1px solid var(--rule);background:#fbfcfd;cursor:default}
-.projcard--sold figure{aspect-ratio:16/9;margin:0;
+/* The image column stretches to whatever height the text needs, rather than
+   holding a 16:9 box and leaving a gap beneath it. align-items on the grid
+   defaults to stretch, so the figure fills its cell and the photo covers it. */
+.projcard--sold figure{margin:0;height:100%;min-height:0;overflow:hidden;
+  /* aspect-ratio must be cleared explicitly. The base .projcard figure sets
+     16/9, and with an explicit height that ratio drives the WIDTH — a 288px
+     tall figure became 512px wide and spilled across the text. */
+  aspect-ratio:auto;width:100%;
   background:linear-gradient(160deg,#3b4655,#232b36)}
+.projcard--sold figure img{width:100%;height:100%;object-fit:cover;display:block}
 .projcard--sold .pc-body{display:flex;flex-direction:column;justify-content:center}
 .projcard--sold h3,.projcard--sold p,.projcard--sold .pc-loc{color:var(--soft)}
 .projcard--sold h3{color:var(--ink)}
@@ -881,6 +890,7 @@ h2{margin-bottom:12px}
 @media(max-width:760px){
   .projgroup .projcards{grid-template-columns:1fr}
   .projcard--sold{grid-template-columns:1fr}
+  .projcard--sold figure{height:auto;min-height:0;aspect-ratio:16/9}
 }
 
 /* The sold-out card is full width and has vertical room the half-width cards
@@ -916,10 +926,11 @@ h2{margin-bottom:12px}
             <span class="nm-name">Shams Soma</span><span class="nm-loc">Somabay &middot; Red Sea</span></a>
           <a role="menuitem" href="crescent-walk.html" data-nav="crescent">
             <span class="nm-name">Crescent Walk</span><span class="nm-loc">East Cairo</span></a>
-          <a role="menuitem" href="district-5.html" data-nav="district5">
-            <span class="nm-name">District 5</span><span class="nm-loc">New Katameya</span></a>
           <a role="menuitem" href="ramla.html" data-nav="ramla">
             <span class="nm-name">Ramla</span><span class="nm-loc">North Coast &middot; Ras El Hekma</span></a>
+          <a role="menuitem" href="district-5.html" data-nav="district5">
+            <span class="nm-name">District 5</span><span class="nm-loc">New Katameya</span></a>
+        
         
         </div>
       </div>
@@ -1149,7 +1160,7 @@ h2{margin-bottom:12px}
         <div class="grp">
           <button class="gb" type="button" aria-expanded="false" aria-controls="g1">
             <span class="gn">01</span><h3>Residential</h3>
-            <span class="gsum">Shams Soma &middot; Crescent Walk &middot; District&nbsp;5 &middot; Ramla &middot; Aeon</span><span class="gx">+</span>
+            <span class="gsum">Shams Soma &middot; Crescent Walk &middot; Ramla &middot; District&nbsp;5 &middot; Aeon</span><span class="gx">+</span>
           </button>
           <div class="gp" id="g1" hidden>
             <div class="rows">
@@ -1159,12 +1170,12 @@ h2{margin-bottom:12px}
             <a class="row link" href="crescent-walk.html">
               <span class="rt"><span class="rn">Crescent Walk</span><span class="rl">East Cairo</span><span class="rs">118 acres</span></span>
               <p class="rd">A green pathway you can walk end to end, with a back gate from every home onto the park. <span class="arrow">See the project &rarr;</span></p></a>
-            <a class="row link" href="district-5.html">
-              <span class="rt"><span class="rn">District 5 Residences</span><span class="rl">New Katameya</span><span class="rs">268 acres</span></span>
-              <p class="rd">Apartments, twins, townhomes and villas inside a development that also holds D5M and Mindhaus. <span class="arrow">See the project &rarr;</span></p></a>
             <a class="row link" href="ramla.html">
               <span class="rt"><span class="rn">Ramla</span><span class="rl">Ras El Hekma</span><span class="rs">1.4 km beach</span></span>
               <p class="rd">Six neighbourhoods on the bay, a swimmable lagoon and rare natural tidal pools. <span class="arrow">See the project &rarr;</span></p></a>
+            <a class="row link" href="district-5.html">
+              <span class="rt"><span class="rn">District 5 Residences</span><span class="rl">New Katameya</span><span class="rs">268 acres</span></span>
+              <p class="rd">Apartments, twins, townhomes and villas inside a development that also holds D5M and Mindhaus. <span class="arrow">See the project &rarr;</span></p></a>
             <div class="row">
               <span class="rt"><span class="rn">Aeon Towers &amp; Courtyards</span><span class="rl">6th of October</span><span class="rs">21 acres</span></span>
               <p class="rd">The first high-rise residential buildings in West Cairo, plus mid-rise apartments from 90 to 270 sqm.</p></div>
@@ -1256,8 +1267,8 @@ h2{margin-bottom:12px}
         <ul>
             <li><a href="shams-soma.html">Shams Soma — Red Sea</a></li>
             <li><a href="crescent-walk.html">Crescent Walk — East Cairo</a></li>
-            <li><a href="district-5.html">District 5 — New Katameya</a></li>
-            <li><a href="ramla.html">Ramla — North Coast</a></li></ul></div>
+            <li><a href="ramla.html">Ramla — North Coast</a></li>
+            <li><a href="district-5.html">District 5 — New Katameya</a></li></ul></div>
       <div><h4>Contact</h4>
         <ul><li><a data-tel href="#">+20 122 017 0162</a></li><li><a data-wa="Hello," href="#">WhatsApp</a></li></ul></div>
       </div>

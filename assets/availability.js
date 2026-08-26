@@ -219,6 +219,11 @@
         /* District 5 shows office formats in the same section as the homes,
            so both lists have to feed the availability badges — passing only
            propertyTypes left every office pane with a blank status. */
+        /* The Status row was removed from the property-type panes — a type that
+           is simply available said nothing, and the warnings live on the form
+           chips, which still grey out and strike through what is sold out.
+           This call is kept because it is a no-op when no [data-avail-for]
+           element exists, and other pages may reintroduce one. */
         applyPanelBadges(
           (data.propertyTypes || []).concat(data.officeFormats || []), lang);
         renderTypePanels(data.propertyTypes, lang);
