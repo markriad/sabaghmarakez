@@ -952,7 +952,114 @@ h2{margin-bottom:12px}
 @media(max-width:860px){
   .hbadge{background:#fbf4e9;border-color:#e0c9a4;color:#8f5a1c}
 }
+
+/* The hero image is applied by script, so the section carries a ground of its
+   own for the moment before it lands — and for anyone with JavaScript off. */
+.hero{background-color:#0d1c30}
+.hero > img:not([src]){display:none}
 </style>
+<meta name="cms-content" content="ramla">
+<script>
+/* ── CMS images, resolved before anything paints ─────────────────────────────
+   Images used to ship a hardcoded src, so the browser painted whatever was
+   in the file while content.js — which runs at the end of the body — fetched
+   the CMS value and swapped it. Changing the photo in the panel meant roughly
+   140ms of the OLD photo on every load.
+
+   The img now ships with no src, so nothing stale can paint. This runs in the
+   head, starts the fetch before the body is parsed, and applies the result as
+   soon as both the data and the element exist. If the fetch fails, the shipped
+   default in data-fallback is used, so the hero is never left empty. */
+(function () {
+  var meta = document.querySelector('meta[name="cms-content"]');
+  if (!meta) return;
+  var done = false;
+
+  function set(el, src) {
+    if (el && src && !el.getAttribute("src")) {
+      el.setAttribute("src", String(src).replace(/^\//, ""));
+    }
+  }
+
+  /* Everything the CMS controls, resolved in one pass. */
+  function applyAll(d) {
+    if (done) return;
+    var im = (d && d.images) || {};
+    set(document.querySelector(".hero > img"), im.hero || (d && d.heroImage));
+    set(document.querySelector(".split .art img"), im.masterplan);
+    set(document.querySelector(".about-fig img"), im.about2);
+
+    /* logos, so a set logo doesn't pop in after the header has painted */
+    var lg = (d && d.logos) || {};
+    document.querySelectorAll('[data-logo="marakez"]').forEach(function (el) { set(el, lg.marakez); });
+    document.querySelectorAll('[data-logo="project"], .projlogo').forEach(function (el) { set(el, lg.project); });
+
+    /* project cards are matched by key, never by position */
+    var byKey = {};
+    ((d && d.cards) || []).forEach(function (c) { if (c && c.key) byKey[c.key] = c.image; });
+    document.querySelectorAll(".projcard[data-card]").forEach(function (card) {
+      set(card.querySelector("figure img"), byKey[card.getAttribute("data-card")]);
+    });
+
+    /* first photo of each unit type; availability.js builds the rest of the
+       carousel later, and only when the CMS actually has photos for that type */
+    var types = ((d && d.propertyTypes) || []).concat((d && d.officeFormats) || []);
+    var photoFor = {};
+    types.forEach(function (t) {
+      var ph = (t.photos || [])[0];
+      if (t.label_en && ph && ph.image) photoFor[t.label_en] = ph.image;
+    });
+    document.querySelectorAll(".pickbody[data-type]").forEach(function (pane) {
+      var src = photoFor[pane.getAttribute("data-type")];
+      set(pane.querySelector(".ptrack img"), src);
+      /* Where the CMS has photos for this type, availability.js rebuilds the
+         whole carousel from them and throws these away. Giving them their
+         shipped fallback first meant the browser fetched photos that were
+         about to be discarded — visible as old images loading on a slow
+         connection. Marked so the fallback pass leaves them alone. */
+      if (src) {
+        pane.querySelectorAll(".ptrack img").forEach(function (el, i) {
+          if (i > 0) el.removeAttribute("data-fallback");
+        });
+      }
+    });
+
+    fallbacks();
+    done = true;
+  }
+
+  /* Anything the CMS had no value for keeps the photo the site shipped with,
+     so no slot is ever left blank. */
+  function fallbacks() {
+    document.querySelectorAll("img[data-fallback]").forEach(function (el) {
+      if (!el.getAttribute("src")) el.setAttribute("src", el.getAttribute("data-fallback"));
+    });
+  }
+
+  function when(fn) {
+    if (document.querySelector(".hero")) fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  fetch("content/" + meta.content + ".json", { cache: "no-cache" })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { when(function () { applyAll(d); }); })
+    .catch(function () { when(fallbacks); });
+
+  /* If the data is slow or missing, show the shipped photos rather than gaps.
+     4s not 1.2s: on a slow connection the content file can take over a second,
+     and firing early painted shipped photos that were then replaced — the very
+     flash this is meant to remove. Four seconds is long enough that only a
+     genuine failure reaches it, and the hero still has its own dark ground to
+     sit on meanwhile. */
+  setTimeout(function () { when(fallbacks); }, 4000);
+})();
+</script>
+<noscript><style>
+/* With no script there is no CMS value to fetch, so the shipped photo is
+   painted as a background instead — the img has no src and would stay blank. */
+.hero{background-image:url("assets/img/ramla/hero.jpeg");background-size:cover;background-position:center}
+</style></noscript>
 </head>
 <body data-project="ramla">
 
@@ -986,7 +1093,7 @@ h2{margin-bottom:12px}
 </header>
 
 <section class="hero">
-  <img src="assets/img/ramla/hero.jpeg" alt="Ramla beach at Ras El Hekma">
+  <img data-fallback="assets/img/ramla/hero.jpeg" alt="Ramla beach at Ras El Hekma">
   <div class="hero-in">
     <div class="hero-copy">
     <img class="projlogo" data-logo="project" alt="">
@@ -1085,7 +1192,7 @@ h2{margin-bottom:12px}
   <section class="sec sec--split">
     <span class="marker" data-n="01"></span>
     <div class="split">
-      <div class="art"><img data-img="masterplan" src="assets/img/ramla/masterplan.jpeg" alt="Ramla masterplan" loading="lazy"></div>
+      <div class="art"><img data-img="masterplan" data-fallback="assets/img/ramla/masterplan.jpeg" alt="Ramla masterplan" loading="lazy"></div>
       <div class="txt">
         <p class="eyebrow"><span class="secnum">01</span>The project</p>
         <h2>A beach town built to be <em>walked barefoot.</em></h2>
@@ -1122,7 +1229,7 @@ h2{margin-bottom:12px}
         </div>
         <div class="pickbody" data-pane="0" data-type="Villa">
           <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img src="assets/img/ramla/n-dunes.jpeg" alt="Villas at this project" loading="lazy"></figure><figure><img src="assets/img/ramla/n-grove.jpeg" alt="Villas at this project" loading="lazy"></figure><figure><img src="assets/img/ramla/n-acacia.jpeg" alt="Villas at this project" loading="lazy"></figure></div>
+            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-dunes.jpeg" alt="Villas at this project" loading="lazy"></figure><figure><img data-fallback="assets/img/ramla/n-grove.jpeg" alt="Villas at this project" loading="lazy"></figure><figure><img data-fallback="assets/img/ramla/n-acacia.jpeg" alt="Villas at this project" loading="lazy"></figure></div>
           <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
           <button class="parrow next" aria-label="Next photo">&#8250;</button>
             <div class="pdots"></div>
@@ -1135,7 +1242,7 @@ h2{margin-bottom:12px}
         </div>
         <div class="pickbody" data-pane="1" data-type="Chalet" hidden>
           <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img src="assets/img/ramla/n-oasis.jpeg" alt="Chalets at this project" loading="lazy"></figure></div>
+            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-oasis.jpeg" alt="Chalets at this project" loading="lazy"></figure></div>
             <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
             <button class="parrow next" aria-label="Next photo">&#8250;</button>
             <div class="pdots"></div>
@@ -1148,7 +1255,7 @@ h2{margin-bottom:12px}
         </div>
         <div class="pickbody" data-pane="2" data-type="Townhouse" hidden>
           <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img src="assets/img/ramla/n-town.jpeg" alt="Townhouses at this project" loading="lazy"></figure></div>
+            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-town.jpeg" alt="Townhouses at this project" loading="lazy"></figure></div>
             <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
             <button class="parrow next" aria-label="Next photo">&#8250;</button>
             <div class="pdots"></div>
@@ -1161,7 +1268,7 @@ h2{margin-bottom:12px}
         </div>
         <div class="pickbody" data-pane="3" data-type="Twinhouse" hidden>
           <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img src="assets/img/ramla/n-breeze.jpeg" alt="Twinhouses at this project" loading="lazy"></figure><figure><img src="assets/img/ramla/n-acacia.jpeg" alt="Twinhouses at this project" loading="lazy"></figure></div>
+            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-breeze.jpeg" alt="Twinhouses at this project" loading="lazy"></figure><figure><img data-fallback="assets/img/ramla/n-acacia.jpeg" alt="Twinhouses at this project" loading="lazy"></figure></div>
           <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
           <button class="parrow next" aria-label="Next photo">&#8250;</button>
             <div class="pdots"></div>
