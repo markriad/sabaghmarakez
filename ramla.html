@@ -1059,6 +1059,14 @@ h2{margin-bottom:12px}
 /* With no script there is no CMS value to fetch, so the shipped photo is
    painted as a background instead — the img has no src and would stay blank. */
 .hero{background-image:url("assets/img/ramla/hero.jpeg");background-size:cover;background-position:center}
+
+/* The project logos are white artwork so they read on the dark hero. Below the
+   stacking point the hero copy sits on white, where white artwork would be
+   invisible — so it is rendered dark there instead. brightness(0) keeps the
+   mark's shape and its transparency, and only its colour changes. */
+@media(max-width:860px){
+  .projlogo{filter:brightness(0) opacity(.86)}
+}
 </style></noscript>
 </head>
 <body data-project="ramla">
@@ -1224,8 +1232,7 @@ h2{margin-bottom:12px}
         <div class="picknav" role="tablist">
           <button role="tab" aria-selected="true" data-p="0" data-type="Villa">Villas</button>
           <button role="tab" aria-selected="false" data-p="1" data-type="Chalet">Chalets</button>
-          <button role="tab" aria-selected="false" data-p="2" data-type="Townhouse">Townhouses</button>
-          <button role="tab" aria-selected="false" data-p="3" data-type="Twinhouse">Twinhouses</button>
+          <button role="tab" aria-selected="false" data-p="2" data-type="Twinhouse">Twinhouses</button>
         </div>
         <div class="pickbody" data-pane="0" data-type="Villa">
           <div class="pickshots">
@@ -1253,20 +1260,8 @@ h2{margin-bottom:12px}
             <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
           </div>
         </div>
-        <div class="pickbody" data-pane="2" data-type="Townhouse" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-town.jpeg" alt="Townhouses at this project" loading="lazy"></figure></div>
-            <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
-            <button class="parrow next" aria-label="Next photo">&#8250;</button>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Townhouses</h3>
-            <div class="row"><span class="k">Bedrooms</span><span class="v">3 or 4</span></div>
-            <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="3" data-type="Twinhouse" hidden>
+        
+        <div class="pickbody" data-pane="2" data-type="Twinhouse" hidden>
           <div class="pickshots">
             <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/ramla/n-breeze.jpeg" alt="Twinhouses at this project" loading="lazy"></figure><figure><img data-fallback="assets/img/ramla/n-acacia.jpeg" alt="Twinhouses at this project" loading="lazy"></figure></div>
           <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
@@ -1467,13 +1462,23 @@ if('IntersectionObserver' in window){
     var wasHidden = dep.hidden;
     var chips = dep.querySelector('[data-dep-chips]');
     var injected = false;
+    var savedChips = chips ? chips.innerHTML : null;
 
     card.style.minHeight = '';
     if (wasHidden) {
       /* give it a chip so the reserved height matches a real one, not an
          empty box */
-      if (chips && !chips.children.length) {
-        chips.innerHTML = '<button type="button" class="chip">0</button>';
+      if (chips) {
+        /* the widest real option set, not a placeholder — see district-5 */
+        var widest = "";
+        form.querySelectorAll("[data-single] .chip").forEach(function (c) {
+          var o = c.getAttribute("data-options") || "";
+          if (o.length > widest.length) widest = o;
+        });
+        var opts = widest ? widest.split("|") : ["0"];
+        chips.innerHTML = opts.map(function (o) {
+          return '<button type="button" class="chip">' + o.trim() + "</button>";
+        }).join("");
         injected = true;
       }
       dep.hidden = false;

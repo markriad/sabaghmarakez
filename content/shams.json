@@ -1,11 +1,11 @@
 {
  "logos": {
   "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": ""
+  "project": "assets/img/logos/shams-logo.png"
  },
  "images": {
-  "hero": "",
-  "masterplan": ""
+  "hero": "assets/img/shams/hero.jpeg",
+  "masterplan": "assets/img/shams/masterplan.jpeg"
  },
  "heroScrim": "medium",
  "heroFacts": [
@@ -37,7 +37,8 @@
    "options": "3|4|5",
    "optionKind": "beds",
    "size": "212 – 320 sqm",
-   "photos": []
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Townhome",
@@ -46,7 +47,8 @@
    "options": "3|4",
    "optionKind": "beds",
    "size": "182 – 233 sqm",
-   "photos": []
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Chalet",
@@ -55,7 +57,8 @@
    "options": "2|3",
    "optionKind": "beds",
    "size": "102 – 165 sqm",
-   "photos": []
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Loft",
@@ -64,7 +67,8 @@
    "options": "2",
    "optionKind": "beds",
    "size": "119 – 123 sqm",
-   "photos": []
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Penthouse",
@@ -73,7 +77,8 @@
    "options": "2",
    "optionKind": "beds",
    "size": "133 sqm",
-   "photos": []
+   "photos": [],
+   "showcase": false
   }
  ],
  "en": {

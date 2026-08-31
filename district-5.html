@@ -1069,6 +1069,14 @@ h2{margin-bottom:12px}
 /* With no script there is no CMS value to fetch, so the shipped photo is
    painted as a background instead — the img has no src and would stay blank. */
 .hero{background-image:url("assets/img/d5/hero.jpeg");background-size:cover;background-position:center}
+
+/* The project logos are white artwork so they read on the dark hero. Below the
+   stacking point the hero copy sits on white, where white artwork would be
+   invisible — so it is rendered dark there instead. brightness(0) keeps the
+   mark's shape and its transparency, and only its colour changes. */
+@media(max-width:860px){
+  .projlogo{filter:brightness(0) opacity(.86)}
+}
 </style></noscript>
 </head>
 <body data-project="district5">
@@ -1174,10 +1182,7 @@ h2{margin-bottom:12px}
         <div class="field only-off" hidden data-single="office">
           <label>Office format <span class="opt-tag">choose any</span></label>
           <div class="chips">
-            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Private">Private</button>
-            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Twin">Twin</button>
-            <button type="button" class="chip" data-status="limited" aria-pressed="false" data-label="Quad">Quad</button>
-            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Campus module">Campus module</button>
+            <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Office">Office space</button>
             <button type="button" class="chip" data-status="available" aria-pressed="false" data-label="Not sure yet">Not sure yet</button>
           </div>
           <input type="hidden" name="office_format"></div>
@@ -1242,15 +1247,8 @@ h2{margin-bottom:12px}
       <div class="pick rv">
         <div class="picknav" role="tablist">
           <button role="tab" aria-selected="true" data-p="0" data-group="home" data-type="Apartment">Apartments</button>
-          <button role="tab" aria-selected="false" data-p="1" data-group="home" data-type="Townhome">Townhomes</button>
-          <button role="tab" aria-selected="false" data-p="2" data-group="home" data-type="Court home">Court homes</button>
-          <button role="tab" aria-selected="false" data-p="3" data-group="home" data-type="Twinhouse">Twinhouses</button>
-          <button role="tab" aria-selected="false" data-p="4" data-group="home" data-type="Villa">Villas</button>
         
-          <button role="tab" aria-selected="false" data-p="5" data-type="Private" data-group="office">Mindhaus Private</button>
-          <button role="tab" aria-selected="false" data-p="6" data-type="Twin" data-group="office">Mindhaus Twin</button>
-          <button role="tab" aria-selected="false" data-p="7" data-type="Quad" data-group="office">Quad</button>
-          <button role="tab" aria-selected="false" data-p="8" data-type="Campus module" data-group="office">Campus module</button>
+          <button role="tab" aria-selected="false" data-p="1" data-type="Office" data-group="office">Office space</button>
         </div>
         <div class="pickbody" data-pane="0" data-type="Apartment">
           <div class="pickshots">
@@ -1265,102 +1263,24 @@ h2{margin-bottom:12px}
             <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
           </div>
         </div>
-        <div class="pickbody" data-pane="1" data-type="Townhome" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/r-clubside.jpeg" alt="Townhomes at this project" loading="lazy"></figure></div>
-            <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
-            <button class="parrow next" aria-label="Next photo">&#8250;</button>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Townhomes</h3>
-            <div class="row"><span class="k">Bedrooms</span><span class="v">3 or 4</span></div>
-            <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="2" data-type="Court home" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/r-dparks.jpeg" alt="Court homes at this project" loading="lazy"></figure></div>
-            <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
-            <button class="parrow next" aria-label="Next photo">&#8250;</button>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Court homes</h3>
-            <div class="row"><span class="k">Bedrooms</span><span class="v">3 or 4</span></div>
-            <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="3" data-type="Twinhouse" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/r-homes.jpeg" alt="Twinhouses at this project" loading="lazy"></figure></div>
-            <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
-            <button class="parrow next" aria-label="Next photo">&#8250;</button>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Twinhouses</h3>
-            <div class="row"><span class="k">Bedrooms</span><span class="v">4 or 5</span></div>
-            <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="4" data-type="Villa" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/r-homes.jpeg" alt="Villas at this project" loading="lazy"></figure><figure><img data-fallback="assets/img/d5/r-plateau.jpeg" alt="Villas at this project" loading="lazy"></figure></div>
-          <button class="parrow prev" aria-label="Previous photo">&#8249;</button>
-          <button class="parrow next" aria-label="Next photo">&#8250;</button>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Villas</h3>
-            <div class="row"><span class="k">Bedrooms</span><span class="v">4, 5 or 6+</span></div>
-            <div class="row"><span class="k">Size</span><span class="v none" data-size>On request</span></div>
-          </div>
-        </div>
-              <div class="pickbody" data-pane="5" data-type="Private" hidden>
+        
+        
+        
+        
+              <div class="pickbody" data-pane="1" data-type="Office" hidden>
           <div class="pickshots">
             <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/o-interior.jpeg" alt="Mindhaus Private" loading="lazy"></figure></div>
             <div class="pdots"></div>
           </div>
           <div class="pickmeta">
-            <h3>Mindhaus Private</h3>
-            <div class="row"><span class="k">Floor area</span><span class="v" data-size>600 – 2,400 sqm</span></div>
-            <p class="pdesc">Standalone office buildings on the campus, each with its own entrance.</p>
+            <h3>Mindhaus office space</h3>
+            <div class="row"><span class="k">Floor area</span><span class="v" data-size>200 &ndash; 2,400 sqm</span></div>
+            <p class="pdesc">Private and twin buildings, quads, and smaller modules inside Mindhaus Campus &mdash; from a single floor up to a standalone building.</p>
           </div>
         </div>
-        <div class="pickbody" data-pane="6" data-type="Twin" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/o-campus.jpeg" alt="Mindhaus Twin" loading="lazy"></figure></div>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Mindhaus Twin</h3>
-            <div class="row"><span class="k">Floor area</span><span class="v" data-size>600 – 1,200 sqm</span></div>
-            <p class="pdesc">Paired buildings sharing a landscaped courtyard.</p>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="7" data-type="Quad" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/o-strip.jpeg" alt="Quad" loading="lazy"></figure></div>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Quad</h3>
-            <div class="row"><span class="k">Floor area</span><span class="v" data-size>1,200 – 2,400 sqm</span></div>
-            <p class="pdesc">Four units around a shared core, on the Strip.</p>
-          </div>
-        </div>
-        <div class="pickbody" data-pane="8" data-type="Campus module" hidden>
-          <div class="pickshots">
-            <div class="ptrack" data-pcar><figure><img data-fallback="assets/img/d5/o-campus.jpeg" alt="Campus module" loading="lazy"></figure></div>
-            <div class="pdots"></div>
-          </div>
-          <div class="pickmeta">
-            <h3>Campus module</h3>
-            <div class="row"><span class="k">Floor area</span><span class="v" data-size>Under 600 sqm</span></div>
-            <p class="pdesc">Smaller modules inside the campus, from a single floor upward.</p>
-          </div>
-        </div>
+        
+        
+        
       </div>
           </div>
   </section>
@@ -1498,12 +1418,28 @@ document.querySelectorAll('.switch button').forEach(function(b){
     var depWasHidden = dep ? dep.hidden : null;
     var depChips = dep && dep.querySelector('[data-dep-chips]');
     var injected = false;
+    var savedChips = null;
     if (dep) {
-      /* An empty field measures shorter than a real one. Without a chip in it
-         the reserved height was 40px short and the card still grew when a type
-         was picked. */
-      if (depChips && !depChips.children.length) {
-        depChips.innerHTML = '<button type="button" class="chip">0</button>';
+      /* Measure against the widest real option set, not a placeholder. A single
+         "0" chip was 47px short once the office formats merged into one entry
+         with three area ranges: "200 - 600 sqm" and friends wrap onto extra
+         lines on a phone, and the card grew when they appeared. Every type's
+         options are read off its chip and the tallest wins. */
+      /* Always measure against the widest real option set, whatever is in the
+         field right now. Measuring only when empty meant a re-lock triggered by
+         picking a type measured that type's options instead — so the reserved
+         height shrank to fit the narrowest case and the card moved again. */
+      if (depChips) {
+        savedChips = depChips.innerHTML;
+        var widest = "";
+        form.querySelectorAll("[data-single] .chip").forEach(function (c) {
+          var o = c.getAttribute("data-options") || "";
+          if (o.length > widest.length) widest = o;
+        });
+        var opts = widest ? widest.split("|") : ["0"];
+        depChips.innerHTML = opts.map(function (o) {
+          return '<button type="button" class="chip">' + o.trim() + "</button>";
+        }).join("");
         injected = true;
       }
       dep.hidden = false;
@@ -1515,7 +1451,7 @@ document.querySelectorAll('.switch button').forEach(function(b){
       off.forEach(function (el) { el.hidden = state[1]; });
       heights.push(card.offsetHeight);
     });
-    if (injected && depChips) depChips.innerHTML = '';
+    if (injected && depChips) depChips.innerHTML = savedChips || '';
     if (dep) dep.hidden = depWasHidden;
     res.forEach(function (el, i) { el.hidden = wasRes[i]; });
     off.forEach(function (el, i) { el.hidden = wasOff[i]; });

@@ -14,9 +14,10 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/crescent/t-villa.jpeg"
+     "image": "assets/img/crescent/u-villa.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Twinhouse",
@@ -27,9 +28,10 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/crescent/t-twin.jpeg"
+     "image": "assets/img/crescent/u-twinhouse.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Townhouse",
@@ -40,9 +42,10 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/crescent/t-town.jpeg"
+     "image": "assets/img/crescent/u-townhouse.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Private residence",
@@ -53,14 +56,15 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/crescent/t-private.jpeg"
+     "image": "assets/img/crescent/u-private.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   }
  ],
  "logos": {
   "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": ""
+  "project": "assets/img/logos/crescent-logo.png"
  },
  "en": {
   "hero_kicker": "East Cairo",

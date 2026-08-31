@@ -14,9 +14,10 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/d5/r-plateau.jpeg"
+     "image": "assets/img/d5/u-apartment.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Townhome",
@@ -25,11 +26,8 @@
    "options": "3|4",
    "optionKind": "beds",
    "size": "",
-   "photos": [
-    {
-     "image": "assets/img/d5/r-clubside.jpeg"
-    }
-   ]
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Court home",
@@ -38,11 +36,8 @@
    "options": "3|4",
    "optionKind": "beds",
    "size": "",
-   "photos": [
-    {
-     "image": "assets/img/d5/r-dparks.jpeg"
-    }
-   ]
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Twinhouse",
@@ -51,11 +46,8 @@
    "options": "4|5",
    "optionKind": "beds",
    "size": "",
-   "photos": [
-    {
-     "image": "assets/img/d5/r-homes.jpeg"
-    }
-   ]
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Villa",
@@ -64,56 +56,37 @@
    "options": "4|5|6+",
    "optionKind": "beds",
    "size": "",
-   "photos": [
-    {
-     "image": "assets/img/d5/r-homes.jpeg"
-    },
-    {
-     "image": "assets/img/d5/r-plateau.jpeg"
-    }
-   ]
+   "photos": [],
+   "showcase": false
   }
  ],
  "officeFormats": [
   {
-   "label_en": "Private",
-   "label_ar": "مستقل",
+   "label_en": "Office",
+   "label_ar": "مساحات مكتبية",
    "status": "available",
-   "options": "600 – 1,200 sqm|1,200 – 2,400 sqm",
-   "optionKind": "area"
-  },
-  {
-   "label_en": "Twin",
-   "label_ar": "مزدوج",
-   "status": "available",
-   "options": "600 – 1,200 sqm",
-   "optionKind": "area"
-  },
-  {
-   "label_en": "Quad",
-   "label_ar": "رباعي",
-   "status": "limited",
-   "options": "1,200 – 2,400 sqm",
-   "optionKind": "area"
-  },
-  {
-   "label_en": "Campus module",
-   "label_ar": "وحدة بالحرم",
-   "status": "available",
-   "options": "Under 200 sqm|200 – 600 sqm",
-   "optionKind": "area"
+   "options": "200 – 600 sqm|600 – 1,200 sqm|1,200 – 2,400 sqm",
+   "optionKind": "area",
+   "size": "200 – 2,400 sqm",
+   "photos": [
+    {
+     "image": "assets/img/d5/u-office.jpeg"
+    }
+   ]
   },
   {
    "label_en": "Not sure yet",
    "label_ar": "لم أقرر بعد",
    "status": "available",
    "options": "",
-   "optionKind": "area"
+   "optionKind": "area",
+   "size": "",
+   "photos": []
   }
  ],
  "logos": {
   "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": ""
+  "project": "assets/img/logos/district5-logo.png"
  },
  "en": {
   "hero_kicker": "New Katameya · East Cairo",

@@ -14,15 +14,10 @@
    "size": "320 – 480 sqm",
    "photos": [
     {
-     "image": "assets/img/ramla/n-dunes.jpeg"
-    },
-    {
-     "image": "assets/img/ramla/n-grove.jpeg"
-    },
-    {
-     "image": "assets/img/ramla/n-acacia.jpeg"
+     "image": "assets/img/ramla/u-villa.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Twinhouse",
@@ -33,12 +28,10 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/ramla/n-breeze.jpeg"
-    },
-    {
-     "image": "assets/img/ramla/n-acacia.jpeg"
+     "image": "assets/img/ramla/u-twinhouse.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   },
   {
    "label_en": "Townhouse",
@@ -47,11 +40,8 @@
    "options": "3|4",
    "optionKind": "beds",
    "size": "",
-   "photos": [
-    {
-     "image": "assets/img/ramla/n-town.jpeg"
-    }
-   ]
+   "photos": [],
+   "showcase": false
   },
   {
    "label_en": "Chalet",
@@ -62,14 +52,15 @@
    "size": "",
    "photos": [
     {
-     "image": "assets/img/ramla/n-oasis.jpeg"
+     "image": "assets/img/ramla/u-chalet.jpeg"
     }
-   ]
+   ],
+   "showcase": true
   }
  ],
  "logos": {
   "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": "assets/img/logos/ramla-wordmark.png"
+  "project": "assets/img/logos/ramla-logo.svg"
  },
  "en": {
   "hero_kicker": "Ras El Hekma · North Coast",

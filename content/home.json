@@ -1,7 +1,7 @@
 {
  "images": {
   "hero": "assets/img/marakez/hero.jpeg",
-  "about2": "assets/img/marakez/hero.jpeg"
+  "about2": "assets/img/marakez/about.jpeg"
  },
  "heroScrim": "strong",
  "cards": [
@@ -13,7 +13,7 @@
   {
    "key": "shams",
    "label": "Shams Soma",
-   "image": ""
+   "image": "assets/img/marakez/card-shams.jpeg"
   },
   {
    "key": "district5",
@@ -28,7 +28,7 @@
   {
    "key": "aeon",
    "label": "Aeon Towers & Courtyards",
-   "image": ""
+   "image": "assets/img/marakez/card-aeon.jpeg"
   }
  ],
  "logos": {

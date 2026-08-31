@@ -1059,6 +1059,14 @@ h2{margin-bottom:12px}
 /* With no script there is no CMS value to fetch, so the shipped photo is
    painted as a background instead — the img has no src and would stay blank. */
 .hero{background-image:url("assets/img/crescent/hero.jpeg");background-size:cover;background-position:center}
+
+/* The project logos are white artwork so they read on the dark hero. Below the
+   stacking point the hero copy sits on white, where white artwork would be
+   invisible — so it is rendered dark there instead. brightness(0) keeps the
+   mark's shape and its transparency, and only its colour changes. */
+@media(max-width:860px){
+  .projlogo{filter:brightness(0) opacity(.86)}
+}
 </style></noscript>
 </head>
 <body data-project="crescent">
@@ -1461,13 +1469,23 @@ if('IntersectionObserver' in window){
     var wasHidden = dep.hidden;
     var chips = dep.querySelector('[data-dep-chips]');
     var injected = false;
+    var savedChips = chips ? chips.innerHTML : null;
 
     card.style.minHeight = '';
     if (wasHidden) {
       /* give it a chip so the reserved height matches a real one, not an
          empty box */
-      if (chips && !chips.children.length) {
-        chips.innerHTML = '<button type="button" class="chip">0</button>';
+      if (chips) {
+        /* the widest real option set, not a placeholder — see district-5 */
+        var widest = "";
+        form.querySelectorAll("[data-single] .chip").forEach(function (c) {
+          var o = c.getAttribute("data-options") || "";
+          if (o.length > widest.length) widest = o;
+        });
+        var opts = widest ? widest.split("|") : ["0"];
+        chips.innerHTML = opts.map(function (o) {
+          return '<button type="button" class="chip">' + o.trim() + "</button>";
+        }).join("");
         injected = true;
       }
       dep.hidden = false;

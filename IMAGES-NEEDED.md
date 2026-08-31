@@ -1,113 +1,77 @@
-# Photographs needed
+# Photographs — what's in and what's still needed
 
-Every image slot on the site. Tick or name the files you're sending in the last
-column, put them in one folder, and send the folder with this document. I'll
-place them, check each renders, and return a build.
+Updated after the first batch. **33 of 43 slots are filled.** The ten below
+are the only ones still open.
 
-## Sizes — you don't have to match them
+## Still needed
 
-Send whatever you have. **Every slot is a fixed shape and I resize and crop to
-fit before placing anything**, so no file you send can change the layout. The
-suggested sizes only tell you what will be cropped: a portrait photo in a 16:9
-hero loses its top and bottom, so if the important part is near an edge, say so
-and I'll crop it deliberately rather than from the centre.
+| Project | Slot | Effect right now |
+|---|---|---|
+| Ramla | Townhouse | Hidden from the property-type section. Still selectable in the enquiry form. |
+| District 5 | Townhome, Court home, Twinhouse, Villa | Hidden from the section — only Apartments is shown. Still selectable in the form. |
+| Shams Soma | Villa, Townhome, Chalet, Loft, Penthouse | The whole property-type section is hidden. Types still selectable in the form. |
 
-The one thing worth respecting is **minimum** size. Below the suggested width the
-image is being enlarged and will look soft. If a file is too small I'll tell you
-rather than place it.
+Send any of these and the type reappears in its section automatically —
+no other change needed.
 
-**Filenames** — anything readable: `ramla-hero.jpg`, `shams-villa-1.jpg`,
-`shams-villa-2.jpg`. Numbered suffixes go into the carousel in that order.
+## Quality notes on the batch just placed
 
+None of these break anything; they are worth replacing when better files exist.
 
-## Homepage
+| File | Issue |
+|---|---|
+| Ramla hero | 1175 x 722 supplied against a 2400px slot — it is being enlarged and looks soft on a large screen |
+| District 5 apartment | 713 x 570, the smallest unit photo in the set; noticeably softer than the others |
+| Homepage about photo | Portrait 1668 x 1887 in a landscape 4:3 slot, so it is cropped hard top and bottom |
+| Crescent Walk logo | Supplied as a JPEG with the mark in white on near-white, so it had to be cut out by threshold; a transparent PNG or SVG would be cleaner |
+| Ramla masterplan | 623 x 794, small but shown at its own size so it holds up |
 
-| Slot | Suggested size | Notes | Now | Sending |
-|---|---|---|---|---|
-| Main photo — hero | 2400 x 1350 | 16:9, cropped from the centre | in place |  |
-| Main photo — about2 | 1600 x 1200 | 4:3, beside the About Marakez text | in place |  |
-| Marakez wordmark (header) | 340 x 100 | transparent PNG or SVG | in place |  |
-| Project card — Ramla card | 1200 x 675 | 16:9 | in place |  |
-| Project card — Crescent Walk card | 1200 x 675 | 16:9 | in place |  |
-| Project card — District 5 card | 1200 x 675 | 16:9 | in place |  |
-| Project card — Shams Soma card | 1200 x 675 | 16:9 | **empty** |  |
+## What was done to the logos
 
-## Ramla
+The four project logos arrived in three different states, so they were
+normalised to white artwork on transparency, which is what the dark hero
+needs. Below the mobile breakpoint the hero copy sits on white, so the logo
+is rendered dark there by filter — same mark, correct contrast both ways.
 
-| Slot | Suggested size | Notes | Now | Sending |
-|---|---|---|---|---|
-| Main photo — hero | 2400 x 1350 | 16:9, cropped from the centre | in place |  |
-| Main photo — masterplan | 1600 px wide | shown whole, never cropped — send the plan as published | in place |  |
-| Marakez wordmark (header) | 340 x 100 | transparent PNG or SVG | in place |  |
-| Ramla logo (hero) | 480 x 120 | transparent PNG or SVG, sits on the hero | in place |  |
-| Unit type — Villa | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Twinhouse | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Townhouse | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Chalet | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
+- **Marakez wordmark** — dark artwork, used as supplied on the white header
+- **Crescent Walk** — extracted from the JPEG and normalised
+- **District 5**, **Shams Soma** — already transparent, normalised to white
+- **Ramla** — SVG, used as supplied
 
-## Crescent Walk
+## Slots now filled
 
-| Slot | Suggested size | Notes | Now | Sending |
-|---|---|---|---|---|
-| Main photo — hero | 2400 x 1350 | 16:9, cropped from the centre | in place |  |
-| Main photo — masterplan | 1600 px wide | shown whole, never cropped — send the plan as published | in place |  |
-| Marakez wordmark (header) | 340 x 100 | transparent PNG or SVG | in place |  |
-| Crescent Walk logo (hero) | 480 x 120 | transparent PNG or SVG, sits on the hero | **empty** |  |
-| Unit type — Villa | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Twinhouse | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Townhouse | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Private residence | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-
-## District 5
-
-| Slot | Suggested size | Notes | Now | Sending |
-|---|---|---|---|---|
-| Main photo — hero | 2400 x 1350 | 16:9, cropped from the centre | in place |  |
-| Main photo — masterplan | 1600 px wide | shown whole, never cropped — send the plan as published | in place |  |
-| Marakez wordmark (header) | 340 x 100 | transparent PNG or SVG | in place |  |
-| District 5 logo (hero) | 480 x 120 | transparent PNG or SVG, sits on the hero | **empty** |  |
-| Unit type — Apartment | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Townhome | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Court home | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Twinhouse | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Unit type — Villa | 1600 x 1000 | 16:10, 1–6 photos per type | in place |  |
-| Office format — Private | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Office format — Twin | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Office format — Quad | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Office format — Campus module | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Office format — Not sure yet | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-
-## Shams Soma
-
-| Slot | Suggested size | Notes | Now | Sending |
-|---|---|---|---|---|
-| Main photo — hero | 2400 x 1350 | 16:9, cropped from the centre | **empty** |  |
-| Main photo — masterplan | 1600 px wide | shown whole, never cropped — send the plan as published | **empty** |  |
-| Marakez wordmark (header) | 340 x 100 | transparent PNG or SVG | in place |  |
-| Shams Soma logo (hero) | 480 x 120 | transparent PNG or SVG, sits on the hero | **empty** |  |
-| Unit type — Villa | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Unit type — Townhome | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Unit type — Chalet | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Unit type — Loft | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-| Unit type — Penthouse | 1600 x 1000 | 16:10, 1–6 photos per type | **empty** |  |
-
----
-
-## Priority
-
-16 of 46 slots are empty:
-
-1. **Shams Soma hero** — the page has no image; the top is a plain navy ground.
-2. **Shams Soma unit photos** — all five types. Brochure renders are ideal.
-3. **Shams Soma card on the homepage** — currently a navy placeholder.
-4. **Crescent Walk and District 5 hero logos** — only Ramla's is in place.
-5. **Shams Soma masterplan** — section 01 runs single-column until this exists.
-6. **Unit photos on Ramla, Crescent Walk and District 5** — currently
-   neighbourhood shots standing in for real unit photography.
-
-## Send originals, not exports
-
-Anything screenshotted or exported from a PDF is compressed once already and
-will look soft after the site re-encodes it. If a brochure is the only source,
-tell me and I'll extract at the best quality available rather than you
-screenshotting.
+| Project | Slot | File |
+|---|---|---|
+| Homepage | Main photo — hero | `hero.jpeg` |
+| Homepage | Main photo — about2 | `about.jpeg` |
+| Homepage | Logo — Marakez wordmark (header) | `marakez-wordmark.png` |
+| Homepage | Project card — Ramla card | `card-ramla.jpeg` |
+| Homepage | Project card — Shams Soma card | `card-shams.jpeg` |
+| Homepage | Project card — District 5 card | `card-d5.jpeg` |
+| Homepage | Project card — Crescent Walk card | `card-crescent.jpeg` |
+| Homepage | Project card — Aeon Towers card | `card-aeon.jpeg` |
+| Ramla | Main photo — hero | `hero.jpeg` |
+| Ramla | Main photo — masterplan | `masterplan.jpeg` |
+| Ramla | Logo — Marakez wordmark (header) | `marakez-wordmark.png` |
+| Ramla | Logo — Ramla logo (hero) | `ramla-logo.svg` |
+| Ramla | Unit type — Villa | `u-villa.jpeg` |
+| Ramla | Unit type — Twinhouse | `u-twinhouse.jpeg` |
+| Ramla | Unit type — Chalet | `u-chalet.jpeg` |
+| Crescent Walk | Main photo — hero | `hero.jpeg` |
+| Crescent Walk | Main photo — masterplan | `masterplan.jpeg` |
+| Crescent Walk | Logo — Marakez wordmark (header) | `marakez-wordmark.png` |
+| Crescent Walk | Logo — Crescent Walk logo (hero) | `crescent-logo.png` |
+| Crescent Walk | Unit type — Villa | `u-villa.jpeg` |
+| Crescent Walk | Unit type — Twinhouse | `u-twinhouse.jpeg` |
+| Crescent Walk | Unit type — Townhouse | `u-townhouse.jpeg` |
+| Crescent Walk | Unit type — Private residence | `u-private.jpeg` |
+| District 5 | Main photo — hero | `hero.jpeg` |
+| District 5 | Main photo — masterplan | `masterplan.jpeg` |
+| District 5 | Logo — Marakez wordmark (header) | `marakez-wordmark.png` |
+| District 5 | Logo — District 5 logo (hero) | `district5-logo.png` |
+| District 5 | Unit type — Apartment | `u-apartment.jpeg` |
+| District 5 | Office — Office | `u-office.jpeg` |
+| Shams Soma | Main photo — hero | `hero.jpeg` |
+| Shams Soma | Main photo — masterplan | `masterplan.jpeg` |
+| Shams Soma | Logo — Marakez wordmark (header) | `marakez-wordmark.png` |
+| Shams Soma | Logo — Shams Soma logo (hero) | `shams-logo.png` |
