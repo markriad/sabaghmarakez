@@ -130,7 +130,7 @@ court home (sold out), twinhouse, villa. Offices: Mindhaus Private, Twin, Quad,
 Campus module, 600–2,400 sqm.
 
 **Shams Soma** — Somabay, Red Sea. Marakez's first Red Sea project, with
-Somabay. 340,000 sqm (84 acres). Low-density plan. Homes built around usable
+Somabay. 83 acres (80 feddans, from the technical brochure). Low-density plan. Homes built around usable
 outdoor space, with Red Sea views. Sales expected to open in 2026. No prices or
 unit types announced.
 

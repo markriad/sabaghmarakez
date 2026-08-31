@@ -59,6 +59,14 @@ chk("hero fact 'residential projects' matches the cards",
     bool(fact) and NUMW.get(fact['value'])==projects,
     f"says {fact['value'] if fact else '?'}, {projects} projects shown")
 
+# ── residential areas must all use the same unit ──
+rows=re.findall(r'<span class="rn">([^<]+)</span>.*?<span class="rs">([^<]*)</span>',
+                b[b.index('id="g1"'):b.index('id="g2"')], re.S)
+units=[(n,v) for n,v in rows if re.search(r'\d', v)]
+odd=[f"{n}: {v}" for n,v in units if 'acre' not in v.lower()]
+chk("every residential row states its area in acres", not odd, "; ".join(odd))
+chk("no feddans anywhere in the English copy", 'feddan' not in b.lower())
+
 # ── 404 must list every real page ──
 pages=[p.name for p in pathlib.Path('.').glob('*.html')
        if p.name not in ('404.html','thank-you.html')]
@@ -76,7 +84,7 @@ SOURCED={'621,401 sqm':'Mall of Arabia, e-brochure','155,000 sqm':'Mall of Manso
  '34,000 sqm':'The Park, e-brochure','21 acres':'Aeon, e-brochure',
  '62.5 MW':'FAS Energy Benban, e-brochure','1.4 km':'Ramla brochure',
  '118 acres':'Crescent Walk brochure','268 acres':'D5 brochure',
- '80 feddans':'Shams Soma technical brochure','106,000 sqm':'Mindhaus Campus, e-brochure'}
+ '83 acres':'Shams Soma technical brochure — 80 feddans converted; the site states every residential area in acres','106,000 sqm':'Mindhaus Campus, e-brochure'}
 for fig,src in SOURCED.items():
     chk(f"{fig} present and sourced", fig in b or fig.replace(' ','&nbsp;') in b, src)
 
