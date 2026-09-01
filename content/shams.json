@@ -1,172 +1,207 @@
 {
- "logos": {
-  "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": "assets/img/logos/shams-logo.png"
- },
- "images": {
-  "hero": "assets/img/shams/hero.jpeg",
-  "masterplan": "assets/img/shams/masterplan.jpeg"
- },
- "heroScrim": "medium",
- "heroFacts": [
-  {
-   "value": "83 acres",
-   "label": "within Somabay's peninsula"
+  "money": {
+    "priceFrom": "EGP 23M",
+    "priceNote": "",
+    "ctaLabel": "Register your interest",
+    "plans": [
+      {
+        "name": "Standard A",
+        "down": 5,
+        "years": 7,
+        "note": ""
+      },
+      {
+        "name": "Standard B",
+        "down": 10,
+        "years": 8,
+        "note": ""
+      }
+    ],
+    "offers": []
   },
-  {
-   "value": "Two piers",
-   "label": "private, into the Red Sea"
-  },
-  {
-   "value": "5 min",
-   "label": "to Somabay Golf Academy"
-  }
- ],
- "money": {
-  "priceFrom": "",
-  "priceNote": "",
-  "ctaLabel": "Register your interest",
-  "plans": [],
-  "offers": []
- },
- "propertyTypes": [
-  {
-   "label_en": "Villa",
-   "label_ar": "فيلا",
-   "status": "available",
-   "options": "3|4|5",
-   "optionKind": "beds",
-   "size": "212 – 320 sqm",
-   "photos": [],
-   "showcase": false
-  },
-  {
-   "label_en": "Townhome",
-   "label_ar": "تاون هوم",
-   "status": "available",
-   "options": "3|4",
-   "optionKind": "beds",
-   "size": "182 – 233 sqm",
-   "photos": [],
-   "showcase": false
-  },
-  {
-   "label_en": "Chalet",
-   "label_ar": "شاليه",
-   "status": "available",
-   "options": "2|3",
-   "optionKind": "beds",
-   "size": "102 – 165 sqm",
-   "photos": [],
-   "showcase": false
-  },
-  {
-   "label_en": "Loft",
-   "label_ar": "لوفت",
-   "status": "available",
-   "options": "2",
-   "optionKind": "beds",
-   "size": "119 – 123 sqm",
-   "photos": [],
-   "showcase": false
-  },
-  {
-   "label_en": "Penthouse",
-   "label_ar": "بنتهاوس",
-   "status": "available",
-   "options": "2",
-   "optionKind": "beds",
-   "size": "133 sqm",
-   "photos": [],
-   "showcase": false
-  }
- ],
- "en": {
-  "hero_kicker": "Somabay · Red Sea",
-  "hero_title": "Where every day begins with the sun.",
-  "hero_title_em": "begins with the sun.",
-  "hero_sub": "Shams Soma is Marakez's first Red Sea project — 83 acres inside Somabay, cascading down to two private piers and its own beaches.",
-  "form_title": "Get prices & availability",
-  "form_why": "Leave your details and a Marakez salesperson will contact you.",
-  "sections": [
-   {
-    "eyebrow": "The project",
-    "title": "Designed around the sea.",
-    "title_em": "around the sea.",
-    "lead": "The masterplan cascades with the natural terrain, so homes step down the slope and every one of them looks out over the Red Sea."
-   },
-   {
-    "eyebrow": "Property types",
-    "title": "From a loft to a five-bedroom villa.",
-    "title_em": "to a five-bedroom villa.",
-    "lead": "Sizes and bedroom counts below are from the technical brochure."
-   }
+  "propertyTypes": [
+    {
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "size": "212 – 320 sqm",
+      "photos": [],
+      "status": "available",
+      "options": "3|4|5",
+      "optionKind": "beds",
+      "showcase": false
+    },
+    {
+      "label_en": "Townhome",
+      "label_ar": "تاون هوم",
+      "size": "182 – 233 sqm",
+      "photos": [],
+      "status": "available",
+      "options": "3|4",
+      "optionKind": "beds",
+      "showcase": false
+    },
+    {
+      "label_en": "Chalet",
+      "label_ar": "شاليه",
+      "size": "102 – 165 sqm",
+      "photos": [],
+      "status": "available",
+      "options": "2|3",
+      "optionKind": "beds",
+      "showcase": false
+    },
+    {
+      "label_en": "Loft",
+      "label_ar": "لوفت",
+      "size": "119 – 123 sqm",
+      "photos": [],
+      "status": "available",
+      "options": "2",
+      "optionKind": "beds",
+      "showcase": false
+    },
+    {
+      "label_en": "Penthouse",
+      "label_ar": "بنتهاوس",
+      "size": "133 sqm",
+      "photos": [],
+      "status": "available",
+      "options": "2",
+      "optionKind": "beds",
+      "showcase": false
+    }
   ],
-  "panels": [
-   {
-    "title": "Two private piers",
-    "text": "North and South Jetty extend into the Red Sea, for morning swims, canoes and paddleboards straight from the community."
-   },
-   {
-    "title": "Its own beaches",
-    "text": "North and South Beach, with a beach restaurant, boardwalk and sunbathing decks along the shore."
-   },
-   {
-    "title": "An infinity pool at the top",
-    "text": "The highest point of the site is crowned by an infinity pool that frames the horizon in every direction."
-   },
-   {
-    "title": "Two green valleys",
-    "text": "North and South Valley are shaded walkable routes connecting the homes, the hotel and the social spaces."
-   },
-   {
-    "title": "Somabay on your doorstep",
-    "text": "Residents reach the championship golf course, the dive centre, the kite house, the marina and The Cascades spa — all at Somabay."
-   }
-  ]
- },
- "ar": {
-  "hero_kicker": "سوما باي · البحر الأحمر",
-  "hero_title": "حيث يبدأ كل يوم مع الشمس.",
-  "hero_title_em": "مع الشمس.",
-  "hero_sub": "شمس سوما هو أول مشروع لمراكز على البحر الأحمر — 80 فدانًا داخل سوما باي، بممشيين خشبيين خاصين وشواطئ خاصة.",
-  "form_title": "اطلب الأسعار والوحدات المتاحة",
-  "form_why": "اترك بياناتك وسيتواصل معك مندوب مبيعات مراكز.",
-  "sections": [
-   {
-    "eyebrow": "المشروع",
-    "title": "مصمم حول البحر.",
-    "title_em": "حول البحر.",
-    "lead": "مخطط يتدرج مع طبيعة الأرض بحيث تطل كل وحدة على البحر الأحمر."
-   },
-   {
-    "eyebrow": "أنواع الوحدات",
-    "title": "من لوفت إلى فيلا بخمس غرف.",
-    "title_em": "إلى فيلا بخمس غرف.",
-    "lead": "المساحات وعدد الغرف من الكتيب الفني."
-   }
+  "images": {
+    "hero": "assets/img/shams/hero.jpeg",
+    "masterplan": "assets/img/shams/masterplan.jpeg"
+  },
+  "heroFacts": [
+    {
+      "value": "83 acres",
+      "label": "within Somabay's peninsula"
+    },
+    {
+      "value": "Two piers",
+      "label": "private, into the Red Sea"
+    },
+    {
+      "value": "5 min",
+      "label": "to Somabay Golf Academy"
+    }
   ],
-  "panels": [
-   {
-    "title": "ممشيان خاصان",
-    "text": "ممشيان خشبيان يمتدان إلى البحر الأحمر."
-   },
-   {
-    "title": "شواطئ خاصة",
-    "text": "شاطئان مع مطعم وممشى وأسطح للاستجمام."
-   },
-   {
-    "title": "حمام سباحة لا نهائي",
-    "text": "في أعلى نقطة بالمشروع بإطلالة على الأفق."
-   },
-   {
-    "title": "واديان أخضران",
-    "text": "ممرات مظللة تربط الوحدات بالفندق والمساحات المشتركة."
-   },
-   {
-    "title": "سوما باي بجوارك",
-    "text": "ملعب الجولف ومركز الغوص والمارينا والسبا في سوما باي."
-   }
-  ]
- }
+  "en": {
+    "hero_kicker": "Somabay · Red Sea",
+    "hero_title": "Where every day begins with the sun.",
+    "hero_title_em": "begins with the sun.",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "Designed around the sea.",
+        "title_em": "around the sea.",
+        "lead": "The masterplan cascades with the natural terrain, so homes step down the slope and every one of them looks out over the Red Sea."
+      },
+      {
+        "eyebrow": "Property types",
+        "title": "From a loft to a five-bedroom villa.",
+        "title_em": "to a five-bedroom villa.",
+        "lead": "Sizes and bedroom counts below are from the technical brochure."
+      }
+    ],
+    "pillars": [],
+    "masterplanKey": [],
+    "panels": [
+      {
+        "sub": "",
+        "title": "Two private piers",
+        "text": "North and South Jetty extend into the Red Sea, for morning swims, canoes and paddleboards straight from the community."
+      },
+      {
+        "sub": "",
+        "title": "Its own beaches",
+        "text": "North and South Beach, with a beach restaurant, boardwalk and sunbathing decks along the shore."
+      },
+      {
+        "sub": "",
+        "title": "An infinity pool at the top",
+        "text": "The highest point of the site is crowned by an infinity pool that frames the horizon in every direction."
+      },
+      {
+        "sub": "",
+        "title": "Two green valleys",
+        "text": "North and South Valley are shaded walkable routes connecting the homes, the hotel and the social spaces."
+      },
+      {
+        "sub": "",
+        "title": "Somabay on your doorstep",
+        "text": "Residents reach the championship golf course, the dive centre, the kite house, the marina and The Cascades spa — all at Somabay."
+      }
+    ],
+    "usps": [],
+    "top_bar": "",
+    "footer_disclaimer": "",
+    "form_title": "Get prices & availability",
+    "form_why": "Leave your details and a Marakez salesperson will contact you.",
+    "hero_sub": "Shams Soma is Marakez's first Red Sea project — 83 acres inside Somabay, cascading down to two private piers and its own beaches."
+  },
+  "ar": {
+    "hero_kicker": "سوما باي · البحر الأحمر",
+    "hero_title": "حيث يبدأ كل يوم مع الشمس.",
+    "hero_title_em": "مع الشمس.",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "المشروع",
+        "title": "مصمم حول البحر.",
+        "title_em": "حول البحر.",
+        "lead": "مخطط يتدرج مع طبيعة الأرض بحيث تطل كل وحدة على البحر الأحمر."
+      },
+      {
+        "eyebrow": "أنواع الوحدات",
+        "title": "من لوفت إلى فيلا بخمس غرف.",
+        "title_em": "إلى فيلا بخمس غرف.",
+        "lead": "المساحات وعدد الغرف من الكتيب الفني."
+      }
+    ],
+    "pillars": [],
+    "masterplanKey": [],
+    "panels": [
+      {
+        "sub": "",
+        "title": "ممشيان خاصان",
+        "text": "ممشيان خشبيان يمتدان إلى البحر الأحمر."
+      },
+      {
+        "sub": "",
+        "title": "شواطئ خاصة",
+        "text": "شاطئان مع مطعم وممشى وأسطح للاستجمام."
+      },
+      {
+        "sub": "",
+        "title": "حمام سباحة لا نهائي",
+        "text": "في أعلى نقطة بالمشروع بإطلالة على الأفق."
+      },
+      {
+        "sub": "",
+        "title": "واديان أخضران",
+        "text": "ممرات مظللة تربط الوحدات بالفندق والمساحات المشتركة."
+      },
+      {
+        "sub": "",
+        "title": "سوما باي بجوارك",
+        "text": "ملعب الجولف ومركز الغوص والمارينا والسبا في سوما باي."
+      }
+    ],
+    "usps": [],
+    "top_bar": "",
+    "footer_disclaimer": "",
+    "form_title": "اطلب الأسعار والوحدات المتاحة",
+    "form_why": "اترك بياناتك وسيتواصل معك مندوب مبيعات مراكز.",
+    "hero_sub": "شمس سوما هو أول مشروع لمراكز على البحر الأحمر — 80 فدانًا داخل سوما باي، بممشيين خشبيين خاصين وشواطئ خاصة."
+  },
+  "logos": {
+    "marakez": "assets/img/logos/marakez-wordmark.png",
+    "project": "assets/img/logos/shams-logo.png"
+  },
+  "heroScrim": "medium"
 }
