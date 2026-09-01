@@ -1,310 +1,313 @@
 {
- "images": {
-  "hero": "assets/img/crescent/hero.jpeg",
-  "masterplan": "assets/img/crescent/masterplan.jpeg"
- },
- "heroScrim": "medium",
- "propertyTypes": [
-  {
-   "label_en": "Villa",
-   "label_ar": "فيلا",
-   "status": "available",
-   "options": "4|5|6+",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+  "money": {
+    "priceFrom": "EGP 9M",
+    "priceNote": "Indicative · subject to change",
+    "ctaLabel": "Get the current price list",
+    "plans": [
+      {
+        "name": "Standard",
+        "down": 5,
+        "years": 10,
+        "note": ""
+      }
+    ],
+    "offers": []
+  },
+  "propertyTypes": [
     {
-     "image": "assets/img/crescent/u-villa.jpeg"
-    }
-   ],
-   "showcase": true
-  },
-  {
-   "label_en": "Twinhouse",
-   "label_ar": "توين هاوس",
-   "status": "available",
-   "options": "4|5",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/crescent/u-villa.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "4|5|6+",
+      "optionKind": "beds",
+      "showcase": true
+    },
     {
-     "image": "assets/img/crescent/u-twinhouse.jpeg"
-    }
-   ],
-   "showcase": true
-  },
-  {
-   "label_en": "Townhouse",
-   "label_ar": "تاون هاوس",
-   "status": "limited",
-   "options": "3|4",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+      "label_en": "Twinhouse",
+      "label_ar": "توين هاوس",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/crescent/u-twinhouse.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "4|5",
+      "optionKind": "beds",
+      "showcase": true
+    },
     {
-     "image": "assets/img/crescent/u-townhouse.jpeg"
-    }
-   ],
-   "showcase": true
-  },
-  {
-   "label_en": "Private residence",
-   "label_ar": "وحدة خاصة",
-   "status": "available",
-   "options": "3|4|5",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+      "label_en": "Townhouse",
+      "label_ar": "تاون هاوس",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/crescent/u-townhouse.jpeg"
+        }
+      ],
+      "status": "limited",
+      "options": "3|4",
+      "optionKind": "beds",
+      "showcase": true
+    },
     {
-     "image": "assets/img/crescent/u-private.jpeg"
+      "label_en": "Private residence",
+      "label_ar": "وحدة خاصة",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/crescent/u-private.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "3|4|5",
+      "optionKind": "beds",
+      "showcase": true
     }
-   ],
-   "showcase": true
-  }
- ],
- "logos": {
-  "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": "assets/img/logos/crescent-logo.png"
- },
- "en": {
-  "hero_kicker": "East Cairo",
-  "hero_title": "Follow the path home.",
-  "hero_title_em": "home.",
-  "sections": [
-   {
-    "eyebrow": "The project",
-    "title": "A neighbourhood where everyone knows your name.",
-    "title_em": "knows your name.",
-    "lead": ""
-   },
-   {
-    "eyebrow": "Property types",
-    "title": "Every one of them backs onto the park.",
-    "title_em": "backs onto the park.",
-    "lead": "Four types, one green spine, a private gate from each."
-   }
   ],
-  "pillars": [
-   {
-    "title": "Connected without the traffic",
-    "text": "Direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly, far enough not to hear it."
-   },
-   {
-    "title": "Green space came first",
-    "text": "Most compounds lay roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it."
-   },
-   {
-    "title": "Built for the climate",
-    "text": "Brickwork, masonry banding and timber hues, with double-height ceilings and deep terraces that handle Cairo's heat."
-   }
-  ],
-  "usps": [
-   {
-    "title": "A back gate onto the park",
-    "text": "Homes open directly onto the green spine — no walking around the block to reach it."
-   },
-   {
-    "title": "A full cycling loop",
-    "text": "The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community."
-   },
-   {
-    "title": "Shops without leaving",
-    "text": "The commercial park carries groceries, cafés and daily essentials inside the gates."
-   },
-   {
-    "title": "Art deco, built for heat",
-    "text": "PBD's architecture uses brick, masonry banding and deep terraces — nostalgic, but designed for the climate."
-   }
-  ],
-  "masterplanKey": [
-   {
-    "num": "1",
-    "title": "Central Park",
-    "sub": "The largest open space"
-   },
-   {
-    "num": "2",
-    "title": "Green spine & paseo",
-    "sub": "Walking and cycling loop"
-   },
-   {
-    "num": "3",
-    "title": "Clubhouse & sports",
-    "sub": "Courts, pools, gathering"
-   },
-   {
-    "num": "4",
-    "title": "Commercial park",
-    "sub": "Groceries, cafés, boutiques"
-   },
-   {
-    "num": "5",
-    "title": "Neighbourhood parks",
-    "sub": "Smaller local greens"
-   },
-   {
-    "num": "6",
-    "title": "Street-side gardens",
-    "sub": "Planting along the roads"
-   }
-  ],
-  "panels": [
-   {
-    "sub": "Standalone",
-    "title": "Villas",
-    "text": "Detached homes in two design types, with the largest gardens and the most privacy in the community. Double-height living areas and expansive glass onto the terrace."
-   },
-   {
-    "sub": "Semi-detached",
-    "title": "Twinhomes",
-    "text": "Paired homes sharing a single wall — most of the villa footprint and the same architecture, at a lower entry point."
-   },
-   {
-    "sub": "Terraced",
-    "title": "Townhomes",
-    "text": "Arranged in short rows, each with a private garden and a back gate opening directly onto the green spine. Step out and you're already on the path."
-   },
-   {
-    "sub": "Limited collection",
-    "title": "Private residences",
-    "text": "A small number of homes within the community, released in limited phases. Ask about what's currently available."
-   }
-  ],
-  "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
-  "top_bar": "Not the official Marakez website."
- },
- "ar": {
-  "hero_kicker": "",
-  "hero_title": "",
-  "hero_title_em": "",
-  "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   }
-  ],
-  "pillars": [
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   }
-  ],
-  "usps": [
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   }
-  ],
-  "masterplanKey": [
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   }
-  ],
-  "panels": [
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   }
-  ],
-  "footer_disclaimer": "",
-  "top_bar": ""
- },
- "money": {
-  "priceFrom": "EGP 18M",
-  "priceNote": "Indicative · subject to change",
-  "ctaLabel": "Get the current price list",
-  "plans": [
-   {
-    "name": "Standard",
-    "down": 10,
-    "years": 8
-   }
-  ],
-  "offers": []
- },
- "heroFacts": [
-  {
-   "value": "118 acres",
-   "label": "in East Cairo"
+  "images": {
+    "hero": "assets/img/crescent/hero.jpeg",
+    "masterplan": "assets/img/crescent/masterplan.jpeg"
   },
-  {
-   "value": "Five parks",
-   "label": "along one spine"
+  "heroFacts": [
+    {
+      "value": "118 acres",
+      "label": "in East Cairo"
+    },
+    {
+      "value": "Five parks",
+      "label": "along one spine"
+    },
+    {
+      "value": "Every home",
+      "label": "has a back gate onto it"
+    }
+  ],
+  "en": {
+    "hero_kicker": "East Cairo",
+    "hero_title": "Follow the path home.",
+    "hero_title_em": "home.",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "A neighbourhood where everyone knows your name.",
+        "title_em": "knows your name.",
+        "lead": ""
+      },
+      {
+        "eyebrow": "Property types",
+        "title": "Every one of them backs onto the park.",
+        "title_em": "backs onto the park.",
+        "lead": "Four types, one green spine, a private gate from each."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Connected without the traffic",
+        "text": "Direct access to Sokhna Road, South Teseen and the Mid Ring Road. Close enough to reach the city quickly, far enough not to hear it."
+      },
+      {
+        "title": "Green space came first",
+        "text": "Most compounds lay roads and fit gardens into what's left. Here the pathway was drawn first and the homes arranged along it."
+      },
+      {
+        "title": "Built for the climate",
+        "text": "Brickwork, masonry banding and timber hues, with double-height ceilings and deep terraces that handle Cairo's heat."
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "1",
+        "title": "Central Park",
+        "sub": "The largest open space"
+      },
+      {
+        "num": "2",
+        "title": "Green spine & paseo",
+        "sub": "Walking and cycling loop"
+      },
+      {
+        "num": "3",
+        "title": "Clubhouse & sports",
+        "sub": "Courts, pools, gathering"
+      },
+      {
+        "num": "4",
+        "title": "Commercial park",
+        "sub": "Groceries, cafés, boutiques"
+      },
+      {
+        "num": "5",
+        "title": "Neighbourhood parks",
+        "sub": "Smaller local greens"
+      },
+      {
+        "num": "6",
+        "title": "Street-side gardens",
+        "sub": "Planting along the roads"
+      }
+    ],
+    "panels": [
+      {
+        "sub": "Standalone",
+        "title": "Villas",
+        "text": "Detached homes in two design types, with the largest gardens and the most privacy in the community. Double-height living areas and expansive glass onto the terrace."
+      },
+      {
+        "sub": "Semi-detached",
+        "title": "Twinhomes",
+        "text": "Paired homes sharing a single wall — most of the villa footprint and the same architecture, at a lower entry point."
+      },
+      {
+        "sub": "Terraced",
+        "title": "Townhomes",
+        "text": "Arranged in short rows, each with a private garden and a back gate opening directly onto the green spine. Step out and you're already on the path."
+      },
+      {
+        "sub": "Limited collection",
+        "title": "Private residences",
+        "text": "A small number of homes within the community, released in limited phases. Ask about what's currently available."
+      }
+    ],
+    "usps": [
+      {
+        "title": "A back gate onto the park",
+        "text": "Homes open directly onto the green spine — no walking around the block to reach it."
+      },
+      {
+        "title": "A full cycling loop",
+        "text": "The path becomes a dedicated lane lined with flowering shrubs and benches, looping the whole community."
+      },
+      {
+        "title": "Shops without leaving",
+        "text": "The commercial park carries groceries, cafés and daily essentials inside the gates."
+      },
+      {
+        "title": "Art deco, built for heat",
+        "text": "PBD's architecture uses brick, masonry banding and deep terraces — nostalgic, but designed for the climate."
+      }
+    ],
+    "top_bar": "Not the official Marakez website.",
+    "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale."
   },
-  {
-   "value": "Every home",
-   "label": "has a back gate onto it"
-  }
- ]
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      }
+    ],
+    "panels": [
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      }
+    ],
+    "usps": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "top_bar": "",
+    "footer_disclaimer": ""
+  },
+  "logos": {
+    "marakez": "assets/img/logos/marakez-wordmark.png",
+    "project": "assets/img/logos/crescent-logo.png"
+  },
+  "heroScrim": "medium"
 }
