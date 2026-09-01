@@ -1,311 +1,309 @@
 {
- "images": {
-  "hero": "assets/img/ramla/hero.jpeg",
-  "masterplan": "assets/img/ramla/masterplan.jpeg"
- },
- "heroScrim": "medium",
- "propertyTypes": [
-  {
-   "label_en": "Villa",
-   "label_ar": "فيلا",
-   "status": "available",
-   "options": "4|5|6+",
-   "optionKind": "beds",
-   "size": "320 – 480 sqm",
-   "photos": [
+  "money": {
+    "priceFrom": "EGP 25M",
+    "priceNote": "Indicative · subject to change",
+    "ctaLabel": "Get the current price list",
+    "plans": [
+      {
+        "name": "Standard",
+        "down": 5,
+        "years": null,
+        "note": ""
+      }
+    ],
+    "offers": []
+  },
+  "propertyTypes": [
     {
-     "image": "assets/img/ramla/u-villa.jpeg"
-    }
-   ],
-   "showcase": true
-  },
-  {
-   "label_en": "Twinhouse",
-   "label_ar": "توين هاوس",
-   "status": "available",
-   "options": "4|5",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+      "label_en": "Villa",
+      "label_ar": "فيلا",
+      "size": "320 – 480 sqm",
+      "photos": [
+        {
+          "image": "assets/img/ramla/u-villa.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "4|5|6+",
+      "optionKind": "beds",
+      "showcase": true
+    },
     {
-     "image": "assets/img/ramla/u-twinhouse.jpeg"
-    }
-   ],
-   "showcase": true
-  },
-  {
-   "label_en": "Townhouse",
-   "label_ar": "تاون هاوس",
-   "status": "limited",
-   "options": "3|4",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [],
-   "showcase": false
-  },
-  {
-   "label_en": "Chalet",
-   "label_ar": "شاليه",
-   "status": "available",
-   "options": "1|2|3",
-   "optionKind": "beds",
-   "size": "",
-   "photos": [
+      "label_en": "Twinhouse",
+      "label_ar": "توين هاوس",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/ramla/u-twinhouse.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "4|5",
+      "optionKind": "beds",
+      "showcase": true
+    },
     {
-     "image": "assets/img/ramla/u-chalet.jpeg"
+      "label_en": "Townhouse",
+      "label_ar": "تاون هاوس",
+      "size": "",
+      "photos": [],
+      "status": "limited",
+      "options": "3|4",
+      "optionKind": "beds",
+      "showcase": false
+    },
+    {
+      "label_en": "Chalet",
+      "label_ar": "شاليه",
+      "size": "",
+      "photos": [
+        {
+          "image": "assets/img/ramla/u-chalet.jpeg"
+        }
+      ],
+      "status": "available",
+      "options": "1|2|3",
+      "optionKind": "beds",
+      "showcase": true
     }
-   ],
-   "showcase": true
-  }
- ],
- "logos": {
-  "marakez": "assets/img/logos/marakez-wordmark.png",
-  "project": "assets/img/logos/ramla-logo.svg"
- },
- "en": {
-  "hero_kicker": "Ras El Hekma · North Coast",
-  "hero_title": "Sacred summers on 1.4 km of white sand.",
-  "hero_title_em": "1.4 km",
-  "sections": [
-   {
-    "eyebrow": "The project",
-    "title": "A beach town built to be walked barefoot.",
-    "title_em": "walked barefoot.",
-    "lead": ""
-   },
-   {
-    "eyebrow": "Property types",
-    "title": "From a chalet by the lagoon to a villa on the sand.",
-    "title_em": "to a villa on the sand.",
-    "lead": "Four types across six neighbourhoods."
-   }
   ],
-  "pillars": [
-   {
-    "title": "Everything within walking distance",
-    "text": "Soft sand paths link the neighbourhoods to the beach, the town and each other. No car needed once you arrive."
-   },
-   {
-    "title": "Oriented for the breeze",
-    "text": "Every building is positioned to let the Mediterranean wind move through the neighbourhoods rather than around them."
-   },
-   {
-    "title": "Designed around the land",
-    "text": "The masterplan works with the site's existing landscape and water instead of levelling it flat first."
-   }
-  ],
-  "usps": [
-   {
-    "title": "Natural tidal pools",
-    "text": "Shallow warm pools carved into the seabed, revealed at low tide. Rare on this coastline."
-   },
-   {
-    "title": "A swimmable lagoon",
-    "text": "A lake at the centre of the development for swimming and dining, separate from the sea."
-   },
-   {
-    "title": "Adrère Amellal lodge",
-    "text": "The Siwa eco-lodge is opening a 71-room nature lodge here, built the same earth-construction way."
-   },
-   {
-    "title": "Year-round sports campus",
-    "text": "Football, padel, tennis and a semi-Olympic pool, run by the country's top academies through summer."
-   }
-  ],
-  "masterplanKey": [
-   {
-    "num": "1",
-    "title": "Dunes",
-    "sub": "Beachfront, single-family"
-   },
-   {
-    "num": "2",
-    "title": "The Town",
-    "sub": "Courtyard homes"
-   },
-   {
-    "num": "3",
-    "title": "Oasis",
-    "sub": "Villas & chalets by the lagoon"
-   },
-   {
-    "num": "4",
-    "title": "The Grove",
-    "sub": "Ranch-style villas"
-   },
-   {
-    "num": "5",
-    "title": "Acacia",
-    "sub": "Low density, west side"
-   },
-   {
-    "num": "6",
-    "title": "Bougainvillea & Breeze",
-    "sub": "Village homes, pool club"
-   }
-  ],
-  "panels": [
-   {
-    "sub": "Beachfront to ranch-style",
-    "title": "Villas",
-    "text": "Single-family homes across Dunes on the beach, The Grove looking over open land and a community farm, and Acacia on the low-density west side."
-   },
-   {
-    "sub": "Around the lagoon",
-    "title": "Chalets",
-    "text": "Multi-family homes in Oasis with easy access to the lagoon, and semi-private communal green between them."
-   },
-   {
-    "sub": "Courtyard homes",
-    "title": "Townhouses",
-    "text": "In The Town, reached through narrow alleys off the pathways, each with a private courtyard at its door."
-   },
-   {
-    "sub": "Village setting",
-    "title": "Twinhouses",
-    "text": "Paired homes in Bougainvillea and Breeze, set among green spines and gently flowing water, with a signature pool club."
-   }
-  ],
-  "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale.",
-  "top_bar": "Not the official Marakez website."
- },
- "ar": {
-  "hero_kicker": "",
-  "hero_title": "",
-  "hero_title_em": "",
-  "sections": [
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   },
-   {
-    "eyebrow": "",
-    "title": "",
-    "title_em": "",
-    "lead": ""
-   }
-  ],
-  "pillars": [
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   }
-  ],
-  "usps": [
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   },
-   {
-    "title": "",
-    "text": ""
-   }
-  ],
-  "masterplanKey": [
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   },
-   {
-    "num": "",
-    "title": "",
-    "sub": ""
-   }
-  ],
-  "panels": [
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   },
-   {
-    "sub": "",
-    "title": "",
-    "text": ""
-   }
-  ],
-  "footer_disclaimer": "",
-  "top_bar": ""
- },
- "money": {
-  "priceFrom": "EGP 12.5M",
-  "priceNote": "Indicative · subject to change",
-  "ctaLabel": "Get the current price list",
-  "plans": [
-   {
-    "name": "Standard",
-    "down": 10,
-    "years": 8
-   },
-   {
-    "name": "Extended",
-    "down": 20,
-    "years": 5
-   }
-  ],
-  "offers": []
- },
- "heroFacts": [
-  {
-   "value": "400 acres",
-   "label": "on Ras El Hekma bay"
+  "images": {
+    "hero": "assets/img/ramla/hero.jpeg",
+    "masterplan": "assets/img/ramla/masterplan.jpeg"
   },
-  {
-   "value": "1.4 km",
-   "label": "of white sand"
+  "heroFacts": [
+    {
+      "value": "400 acres",
+      "label": "on Ras El Hekma bay"
+    },
+    {
+      "value": "1.4 km",
+      "label": "of white sand"
+    },
+    {
+      "value": "Six",
+      "label": "neighbourhoods"
+    }
+  ],
+  "en": {
+    "hero_kicker": "Ras El Hekma · North Coast",
+    "hero_title": "Sacred summers on 1.4 km of white sand.",
+    "hero_title_em": "1.4 km",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "The project",
+        "title": "A beach town built to be walked barefoot.",
+        "title_em": "walked barefoot.",
+        "lead": ""
+      },
+      {
+        "eyebrow": "Property types",
+        "title": "From a chalet by the lagoon to a villa on the sand.",
+        "title_em": "to a villa on the sand.",
+        "lead": "Four types across six neighbourhoods."
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Everything within walking distance",
+        "text": "Soft sand paths link the neighbourhoods to the beach, the town and each other. No car needed once you arrive."
+      },
+      {
+        "title": "Oriented for the breeze",
+        "text": "Every building is positioned to let the Mediterranean wind move through the neighbourhoods rather than around them."
+      },
+      {
+        "title": "Designed around the land",
+        "text": "The masterplan works with the site's existing landscape and water instead of levelling it flat first."
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "1",
+        "title": "Dunes",
+        "sub": "Beachfront, single-family"
+      },
+      {
+        "num": "2",
+        "title": "The Town",
+        "sub": "Courtyard homes"
+      },
+      {
+        "num": "3",
+        "title": "Oasis",
+        "sub": "Villas & chalets by the lagoon"
+      },
+      {
+        "num": "4",
+        "title": "The Grove",
+        "sub": "Ranch-style villas"
+      },
+      {
+        "num": "5",
+        "title": "Acacia",
+        "sub": "Low density, west side"
+      },
+      {
+        "num": "6",
+        "title": "Bougainvillea & Breeze",
+        "sub": "Village homes, pool club"
+      }
+    ],
+    "panels": [
+      {
+        "sub": "Beachfront to ranch-style",
+        "title": "Villas",
+        "text": "Single-family homes across Dunes on the beach, The Grove looking over open land and a community farm, and Acacia on the low-density west side."
+      },
+      {
+        "sub": "Around the lagoon",
+        "title": "Chalets",
+        "text": "Multi-family homes in Oasis with easy access to the lagoon, and semi-private communal green between them."
+      },
+      {
+        "sub": "Courtyard homes",
+        "title": "Townhouses",
+        "text": "In The Town, reached through narrow alleys off the pathways, each with a private courtyard at its door."
+      },
+      {
+        "sub": "Village setting",
+        "title": "Twinhouses",
+        "text": "Paired homes in Bougainvillea and Breeze, set among green spines and gently flowing water, with a signature pool club."
+      }
+    ],
+    "usps": [
+      {
+        "title": "Natural tidal pools",
+        "text": "Shallow warm pools carved into the seabed, revealed at low tide. Rare on this coastline."
+      },
+      {
+        "title": "A swimmable lagoon",
+        "text": "A lake at the centre of the development for swimming and dining, separate from the sea."
+      },
+      {
+        "title": "Adrère Amellal lodge",
+        "text": "The Siwa eco-lodge is opening a 71-room nature lodge here, built the same earth-construction way."
+      },
+      {
+        "title": "Year-round sports campus",
+        "text": "Football, padel, tennis and a semi-Olympic pool, run by the country's top academies through summer."
+      }
+    ],
+    "top_bar": "Not the official Marakez website.",
+    "footer_disclaimer": "Not the official Marakez website. Prices, plans and renders are indicative and subject to change; official terms are confirmed by Marakez at the point of sale."
   },
-  {
-   "value": "Six",
-   "label": "neighbourhoods"
-  }
- ]
+  "ar": {
+    "hero_kicker": "",
+    "hero_title": "",
+    "hero_title_em": "",
+    "facts": [],
+    "sections": [
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      },
+      {
+        "eyebrow": "",
+        "title": "",
+        "title_em": "",
+        "lead": ""
+      }
+    ],
+    "pillars": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "masterplanKey": [
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      },
+      {
+        "num": "",
+        "title": "",
+        "sub": ""
+      }
+    ],
+    "panels": [
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      },
+      {
+        "sub": "",
+        "title": "",
+        "text": ""
+      }
+    ],
+    "usps": [
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      },
+      {
+        "title": "",
+        "text": ""
+      }
+    ],
+    "top_bar": "",
+    "footer_disclaimer": ""
+  },
+  "logos": {
+    "marakez": "assets/img/logos/marakez-wordmark.png",
+    "project": "assets/img/logos/ramla-logo.svg"
+  },
+  "heroScrim": "medium"
 }
